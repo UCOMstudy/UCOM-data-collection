@@ -1,0 +1,62 @@
+---
+title: 'cross-checking: numeric vs choices'
+author: "Xinbin Huang"
+date: "December 12, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+```
+
+# Overview
+ 
+## Load libraries
+
+```{r}
+library(tidyverse)
+```
+
+## Load data
+```{r}
+numeric_df <- read_csv('./TestCase/Canada_Block_TEST_NUMERICValues.csv')
+choice_df <- read_csv('./TestCase/Canada_Block_TEST_ChoiceValues.csv')
+```
+
+## Glimpse
+
+```{r}
+check_sameColsLen <- function(a, b) {
+      object_lst <- list(a, b)
+      len_vec <- map_dbl(object_lst, length)
+      return(assertthat::assert_that(n_distinct(len_vec) == 1))
+}
+
+# check same number of columns
+check_sameColsLen(numeric_df, choice_df)
+```
+
+
+```{r}
+# check same column names
+check_sameColNames <- function(a, b) {
+      cols_a <- colnames(a)
+      cols_b <- colnames(b)
+      return(assertthat::assert_that(dplyr::setequal(cols_a, cols_b)))
+}
+
+check_sameColNames(numeric_df, choice_df)
+```
+
+```{r}
+numeric_df %>% select(Finished)
+```
+```{r}
+# get back the whole list of variables
+var_list <- jsonlite::fromJSON('../variables.json', simplifyVector = FALSE)
+vars <- map(var_list, 'labels') %>% flatten_chr()
+```
+
+
+
+
