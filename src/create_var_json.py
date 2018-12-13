@@ -47,6 +47,7 @@ def main():
                 add_new_label(line)
             else:
                 continue
+
     dump_variables2json(var_list, WRITE_FILE)
 
 
