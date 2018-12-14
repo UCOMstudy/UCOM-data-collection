@@ -5,7 +5,19 @@ import sys
 
 
 WRITE_FILE = 'variables.json'
-VARIABLES = ['Country', 'Perceived Descritpive Norms about Childcare', 'Perceived Descriptive Norms: HEED, STEM and Work', 'Perceived injunctive Norms', 'Own Support for Equality', 'Personal Evaluations', 'Family Expectations', 'Expected Experiences', 'Personal Beliefs', 'Own Parental Background', 'Demographics']
+VARIABLES = ['Country',
+             'Perceived Descritpive Norms about Childcare',
+             'Perceived Descriptive Norms: HEED, STEM and Work',
+             'Perceived injunctive Norms',
+             'Own Support for Equality',
+             'Personal Evaluations',
+             'Family Expectations',
+             'Expected Experiences',
+             'Personal Beliefs',
+             'Own Parental Background',
+             'Demographics']
+
+var_list = []
 
 
 def add_new_variable(line):
@@ -32,7 +44,7 @@ def main():
     """Execute main function."""
     with open('variables.txt') as file:
         global var_list
-        var_list = []
+
         while True:
             line = file.readline()
 
