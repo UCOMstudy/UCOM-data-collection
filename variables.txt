@@ -128,7 +128,7 @@ react_work3
 react_work4
 react_work5
 react_work6
-exp_encouragment
+exp_encouragement1
 exp_affect1
 exp_affect2
 exp_affect3
@@ -203,4 +203,3 @@ political
 comments
 Not_use
 uni
-Duration
