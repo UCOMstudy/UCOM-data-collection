@@ -221,6 +221,8 @@ There are some mismatching variables names between the variable list and the ori
 `parentleave_expectation` ==> `parentleave_expectat`
 `expected_share_3` ==> `expected_share_12`
 
+**Need to check if this is a universal case for every dataset**
+
 ```{r family-expectaction}
 vars <- labels_list$`Family Expectations`
 
@@ -262,7 +264,7 @@ check_vars(numeric_df, converted_map_choice, vars)
 
 8. `Expected Experiences`
 
-- `proximat_domestic_5`, `Intensive_parenting_1`, and `Intensive_parenting_2` do not exist in this data collection.
+- `Intensive_parenting_1`, and `Intensive_parenting_2` do not exist in this data collection.
 - also, typo in the original variable list: should be `exp_encouragement_1` instead of `exp_encouragment_1`
 
 ```{r expected-experiences}
@@ -272,8 +274,7 @@ remove <- function(vals, remove_vals) {
       return(vals[!vals %in% remove_vals])
 }
 
-remove_vals <- c('proximat_domestic_5',
-                 'Intensive_parenting_1',
+remove_vals <- c('Intensive_parenting_1',
                  'Intensive_parenting_2')
 
 vars <- remove(vars, remove_vals)
@@ -308,16 +309,16 @@ try(check_vars(numeric_df, converted_choice, vars = vars))
 
 11 `Demographics`
 
-`Immigration_background`, `Not_use`, `uni` do not exist in here.
+- `uni` do not exist in here.
+-`Immigration_background` ==> `immigration_backgrou`
 
 ```{r demographics}
 vars <- labels_list$Demographics
 
-remove_vals <- c('Immigration_background',
-                 'Not_use',
-                 'uni')
+remove_vals <- c('uni')
+mapping <- c('Immigration_background' = 'immigration_backgrou')
 
-vars <- remove(vars, remove_vals)
+vars <- remove(vars, remove_vals) %>% map_values(mapping)
 
 try(check_vars(numeric_df, choice_df, vars = vars))
 
@@ -325,5 +326,23 @@ converted_choice <- convert_choiceDF(choice_df, vars)
 try(check_vars(numeric_df, converted_choice, vars = vars))
 ```
 
+12. `Variables not captured`
 
+```{r vars not captured}
+all_cols <- colnames(numeric_df)
+
+remove_vals <- flatten_chr(labels_list)
+remove_vals <- c(remove_vals, gen_vars)
+# map the related variables
+mapping <- c('parentleave_motivation' = 'parentleave_motivati_1',
+             'parentleave_expectation' = 'parentleave_expectat',
+             'expected_share_3' = 'expected_share_12',
+             'Immigration_background' = 'immigration_backgrou')
+
+remove_vals <- map_values(remove_vals, mapping)
+rest_vars <- remove(all_cols, remove_vals)
+
+colMeans(is.na(numeric_df[rest_vars]))
+
+```
 
