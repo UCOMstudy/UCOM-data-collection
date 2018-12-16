@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 
 import json
+import re
 import sys
 
 
@@ -18,6 +19,8 @@ VARIABLES = ['Country',
              'Demographics']
 
 var_list = []
+regex = re.compile(r'([0-9])$')
+repl = r'_\1'
 
 
 def add_new_variable(line):
@@ -27,10 +30,10 @@ def add_new_variable(line):
     var_list.append(new_var)
 
 
-def add_new_label(line):
+def add_new_label(line, regex, repl):
     """Add new label to a existing variable."""
     global var_list
-    new_label = line
+    new_label = regex.sub(repl, line)
     var_list[-1]['labels'].append(new_label)
 
 
@@ -56,7 +59,7 @@ def main():
             if line in VARIABLES:
                 add_new_variable(line)
             elif len(line) > 1:
-                add_new_label(line)
+                add_new_label(line, regex, repl)
             else:
                 continue
 
