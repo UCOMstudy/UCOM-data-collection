@@ -37,7 +37,7 @@ other_support4
 other_support5
 other_support6
 other_payequality1
-other_payequality1
+other_payequality2
 other_payequality3
 other_domestic1
 other_domestic2
@@ -115,7 +115,7 @@ proximal_domestic1
 proximal_domestic2
 proximal_domestic3
 proximal_domestic4
-proximat_domestic5
+proximal_domestic5
 Intensive_parenting1
 Intensive_parenting2
 react_domestic1
@@ -201,5 +201,5 @@ SES
 marital_status
 political
 comments
-Not_use
+not_use
 uni
