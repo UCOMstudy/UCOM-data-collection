@@ -19,43 +19,121 @@ library(tidyverse)
 
 ## Load data
 ```{r}
-numeric_df <- read_csv('./TestCase/Canada_Block_TEST_NUMERICValues.csv')
-choice_df <- read_csv('./TestCase/Canada_Block_TEST_ChoiceValues.csv')
+numeric_df <- read_csv('../../TestCase/Canada_Block_TEST_NUMERICValues.csv')
+choice_df <- read_csv('../../TestCase/Canada_Block_TEST_ChoiceValues.csv')
 ```
 
 ## Glimpse
 
 ```{r}
-check_sameColsLen <- function(a, b) {
-      object_lst <- list(a, b)
-      len_vec <- map_dbl(object_lst, length)
-      return(assertthat::assert_that(n_distinct(len_vec) == 1))
+check_equal <- function(a, b) {
+      return(assertthat::assert_that(all.equal(a, b)))
 }
 
-# check same number of columns
+check_identical <- function(a, b){
+      return(assertthat::assert_that(identical(a, b)))
+}
+
+check_sameCols <- function(a, b) {
+      cols_a <- colnames(a)
+      cols_b <- colnames(b)
+      return(check_identical(cols_a, cols_b))
+}
+
+# check same columns
 check_sameColsLen(numeric_df, choice_df)
 ```
 
 
+
 ```{r}
-# check same column names
-check_sameColNames <- function(a, b) {
-      cols_a <- colnames(a)
-      cols_b <- colnames(b)
-      return(assertthat::assert_that(dplyr::setequal(cols_a, cols_b)))
+# Check idential response ID
+
+check_responseID <- function(a, b) {
+      ID_a <- a$ResponseId
+      ID_b <- b$ResponseId
+      return(check_identical(ID_a, ID_b))
 }
 
-check_sameColNames(numeric_df, choice_df)
+check_responseID(numeric_df, choice_df)
+```
+
+
+## check each group of variables
+
+get the `var_list`
+
+```{r}
+var_list <- jsonlite::fromJSON('../variables.json', 
+                               simplifyVector = FALSE)
+
+labels_list <- var_list %>% 
+      map('labels') %>% 
+      map(flatten_chr)
+
+names <- var_list %>% 
+      map_chr('name')
+
+names(labels_list) <- names
+```
+
+1. generic questionaire variables 
+
+```{r}
+gen_vars <- colnames(numeric_df)[1:14]
+print(gen_vars)
+```
+
+
+2. `Perceived Descritpive Norms about Childcare`
+
+```{r}
+vars <- labels_list$`Perceived Descritpive Norms about Childcare`
+
+check_vars <- function(a, b, vars) {
+      vars_a <- a %>% select(vars)
+      vars_b <- b %>% select(vars)
+      tryCatch(check_identical(vars_a, vars_b), 
+               error = function(e) {
+                     e$message <- paste0(e$message, ". (", 
+                                         all.equal(vars_a, vars_b),
+                                         ").")
+                     warning(e)
+                     
+                     return(assign(.Last.df, list(vars_a, vars_b)))
+                     
+               })
+}
+
+check_vars(numeric_df, choice_df, vars = vars)
+```
+
+
+3. `Perceived Descriptive Norms: HEED, STEM and Work`
+
+```{r}
+vars <- labels_list$`Perceived Descriptive Norms: HEED, STEM and Work`
+
+check_vars(numeric_df, choice_df, vars = vars)
+```
+
+4. `Perceived injunctive Norms`
+
+Something problem here need to be checked
+
+```{r}
+vars <- labels_list$`Perceived injunctive Norms`
+
+check_vars(numeric_df, choice_df, vars = vars)
+
+numeric_df %>% select(vars)
 ```
 
 ```{r}
-numeric_df %>% select(Finished)
+
 ```
-```{r}
-# get back the whole list of variables
-var_list <- jsonlite::fromJSON('../variables.json', simplifyVector = FALSE)
-vars <- map(var_list, 'labels') %>% flatten_chr()
-```
+
+
 
 
 
