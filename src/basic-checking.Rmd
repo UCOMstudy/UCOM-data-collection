@@ -74,7 +74,7 @@ check_responseID(numeric_df, choice_df)
 
 get the `var_list`
 
-```{r}
+```{r get var.json}
 var_list <- jsonlite::fromJSON('../variables.json', 
                                simplifyVector = FALSE)
 
@@ -91,21 +91,19 @@ names(labels_list) <- names
 define `check_vars` function
 
 ```{r}
-check_vars <- function(a, b, vars) {
-      vars_a <- a %>% select(vars)
-      vars_b <- b %>% select(vars)
-      tryCatch(check_identical(vars_a, vars_b), 
+check_vars <- function(num_df, choice_df, vars) {
+      vars_num <- num_df %>% select(vars)
+      vars_choice <- choice_df %>% select(vars)
+      tryCatch(check_identical(vars_num, vars_choice), 
                error = function(e) {
                      e$message <- paste0(e$message, ". (", 
-                                         all.equal(vars_a, vars_b),
+                                         all.equal(vars_num, vars_choice),
                                          ").")
-                     
-                     parse_varname <- function(x) deparse(substitute(x)) 
                      
                      .last.error <<- list(
                            'msg' = e$message,
-                           a_name = vars_a,
-                           b_name = vars_b
+                           'numeric' = vars_num,
+                           'choice' = vars_choice
                      )
                      
                      stop(e)
@@ -119,7 +117,7 @@ check_vars <- function(a, b, vars) {
 Different: `status` and `Finished` columns are different.
 
 
-```{r}
+```{r generic variables}
 gen_vars <- colnames(numeric_df)[1:14]
 print(gen_vars)
 
@@ -140,7 +138,7 @@ check_vars(numeric_df, choice_df, vars = vars)
 
 3. `Perceived Descriptive Norms: HEED, STEM and Work`
 
-```{r}
+```{r perceived-descriptive-norms-heed: stem,and work}
 vars <- labels_list$`Perceived Descriptive Norms: HEED, STEM and Work`
 
 check_vars(numeric_df, choice_df, vars = vars)
@@ -150,7 +148,7 @@ check_vars(numeric_df, choice_df, vars = vars)
 
 Something problem here need to be checked.
 
-```{r}
+```{r perceived-injunctive-norms}
 vars <- labels_list$`Perceived injunctive Norms`
 
 try(check_vars(numeric_df, choice_df, vars = vars))
@@ -168,7 +166,9 @@ bind_rows(.last.error[[3]] %>% slice(362))
 ```{r}
 # solution: extract only numbers
 extract_nums <- function(df) {
-      extraction <- funs(str_extract(., "^[0-9]{1,3}"))
+      extraction <- funs(str_replace(., 
+                                     "^([0-9]{1,3}).*",
+                                     "\\1"))
       output <- df %>% mutate_all(extraction)
       return(output)
             
@@ -190,7 +190,7 @@ check_vars(numeric_df, converted_choice, vars = vars)
 
 5. `Own Support for Equality`
 
-```{r}
+```{r support-for-equality}
 vars <- labels_list$`Own Support for Equality`
 
 try(check_vars(numeric_df, choice_df, vars = vars))
@@ -202,7 +202,7 @@ check_vars(numeric_df, converted_choice, vars = vars)
 
 6. `Personal Evaluations`
 
-```{r}
+```{r personal-evaluations}
 vars <- labels_list$`Personal Evaluations`
 
 try(check_vars(numeric_df, choice_df, vars = vars))
@@ -221,31 +221,109 @@ There are some mismatching variables names between the variable list and the ori
 `parentleave_expectation` ==> `parentleave_expectat`
 `expected_share_3` ==> `expected_share_12`
 
-```{r}
+```{r family-expectaction}
 vars <- labels_list$`Family Expectations`
 
 mapping <- c('parentleave_motivation' = 'parentleave_motivati_1',
              'parentleave_expectation' = 'parentleave_expectat',
              'expected_share_3' = 'expected_share_12')
 
-map_vars <- function(vars, mapping) {
-      output <- vars %>% str_replace_all(mapping) 
+map_values <- function(values, mapping) {
+      output <- values %>% str_replace_all(mapping) 
       return(output)
 }
 
-vars <- map_vars(vars, mapping)
+vars <- map_values(vars, mapping)
 
 try(check_vars(numeric_df, choice_df, vars = vars))
 ```
 
-Also, there are new problems need to inspect
+The problem cannot be solved entirely by extracting numeric values.
 
 ```{r}
 converted_choice <- convert_choiceDF(choice_df, vars)
-
-check_vars(numeric_df, converted_choice, vars = vars)
+try(check_vars(numeric_df, converted_choice, vars = vars))
 ```
 
+The column `expect_child` was coded as text only. Need to map it back to numeric scale.
+
+```{r}
+mapping <- c('.*already.*' = '1', 
+             '.*NOT.*' = '2',
+             '.*unsure.*' = '3',
+             '.*most likely.*' = '4',
+             '.*definitely.*' = '5')
+
+converted_map_choice <- converted_choice %>% 
+      mutate(expect_child = map_values(expect_child, mapping))
+
+check_vars(numeric_df, converted_map_choice, vars)
+```
+
+8. `Expected Experiences`
+
+- `proximat_domestic_5`, `Intensive_parenting_1`, and `Intensive_parenting_2` do not exist in this data collection.
+- also, typo in the original variable list: should be `exp_encouragement_1` instead of `exp_encouragment_1`
+
+```{r expected-experiences}
+vars <- labels_list$`Expected Experiences`
+
+remove <- function(vals, remove_vals) {
+      return(vals[!vals %in% remove_vals])
+}
+
+remove_vals <- c('proximat_domestic_5',
+                 'Intensive_parenting_1',
+                 'Intensive_parenting_2')
+
+vars <- remove(vars, remove_vals)
+
+try(check_vars(numeric_df, choice_df, vars = vars))
+
+converted_choice <- convert_choiceDF(choice_df, vars)
+try(check_vars(numeric_df, converted_choice, vars = vars))
+```
+
+9. `Personal Beliefs`
+
+```{r personal-beliefs}
+vars <- labels_list$`Personal Beliefs`
+
+try(check_vars(numeric_df, choice_df, vars = vars))
+
+converted_choice <- convert_choiceDF(choice_df, vars)
+try(check_vars(numeric_df, converted_choice, vars = vars))
+```
+
+10. `Own Parental Background`
+
+```{r parental-background}
+vars <- labels_list$`Own Parental Background`
+
+try(check_vars(numeric_df, choice_df, vars = vars))
+
+converted_choice <- convert_choiceDF(choice_df, vars)
+try(check_vars(numeric_df, converted_choice, vars = vars))
+```
+
+11 `Demographics`
+
+`Immigration_background`, `Not_use`, `uni` do not exist in here.
+
+```{r demographics}
+vars <- labels_list$Demographics
+
+remove_vals <- c('Immigration_background',
+                 'Not_use',
+                 'uni')
+
+vars <- remove(vars, remove_vals)
+
+try(check_vars(numeric_df, choice_df, vars = vars))
+
+converted_choice <- convert_choiceDF(choice_df, vars)
+try(check_vars(numeric_df, converted_choice, vars = vars))
+```
 
 
 
