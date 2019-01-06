@@ -16,6 +16,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE)
 ```{r}
 library(tidyverse)
 library(stringr)
+source('../R/check.R')
 ```
 
 ## Load data
@@ -37,19 +38,6 @@ var_overview <- readxl::read_xlsx('../../QuestionnaireOverviews/VariableOverview
 `identical` vs `isTRUE(all_equal())`: `identical` is too strict for most of the cases. When working with `dplyr` verbs, the resulting data frame usually remove the `$spec` attribute (i.e. `attributes(df)`), and this will make identical false when all data entries are the same, (which are the things we care about at most of the time.).
 
 ```{r}
-check_equal <- function(a, b) {
-      return(assertthat::assert_that(all_equal(a, b)))
-}
-
-check_identical <- function(a, b){
-      return(assertthat::assert_that(isTRUE(all_equal(a, b))))
-}
-
-check_sameCols <- function(a, b) {
-      cols_a <- colnames(a)
-      cols_b <- colnames(b)
-      return(check_identical(cols_a, cols_b))
-}
 
 # check same columns
 check_sameCols(numeric_df, choice_df)
@@ -59,12 +47,6 @@ check_sameCols(numeric_df, choice_df)
 
 ```{r}
 # Check idential response ID
-
-check_responseID <- function(a, b) {
-      ID_a <- a$ResponseId
-      ID_b <- b$ResponseId
-      return(check_identical(ID_a, ID_b))
-}
 
 check_responseID(numeric_df, choice_df)
 ```
@@ -82,33 +64,33 @@ labels_list <- var_list %>%
       map('labels') %>% 
       map(flatten_chr)
 
-names <- var_list %>% 
+var_names <- var_list %>% 
       map_chr('name')
 
-names(labels_list) <- names
+names(labels_list) <- var_names
 ```
 
 define `check_vars` function
 
 ```{r}
-check_vars <- function(num_df, choice_df, vars) {
-      vars_num <- num_df %>% select(vars)
-      vars_choice <- choice_df %>% select(vars)
-      tryCatch(check_identical(vars_num, vars_choice), 
-               error = function(e) {
-                     e$message <- paste0(e$message, ". (", 
-                                         all.equal(vars_num, vars_choice),
-                                         ").")
-                     
-                     .last.error <<- list(
-                           'msg' = e$message,
-                           'numeric' = vars_num,
-                           'choice' = vars_choice
-                     )
-                     
-                     stop(e)
-               })
-}
+# check_vars <- function(num_df, choice_df, vars) {
+#       vars_num <- num_df %>% select(vars)
+#       vars_choice <- choice_df %>% select(vars)
+#       tryCatch(check_identical(vars_num, vars_choice), 
+#                error = function(e) {
+#                      e$message <- paste0(e$message, ". (", 
+#                                          all.equal(vars_num, vars_choice),
+#                                          ").")
+#                      
+#                      .last.error <<- list(
+#                            'msg' = e$message,
+#                            'numeric' = vars_num,
+#                            'choice' = vars_choice
+#                      )
+#                      
+#                      stop(e)
+#                })
+# }
 ```
 
 
@@ -165,14 +147,6 @@ bind_rows(.last.error[[3]] %>% slice(362))
 ```
 ```{r}
 # solution: extract only numbers
-extract_nums <- function(df) {
-      extraction <- funs(str_replace(., 
-                                     "^([0-9]{1,3}).*",
-                                     "\\1"))
-      output <- df %>% mutate_all(extraction)
-      return(output)
-            
-}
 
 convert_choiceDF <- function(df, vars) {
       output <- df %>% 
@@ -230,11 +204,6 @@ mapping <- c('parentleave_motivation' = 'parentleave_motivati_1',
              'parentleave_expectation' = 'parentleave_expectat',
              'expected_share_3' = 'expected_share_12')
 
-map_values <- function(values, mapping) {
-      output <- values %>% str_replace_all(mapping) 
-      return(output)
-}
-
 vars <- map_values(vars, mapping)
 
 try(check_vars(numeric_df, choice_df, vars = vars))
@@ -270,9 +239,7 @@ check_vars(numeric_df, converted_map_choice, vars)
 ```{r expected-experiences}
 vars <- labels_list$`Expected Experiences`
 
-remove <- function(vals, remove_vals) {
-      return(vals[!vals %in% remove_vals])
-}
+
 
 remove_vals <- c('Intensive_parenting_1',
                  'Intensive_parenting_2')
@@ -343,6 +310,26 @@ remove_vals <- map_values(remove_vals, mapping)
 rest_vars <- remove(all_cols, remove_vals)
 
 colMeans(is.na(numeric_df[rest_vars]))
-
 ```
+
+
+B. strategy 2 : remove all text field first
+
+```{r}
+text_field <- read_rds('text_field.rds')
+
+remove_vals <- c('uni')
+mapping <- c('Immigration_background' = 'immigration_backgrou')
+
+text_field <- remove(text_field, remove_vals) %>% map_values(mapping)
+
+
+choice_text_removed <- choice_df %>% select(-text_field)
+numeric_text_removed <- numeric_df %>% select(-text_field)
+```
+
+```{r}
+try(check_vars())
+```
+
 
