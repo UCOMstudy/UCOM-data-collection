@@ -323,13 +323,21 @@ mapping <- c('Immigration_background' = 'immigration_backgrou')
 
 text_field <- remove(text_field, remove_vals) %>% map_values(mapping)
 
+vars <- colnames(choice_df)
+vars <- remove(vars, c(text_field, gen_vars))
+vars <- vars[!str_detect(vars, '(^Q7)|(TEXT$)')]
 
-choice_text_removed <- choice_df %>% select(-text_field)
-numeric_text_removed <- numeric_df %>% select(-text_field)
+choice_text_removed <- choice_df %>% select(vars) 
+numeric_text_removed <- numeric_df %>% select(vars) 
 ```
 
 ```{r}
-try(check_vars())
+try(check_vars(numeric_text_removed, 
+               choice_text_removed, 
+               vars))
+
+converted_choice_text_removed <- convert_choiceDF(choice_text_removed, vars)
+check_vars(numeric_text_removed, converted_choice_text_removed, vars = vars)
 ```
 
 
