@@ -148,13 +148,6 @@ bind_rows(.last.error[[3]] %>% slice(362))
 ```{r}
 # solution: extract only numbers
 
-convert_choiceDF <- function(df, vars) {
-      output <- df %>% 
-            select(vars) %>% 
-            extract_nums()
-      return(output)
-}
-
 
 converted_choice <- convert_choiceDF(choice_df, vars)
 
@@ -316,28 +309,63 @@ colMeans(is.na(numeric_df[rest_vars]))
 B. strategy 2 : remove all text field first
 
 ```{r}
-text_field <- read_rds('text_field.rds')
+text_field <- read_rds('text_vars.rds')
 
-remove_vals <- c('uni')
+# remove_vals <- c('uni')
 mapping <- c('Immigration_background' = 'immigration_backgrou')
 
-text_field <- remove(text_field, remove_vals) %>% map_values(mapping)
+text_field <- text_field %>% 
+      # remove(remove_vals) %>% 
+      map_values(mapping)
 
 vars <- colnames(choice_df)
-vars <- remove(vars, c(text_field, gen_vars))
-vars <- vars[!str_detect(vars, '(^Q7)|(TEXT$)')]
+num_vars <- remove(vars, c(text_field, gen_vars))
+num_vars <- num_vars[!str_detect(num_vars, '(^Q7)|(TEXT$)')]
 
-choice_text_removed <- choice_df %>% select(vars) 
-numeric_text_removed <- numeric_df %>% select(vars) 
+choice_text_removed <- choice_df %>% select(num_vars) 
+numeric_text_removed <- numeric_df %>% select(num_vars) 
+
 ```
 
 ```{r}
 try(check_vars(numeric_text_removed, 
                choice_text_removed, 
-               vars))
+               num_vars))
 
-converted_choice_text_removed <- convert_choiceDF(choice_text_removed, vars)
-check_vars(numeric_text_removed, converted_choice_text_removed, vars = vars)
+converted_choice_text_removed <- convert_choiceDF(choice_text_removed, num_vars)
+check_vars(numeric_text_removed, converted_choice_text_removed, num_vars)
+```
+
+# Data - second part
+
+```{r}
+choice_df2 <- read_csv('../../RawData/Canada_Block/Canada_Block_PART2_ChoiceValues.csv')
+numeric_df2 <- read_csv('../../RawData/Canada_Block/Canada_Block_PART2_NumericValues.csv')
+
+```
+
+## Numeric and choice - cross checking
+
+```{r}
+choice2_text_removed <- choice_df2 %>% select(num_vars) 
+numeric2_text_removed <- numeric_df2 %>% select(num_vars) 
+
+try(check_vars(numeric2_text_removed, 
+               choice2_text_removed, 
+               num_vars))
+
+converted_choice2_text_removed <- convert_choiceDF(choice2_text_removed, num_vars)
+check_vars(numeric2_text_removed, converted_choice2_text_removed, num_vars)
+```
+
+## Combine two tables
+
+```{r}
+merged_choice <- choice_df %>% 
+      bind_rows(choice_df2) %>% 
+      convert_choiceDF(num_vars) 
+
+write_csv(merged_choice, path = '../data/cleaned_data/Canada_Block/canada_block.csv')
 ```
 
 
