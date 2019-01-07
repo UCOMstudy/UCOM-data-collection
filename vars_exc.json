@@ -1,0 +1,42 @@
+{
+  "gen_vars": [
+    "StartDate",
+    "EndDate",
+    "Status",
+    "Progress",
+    "Duration (in seconds)",
+    "Finished",
+    "RecordedDate",
+    "ResponseId",
+    "RecipientLastName",
+    "RecipientFirstName",
+    "RecipientEmail",
+    "ExternalReference",
+    "DistributionChannel",
+    "UserLanguage",
+    "IPAddress"
+  ],
+  "text_vars": [
+    "expect_child",
+    "livingsituation",
+    "own_distribution_1",
+    "own_distribution_2",
+    "mother_field",
+    "father_field",
+    "gender",
+    "upbringing",
+    "course",
+    "study_year",
+    "religion",
+    "sexual_orientation",
+    "citizenship",
+    "immigration_backgrou",
+    "migration_background",
+    "ethnic_background",
+    "marital_status",
+    "comments",
+    "Not_use",
+    "not_use"
+  ]
+}
+
