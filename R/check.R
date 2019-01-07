@@ -38,23 +38,56 @@ check_vars <- function(num_df, choice_df, vars) {
                })
 }
 
-extract_nums <- function(df) {
+convert_choiceDF <- function(df, var_names) {
+
       pattern <- '^([0-9]{1,3}(\\.[0-9]{1,3})?).*'
       replacement <- '\\1'
-
       extraction <- funs(str_replace(.,
                                      pattern,
                                      replacement))
-      output <- df %>% mutate_all(extraction)
-      return(output)
 
+      output <- df %>%
+            mutate_at(var_names, extraction)
+
+      return(output)
 }
 
 remove <- function(vals, remove_vals) {
-      return(vals[!vals %in% remove_vals])
+
+      vals <- vals[!vals %in% remove_vals]
+
+      return(vals)
+}
+
+remove_gen <- function(vals) {
+      output <- remove(vals, gen_vars)
+      return(output)
+}
+
+remove_text <- function(vals, pattern=NULL) {
+      output <- remove(vals, text_vars)
+      if (!is.null(pattern)) {
+            output <- output[!str_detect(output, pattern)]
+      }
+      return(output)
 }
 
 map_values <- function(values, mapping) {
       output <- values %>% str_replace_all(mapping)
       return(output)
+}
+
+cross_check <- function(numeric_df, choice_df, text_pattern=NULL) {
+
+      all_vars <- colnames(choice_df)
+
+      num_vars <- all_vars %>%
+            remove_gen() %>%
+            remove_text(text_pattern)
+
+      choice_num <- choice_df %>% select(num_vars)
+      numeric_num <- numeric_df %>% select(num_vars)
+
+      converted_choice_num <- convert_choiceDF(choice_num, num_vars)
+      check_vars(numeric_num, converted_choice_num, num_vars)
 }
