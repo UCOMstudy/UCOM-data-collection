@@ -1,5 +1,6 @@
 create_folders <- function(path, folder_list) {
-      walk(folder_list, function(folder) dir.create(glue::glue('{path}/{folder}')))
+      walk(folder_list, function(folder) dir.create(file.path('path',
+                                                              'folder')))
 }
 
 compare <- function(rows, cols=NULL, df1, df2, last.error=TRUE) {
@@ -24,9 +25,11 @@ compare <- function(rows, cols=NULL, df1, df2, last.error=TRUE) {
 
 }
 
-write_vars_rds <- function(path) {
-      num_vars %>% write_rds(path = str_glue('{path}/num_vars.rds'))
+write_vars_rds <- function(path,
+                           all_vars,
+                           num_vars) {
+      num_vars %>% write_rds(path = file.path(path, 'num_vars.rds'))
 
       non_num_vars <- setdiff(all_vars, num_vars)
-      non_num_vars %>% write_rds(path = str_glue('{path}/non_num_vars.rds'))
+      non_num_vars %>% write_rds(path = file.path(path, 'non_num_vars.rds'))
 }

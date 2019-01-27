@@ -60,12 +60,14 @@ remove <- function(vals, remove_vals) {
 }
 
 remove_gen <- function(vals) {
-      output <- remove(vals, gen_vars)
+      output <- remove(vals,
+                       ucom::gen_vars)
       return(output)
 }
 
 remove_text <- function(vals, pattern=NULL) {
-      output <- remove(vals, text_vars)
+      output <- remove(vals,
+                       ucom::text_vars)
       if (!is.null(pattern)) {
             output <- output[!str_detect(output, pattern)]
       }

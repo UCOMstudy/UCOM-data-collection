@@ -1,0 +1,12 @@
+Package: ucom
+Title: UCOM Data Collection
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Xinbin",
+           family = "Huang",
+           role = c("aut", "cre"),
+           email = "bin.huangxb@gmail.com")
+Description: Utility functions for cleaning data in the UCOM project
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
