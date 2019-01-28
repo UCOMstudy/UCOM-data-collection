@@ -12,7 +12,7 @@ copy_template: $(SRC)/$(TEMPLATE)
 
 .PHONY: check
 check:
-	echo "Total scripts to run: $(COUNT_SCRIPTS)" > $(LOG_FILE); \
+	echo "Total scripts to run: $(COUNT_SCRIPTS)\n" > $(LOG_FILE); \
 	for dir in $(ALL_DIRS); do \
 		if [ -f $${dir}/$(CUSTOM) ]; then \
 			Rscript $${dir}/$(CUSTOM) $(REDIRECT); \
