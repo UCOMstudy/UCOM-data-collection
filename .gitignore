@@ -1,3 +1,7 @@
+# Mac stuff
+.DS_Store
+*.DS_Store
+
 # History files
 .Rhistory
 .Rapp.history
@@ -39,3 +43,9 @@ packrat/lib*/
 
 # not upload any data
 *.csv
+*.docx
+*.doc
+*.sav
+*.sps
+*.spv
+
