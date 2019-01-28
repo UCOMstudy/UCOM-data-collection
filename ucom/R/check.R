@@ -52,25 +52,32 @@ convert_choiceDF <- function(df, var_names) {
       return(output)
 }
 
-remove <- function(vals, remove_vals) {
+remove <- function(vars, remove_vars) {
 
-      vals <- vals[!vals %in% remove_vals]
+      vars <- vars[!vars %in% remove_vars]
 
-      return(vals)
+      return(vars)
 }
 
-remove_gen <- function(vals) {
-      output <- remove(vals,
+remove_gen <- function(vars) {
+      output <- remove(vars,
                        ucom::gen_vars)
       return(output)
 }
 
-remove_text <- function(vals, pattern=NULL) {
-      output <- remove(vals,
+remove_text <- function(vars, pattern=NULL) {
+      output <- remove(vars,
                        ucom::text_vars)
       if (!is.null(pattern)) {
             output <- output[!str_detect(output, pattern)]
       }
+      return(output)
+}
+
+get_num_vars <- function(vars, pattern=NULL) {
+      output <- vars %>%
+            remove_gen() %>%
+            remove_text(pattern = pattern)
       return(output)
 }
 
@@ -79,17 +86,3 @@ map_values <- function(values, mapping) {
       return(output)
 }
 
-cross_check <- function(numeric_df, choice_df, text_pattern=NULL) {
-
-      all_vars <- colnames(choice_df)
-
-      num_vars <- all_vars %>%
-            remove_gen() %>%
-            remove_text(text_pattern)
-
-      choice_num <- choice_df %>% select(num_vars)
-      numeric_num <- numeric_df %>% select(num_vars)
-
-      converted_choice_num <- convert_choiceDF(choice_num, num_vars)
-      check_vars(numeric_num, converted_choice_num, num_vars)
-}

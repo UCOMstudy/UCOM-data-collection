@@ -3,6 +3,32 @@ create_folders <- function(path, folder_list) {
                                                               'folder')))
 }
 
+get_current_site <- function() {
+      dir_path <- dirname(thisfile())
+      site <- basename(dir_path)
+      return(site)
+}
+
+get_country_code <- function(country) {
+
+      code <- ucom::country_codes %>%
+            filter(Country == country) %>%
+            pull(country_code)
+
+      return(code)
+}
+
+create_country_and_site <- function(df, code, site) {
+
+      out_df <- df %>%
+            mutate(country = code,
+                   site = site) %>%
+            select(country, site,
+                   everything())
+      return(out_df)
+}
+
+
 compare <- function(rows, cols=NULL, df1, df2, last.error=TRUE) {
 
       if (last.error) {
@@ -24,6 +50,7 @@ compare <- function(rows, cols=NULL, df1, df2, last.error=TRUE) {
       merged_df %>% View()
 
 }
+
 
 write_vars_rds <- function(path,
                            all_vars,
