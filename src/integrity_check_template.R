@@ -1,62 +1,43 @@
-################ Set up #####################
-library(tidyverse)
-library(stringr)
-source('./R/check.R')
+#!/usr/bin/env Rscript
 
-gen_vars <- read_rds('gen_vars.rds')
-text_vars <- read_rds('text_vars.rds')
+################ Set up #####################
+libs <- c(
+      'tidyverse',
+      'rprojroot',
+      'stringr',
+      'here',
+      'ucom'
+)
+invisible(
+      suppressWarnings(suppressMessages(lapply(libs,
+                                               library,
+                                               character.only = TRUE)))
+)
 
 ################ Loading Data #####################
 
-numeric_path1 <- ...
-choice_path1 <- ...
+message('\n\n')
+message('Script: ', thisfile())
+message('===== Loading data =====')
+site <- get_current_site()
 
-numeric_df1 <- read_csv(numeric_path1) %>% slice(3:n())
-choice_df1 <- read_csv(choice_path1) %>% slice(3:n())
-
-numeric_path2 <- ...
-choice_path2 <- ...
-
-numeric_df2 <- read_csv(numeric_path2) %>% slice(3:n())
-choice_df2 <- read_csv(choice_path2) %>% slice(3:n())
-
-numeric_df <- bind_rows(numeric_df1, numeric_df2)
-choice_df <- bind_rows(choice_df1, choice_df2)
+numeric_df <- get_raw_data(site, 'Numeric')
+choice_df <- get_raw_data(site, 'Choice')
 
 ################ Checking #####################
 
-# cross_check(numeric_df, choice_df, text_pattern = ''(^Q[0-9]+)|(TEXT$)')
-
+message('===== Checking =====')
 all_vars <- colnames(choice_df)
 
 num_vars <- all_vars %>%
-      remove_gen() %>%
-      remove_text('(^Q[0-9]+)|(TEXT$)') %>%
-      remove(remove_vars)
+      get_num_vars('(^Q[0-9]+)|(TEXT$)')
 
-choice_num <- choice_df %>% select(num_vars)
-numeric_num <- numeric_df %>% select(num_vars)
-
-converted_choice_num <- convert_choiceDF(choice_num, num_vars)
-
-check_vars(numeric_num, converted_choice_num, num_vars)
-
+converted_choice_df <- convert_choiceDF(choice_df, num_vars)
+check_vars(numeric_df, converted_choice_df, num_vars)
+message('Checked: Passed!')
 ################ Write out results #####################
 
-# get the path
-dir_path <- dirname(rprojroot::thisfile())
-country_collector <- dir_path %>%
-      str_extract('(?<=/)[^/]*$')
-
-output_path <- str_glue('./data/cleaned_data/{country_collector}')
-table_name <- str_glue('{str_to_lower(country_collector)}.csv')
-message(output_path)
-
-# write variables
-write_vars_rds(path = output_path)
-
-# write data frame
-out_df <- choice_df %>% convert_choiceDF(num_vars)
-write_csv(out_df, path = str_glue('{output_path}/{table_name}'))
-
+message('===== Writing results =====')
+ucom::write_results(choice_df, all_vars, num_vars)
+message('Sucessfully write results!')
 
