@@ -36,7 +36,9 @@
     "marital_status",
     "comments",
     "Not_use",
-    "not_use"
+    "not_use",
+    "uni",
+    "uni_name"
   ]
 }
 
