@@ -1,4 +1,4 @@
-create_folders <- function(folder_list) {
+create_src_folders <- function(folder_list) {
       path <- here('src', 'sites-spec', folder_list)
       fs::dir_create(path)
 }
