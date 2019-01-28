@@ -16,15 +16,16 @@ invisible(
 
 ################ Loading Data #####################
 
-message('Script: ', thisfile())
+message('\n\n')
 message('===== Loading data =====')
+message('Script: ', thisfile())
 site <- get_current_site()
 
-numeric_df1 <- get_raw_data(site, 'Numeric', file_name = 'Canada_Block_PART1_NumericValues.csv')
-choice_df1 <- get_raw_data(site, 'Choice', file_name = 'Canada_Block_PART1_ChoiceValues.csv')
+numeric_df1 <- get_raw_data(site, 'Numeric', file_name = 'Norway_Olsson_Part1_NumericValues.csv')
+choice_df1 <- get_raw_data(site, 'Choice', file_name = 'Norway_Olsson_Part1_ChoiceValues.csv')
 
-numeric_df2 <- get_raw_data(site, 'Numeric', file_name = 'Canada_Block_PART2_NumericValues.csv')
-choice_df2 <- get_raw_data(site, 'Choice', file_name = 'Canada_Block_PART2_ChoiceValues.csv')
+numeric_df2 <- get_raw_data(site, 'Numeric', file_name = 'Norway_Olsson_Part2_NumericValues.csv')
+choice_df2 <- get_raw_data(site, 'Choice', file_name = 'Norway_Olsson_Part2_ChoiceValues.csv')
 
 numeric_df <- bind_rows(numeric_df1, numeric_df2)
 choice_df <- bind_rows(choice_df1, choice_df2)
@@ -50,4 +51,3 @@ ucom::write_results(choice_df, all_vars, num_vars)
 message('Sucessfully write results!')
 
 
-message('\n\n')
