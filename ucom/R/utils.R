@@ -1,6 +1,6 @@
-create_folders <- function(path, folder_list) {
-      walk(folder_list, function(folder) dir.create(file.path('path',
-                                                              'folder')))
+create_folders <- function(folder_list) {
+      path <- here('src', 'sites-spec', folder_list)
+      fs::dir_create(path)
 }
 
 get_current_site <- function() {
