@@ -16,9 +16,8 @@ invisible(
 
 ################ Loading Data #####################
 
-message('\n\n')
-message('===== Loading data =====')
 message('Script: ', thisfile())
+message('===== Loading data =====')
 site <- get_current_site()
 
 numeric_df1 <- get_raw_data(site, 'Numeric', file_name = 'Norway_Olsson_Part1_NumericValues.csv')
@@ -50,4 +49,4 @@ message('===== Writing results =====')
 ucom::write_results(choice_df, all_vars, num_vars)
 message('Sucessfully write results!')
 
-
+message('\n\n')
