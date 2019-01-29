@@ -31,7 +31,7 @@ all_vars <- colnames(choice_df)
 
 num_vars <- all_vars %>%
       # 'Consent', 'id', 'Type' variable
-      get_num_vars('(^Q[0-9]+)|(TEXT$)|(Consent)|(id)|(Type)')
+      get_num_vars('(^Q[0-9]+)|(TEXT)|(Consent)|(id)|(Type)')
 
 converted_choice_df <- convert_choiceDF(choice_df, num_vars)
 check_vars(numeric_df, converted_choice_df, num_vars)

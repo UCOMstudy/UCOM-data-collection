@@ -31,7 +31,7 @@ all_vars <- colnames(choice_df)
 
 num_vars <- all_vars %>%
       # new list of variables: "On the whole ..." and "To what extent ..."
-      get_num_vars('(^Q[0-9]+)|(TEXT$)|(^On the whole)|(^To what ext)')
+      get_num_vars('(^Q[0-9]+)|(TEXT)|(^On the whole)|(^To what ext)')
 
 converted_choice_df <- convert_choiceDF(choice_df, num_vars)
 check_vars(numeric_df, converted_choice_df, num_vars)
