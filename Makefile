@@ -10,7 +10,8 @@ CRITERIA ?= "Sucessfully write results!"
 
 
 all: create_src_folders copy_template check merge
-
+	echo 'Log file can be found here $(LOG_FILE)'
+	
 merge: $(SRC)/merge_data.R
 	Rscript $(SRC)/merge_data.R $(REDIRECT)
 
@@ -18,7 +19,9 @@ create_src_folders: $(SRC)/create_folder.R
 	Rscript $(SRC)/create_folder.R
 
 copy_template: $(SRC)/$(TEMPLATE)
-	for dir in $(ALL_DIRS); do cp $(SRC)/$(TEMPLATE) $${dir}; done
+	for dir in $(ALL_DIRS); do \
+		cp $(SRC)/$(TEMPLATE) $${dir}; \
+	done;
 
 .PHONY: check
 check: 
