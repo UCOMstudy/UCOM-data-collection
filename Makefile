@@ -9,7 +9,12 @@ COUNT_SCRIPTS := $(shell ls $(SRC)/$(SITES_SPEC) | wc -l)
 CRITERIA ?= "Sucessfully write results!"
 
 
-create_script_folders: $(SRC)/create_folder.R
+all: create_src_folders copy_template check merge
+
+merge: $(SRC)/merge_data.R
+	Rscript $(SRC)/merge_data.R $(REDIRECT)
+
+create_src_folders: $(SRC)/create_folder.R
 	Rscript $(SRC)/create_folder.R
 
 copy_template: $(SRC)/$(TEMPLATE)
@@ -30,4 +35,6 @@ check:
 	
 
 clean:
-	rm $(LOG_FILE)
+	rm -rf $(LOG_FILE)
+	rm -rf cleaned_data/*
+	rm -rf aggregated_data/*
