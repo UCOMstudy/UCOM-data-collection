@@ -30,7 +30,7 @@ message('===== Checking =====')
 all_vars <- colnames(choice_df)
 
 num_vars <- all_vars %>%
-      get_num_vars('(^Q[0-9]+)|(TEXT$)')
+      get_num_vars('(^Q[0-9]+)|(TEXT)')
 
 converted_choice_df <- convert_choiceDF(choice_df, num_vars)
 check_vars(numeric_df, converted_choice_df, num_vars)
