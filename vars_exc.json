@@ -14,7 +14,9 @@
     "ExternalReference",
     "DistributionChannel",
     "UserLanguage",
-    "IPAddress"
+    "IPAddress",
+    "LocationLatitude",
+    "LocationLongitude"
   ],
   "text_vars": [
     "expect_child",
@@ -38,7 +40,8 @@
     "Not_use",
     "not_use",
     "uni",
-    "uni_name"
+    "uni_name",
+    "university"
   ]
 }
 
