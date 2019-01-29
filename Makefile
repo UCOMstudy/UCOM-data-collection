@@ -6,7 +6,6 @@ ALL_DIRS ?= $(SRC)/$(SITES_SPEC)/*
 LOG_FILE ?= log.txt
 REDIRECT ?= >>$(LOG_FILE) 2>&1 
 COUNT_SCRIPTS := $(shell ls $(SRC)/$(SITES_SPEC) | wc -l)
-COUNT_SUCCESS = $(eval COUNT_SUCCESS := $$(shell cat $(LOG_FILE) | grep $(CRITERIA) | wc -l))
 CRITERIA ?= "Sucessfully write results!"
 
 
