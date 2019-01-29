@@ -30,7 +30,8 @@ message('===== Checking =====')
 all_vars <- colnames(choice_df)
 
 num_vars <- all_vars %>%
-      get_num_vars('(^Q[0-9]+)|(TEXT$)')
+      # added variable "schoolid"
+      get_num_vars('(^Q[0-9]+)|(TEXT$)|(schoolid)')
 
 converted_choice_df <- convert_choiceDF(choice_df, num_vars)
 check_vars(numeric_df, converted_choice_df, num_vars)
@@ -38,7 +39,7 @@ message('Checked: Passed!')
 ################ Write out results #####################
 
 message('===== Writing results =====')
-# country code
-ucom::write_results(choice_df, all_vars, num_vars, country_code = 'CRI')
+ucom::write_results(choice_df, all_vars, num_vars, country_code = 'JPN')
 message('Sucessfully write results!')
+
 

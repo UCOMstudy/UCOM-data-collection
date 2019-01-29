@@ -16,6 +16,7 @@ invisible(
 
 ################ Loading Data #####################
 
+message('\n\n')
 message('Script: ', thisfile())
 message('===== Loading data =====')
 site <- get_current_site()
@@ -41,4 +42,3 @@ message('===== Writing results =====')
 ucom::write_results(numeric_df, all_vars, num_vars, country_code = 'NZL')
 message('Sucessfully write results!')
 
-message('\n\n')

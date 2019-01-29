@@ -38,7 +38,7 @@ message('Checked: Passed!')
 ################ Write out results #####################
 
 message('===== Writing results =====')
-# country code
-ucom::write_results(choice_df, all_vars, num_vars, country_code = 'CRI')
+ucom::write_results(choice_df, all_vars, num_vars, country_code = 'USA')
 message('Sucessfully write results!')
+
 

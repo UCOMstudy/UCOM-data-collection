@@ -16,6 +16,7 @@ invisible(
 
 ################ Loading Data #####################
 
+message('\n\n')
 message('Script: ', thisfile())
 message('===== Loading data =====')
 site <- get_current_site()
@@ -30,8 +31,6 @@ numeric_df <- bind_rows(numeric_df1, numeric_df2)
 choice_df <- bind_rows(choice_df1, choice_df2)
 
 ################ Checking #####################
-
-# cross_check(numeric_df, choice_df, text_pattern = ''(^Q[0-9]+)|(TEXT$)')
 
 message('===== Checking =====')
 all_vars <- colnames(choice_df)
@@ -50,4 +49,3 @@ ucom::write_results(choice_df, all_vars, num_vars)
 message('Sucessfully write results!')
 
 
-message('\n\n')

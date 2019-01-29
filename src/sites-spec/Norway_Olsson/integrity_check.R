@@ -16,6 +16,7 @@ invisible(
 
 ################ Loading Data #####################
 
+message('\n\n')
 message('Script: ', thisfile())
 message('===== Loading data =====')
 site <- get_current_site()
@@ -49,4 +50,3 @@ message('===== Writing results =====')
 ucom::write_results(choice_df, all_vars, num_vars)
 message('Sucessfully write results!')
 
-message('\n\n')
