@@ -40,7 +40,7 @@ check_vars <- function(num_df, choice_df, vars) {
 
 convert_choiceDF <- function(df, var_names) {
 
-      pattern <- '^([0-9]{1,4}(\\.[0-9]{1,4})?).*'
+      pattern <- '^([0-9]{1,5}(\\.[0-9]{1,4})?).*'
       replacement <- '\\1'
       extraction <- funs(str_replace(.,
                                      pattern,
