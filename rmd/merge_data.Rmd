@@ -1,0 +1,96 @@
+---
+title: "Merge data"
+author: "Xinbin Huang"
+date: "January 28, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Overview
+
+## Load packages
+
+```{r}
+libs <- c(
+      'tidyverse',
+      'rprojroot',
+      'stringr',
+      'here',
+      'ucom',
+      'fs'
+)
+invisible(
+      suppressWarnings(suppressMessages(lapply(libs,
+                                               library,
+                                               character.only = TRUE)))
+)
+```
+
+## Load data
+
+```{r}
+df <- read_csv('../cleaned_data/Bolivia_Schulmeyer/bolivia_schulmeyer.csv', col_types = cols())
+num_vars <- read_rds('../cleaned_data/Bolivia_Schulmeyer/num_vars.rds')
+non_num_vars <- read_rds('../cleaned_data/Bolivia_Schulmeyer/non_num_vars.rds')
+```
+
+```{r}
+test <- df %>% select(num_vars)
+
+```
+
+## Check numerical variables for different data set
+
+```{r}
+path <- file.path(dir_ls(here('cleaned_data')), 'num_vars.rds')
+
+num_list <- map(path, read_rds)
+# most data have same number of variables
+print(num_list %>% map(length) %>% flatten_dbl() %>% table)
+
+paste('All unique num variables: ', num_list %>% flatten_chr() %>% n_distinct())
+```
+
+## Read in all *.csv
+
+```{r}
+data_path <- here("cleaned_data")
+all_sites <- dir_ls(data_path)
+
+csv_path <- file.path(all_sites, list.files(all_sites, '*.csv'))
+num_vars_path <- file.path(all_sites, 'num_vars.rds')
+
+other_vars <- c(
+            "country",
+            "site",
+            "ResponseId",
+            "Finished",
+            "gender"
+      )
+
+read_data <- function(df_path, 
+                      num_vars_path, 
+                      other_vars) {
+      df <-  read_csv(df_path, col_types = cols())
+      num_vars <- read_rds(num_vars_path)
+      
+      all_vars <- append(other_vars, num_vars)
+      out <- df %>% select(all_vars)
+      return(out)
+}
+
+
+all_dfs <- map2(csv_path, 
+                num_vars_path, 
+                read_data, 
+                other_vars = other_vars)
+
+merged_df <- bind_rows(all_dfs)
+
+```
+
+
+
