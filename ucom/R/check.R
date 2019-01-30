@@ -19,6 +19,17 @@ check_responseID <- function(a, b) {
       return(check_identical(ID_a, ID_b))
 }
 
+#' Check data integrity
+#'
+#' @description Check data integrity by comparing two datasets.
+#' @param num_df
+#' @param choice_df
+#' @param vars
+#'
+#' @return
+#' @export
+#'
+#' @examples
 check_vars <- function(num_df, choice_df, vars) {
       vars_num <- num_df %>% select(vars)
       vars_choice <- choice_df %>% select(vars)
@@ -38,51 +49,38 @@ check_vars <- function(num_df, choice_df, vars) {
                })
 }
 
-convert_choiceDF <- function(df, var_names) {
+#' Diagnose potential error in the check
+#'
+#' @description Diagnose potential error from the check by comparing the
+#'    choice and numeric data frames with selecting rows.
+#' @param rows
+#' @param cols
+#' @param df1
+#' @param df2
+#' @param last.error
+#'
+#' @return
+#' @export
+#'
+#' @examples
+diagnose <- function(rows, cols=NULL, df1, df2, last.error=TRUE) {
 
-      pattern <- '^([0-9]{1,5}(\\.[0-9]{1,4})?).*'
-      replacement <- '\\1'
-      extraction <- funs(str_replace(.,
-                                     pattern,
-                                     replacement))
-
-      output <- df %>%
-            mutate_at(var_names, extraction)
-
-      return(output)
-}
-
-remove <- function(vars, remove_vars) {
-
-      vars <- vars[!vars %in% remove_vars]
-
-      return(vars)
-}
-
-remove_gen <- function(vars) {
-      output <- remove(vars,
-                       ucom::gen_vars)
-      return(output)
-}
-
-remove_text <- function(vars, pattern=NULL) {
-      output <- remove(vars,
-                       ucom::text_vars)
-      if (!is.null(pattern)) {
-            output <- output[!str_detect(output, pattern)]
+      if (last.error) {
+            df1 <- .last.error[['numeric']]
+            df2 <- .last.error[['choice']]
       }
-      return(output)
-}
 
-get_num_vars <- function(vars, pattern=NULL) {
-      output <- vars %>%
-            remove_gen() %>%
-            remove_text(pattern = pattern)
-      return(output)
-}
+      merged_df <- df1 %>%
+            slice(rows) %>%
+            bind_rows(
+                  df2 %>%
+                        slice(rows)
+            )
 
-map_values <- function(values, mapping) {
-      output <- values %>% str_replace_all(mapping)
-      return(output)
-}
+      if (!is.null(cols)) {
+            merged_df <- merged_df %>% select(cols)
+      }
 
+      merged_df %>% View()
+
+}
