@@ -46,15 +46,15 @@ num_range_path <- file.path(output_dir, 'num_range.json')
 exc_vars_path <- file.path(output_dir, 'exc_vars.json')
 
 # extra variables to contain
-other_vars <- c(
-      "country",
-      "site",
-      "ResponseId",
-      "Finished",
-      "gender"
-)
+other_vars_path <- here('src', 'other_vars.json')
 
 message('===== Loading & Merging data =====')
+# extract non-numeric variables to contains in the final result
+message('Other non-numeric variables to contain: ',
+        other_vars_path)
+other_vars <- jsonlite::read_json(other_vars_path,
+                                  simplifyVector = TRUE)
+
 # mergeing data frame frome different sources
 all_dfs <- map2(csv_path,
                 num_vars_path,
