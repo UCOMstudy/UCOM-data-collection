@@ -49,3 +49,4 @@ packrat/lib*/
 *.sps
 *.spv
 *.xlsx
+raw_data/*
