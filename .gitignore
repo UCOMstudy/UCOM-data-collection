@@ -50,3 +50,4 @@ packrat/lib*/
 *.spv
 *.xlsx
 raw_data/*
+packrat/src/
