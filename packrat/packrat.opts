@@ -2,12 +2,19 @@ auto.snapshot: TRUE
 use.cache: FALSE
 print.banner.on.startup: auto
 vcs.ignore.lib: TRUE
-vcs.ignore.src: FALSE
-external.packages: 
+vcs.ignore.src: TRUE
+external.packages:
+    devtools
+    roxygen2
+    usethis
+    testthat
 local.repos: 
-load.external.packages.on.startup: TRUE
-ignored.packages: 
+load.external.packages.on.startup: FALSE
+ignored.packages:
+    usethis
+    testthat
 ignored.directories:
+    ucom
     data
     inst
 quiet.package.installation: TRUE

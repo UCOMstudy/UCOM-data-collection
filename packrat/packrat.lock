@@ -1,12 +1,12 @@
 PackratFormat: 1.4
 PackratVersion: 0.5.0
-RVersion: 3.5.1
+RVersion: 3.5.2
 Repos: CRAN=https://cloud.r-project.org
 
 Package: BH
 Source: CRAN
-Version: 1.66.0-1
-Hash: 4cc8883584b955ed01f38f68bc03af6d
+Version: 1.69.0-1
+Hash: 15f597ed227897f4f793b6161260f4b9
 
 Package: DBI
 Source: CRAN
@@ -35,8 +35,8 @@ Hash: e8805df54c65ac96d50235c44a82615c
 
 Package: backports
 Source: CRAN
-Version: 1.1.2
-Hash: 5ae7b3466e529e4400951ca18c137e40
+Version: 1.1.3
+Hash: a0b8191e6bd2fe71aadd4678bb8f3c98
 
 Package: base64enc
 Source: CRAN
@@ -81,8 +81,8 @@ Requires: assertthat, crayon
 
 Package: clipr
 Source: CRAN
-Version: 0.4.1
-Hash: caf20ae357bfa2ed50e0e7db267f69ce
+Version: 0.5.0
+Hash: 9d588163f9234a17c6ad03d148db999d
 
 Package: colorspace
 Source: CRAN
@@ -114,7 +114,7 @@ Hash: 65f62365ec69ddd17230d2ffe891a6ab
 Package: dplyr
 Source: CRAN
 Version: 0.7.8
-Hash: d6e576944199cba782a471015a822848
+Hash: c965954fb9a071cb0e5194528223aa72
 Requires: BH, R6, Rcpp, assertthat, bindrcpp, glue, magrittr,
     pkgconfig, plogr, rlang, tibble, tidyselect
 
@@ -167,6 +167,12 @@ Source: CRAN
 Version: 2.0.0
 Hash: 3180a95083d9ef6da3fafc38e0519e2f
 Requires: Rcpp, forcats, hms, readr, tibble
+
+Package: here
+Source: CRAN
+Version: 0.1
+Hash: 90e1a97508a0d7383b0eeb11e397e763
+Requires: rprojroot
 
 Package: highr
 Source: CRAN
@@ -258,8 +264,8 @@ Hash: 498643e765d1442ba7b1160a1df3abf9
 
 Package: pillar
 Source: CRAN
-Version: 1.3.0
-Hash: 3e43f774fa6dfba877caca1aebbeaa6a
+Version: 1.3.1
+Hash: 9ed4c2a5d3047bfba3e852ad5e806d91
 Requires: cli, crayon, fansi, rlang, utf8
 
 Package: pkgconfig
@@ -291,15 +297,15 @@ Hash: b097c81e3297cd69b82aed831e3d6976
 
 Package: purrr
 Source: CRAN
-Version: 0.2.5
-Hash: 8b0c16db10c7e20b70cd37779a673a8b
-Requires: magrittr, rlang, tibble
+Version: 0.3.0
+Hash: 39be04d964bc2b860f09147ce4b8e2ef
+Requires: magrittr, rlang
 
 Package: readr
 Source: CRAN
-Version: 1.3.0
-Hash: 01425549bddc73337280c9f15047d9c3
-Requires: BH, R6, Rcpp, clipr, hms, tibble
+Version: 1.3.1
+Hash: 8e826fd33ba49b3fc327fd9e3b033713
+Requires: BH, R6, Rcpp, clipr, crayon, hms, tibble
 
 Package: readxl
 Source: CRAN
@@ -326,8 +332,8 @@ Requires: Rcpp, plyr, stringr
 
 Package: rlang
 Source: CRAN
-Version: 0.3.0.1
-Hash: 35fb7a51d5d756c56f793ed9c381fb84
+Version: 0.3.1
+Hash: 1176a91e0c23d4fc8f48bc5704a6f826
 
 Package: rmarkdown
 Source: CRAN
@@ -335,6 +341,12 @@ Version: 1.11
 Hash: a30b0c41b60d981f41dc8c98f2136297
 Requires: base64enc, evaluate, htmltools, jsonlite, knitr, mime,
     stringr, tinytex, yaml
+
+Package: rprojroot
+Source: CRAN
+Version: 1.3-2
+Hash: a25c3f70c166fb3fbabc410eb32b6366
+Requires: backports
 
 Package: rstudioapi
 Source: CRAN
@@ -372,9 +384,9 @@ Requires: glue, magrittr, stringi
 
 Package: tibble
 Source: CRAN
-Version: 1.4.2
-Hash: 83895360ce4f8d2ce92eee00526b5b0b
-Requires: cli, crayon, pillar, rlang
+Version: 2.0.1
+Hash: d2a00b9a314cfad8f6b51e2c97aaff5c
+Requires: cli, crayon, fansi, pillar, pkgconfig, rlang
 
 Package: tidyr
 Source: CRAN
@@ -403,6 +415,22 @@ Source: CRAN
 Version: 0.9
 Hash: a4ffe98c58eace5a95644d8fd6ca5a50
 Requires: xfun
+
+Package: ucom
+Source: github
+Version: 0.0.0.9000
+Hash: b4c2ebdd3b0392d254085abf84edaa4d
+Requires: assertthat, dplyr, fs, here, readr, rprojroot, stringr
+GithubRepo: UCOM-data-collection
+GithubUsername: UCOMstudy
+GithubRef: master
+GithubSha1: 3c7625c3a91beb3b4ba7ab02cf4252ed8068d434
+GithubSubdir: ucom
+RemoteHost: api.github.com
+RemoteRepo: UCOM-data-collection
+RemoteUsername: UCOMstudy
+RemoteRef: master
+RemoteSha: 3c7625c3a91beb3b4ba7ab02cf4252ed8068d434
 
 Package: utf8
 Source: CRAN
