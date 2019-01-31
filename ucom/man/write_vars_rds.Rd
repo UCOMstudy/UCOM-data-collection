@@ -7,7 +7,11 @@
 write_vars_rds(path, all_vars, num_vars)
 }
 \arguments{
-\item{num_vars}{}
+\item{path}{path to output num_vars.rds and non_num_vars.rds}
+
+\item{all_vars}{a vector of all variables}
+
+\item{num_vars}{a vector of numeric variables}
 }
 \description{
 Write the result: variable .rds file

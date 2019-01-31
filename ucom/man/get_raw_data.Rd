@@ -7,7 +7,13 @@
 get_raw_data(site, type, start_row = 3, file_name = NULL)
 }
 \arguments{
-\item{file_name}{}
+\item{site}{Data folder (site) name}
+
+\item{type}{Numeric or Choice value data}
+
+\item{start_row}{number of rows to skip meta-data (description on variables)}
+
+\item{file_name}{If provided, will read in this file rather than figure out itself}
 }
 \description{
 Input raw data

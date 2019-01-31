@@ -4,11 +4,17 @@
 \alias{write_results}
 \title{Write the result: data .csv file}
 \usage{
-write_results(choice_df, all_vars, num_vars, country_code = NULL,
-  output_path = NULL)
+write_results(choice_df, all_vars, num_vars, country_code = NULL)
 }
 \arguments{
-\item{output_path}{}
+\item{choice_df}{Choice data frame or transformed one if necessary}
+
+\item{all_vars}{a vector of all variables}
+
+\item{num_vars}{a vector of numeric variables}
+
+\item{country_code}{Default NULL, if provided, will use the provided one instead of
+figuring out itself.}
 }
 \description{
 Write the result: data .csv file
