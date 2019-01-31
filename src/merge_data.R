@@ -1,44 +1,23 @@
 #!/usr/bin/env Rscript
 
 ################ Set up #####################
-libs <- c(
-      'tidyverse',
-      'here',
-      'ucom',
-      'fs'
-)
-invisible(
-      suppressWarnings(suppressMessages(lapply(libs,
-                                               library,
-                                               character.only = TRUE)))
-)
-
-read_data <- function(df_path,
-                      num_vars_path,
-                      other_vars) {
-      df <- read_csv(df_path, col_types = cols())
-      num_vars <- read_rds(num_vars_path)
-
-      all_vars <- append(other_vars, num_vars)
-      out <- df %>% select(all_vars)
-      return(out)
-}
+suppressMessages(library(ucom))
 
 ################ Loading Data #####################
 
 message('\n\n')
 message('Script: ', rprojroot::thisfile())
 message('===== Setting up path =====')
-data_path <- here("cleaned_data")
-all_sites <- dir_ls(data_path)
+data_path <- here::here("cleaned_data")
+all_sites <- fs::dir_ls(data_path)
 
-csv_path <- dir_ls(all_sites, glob='*.csv')
+csv_path <- fs::dir_ls(all_sites, glob='*.csv')
 num_vars_path <- file.path(all_sites, 'num_vars.rds')
 non_num_vars_path <- file.path(all_sites, 'non_num_vars.rds')
 
-output_dir <- here('aggregated_data')
+output_dir <- here::here('aggregated_data')
 # create path if not yet.
-dir_create(output_dir)
+fs::dir_create(output_dir)
 
 # output paths
 output_path <- file.path(output_dir, 'aggregated_clean.csv')
@@ -46,7 +25,7 @@ num_range_path <- file.path(output_dir, 'num_range.json')
 exc_vars_path <- file.path(output_dir, 'exc_vars.json')
 
 # extra variables to contain
-other_vars_path <- here('src', 'other_vars.json')
+other_vars_path <- here::here('src', 'other_vars.json')
 
 message('===== Loading & Merging data =====')
 # extract non-numeric variables to contains in the final result
@@ -58,20 +37,29 @@ message('Variables: ',
 message('Config file: ', other_vars_path)
 
 # mergeing data frame frome different sources
-all_dfs <- map2(csv_path,
+all_dfs <- purrr::map2(csv_path,
                 num_vars_path,
-                read_data,
+                ucom::read_cleaned_data,
                 other_vars = other_vars)
-merged_df <- bind_rows(all_dfs)
+merged_df <- dplyr::bind_rows(all_dfs)
+
+# Integrity check: See if all numeric columns are truly numeric
+num_vars <- colnames(merged_df) %>% remove(other_vars)
+test_all_numeric <- merged_df %>%
+      dplyr::select(num_vars) %>%
+      dplyr::mutate_all(dplyr::funs(is.numeric)) %>%
+      as.matrix() %>% all()
+message('Is all numeric: ',
+        assertthat::assert_that(test_all_numeric))
 
 # getting the range for each numeric variables
 num_range <- merged_df %>%
-      select(-other_vars) %>%
-      map(range, na.rm=TRUE)
+      dplyr::select(num_vars) %>%
+      purrr::map(range, na.rm=TRUE)
 
 # getting the variables that are not in the final data frame
-non_num_vars <- map(non_num_vars_path, read_rds) %>%
-      flatten_chr() %>%
+non_num_vars <- purrr::map(non_num_vars_path, readr::read_rds) %>%
+      purrr::flatten_chr() %>%
       unique()
 exc_vars <- setdiff(non_num_vars, other_vars)
 
@@ -87,7 +75,7 @@ message('Number of excluded variables: ', length(exc_vars))
 
 message('===== Writing results =====')
 message('Aggregated CSV: ', output_path)
-write_csv(merged_df, output_path)
+readr::write_csv(merged_df, output_path)
 
 message('Numeric range: ', num_range_path)
 jsonlite::write_json(num_range,

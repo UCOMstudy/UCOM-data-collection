@@ -5,7 +5,7 @@ SITES_SPEC ?= sites-spec
 ALL_DIRS ?= $(SRC)/$(SITES_SPEC)/*
 LOG_FILE ?= log.txt
 REDIRECT ?= >>$(LOG_FILE) 2>&1 
-COUNT_SCRIPTS := $(shell ls $(SRC)/$(SITES_SPEC) | wc -l)
+COUNT_SCRIPTS ?= $(shell ls $(SRC)/$(SITES_SPEC) | wc -l)
 CRITERIA ?= "Sucessfully write results!"
 
 # pipeline config file for R script
