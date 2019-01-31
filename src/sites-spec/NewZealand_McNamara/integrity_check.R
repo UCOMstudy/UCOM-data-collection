@@ -6,7 +6,7 @@ suppressMessages(library(ucom))
 ################ Loading Data #####################
 
 message('\n\n')
-message('Script: ', thisfile())
+message('Script: ', rprojroot::thisfile())
 message('===== Loading data =====')
 site <- get_current_site()
 
@@ -31,11 +31,11 @@ message('Manual transformation for future merging:\n',
         '1. transform "Finished" to logical.\n',
         '2. map "gender" to "Male" or "Female"')
 mutated_numeric_df <-
-      numeric_df %>% mutate(Finished = as.logical(Finished),
-                            gender = case_when(
-                                  gender == "1" ~ "Male",
-                                  gender == "2" ~ "Female"
-                                  ))
+      numeric_df %>% dplyr::mutate(Finished = as.logical(Finished),
+                                   gender = dplyr::case_when(
+                                         gender == "1" ~ "Male",
+                                         gender == "2" ~ "Female"
+                                   ))
 message('Transformation done.')
 ################ Write out results #####################
 
