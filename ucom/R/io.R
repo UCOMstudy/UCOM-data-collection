@@ -80,13 +80,14 @@ write_results <- function(choice_df,
       # Convert data frame to remove unncessary text
       out_df <- choice_df %>% convert_choiceDF(num_vars)
 
-      # create country code & site
-      country_collector <- stringr::str_split(site, '_', n=2) %>% unlist()
-      country <- country_collector[1]
+
 
       # if country code not provided
       if (is_null(country_code)) {
             if (country %in% country_codes$Country) {
+                  # create country code & site
+                  country_collector <- stringr::str_split(site, '_', n=2) %>% unlist()
+                  country <- country_collector[1]
 
                   country_code <- get_country_code(country)
 
