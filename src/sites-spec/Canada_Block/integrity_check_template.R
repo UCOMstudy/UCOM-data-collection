@@ -1,23 +1,12 @@
 #!/usr/bin/env Rscript
 
 ################ Set up #####################
-libs <- c(
-      'tidyverse',
-      'rprojroot',
-      'stringr',
-      'here',
-      'ucom'
-)
-invisible(
-      suppressWarnings(suppressMessages(lapply(libs,
-                                               library,
-                                               character.only = TRUE)))
-)
+suppressMessages(library(ucom))
 
 ################ Loading Data #####################
 
 message('\n\n')
-message('Script: ', thisfile())
+message('Script: ', rprojroot::thisfile())
 message('===== Loading data =====')
 site <- get_current_site()
 
