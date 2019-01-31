@@ -1,3 +1,4 @@
+Pipeline config file: pipeline.rprofile
 Start running.....
 
 
@@ -9,7 +10,7 @@ Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Albania_Jasini/Alba
 Rows dropped: 1
 ===== Checking =====
 religiosity, real_domestic_3, react_domestic_3: convert "." to NA
-Error: isTRUE(x = all_equal(a, b)) is not TRUE. (Rows in x but not y: 189, 188, 186, 185, 183, 181, 173, 166, 161, 158, 155[...]. Rows in y but not x: 189, 188, 186, 185, 181, 173, 166, 161, 158, 157, 148[...]. ).
+Error: isTRUE(x = all_equal(a, b)) is not TRUE. (Rows in x but not y: 189, 188, 185, 183, 181, 173, 161, 160, 158, 157, 155[...]. Rows in y but not x: 188, 186, 185, 181, 173, 166, 161, 160, 158, 157, 151[...]. ).
 Execution halted
 
 
@@ -18,14 +19,7 @@ Script: ./src/sites-spec/Belgium_Vangrootel/integrity_check_template.R
 ===== Loading data =====
 Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Belgium_Vangrootel/Belgium_Vangrootel_NumericValues.csv
 Rows dropped: 2
-Warning message:
-Duplicated column names deduplicated: 'interest_motivation_1' => 'interest_motivation_1_1' [99], 'interest_motivation_2' => 'interest_motivation_2_1' [100], 'interest_motivation_3' => 'interest_motivation_3_1' [101] 
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Belgium_Vangrootel/Belgium_Vangrootel_ChoiceValues.csv
-Rows dropped: 2
-Warning message:
-Duplicated column names deduplicated: 'interest_motivation_1' => 'interest_motivation_1_1' [99], 'interest_motivation_2' => 'interest_motivation_2_1' [100], 'interest_motivation_3' => 'interest_motivation_3_1' [101] 
-===== Checking =====
-Error: isTRUE(x = all_equal(a, b)) is not TRUE. (Rows in x but not y: 441, 440, 439, 438, 437, 435, 433, 432, 431, 430, 429[...]. Rows in y but not x: 440, 439, 438, 437, 435, 433, 432, 430, 426, 425, 424[...]. ).
+Error: (converted from warning) Duplicated column names deduplicated: 'interest_motivation_1' => 'interest_motivation_1_1' [99], 'interest_motivation_2' => 'interest_motivation_2_1' [100], 'interest_motivation_3' => 'interest_motivation_3_1' [101]
 Execution halted
 
 
@@ -259,14 +253,7 @@ Script: ./src/sites-spec/Netherlands_Vink/integrity_check_template.R
 ===== Loading data =====
 Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Netherlands_Vink/Netherlands_Vink_NumericValues.csv
 Rows dropped: 2
-Warning message:
-Duplicated column names deduplicated: 'interest_motivation_1' => 'interest_motivation_1_1' [94], 'interest_motivation_2' => 'interest_motivation_2_1' [95], 'interest_motivation_3' => 'interest_motivation_3_1' [96] 
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Netherlands_Vink/Netherlands_Vink_ChoiceValues.csv
-Rows dropped: 2
-Warning message:
-Duplicated column names deduplicated: 'interest_motivation_1' => 'interest_motivation_1_1' [94], 'interest_motivation_2' => 'interest_motivation_2_1' [95], 'interest_motivation_3' => 'interest_motivation_3_1' [96] 
-===== Checking =====
-Error: isTRUE(x = all_equal(a, b)) is not TRUE. (Rows in x but not y: 195, 193, 192, 190, 188, 187, 186, 185, 184, 182, 181[...]. Rows in y but not x: 196, 195, 193, 192, 191, 187, 186, 185, 181, 180, 179[...]. ).
+Error: (converted from warning) Duplicated column names deduplicated: 'interest_motivation_1' => 'interest_motivation_1_1' [94], 'interest_motivation_2' => 'interest_motivation_2_1' [95], 'interest_motivation_3' => 'interest_motivation_3_1' [96]
 Execution halted
 
 
@@ -457,18 +444,3 @@ Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Waterloo_Ber
 Country: CAN
 Site: Waterloo_Bergsieker
 Sucessfully write results!
-
-
-
-Script: ./src/merge_data.R
-===== Setting up path =====
-===== Loading & Merging data =====
-Other non-numeric variables to contain: /home/binb/work/UCOM/UCOM-data-collection/src/other_vars.json
-===== Results Summary =====
-Data Dimension: 9939 rows, 168 columns.
-Number of excluded variables: 126
-===== Writing results =====
-Aggregated CSV: /home/binb/work/UCOM/UCOM-data-collection/aggregated_data/aggregated_clean.csv
-Numeric range: /home/binb/work/UCOM/UCOM-data-collection/aggregated_data/num_range.json
-Excluded variables: /home/binb/work/UCOM/UCOM-data-collection/aggregated_data/exc_vars.json
-Done!

@@ -8,6 +8,8 @@ REDIRECT ?= >>$(LOG_FILE) 2>&1
 COUNT_SCRIPTS := $(shell ls $(SRC)/$(SITES_SPEC) | wc -l)
 CRITERIA ?= "Sucessfully write results!"
 
+# pipeline config file for R script
+export R_PROFILE_USER := pipeline.rprofile
 
 all: create_src_folders copy_template check merge
 	echo 'Log file can be found here $(LOG_FILE)'
@@ -24,15 +26,16 @@ copy_template: $(SRC)/$(TEMPLATE)
 	done;
 
 .PHONY: check
-check: 
-	echo "Start running....." > $(LOG_FILE);
+check:
+	echo "Pipeline config file: $(R_PROFILE_USER)" > $(LOG_FILE); \
+	echo "Start running....." $(REDIRECT);
 	echo "\nTotal scripts to run: $(COUNT_SCRIPTS)"; \
 	for dir in $(ALL_DIRS); do \
 		if [ -f $${dir}/$(CUSTOM) ]; then \
 			Rscript $${dir}/$(CUSTOM) $(REDIRECT); \
 		else \
 			Rscript $${dir}/$(TEMPLATE) $(REDIRECT); \
-		fi \
+		fi; \
 	done; \
 	echo "Scripts succeeded: $$(cat $(LOG_FILE) | grep $(CRITERIA) | wc -l)";
 	
