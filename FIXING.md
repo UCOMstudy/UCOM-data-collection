@@ -1,6 +1,29 @@
 # General
 - `intensive_parenting_1` & `intensive_parenting_2`: has more than 90% missing values `NA`
 
+## general demographics not to include
+- expect_child,
+- livingsituation
+- own_distribution1
+- own_distribution2
+- mother_field
+- father_field
+- gender
+- upbringing
+- course
+- study_year
+- religion
+- sexual_orientation
+- citizenship
+- Immigration_background
+- migration_background
+- ethnic_background
+- marital_status
+- comments
+- not_use
+- uni
+
+# Site specific
 
 ## Albania_Jasini
 
