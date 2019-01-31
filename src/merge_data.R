@@ -50,10 +50,12 @@ other_vars_path <- here('src', 'other_vars.json')
 
 message('===== Loading & Merging data =====')
 # extract non-numeric variables to contains in the final result
-message('Other non-numeric variables to contain: ',
-        other_vars_path)
+message('Other non-numeric variables:')
 other_vars <- jsonlite::read_json(other_vars_path,
                                   simplifyVector = TRUE)
+message('Variables: ',
+        stringr::str_c(other_vars, ollapse = ', '))
+message('Config file: ', other_vars_path)
 
 # mergeing data frame frome different sources
 all_dfs <- map2(csv_path,
