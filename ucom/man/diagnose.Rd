@@ -7,9 +7,20 @@
 diagnose(rows, cols = NULL, df1, df2, last.error = TRUE)
 }
 \arguments{
-\item{last.error}{}
+\item{rows}{which row to check}
+
+\item{cols}{which column to check}
+
+\item{df1}{A data frame}
+
+\item{df2}{A data frame}
+
+\item{last.error}{if TRUE, the data frames will be retrived from `.last.error`}
+}
+\value{
+A View to browse the data
 }
 \description{
-Diagnose potential error from the check by comparing the
-   choice and numeric data frames with selecting rows.
+Diagnose potential error from the check by combining to
+   compare the choice and numeric data frames with selecting rows.
 }

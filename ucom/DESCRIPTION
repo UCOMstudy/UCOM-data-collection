@@ -21,5 +21,7 @@ Imports:
     readr,
     fs,
     here,
-    rprojroot
+    rprojroot,
+    magrittr,
+    purrr
 RoxygenNote: 6.1.1

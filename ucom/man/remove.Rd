@@ -2,13 +2,30 @@
 % Please edit documentation in R/transform.R
 \name{remove}
 \alias{remove}
+\alias{remove_gen}
+\alias{remove_text}
+\alias{get_num_vars}
 \title{Remove certain variables in a vector}
 \usage{
 remove(vars, remove_vars)
+
+remove_gen(vars)
+
+remove_text(vars, pattern = NULL)
+
+get_num_vars(vars, pattern = NULL)
 }
 \arguments{
-\item{remove_vars}{}
+\item{vars}{A vector of original variables}
+
+\item{remove_vars}{A vector of variables to remove}
+
+\item{pattern}{A regex pattern used to remove matching variables}
+}
+\value{
+A vector of variables after removing
 }
 \description{
-Remove certain variables in a vector
+Get numeric variables by
+  remove survey general variables and text variables.
 }

@@ -7,7 +7,7 @@
 create_src_folders(folder_list)
 }
 \arguments{
-\item{folder_list}{}
+\item{folder_list}{a list of folder to create}
 }
 \description{
 Create a list of folders for each site

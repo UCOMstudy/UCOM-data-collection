@@ -5,24 +5,26 @@
 #' @param start_row number of rows to skip meta-data (description on variables)
 #' @param file_name If provided, will read in this file rather than figure out itself
 #'
-#' @return
+#' @rdname pipeline_io
+#' @return A data frame
 #' @export
-#'
-#' @examples
 get_raw_data <- function(site, type, start_row=3, file_name=NULL) {
 
       assertthat::assert_that(type %in% c('Numeric', 'Choice'),
                               msg = "Type should be 'Numeric' or 'Choice'")
 
-      if (is_null(file_name)) {
-            file_name <- str_glue('{site}_{type}Values.csv')
+      if (purrr::is_null(file_name)) {
+            file_name <- stringr::str_glue('{site}_{type}Values.csv')
       }
 
-      data_path <- here('raw_data', site, file_name)
+      data_path <- here::here('raw_data', site, file_name)
       message("Raw Data: ", data_path)
+      assertthat::assert_that(fs::is_file(data_path),
+                              msg = "File doesn't exist.")
+
+      df <- readr::read_csv(data_path, col_types = readr::cols()) %>%
+            dplyr::slice(start_row:dplyr::n())
       message("Rows dropped: ", (start_row - 1))
-      df <- read_csv(data_path, col_types = cols()) %>%
-            slice(start_row:n())
       return(df)
 }
 
@@ -32,18 +34,17 @@ get_raw_data <- function(site, type, start_row=3, file_name=NULL) {
 #' @param num_vars_path Path to the related num_vars.json
 #' @param other_vars Other variables to include except for numeric
 #'
-#' @return
+#' @rdname pipeline_io
+#' @return A data frame
 #' @export
-#'
-#' @examples
 read_cleaned_data <- function(df_path,
                               num_vars_path,
                               other_vars) {
-      df <- read_csv(df_path, col_types = cols())
-      num_vars <- read_rds(num_vars_path)
+      df <- readr::read_csv(df_path, col_types = readr::cols())
+      num_vars <- readr::read_rds(num_vars_path)
 
       all_vars <- append(other_vars, num_vars)
-      out <- df %>% select(all_vars)
+      out <- df %>% dplyr::select(all_vars)
       return(out)
 }
 
@@ -53,32 +54,28 @@ read_cleaned_data <- function(df_path,
 #' @param all_vars a vector of all variables
 #' @param num_vars a vector of numeric variables
 #'
-#' @return
+#' @rdname pipeline_io
+#' @return `num_vars.rds` & `non_num_vars.rds` to the output path
 #' @export
-#'
-#' @examples
 write_vars_rds <- function(path,
                            all_vars,
                            num_vars) {
 
       non_num_vars <- setdiff(all_vars, num_vars)
 
-      num_vars %>% write_rds(path = file.path(path, 'num_vars.rds'))
-      non_num_vars %>% write_rds(path = file.path(path, 'non_num_vars.rds'))
+      num_vars %>% readr::write_rds(path = file.path(path, 'num_vars.rds'))
+      non_num_vars %>% readr::write_rds(path = file.path(path, 'non_num_vars.rds'))
 }
 
 #' Write the result: data .csv file
 #'
 #' @param choice_df Choice data frame or transformed one if necessary
-#' @param all_vars a vector of all variables
-#' @param num_vars a vector of numeric variables
 #' @param country_code Default NULL, if provided, will use the provided one instead of
 #'      figuring out itself.
 #'
-#' @return
+#' @rdname pipeline_io
+#' @return A csv file with the site name: `site.csv`
 #' @export
-#'
-#' @examples
 write_results <- function(choice_df,
                           all_vars,
                           num_vars,
@@ -92,7 +89,7 @@ write_results <- function(choice_df,
                                                criterion = rprojroot::has_dir('.git'))
 
 
-      table_name <- str_glue('{stringr::str_to_lower(site)}.csv')
+      table_name <- stringr::str_glue('{stringr::str_to_lower(site)}.csv')
       message('Output path: ', output_path)
       # create new folder if not existed
       fs::dir_create(output_path)
@@ -105,8 +102,8 @@ write_results <- function(choice_df,
       country <- country_collector[1]
 
       # if country code not provided
-      if (is_null(country_code)) {
-            if (country %in% country_codes$Country) {
+      if (purrr::is_null(country_code)) {
+            if (country %in% ucom::country_codes$Country) {
                   country_code <- get_country_code(country)
                   out_df <- ucom::create_country_and_site(out_df,
                                                           country_code,
@@ -129,7 +126,8 @@ write_results <- function(choice_df,
       message('Country: ', country_code)
       message('Site: ', site)
       # write out data frame
-      write_csv(out_df, path = file.path(output_path,
-                                         table_name))
+      readr::write_csv(out_df,
+                       path = file.path(output_path,
+                                        table_name))
 }
 

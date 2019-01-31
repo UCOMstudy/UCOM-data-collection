@@ -6,6 +6,9 @@
 \usage{
 get_current_site()
 }
+\value{
+name of the current site
+}
 \description{
 Get the site of the current data set
 }

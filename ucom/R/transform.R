@@ -1,13 +1,11 @@
 #' Convert choice Dataframe
 #'
 #' @description Convert choice Dataframe to remove text.
-#' @param df
-#' @param var_names
+#' @param df Data frame
+#' @param var_names A vecot of variable names to convert
 #'
-#' @return
+#' @return Converted choice data frame
 #' @export
-#'
-#' @examples
 convert_choiceDF <- function(df, var_names) {
 
       pattern <- "^[0-9]{1,5}(\\.[0-9]{1,4})?"
@@ -22,13 +20,11 @@ convert_choiceDF <- function(df, var_names) {
 
 #' Remove certain variables in a vector
 #'
-#' @param vars
-#' @param remove_vars
-#'
-#' @return
+#' @param vars A vector of original variables
+#' @param remove_vars A vector of variables to remove
+#' @rdname remove
+#' @return A vector of variables after removing
 #' @export
-#'
-#' @examples
 remove <- function(vars, remove_vars) {
 
       vars <- vars[!vars %in% remove_vars]
@@ -38,12 +34,8 @@ remove <- function(vars, remove_vars) {
 
 #' Remove survey general variables
 #'
-#' @param vars
-#'
-#' @return
+#' @rdname remove
 #' @export
-#'
-#' @examples
 remove_gen <- function(vars) {
       output <- remove(vars,
                        ucom::gen_vars)
@@ -52,13 +44,11 @@ remove_gen <- function(vars) {
 
 #' Remove text variables
 #'
-#' @param vars
-#' @param pattern
+#' @param pattern A regex pattern used to remove matching variables
 #'
-#' @return
+#' @rdname remove
 #' @export
-#'
-#' @examples
+
 remove_text <- function(vars, pattern=NULL) {
       output <- remove(vars,
                        ucom::text_vars)
@@ -72,13 +62,9 @@ remove_text <- function(vars, pattern=NULL) {
 #'
 #' @description Get numeric variables by
 #'   remove survey general variables and text variables.
-#' @param vars
-#' @param pattern
 #'
-#' @return
+#' @rdname remove
 #' @export
-#'
-#' @examples
 get_num_vars <- function(vars, pattern=NULL) {
       output <- vars %>%
             remove_gen() %>%
@@ -94,12 +80,11 @@ map_values <- function(values, mapping) {
 #' Get country code
 #'
 #' @description Get country code of the country name.
-#' @param country
+#' @param country character, Name of the country
 #'
-#' @return
+#' @rdname country_code
+#' @return The country code of the Country name
 #' @export
-#'
-#' @examples
 get_country_code <- function(country) {
 
       code <- ucom::country_codes %>%
@@ -114,9 +99,9 @@ get_country_code <- function(country) {
 #' @param df A Dataframe
 #' @param code country code to include
 #' @param site site name for the dataset
-#'
 #' @return A dataframe with country code and site
 #'         name added as 2 new columns
+#' @rdname country_code
 #' @export
 create_country_and_site <- function(df, code, site) {
 

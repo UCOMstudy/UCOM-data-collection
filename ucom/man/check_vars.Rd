@@ -7,7 +7,14 @@
 check_vars(num_df, choice_df, vars)
 }
 \arguments{
-\item{vars}{}
+\item{num_df}{Numeric data frame}
+
+\item{choice_df}{Choice data frame}
+
+\item{vars}{A vector of variables to check}
+}
+\value{
+TRUE, or global variable `.last.error`, if exception
 }
 \description{
 Check data integrity by comparing two datasets.

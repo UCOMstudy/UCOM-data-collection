@@ -7,7 +7,12 @@
 convert_choiceDF(df, var_names)
 }
 \arguments{
-\item{var_names}{}
+\item{df}{Data frame}
+
+\item{var_names}{A vecot of variable names to convert}
+}
+\value{
+Converted choice data frame
 }
 \description{
 Convert choice Dataframe to remove text.
