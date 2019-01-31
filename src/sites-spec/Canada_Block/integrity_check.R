@@ -21,14 +21,18 @@ message('Script: ', thisfile())
 message('===== Loading data =====')
 site <- get_current_site()
 
-numeric_df1 <- get_raw_data(site, 'Numeric', file_name = 'Canada_Block_PART1_NumericValues.csv')
-choice_df1 <- get_raw_data(site, 'Choice', file_name = 'Canada_Block_PART1_ChoiceValues.csv')
+numeric_files <- c('Canada_Block_PART1_NumericValues.csv',
+                   'Canada_Block_PART2_NumericValues.csv')
 
-numeric_df2 <- get_raw_data(site, 'Numeric', file_name = 'Canada_Block_PART2_NumericValues.csv')
-choice_df2 <- get_raw_data(site, 'Choice', file_name = 'Canada_Block_PART2_ChoiceValues.csv')
+choice_files <- c('Canada_Block_PART1_ChoiceValues.csv',
+                  'Canada_Block_PART2_ChoiceValues.csv')
 
-numeric_df <- bind_rows(numeric_df1, numeric_df2)
-choice_df <- bind_rows(choice_df1, choice_df2)
+numeric_df <- map_dfr(numeric_files,
+                      ~ get_raw_data(site, 'Numeric',
+                                     file_name = .x))
+choice_df <- map_dfr(choice_files,
+                     ~ get_raw_data(site, 'Choice',
+                                    file_name = .x))
 
 ################ Checking #####################
 
