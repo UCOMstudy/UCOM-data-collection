@@ -42,7 +42,10 @@
     "not_use",
     "uni",
     "uni_name",
-    "university"
+    "university",
+    "per_leave",
+    "per_workhour",
+    "parentleave_expectat"
   ]
 }
 

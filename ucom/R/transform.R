@@ -112,3 +112,21 @@ create_country_and_site <- function(df, code, site) {
                           dplyr::everything())
       return(out_df)
 }
+
+#' Convert SAV, SPSS to normal CSV
+#'
+#' @param df Path to spss file
+#'
+#' @return Converted data frame
+#' @export
+convert_spss <- function(spss_path) {
+      df <- haven::read_sav(spss_path)
+      temp <- fs::file_temp()
+
+      converted_df <- df %>%
+            haven::as_factor() %>%
+            readr::write_csv(temp)
+
+      out <- readr::read_csv(temp, col_types = readr::cols())
+      return(out)
+}

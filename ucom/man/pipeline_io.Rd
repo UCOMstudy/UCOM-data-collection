@@ -7,7 +7,8 @@
 \alias{write_results}
 \title{Input raw data}
 \usage{
-get_raw_data(site, type, start_row = 3, file_name = NULL)
+get_raw_data(site, type, start_row = 3, file_name = NULL,
+  sav = FALSE)
 
 read_cleaned_data(df_path, num_vars_path, other_vars)
 

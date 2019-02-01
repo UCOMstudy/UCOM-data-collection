@@ -8,24 +8,29 @@
 #' @rdname pipeline_io
 #' @return A data frame
 #' @export
-get_raw_data <- function(site, type, start_row=3, file_name=NULL) {
+get_raw_data <- function(site, type, start_row=3, file_name=NULL, sav=FALSE) {
 
       assertthat::assert_that(type %in% c('Numeric', 'Choice'),
                               msg = "Type should be 'Numeric' or 'Choice'")
 
       if (purrr::is_null(file_name)) {
-            file_name <- stringr::str_glue('{site}_{type}Values.csv')
+            ext <- if (sav) 'sav' else 'csv'
+            file_name <- stringr::str_glue('{site}_{type}Values.{ext}')
       }
 
       data_path <- here::here('raw_data', site, file_name)
       message("Raw Data: ", data_path)
       assertthat::assert_that(fs::is_file(data_path),
                               msg = "File doesn't exist.")
-
-      df <- readr::read_csv(data_path, col_types = readr::cols()) %>%
-            dplyr::slice(start_row:dplyr::n())
+      if (sav) {
+            df <- convert_spss(data_path)
+      } else {
+            df <- readr::read_csv(data_path, col_types = readr::cols())
+      }
+      # skip a description and internal id rows
+      out <- df %>% dplyr::slice(start_row:dplyr::n())
       message("Rows dropped: ", (start_row - 1))
-      return(df)
+      return(out)
 }
 
 #' Read in cleaned data for merging
@@ -96,6 +101,11 @@ write_results <- function(choice_df,
 
       # Convert data frame to remove unncessary text
       out_df <- choice_df %>% convert_choiceDF(num_vars)
+      # Rename `expected_share_12` to `expected_share_3``
+      if ('expected_share_12' %in% colnames(out_df)) {
+            out_df <- out_df %>%
+                  dplyr::rename(expected_share_3 = expected_share_12)
+      }
 
       # create country code & site
       country_collector <- stringr::str_split(site, '_', n=2) %>% unlist()

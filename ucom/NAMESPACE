@@ -3,6 +3,7 @@
 export("%>%")
 export(check_vars)
 export(convert_choiceDF)
+export(convert_spss)
 export(create_country_and_site)
 export(create_src_folders)
 export(diagnose)
