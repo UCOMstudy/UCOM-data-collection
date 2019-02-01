@@ -13,11 +13,6 @@ site <- get_current_site()
 numeric_df <- get_raw_data(site, 'Numeric', start_row = 1)
 choice_df <- get_raw_data(site, 'Choice', start_row = 1, sav = TRUE)
 
-message('===== Conver variables names =====')
-message('"Duration (in seconds)"= Durationinseconds')
-numeric_df <- numeric_df %>% dplyr::rename("Duration (in seconds)"= Durationinseconds)
-choice_df <- choice_df %>% dplyr::rename("Duration (in seconds)"= Durationinseconds)
-
 ################ Checking #####################
 
 message('===== Checking =====')
