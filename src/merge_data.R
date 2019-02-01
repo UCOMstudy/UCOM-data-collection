@@ -42,6 +42,9 @@ all_dfs <- purrr::map2(csv_path,
                 ucom::read_cleaned_data,
                 other_vars = other_vars)
 merged_df <- dplyr::bind_rows(all_dfs)
+# merged_df <- purrr::map_dfr(csv_path,
+#                             readr::read_csv,
+#                             col_types = readr::cols())
 
 # Integrity check: See if all numeric columns are truly numeric
 num_vars <- colnames(merged_df) %>% remove(other_vars)

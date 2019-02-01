@@ -10,25 +10,29 @@ message('Script: ', rprojroot::thisfile())
 message('===== Loading data =====')
 site <- get_current_site()
 
-numeric_df <- get_raw_data(site, 'Numeric')
-choice_df <- get_raw_data(site, 'Choice')
+numeric_df <- get_raw_data(site, 'Numeric', start_row = 1)
+choice_df <- get_raw_data(site, 'Choice', start_row = 1, sav=TRUE)
 
 ################ Checking #####################
 
 message('===== Checking =====')
 all_vars <- colnames(choice_df)
 
+pattern <- '(^Q[0-9]+)|(TEXT)|(site)|(source)|(ICF)'
 num_vars <- all_vars %>%
-      # 'Consent', 'id', 'Type' variable
-      get_num_vars('(^Q[0-9]+)|(TEXT)|(Consent)|(^id$)|(Type)')
+      # different encoding compared to other sites
+      get_num_vars(pattern)
 
-converted_choice_df <- convert_choiceDF(choice_df, num_vars)
+converted_choice_df <- convert_choiceDF(choice_df, num_vars) %>%
+      # convert to the same data types
+      dplyr::mutate_at(dplyr::vars(num_vars),
+                       dplyr::funs(as.numeric))
 check_vars(numeric_df, converted_choice_df, num_vars)
 message('Checked: Passed!')
 ################ Write out results #####################
 
 message('===== Writing results =====')
-ucom::write_results(choice_df, all_vars, num_vars, country_code = 'CAN')
+ucom::write_results(choice_df, all_vars, num_vars, country_code = "USA")
 message('Sucessfully write results!')
 
 

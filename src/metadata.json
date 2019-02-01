@@ -1,0 +1,143 @@
+[
+  {
+    "source": "Albania_Jasini",
+    "country_code": "ALB"
+  },
+  {
+    "source": "Australia_Anderson",
+    "country_code": "AUS"
+  },
+  {
+    "source": "Australia_Dar_Nimrod",
+    "country_code": "AUS"
+  },
+  {
+    "source": "Belgium_Vangrootel",
+    "country_code": "BEL"
+  },
+  {
+    "source": "Bolivia_Schulmeyer",
+    "country_code": "BOL"
+  },
+  {
+    "source": "Canada_Block",
+    "country_code": "CAN"
+  },
+  {
+    "source": "Switzerland_Nikitin",
+    "country_code": "CHE"
+  },
+  {
+    "source": "Switzerland_Sczesny",
+    "country_code": "CHE"
+  },
+  {
+    "source": "China_Zhao",
+    "country_code": "CHN"
+  },
+  {
+    "source": "Colombia_Meister",
+    "country_code": "COL"
+  },
+  {
+    "source": "Germany_Hoppe",
+    "country_code": "DEU"
+  },
+  {
+    "source": "Germany_Steffens",
+    "country_code": "DEU"
+  },
+  {
+    "source": "Ethiopia_Lemma",
+    "country_code": "ETH"
+  },
+  {
+    "source": "France_Regner",
+    "country_code": "FRA"
+  },
+  {
+    "source": "Croatia_Franc",
+    "country_code": "HRV"
+  },
+  {
+    "source": "Ireland_Bosak",
+    "country_code": "IRL"
+  },
+  {
+    "source": "Lebanon_Saab",
+    "country_code": "LBN"
+  },
+  {
+    "source": "Malaysia_Selvan",
+    "country_code": "MYS"
+  },
+  {
+    "source": "Netherlands_Otten",
+    "country_code": "NLD"
+  },
+  {
+    "source": "Netherlands_Vink",
+    "country_code": "NLD"
+  },
+  {
+    "source": "Norway_Olsson",
+    "country_code": "NOR"
+  },
+  {
+    "source": "Pakistan_Bushra",
+    "country_code": "PAK"
+  },
+  {
+    "source": "Serbia_Zezelj",
+    "country_code": "SRB"
+  },
+  {
+    "source": "Sweden_Bäck",
+    "country_code": "SWE"
+  },
+  {
+    "source": "Turkey_Gungor",
+    "country_code": "TUR"
+  },
+  {
+    "source": "Turkey_Kunurgu",
+    "country_code": "TUR"
+  },
+  {
+    "source": "CostaRica_Castro",
+    "country_code": "CRI"
+  },
+  {
+    "source": "Kansas_Xian",
+    "country_code": "USA"
+  },
+  {
+    "source": "Kobe_Keiko",
+    "country_code": "JPN"
+  },
+  {
+    "source": "Nagoya_Keiko",
+    "country_code": "JPN"
+  },
+  {
+    "source": "NewZealand_McNamara",
+    "country_code": "NZL"
+  },
+  {
+    "source": "Toronto_Hall",
+    "country_code": "CAN"
+  },
+  {
+    "source": "UMass_Rodriguez",
+    "country_code": "USA"
+  },
+  {
+    "source": "USA_Devos",
+    "country_code": "USA"
+  },
+  {
+    "source": "Waterloo_Bergsieker",
+    "country_code": "CAN"
+  }
+]
+
