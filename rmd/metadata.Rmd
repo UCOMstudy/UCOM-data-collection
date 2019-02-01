@@ -1,0 +1,93 @@
+---
+title: "Metadata"
+author: "Xinbin Huang"
+date: "January 31, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Metadata for each site
+
+## Libraries
+
+```{r}
+library(fs)
+library(jsonlite)
+library(tidyverse)
+library(ucom)
+```
+
+## Get all the paths
+
+```{r}
+# get all paths
+all_files <- dir_ls('./raw_data/', type = 'file', recursive = TRUE)
+splited_path <- path_split(all_files)
+
+# put source and file into one data frame
+source <- splited_path %>% map_chr(3)
+file <- splited_path %>% map_chr(4)
+meta <- tibble(source, file)
+```
+
+### Format of file
+
+```{r}
+meta <- meta %>% mutate(format = path_ext(file))
+
+# questionaries .docx for latter useage
+doc <- meta %>% filter(format == 'docx') %>% select(-format, doc = file)
+meta_nodoc <- meta %>% filter(format != 'docx')
+```
+
+```{r}
+country_map <- ucom::country_codes %>% select(country_code, Country)
+
+meta_country <- meta_nodoc %>% mutate(country = str_extract(source, '[:alpha:]*(?=_)'),
+                      collaborator = str_extract(source, '(?<=_).*')) %>% 
+      # map country code
+      left_join(country_map, by = c('country' = 'Country')) 
+
+manual_map <- c(
+      abc = 'd'
+)
+
+
+meta_nested <- meta_country %>%  
+      left_join(doc) %>% 
+      group_by(source, country_code, doc) %>% 
+      select(-country, -collaborator) %>% 
+      nest() 
+
+meta_nested %>% 
+      write_json(here('data_summary.json'),
+                 pretty = 2,
+                 na = 'null')
+
+meta_nested %>% 
+      select(source, country_code) %>% 
+      arrange(country_code) %>% 
+      mutate(country_code = if_else(is.na(country_code), 
+                                          '', 
+                                          country_code)) %>% 
+      # spread(source, country_code,
+      #        fill='') %>%  
+      # write_json('../src/metadata.json',
+      #            'rows', pretty = 2)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+

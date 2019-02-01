@@ -102,9 +102,11 @@ write_results <- function(choice_df,
       # Convert data frame to remove unncessary text
       out_df <- choice_df %>% convert_choiceDF(num_vars)
       # Rename `expected_share_12` to `expected_share_3``
-      if ('expected_share_12' %in% colnames(out_df)) {
+      if ('expected_share_12' %in% all_vars) {
             out_df <- out_df %>%
                   dplyr::rename(expected_share_3 = expected_share_12)
+            num_vars <- dplyr::recode(num_vars, 'expected_share_12' = 'expected_share_3')
+            all_vars <- dplyr::recode(all_vars, 'expected_share_12' = 'expected_share_3')
       }
 
       # create country code & site

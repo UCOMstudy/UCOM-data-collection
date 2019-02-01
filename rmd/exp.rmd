@@ -1,0 +1,51 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+setdiff(num_vars, devos)
+```
+
+```{r}
+setdiff( devos, num_vars)
+```
+
+```{r}
+abc <- get_raw_data(site, 'Choice', start_row = 1, sav=TRUE)
+
+abc %>% rename_all(funs(str_replace(., '([0-9])$', '_\\1'))) %>% readr::write_csv('raw_data/USA_Devos/USA_Devos_NumericValues.csv')
+```
+
+
+```{r}
+# merged
+num_vars
+
+# devos
+devos_vars
+
+setdiff(num_vars, devos_vars)
+setdiff(devos_vars, num_vars)
+
+
+abc <- get_raw_data(site, 'Choice', start_row = 1, sav=TRUE)
+
+# abc %>% rename_all(funs(str_replace(., '([0-9])$', '_\\1'))) %>% 
+#       dplyr::rename(exp_encouragement_1= exp_encouragement  ,
+#                   real_parentalleave_1 = real_parentalleave,
+#                   parentleave_motivati_1 = parentleave_motivation,
+#                   parentleave_expectat = parentleave_expectation, 
+#                   immigration_backgrou=immigration_background,
+#                   "Duration (in seconds)"=Duration__in_seconds_,
+#                   sexual_orientation_TEXT=sexual_orientation_text,
+#                   migration_background_TEXT=migration_background_text) %>% 
+
+# abc %>% dplyr::rename(livingsituation_TEXT = livingsituation_text,
+#                       religion_TEXT = religion_text) %>%
+#       haven::write_sav('/home/binb/work/UCOM/UCOM-data-collection/raw_data/USA_Devos/USA_Devos_ChoiceValues.sav')
+```
+
+
+

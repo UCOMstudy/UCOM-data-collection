@@ -11,11 +11,11 @@ CRITERIA ?= "Sucessfully write results!"
 # pipeline config file for R script
 export R_PROFILE_USER := pipeline.rprofile
 
-all: create_src_folders copy_template check merge
+all: summary create_src_folders copy_template check merge
 	echo 'Log file can be found here $(LOG_FILE)'
 	
-merge: $(SRC)/merge_data.R
-	Rscript $(SRC)/merge_data.R $(REDIRECT)
+summary: $(SRC)/summary.R
+	Rscript $(SRC)/summary.R
 
 create_src_folders: $(SRC)/create_folder.R
 	Rscript $(SRC)/create_folder.R
@@ -38,7 +38,9 @@ check:
 		fi; \
 	done; \
 	echo "Scripts succeeded: $$(cat $(LOG_FILE) | grep $(CRITERIA) | wc -l)";
-	
+
+merge: $(SRC)/merge_data.R
+	Rscript $(SRC)/merge_data.R $(REDIRECT)
 
 clean:
 	rm -rf $(LOG_FILE)
