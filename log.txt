@@ -10,17 +10,58 @@ Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Albania_Jasini/Alba
 Rows dropped: 1
 ===== Checking =====
 religiosity, real_domestic_3, react_domestic_3: convert "." to NA
-Error: isTRUE(x = all_equal(a, b)) is not TRUE. (Rows in x but not y: 189, 188, 185, 183, 181, 173, 161, 160, 158, 157, 155[...]. Rows in y but not x: 188, 186, 185, 181, 173, 166, 161, 160, 158, 157, 151[...]. ).
+Error: isTRUE(x = dplyr::all_equal(a, b)) is not TRUE. (Rows in x but not y: 189, 181, 173, 166, 157, 151, 150, 148, 147, 140, 130[...]. Rows in y but not x: 189, 181, 173, 166, 157, 151, 150, 148, 147, 140, 139[...]. ).
 Execution halted
 
 
 
-Script: ./src/sites-spec/Belgium_Vangrootel/integrity_check_template.R
+Script: ./src/sites-spec/Australia_Anderson/integrity_check.R
+===== Loading data =====
+Only numeric data available for this site
+Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Australia_Anderson/Anderson_Australia.csv
+Rows dropped: 0
+===== Droping rows =====
+Dropping rows 207 and 208: variables description and internalID
+===== Checking =====
+[1] TRUE
+NOTE: there are some variables still encoded as text
+Check with itself: Passed!
+Manual transformation for future merging:
+1. transform "Finished" to logical.
+2. map "gender" to "Male" or "Female"
+Transformation done.
+===== Writing results =====
+Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Australia_Anderson
+Country: AUS
+Site: Australia_Anderson
+Sucessfully write results!
+
+
+
+Script: ./src/sites-spec/Australia_Dar_Nimrod/integrity_check_template.R
+===== Loading data =====
+Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Australia_Dar_Nimrod/Australia_Dar_Nimrod_NumericValues.csv
+Error: File doesn't exist.
+Execution halted
+
+
+
+Script: ./src/sites-spec/Belgium_Vangrootel/integrity_check.R
 ===== Loading data =====
 Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Belgium_Vangrootel/Belgium_Vangrootel_NumericValues.csv
-Rows dropped: 2
-Error: (converted from warning) Duplicated column names deduplicated: 'interest_motivation_1' => 'interest_motivation_1_1' [99], 'interest_motivation_2' => 'interest_motivation_2_1' [100], 'interest_motivation_3' => 'interest_motivation_3_1' [101]
-Execution halted
+Rows dropped: 0
+Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Belgium_Vangrootel/Belgium_Vangrootel_ChoiceValues.sav
+Rows dropped: 0
+===== Conver variables names =====
+"Duration (in seconds)"= Durationinseconds
+===== Checking =====
+[1] TRUE
+Checked: Passed!
+===== Writing results =====
+Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Belgium_Vangrootel
+Country: BEL
+Site: Belgium_Vangrootel
+Sucessfully write results!
 
 
 
@@ -45,9 +86,9 @@ Script: ./src/sites-spec/Canada_Block/integrity_check.R
 ===== Loading data =====
 Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Canada_Block/Canada_Block_PART1_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Canada_Block/Canada_Block_PART1_ChoiceValues.csv
-Rows dropped: 2
 Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Canada_Block/Canada_Block_PART2_NumericValues.csv
+Rows dropped: 2
+Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Canada_Block/Canada_Block_PART1_ChoiceValues.csv
 Rows dropped: 2
 Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Canada_Block/Canada_Block_PART2_ChoiceValues.csv
 Rows dropped: 2
@@ -59,6 +100,14 @@ Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Canada_Block
 Country: CAN
 Site: Canada_Block
 Sucessfully write results!
+
+
+
+Script: ./src/sites-spec/China_Zhao/integrity_check_template.R
+===== Loading data =====
+Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/China_Zhao/China_Zhao_NumericValues.csv
+Error: File doesn't exist.
+Execution halted
 
 
 
@@ -181,6 +230,22 @@ Sucessfully write results!
 
 
 
+Script: ./src/sites-spec/Ireland_Bosak/integrity_check_template.R
+===== Loading data =====
+Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Ireland_Bosak/Ireland_Bosak_NumericValues.csv
+Error: File doesn't exist.
+Execution halted
+
+
+
+Script: ./src/sites-spec/Kansas_Xian/integrity_check_template.R
+===== Loading data =====
+Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Kansas_Xian/Kansas_Xian_NumericValues.csv
+Error: File doesn't exist.
+Execution halted
+
+
+
 Script: ./src/sites-spec/Kobe_Keiko/integrity_check.R
 ===== Loading data =====
 Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Kobe_Keiko/Kobe_Keiko_NumericValues.csv
@@ -249,12 +314,30 @@ Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Netherlands_Vink/integrity_check_template.R
+Script: ./src/sites-spec/Netherlands_Otten/integrity_check_template.R
+===== Loading data =====
+Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Netherlands_Otten/Netherlands_Otten_NumericValues.csv
+Error: File doesn't exist.
+Execution halted
+
+
+
+Script: ./src/sites-spec/Netherlands_Vink/integrity_check.R
 ===== Loading data =====
 Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Netherlands_Vink/Netherlands_Vink_NumericValues.csv
-Rows dropped: 2
-Error: (converted from warning) Duplicated column names deduplicated: 'interest_motivation_1' => 'interest_motivation_1_1' [94], 'interest_motivation_2' => 'interest_motivation_2_1' [95], 'interest_motivation_3' => 'interest_motivation_3_1' [96]
-Execution halted
+Rows dropped: 0
+Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Netherlands_Vink/Netherlands_Vink_ChoiceValues.sav
+Rows dropped: 0
+===== Conver variables names =====
+"Duration (in seconds)"= Durationinseconds
+===== Checking =====
+[1] TRUE
+Checked: Passed!
+===== Writing results =====
+Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Netherlands_Vink
+Country: NLD
+Site: Netherlands_Vink
+Sucessfully write results!
 
 
 
@@ -334,6 +417,14 @@ Sucessfully write results!
 
 
 
+Script: ./src/sites-spec/Sweden_Bäck/integrity_check_template.R
+===== Loading data =====
+Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Sweden_Bäck/Sweden_Bäck_NumericValues.csv
+Error: File doesn't exist.
+Execution halted
+
+
+
 Script: ./src/sites-spec/Switzerland_Nikitin/integrity_check.R
 ===== Loading data =====
 Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Switzerland_Nikitin/Switzerland_Nikitin_NumericValues.csv
@@ -347,6 +438,27 @@ Checked: Passed!
 Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Switzerland_Nikitin
 Country: CHE
 Site: Switzerland_Nikitin
+Sucessfully write results!
+
+
+
+Script: ./src/sites-spec/Switzerland_Sczesny/integrity_check.R
+===== Loading data =====
+Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Switzerland_Sczesny/Switzerland_Sczesny_Part1_numeric.csv
+Rows dropped: 2
+Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Switzerland_Sczesny/Switzerland_Sczesny_Part2_numeric.csv
+Rows dropped: 2
+Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Switzerland_Sczesny/Switzerland_Sczesny_Part1_choice.csv
+Rows dropped: 2
+Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Switzerland_Sczesny/Switzerland_Sczesny_Part2_choice.csv
+Rows dropped: 2
+===== Checking =====
+[1] TRUE
+Checked: Passed!
+===== Writing results =====
+Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Switzerland_Sczesny
+Country: CHE
+Site: Switzerland_Sczesny
 Sucessfully write results!
 
 
@@ -419,14 +531,20 @@ Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/USA_Devos/integrity_check_template.R
+Script: ./src/sites-spec/USA_Devos/integrity_check.R
 ===== Loading data =====
 Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/USA_Devos/USA_Devos_NumericValues.csv
-Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/USA_Devos/USA_Devos_ChoiceValues.csv
-Rows dropped: 2
-Error: '/home/binb/work/UCOM/UCOM-data-collection/raw_data/USA_Devos/USA_Devos_ChoiceValues.csv' does not exist.
-Execution halted
+Rows dropped: 0
+Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/USA_Devos/USA_Devos_ChoiceValues.sav
+Rows dropped: 0
+===== Checking =====
+[1] TRUE
+Checked: Passed!
+===== Writing results =====
+Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/USA_Devos
+Country: USA
+Site: USA_Devos
+Sucessfully write results!
 
 
 
@@ -444,3 +562,21 @@ Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Waterloo_Ber
 Country: CAN
 Site: Waterloo_Bergsieker
 Sucessfully write results!
+
+
+
+Script: ./src/merge_data.R
+===== Setting up path =====
+===== Loading & Merging data =====
+Other non-numeric variables:
+Variables: country, site, gender, 
+Config file: /home/binb/work/UCOM/UCOM-data-collection/src/other_vars.json
+Is all numeric: TRUE
+===== Results Summary =====
+Data Dimension: 11720 rows, 170 columns.
+Number of excluded variables: 138
+===== Writing results =====
+Aggregated CSV: /home/binb/work/UCOM/UCOM-data-collection/aggregated_data/aggregated_clean.csv
+Numeric range: /home/binb/work/UCOM/UCOM-data-collection/aggregated_data/num_range.json
+Excluded variables: /home/binb/work/UCOM/UCOM-data-collection/aggregated_data/exc_vars.json
+Done!
