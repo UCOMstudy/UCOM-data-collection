@@ -39,6 +39,18 @@ Problem:
 - `religiosity`: how to convert '.'? -> `NA`?
 - `real_domestic_3`: how to convert '.'? -> `NA`?
 
+## Anderson_Australia
+
+Only has one numeric file also with text fields.
+
 ## NewZealand_McNamara
 
 Only has one numeric file also with text fields.
+
+## Lebanon_Saab
+
+Citizenship all NAs
+
+A huge amount of unrecognized variables.
+
+- "On the whole, men ma_1" ...     ? 
