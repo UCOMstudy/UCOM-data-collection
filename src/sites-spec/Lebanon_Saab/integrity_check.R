@@ -17,7 +17,8 @@ invisible(
 ################ Loading Data #####################
 
 message('\n\n')
-message('Script: ', thisfile())
+script_path <- fs::path_rel(rprojroot::thisfile(), here::here())
+message('Script: ', script_path)
 message('===== Loading data =====')
 site <- get_current_site()
 
@@ -36,6 +37,13 @@ num_vars <- all_vars %>%
 converted_choice_df <- convert_choiceDF(choice_df, num_vars)
 check_vars(numeric_df, converted_choice_df, num_vars)
 message('Checked: Passed!')
+
+message('===== Tranformation =====')
+message('Add citizenship if not exist')
+if (!'citizenship' %in% all_vars) {
+      choice_df <- choice_df %>%
+            dplyr::mutate(citizenship = NA_character_)
+}
 ################ Write out results #####################
 
 message('===== Writing results =====')

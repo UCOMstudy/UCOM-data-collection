@@ -30,15 +30,17 @@ check_vars(numeric_df, converted_numeric_df, num_vars)
 message('NOTE: there are some variables still encoded as text')
 message('Check with itself: Passed!')
 
-message('Manual transformation for future merging:\n',
+message('===== Manual transformation for future merging =====\n',
         '1. transform "Finished" to logical.\n',
-        '2. map "gender" to "Male" or "Female"')
+        '2. map "gender" to "Male" or "Female"',
+        '3. Convert StartDate EndDate')
 mutated_numeric_df <-
       numeric_df %>% dplyr::mutate(Finished = as.logical(Finished),
                                    gender = dplyr::case_when(
                                          gender == "1" ~ "Male",
                                          gender == "2" ~ "Female"
                                          ))
+mutated_numeric_df <- mutated_numeric_df %>% convert_start_end('dmY HM')
 message('Transformation done.')
 ################ Write out results #####################
 
