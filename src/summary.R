@@ -13,8 +13,6 @@ file <- splited_path %>% purrr::map_chr(4)
 meta <- tibble::tibble(source, file)
 
 ### Format of file
-
-
 meta <- meta %>%
       dplyr::mutate(format = fs::path_ext(file))
 

@@ -6,11 +6,13 @@ suppressMessages(library(ucom))
 ################ Loading Data #####################
 
 message('\n\n')
-message('Script: ', rprojroot::thisfile())
+script_path <- get_rel_path(rprojroot::thisfile())
+message('Script: ', script_path)
 message('===== Setting up path =====')
 data_path <- here::here("cleaned_data")
 all_sites <- fs::dir_ls(data_path)
 
+# input paths
 csv_path <- fs::dir_ls(all_sites, glob='*.csv')
 num_vars_path <- file.path(all_sites, 'num_vars.rds')
 non_num_vars_path <- file.path(all_sites, 'non_num_vars.rds')
@@ -29,23 +31,36 @@ other_vars_path <- here::here('src', 'other_vars.json')
 
 message('===== Loading & Merging data =====')
 # extract non-numeric variables to contains in the final result
-message('Other non-numeric variables:')
+message('Other non-numeric variables to include:')
 other_vars <- jsonlite::read_json(other_vars_path,
                                   simplifyVector = TRUE)
 message('Variables: ',
         stringr::str_c(other_vars, ollapse = ', '))
-message('Config file: ', other_vars_path)
+message('Config file: ', get_rel_path(other_vars_path))
 
+message('Loading data sets.....')
 # mergeing data frame frome different sources
 all_dfs <- purrr::map2(csv_path,
                 num_vars_path,
                 ucom::read_cleaned_data,
                 other_vars = other_vars)
-merged_df <- dplyr::bind_rows(all_dfs)
+
+# convert course numeric to character
+meesage('Do some conversions before merging.......')
+converted_all_dfs <- all_dfs %>%
+      purrr::map(~ dplyr::mutate(.x,
+                                 course=as.character(course),
+                                 study_year=as.character(study_year),
+                                 citizenship=as.character(citizenship),
+                                 Finished=as.logical(Finished)))
+
+message('Merging the all data set....')
+merged_df <- dplyr::bind_rows(converted_all_dfs)
 # merged_df <- purrr::map_dfr(csv_path,
 #                             readr::read_csv,
 #                             col_types = readr::cols())
 
+message('Checking numeric.....')
 # Integrity check: See if all numeric columns are truly numeric
 num_vars <- colnames(merged_df) %>% remove(other_vars)
 test_all_numeric <- merged_df %>%
@@ -77,15 +92,15 @@ message('Number of excluded variables: ', length(exc_vars))
 ################ Write out results #####################
 
 message('===== Writing results =====')
-message('Aggregated CSV: ', output_path)
+message('Aggregated CSV: ', get_rel_path(output_path))
 readr::write_csv(merged_df, output_path)
 
-message('Numeric range: ', num_range_path)
+message('Numeric range: ', get_rel_path(num_range_path))
 jsonlite::write_json(num_range,
                      num_range_path,
-                     pretty=3)
+                     pretty=TRUE)
 
-message('Excluded variables: ', exc_vars_path)
+message('Excluded variables: ', get_rel_path(exc_vars_path))
 jsonlite::write_json(exc_vars,
                      exc_vars_path,
                      pretty=3)
