@@ -4,7 +4,7 @@
 #' @param type Numeric or Choice value data
 #' @param start_row number of rows to skip meta-data (description on variables)
 #' @param file_name If provided, will read in this file rather than figure out itself
-#'
+#' @param sav If the data file is SPSS file. Default FALSE.
 #' @rdname pipeline_io
 #' @return A data frame
 #' @export
@@ -19,14 +19,22 @@ get_raw_data <- function(site, type, start_row=3, file_name=NULL, sav=FALSE) {
       }
 
       data_path <- here::here('raw_data', site, file_name)
-      message("Raw Data: ", data_path)
+      message("Raw Data: ", get_rel_path(data_path))
       assertthat::assert_that(fs::is_file(data_path),
                               msg = "File doesn't exist.")
       if (sav) {
-            df <- convert_spss(data_path)
+            spss_df <- haven::read_sav(data_path)
+            df <- convert_spss(spss_df)
       } else {
             df <- readr::read_csv(data_path, col_types = readr::cols())
       }
+
+      # fix a variable naming 'expected_share_12' => 'expected_share_3'
+      if ('expected_share_12' %in% colnames(df)) {
+            df <- df %>%
+                  dplyr::rename(expected_share_3 = expected_share_12)
+      }
+
       # skip a description and internal id rows
       out <- df %>% dplyr::slice(start_row:dplyr::n())
       message("Rows dropped: ", (start_row - 1))
@@ -49,7 +57,18 @@ read_cleaned_data <- function(df_path,
       num_vars <- readr::read_rds(num_vars_path)
 
       all_vars <- append(other_vars, num_vars)
-      out <- df %>% dplyr::select(all_vars)
+
+      test <- dplyr::expr(out <- df %>% dplyr::select(all_vars))
+
+      tryCatch(eval(test), error = function(e) {
+            error_path <- get_rel_path(df_path)
+            e$message <- paste('Data:',
+                               error_path,
+                               '\n',
+                               e$message)
+            stop(e)
+      })
+
       return(out)
 }
 
@@ -93,22 +112,19 @@ write_results <- function(choice_df,
                                                site,
                                                criterion = rprojroot::has_dir('.git'))
 
-
       table_name <- stringr::str_glue('{stringr::str_to_lower(site)}.csv')
-      message('Output path: ', output_path)
+      message('Output path: ', get_rel_path(output_path))
       # create new folder if not existed
       fs::dir_create(output_path)
 
+      message("===== Data Conversion =====")
       # Convert data frame to remove unncessary text
       out_df <- choice_df %>% convert_choiceDF(num_vars)
-      # Rename `expected_share_12` to `expected_share_3``
-      if ('expected_share_12' %in% all_vars) {
-            out_df <- out_df %>%
-                  dplyr::rename(expected_share_3 = expected_share_12)
-            num_vars <- dplyr::recode(num_vars, 'expected_share_12' = 'expected_share_3')
-            all_vars <- dplyr::recode(all_vars, 'expected_share_12' = 'expected_share_3')
-      }
 
+      # Convert Date time
+      out_df <- out_df %>% convert_start_end()
+
+      message("===== Preparing country code & site =====")
       # create country code & site
       country_collector <- stringr::str_split(site, '_', n=2) %>% unlist()
       country <- country_collector[1]

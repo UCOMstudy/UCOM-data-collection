@@ -4,10 +4,10 @@
 \alias{convert_spss}
 \title{Convert SAV, SPSS to normal CSV}
 \usage{
-convert_spss(spss_path)
+convert_spss(spss_df)
 }
 \arguments{
-\item{df}{Path to spss file}
+\item{spss_df}{A SPSS data frame}
 }
 \value{
 Converted data frame

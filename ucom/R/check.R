@@ -34,7 +34,7 @@ check_vars <- function(num_df, choice_df, vars) {
       tryCatch(check_identical(vars_num, vars_choice),
                error = function(e) {
                      e$message <- paste0(e$message, ". (",
-                                         all.equal(vars_num, vars_choice),
+                                         dplyr::all_equal(vars_num, vars_choice),
                                          ").")
 
                      assign('.last.error',

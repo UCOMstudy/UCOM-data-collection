@@ -25,6 +25,8 @@ write_results(choice_df, all_vars, num_vars, country_code = NULL)
 
 \item{file_name}{If provided, will read in this file rather than figure out itself}
 
+\item{sav}{If the data file is SPSS file. Default FALSE.}
+
 \item{df_path}{Cleaned data path}
 
 \item{num_vars_path}{Path to the related num_vars.json}

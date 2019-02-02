@@ -19,5 +19,13 @@ get_current_site <- function() {
 }
 
 
-
-
+#' Relative path to UCOM root
+#'
+#' @param path a file system path inside UCOM project
+#'
+#' @return A relative path to the UCOM project root
+#' @export
+get_rel_path <- function(path) {
+      rel_path <- fs::path_rel(path, here::here())
+      return(rel_path)
+}

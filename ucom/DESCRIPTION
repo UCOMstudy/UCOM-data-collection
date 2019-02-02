@@ -23,5 +23,7 @@ Imports:
     here,
     rprojroot,
     magrittr,
-    purrr
+    purrr,
+    haven,
+    lubridate
 RoxygenNote: 6.1.1

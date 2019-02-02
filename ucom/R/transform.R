@@ -1,3 +1,43 @@
+
+#' Convert a vector to POSIXct
+#'
+#' @param x A vector as supported by lubridate::ymd_hm
+#' @param date_format Date format to parse
+#' @return POSIXct type
+#' @export
+convert_time <- function(x, date_format = NULL ) {
+      if (lubridate::is.POSIXct(x)) {
+            return(x)
+      } else if (is.character(x)) {
+            if (is.null(date_format)) {
+                  hm_pat <- '\\s[0-9]{1,2}:[0-9]{1,2}$'
+                  is_hm <- all(stringr::str_detect(x, hm_pat))
+                  date_format <- dplyr::if_else(is_hm,
+                                                '%Y%m%d %H%M',
+                                                '%Y%m%d %H%M%S')
+                  }
+            out <- lubridate::parse_date_time(x, date_format)
+            return(out)
+      } else {
+            stop('Unexpected type: ', class(x))
+      }
+}
+
+#' Convert StartDate and EndDate to POSIXct
+#'
+#' @param df  Data frame to parse
+#' @param date_format Date format to parse
+#'
+#' @return POSIXct type columns
+#' @export
+convert_start_end <- function(df, date_format = NULL) {
+      out <- df %>%
+            dplyr::mutate_at(dplyr::vars("StartDate", "EndDate"),
+                             dplyr::funs(convert_time(., date_format)))
+      return(out)
+}
+
+
 #' Convert choice Dataframe
 #'
 #' @description Convert choice Dataframe to remove text.
@@ -113,17 +153,17 @@ create_country_and_site <- function(df, code, site) {
       return(out_df)
 }
 
+
 #' Convert SAV, SPSS to normal CSV
 #'
-#' @param df Path to spss file
+#' @param spss_df A SPSS data frame
 #'
 #' @return Converted data frame
 #' @export
-convert_spss <- function(spss_path) {
-      df <- haven::read_sav(spss_path)
+convert_spss <- function(spss_df) {
       temp <- fs::file_temp()
 
-      converted_df <- df %>%
+      converted_df <- spss_df %>%
             haven::as_factor() %>%
             readr::write_csv(temp)
 

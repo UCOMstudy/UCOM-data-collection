@@ -8,6 +8,11 @@
     "Finished",
     "RecordedDate",
     "ResponseId",
+    "ResponseID",
+    "ResponseSet",
+    "Name",
+    "ExternalDataReference",
+    "Email",
     "RecipientLastName",
     "RecipientFirstName",
     "RecipientEmail",
@@ -17,6 +22,7 @@
     "IPAddress",
     "LocationLatitude",
     "LocationLongitude",
+    "LocationAccuracy",
     "id"
   ],
   "text_vars": [
