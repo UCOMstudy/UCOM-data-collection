@@ -54,3 +54,6 @@ Citizenship all NAs
 A huge amount of unrecognized variables.
 
 - "On the whole, men ma_1" ...     ? 
+
+## Nerthlands - Otten
+ A lot of variables needed to be fixed
