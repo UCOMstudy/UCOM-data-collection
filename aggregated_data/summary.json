@@ -1,0 +1,1095 @@
+[
+  {
+    "total_sites": 35,
+    "cleaned_sites": 30,
+    "sources": [
+      {
+        "name": "Albania_Jasini",
+        "status": 0,
+        "dim": {
+
+        },
+        "n_files": 1,
+        "data": [
+          {
+            "file": "raw_data/Albania_Jasini/Albania_Jasini_Paper.xlsx",
+            "format": "xlsx"
+          }
+        ],
+        "unique_vars": {
+
+        }
+      },
+      {
+        "name": "Australia_Anderson",
+        "country": "AUS",
+        "status": 1,
+        "dim": [
+          218,
+          206
+        ],
+        "missing_prop": 0.1163,
+        "n_files": 1,
+        "data": [
+          {
+            "file": "raw_data/Australia_Anderson/Anderson_Australia.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "Q1",
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT"
+        ]
+      },
+      {
+        "name": "Australia_Dar_Nimrod",
+        "status": 0,
+        "dim": {
+
+        },
+        "n_files": 1,
+        "data": [
+          {
+            "file": "raw_data/Australia_Dar_Nimrod/UCOM data - clean.sav",
+            "format": "sav"
+          }
+        ],
+        "unique_vars": {
+
+        }
+      },
+      {
+        "name": "Belgium_Vangrootel",
+        "country": "BEL",
+        "status": 1,
+        "dim": [
+          493,
+          207
+        ],
+        "missing_prop": 0.1496,
+        "doc": "raw_data/Belgium_Vangrootel/Belgium_vangrootel_questionnaire.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/Belgium_Vangrootel/Belgium_Vangrootel_ChoiceValues.sav",
+            "format": "sav"
+          },
+          {
+            "file": "raw_data/Belgium_Vangrootel/Belgium_Vangrootel_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "Q155",
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "citizenship_4_TEXT",
+          "migration_background_3_TEXT"
+        ]
+      },
+      {
+        "name": "Bolivia_Schulmeyer",
+        "country": "BOL",
+        "status": 1,
+        "dim": [
+          620,
+          208
+        ],
+        "missing_prop": 0.3052,
+        "doc": "raw_data/Bolivia_Schulmeyer/Bolivia_questionnaire.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/Bolivia_Schulmeyer/Bolivia_Schulmeyer_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Bolivia_Schulmeyer/Bolivia_Schulmeyer_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT",
+          "father_cultural_ori",
+          "mother_cultural_ori",
+          "own_cultural_origin",
+          "culture_div_labour_1",
+          "culture_div_labour_2"
+        ]
+      },
+      {
+        "name": "Canada_Block",
+        "country": "CAN",
+        "status": 1,
+        "dim": [
+          657,
+          203
+        ],
+        "missing_prop": 0.1031,
+        "n_files": 4,
+        "data": [
+          {
+            "file": "raw_data/Canada_Block/Canada_Block_PART1_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Canada_Block/Canada_Block_PART1_NumericValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Canada_Block/Canada_Block_PART2_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Canada_Block/Canada_Block_PART2_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "Q76",
+          "Q75",
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT",
+          "Q78"
+        ]
+      },
+      {
+        "name": "China_Zhao",
+        "country": "CHN",
+        "status": 1,
+        "dim": [
+          671,
+          211
+        ],
+        "missing_prop": 0.5527,
+        "n_files": 1,
+        "data": [
+          {
+            "file": "raw_data/China_Zhao/UCOM__China.sav",
+            "format": "sav"
+          }
+        ],
+        "unique_vars": [
+          "Q1",
+          "Q78",
+          "Q7",
+          "Q12",
+          "Q18",
+          "Q25",
+          "Q51",
+          "livingsituation_TEXT",
+          "religion_TEXT",
+          "sexual_orientation_TEXT",
+          "migration_background_TEXT",
+          "Q75",
+          "Q77"
+        ]
+      },
+      {
+        "name": "Colombia_Meister",
+        "country": "COL",
+        "status": 1,
+        "dim": [
+          259,
+          208
+        ],
+        "missing_prop": 0.2161,
+        "doc": "raw_data/Colombia_Meister/Colombia_Meister.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/Colombia_Meister/Colombia_Meister_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Colombia_Meister/Colombia_Meister_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "Q80",
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT",
+          "livingsituation_13_TEXT - Topics",
+          "sexual_orientation_7_TEXT - Topics"
+        ]
+      },
+      {
+        "name": "CostaRica_Castro",
+        "country": "CRI",
+        "status": 1,
+        "dim": [
+          382,
+          204
+        ],
+        "missing_prop": 0.4125,
+        "doc": "raw_data/CostaRica_Castro/CostaRica_Castro_QUESTIONNAIRE.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/CostaRica_Castro/CostaRica_Castro_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/CostaRica_Castro/CostaRica_Castro_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT"
+        ]
+      },
+      {
+        "name": "Croatia_Franc",
+        "country": "HRV",
+        "status": 1,
+        "dim": [
+          830,
+          207
+        ],
+        "missing_prop": 0.3762,
+        "doc": "raw_data/Croatia_Franc/Croatian_--_Ines.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/Croatia_Franc/Croatia_Franc_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Croatia_Franc/Croatia_Franc_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT",
+          "Q78"
+        ]
+      },
+      {
+        "name": "Ethiopia_Lemma",
+        "country": "ETH",
+        "status": 1,
+        "dim": [
+          234,
+          203
+        ],
+        "missing_prop": 0.055,
+        "doc": "raw_data/Ethiopia_Lemma/Ethiopia_questionnaire.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/Ethiopia_Lemma/Ethiopia_Lemma_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Ethiopia_Lemma/Ethiopia_Lemma_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT"
+        ]
+      },
+      {
+        "name": "France_Regner",
+        "country": "FRA",
+        "status": 1,
+        "dim": [
+          307,
+          203
+        ],
+        "missing_prop": 0.1606,
+        "doc": "raw_data/France_Regner/France_Questionnaire.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/France_Regner/France_Regner_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/France_Regner/France_Regner_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT"
+        ]
+      },
+      {
+        "name": "Germany_Hoppe",
+        "country": "DEU",
+        "status": 1,
+        "dim": [
+          232,
+          205
+        ],
+        "missing_prop": 0.0809,
+        "doc": "raw_data/Germany_Hoppe/Germany_Hoppe_Questionnaire.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/Germany_Hoppe/Germany_Hoppe_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Germany_Hoppe/Germany_Hoppe_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_2_TEXT",
+          "migration_background_3_TEXT",
+          "part_germany",
+          "consent"
+        ]
+      },
+      {
+        "name": "Germany_Steffens",
+        "country": "DEU",
+        "status": 1,
+        "dim": [
+          532,
+          233
+        ],
+        "missing_prop": 0.382,
+        "doc": "raw_data/Germany_Steffens/Germany_Steffens_Questionnaire.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/Germany_Steffens/Germany_Steffens_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Germany_Steffens/Germany_Steffens_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "Q79",
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_2_TEXT",
+          "migration_background_3_TEXT",
+          "Q84",
+          "Q86",
+          "Q87",
+          "Q88",
+          "Q89",
+          "Q90_1",
+          "Q90_2",
+          "Q90_3",
+          "Q90_4",
+          "Q91_1",
+          "Q91_2",
+          "Q91_3",
+          "Q91_4",
+          "Q91_5",
+          "Q91_6",
+          "Q91_7",
+          "Q91_8",
+          "Q81",
+          "Q80",
+          "Q82",
+          "Q83_1",
+          "Q83_2",
+          "Q83_3",
+          "Q83_4",
+          "Q83_5",
+          "Q83_6",
+          "Q83_7",
+          "Q83_8",
+          "Q92"
+        ]
+      },
+      {
+        "name": "Ireland_Bosak",
+        "status": 0,
+        "dim": {
+
+        },
+        "n_files": 3,
+        "data": [
+          {
+            "file": "raw_data/Ireland_Bosak/Output_Ireland_Output Merged Data_Final Crosstabs_28.11.2018.spv",
+            "format": "spv"
+          },
+          {
+            "file": "raw_data/Ireland_Bosak/Syntax_Ireland_Merged Data_Final Crosstabs_28.11.2018.sps",
+            "format": "sps"
+          },
+          {
+            "file": "raw_data/Ireland_Bosak/UCOM data_Ireland_FINAL_19.11.2018merged.sav",
+            "format": "sav"
+          }
+        ],
+        "unique_vars": {
+
+        }
+      },
+      {
+        "name": "Kansas_Xian",
+        "country": "USA",
+        "status": 1,
+        "dim": [
+          873,
+          211
+        ],
+        "missing_prop": 0.1392,
+        "n_files": 1,
+        "data": [
+          {
+            "file": "raw_data/Kansas_Xian/UCOM_Kansas.sav",
+            "format": "sav"
+          }
+        ],
+        "unique_vars": [
+          "Q77",
+          "Q1",
+          "Q7",
+          "Q12",
+          "Q18",
+          "Q25",
+          "Q51",
+          "livingsituation_TEXT",
+          "religion_TEXT",
+          "sexual_orientation_TEXT",
+          "migration_background_TEXT",
+          "Q78",
+          "Q78_TEXT"
+        ]
+      },
+      {
+        "name": "Kobe_Keiko",
+        "country": "JPN",
+        "status": 1,
+        "dim": [
+          290,
+          207
+        ],
+        "missing_prop": 0.2684,
+        "doc": "raw_data/Kobe_Keiko/Japan_-_Keiko_Ishii_.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/Kobe_Keiko/Kobe_Keiko_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Kobe_Keiko/Kobe_Keiko_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT",
+          "schoolid"
+        ]
+      },
+      {
+        "name": "Lebanon_Saab",
+        "country": "LBN",
+        "status": 1,
+        "dim": [
+          245,
+          229
+        ],
+        "missing_prop": 0.1188,
+        "doc": "raw_data/Lebanon_Saab/Lebanon_saab_questionnaire.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/Lebanon_Saab/Lebanon_Saab_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Lebanon_Saab/Lebanon_Saab_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "Q96",
+          "livingsituation_13_TEXT",
+          "course_127_TEXT",
+          "study_year_5_TEXT",
+          "Q88",
+          "religion_10_TEXT",
+          "Q85",
+          "Q85_9_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT",
+          "ethnic_background_2_TEXT",
+          "ethnic_background_10_TEXT",
+          "Q82",
+          "Q89",
+          "To what extent are y",
+          "On the whole, men ma_1",
+          "On the whole, men ma_2",
+          "On the whole, men ma_3",
+          "On the whole, men ma_4",
+          "On the whole, men ma_5",
+          "On the whole, men ma_6",
+          "On the whole, men ma_7",
+          "On the whole, men ma_8",
+          "On the whole, men ma_9",
+          "On the whole, men ma_10",
+          "Q83",
+          "Q83_18_TEXT",
+          "Q84",
+          "Q86",
+          "Q87",
+          "Q92"
+        ]
+      },
+      {
+        "name": "Malaysia_Selvan",
+        "country": "MYS",
+        "status": 1,
+        "dim": [
+          415,
+          207
+        ],
+        "missing_prop": 0.0427,
+        "doc": "raw_data/Malaysia_Selvan/UCOM_Malaysia.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/Malaysia_Selvan/Malaysia_Selvan_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Malaysia_Selvan/Malaysia_Selvan_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT",
+          "Q77",
+          "Q78"
+        ]
+      },
+      {
+        "name": "Nagoya_Keiko",
+        "country": "JPN",
+        "status": 1,
+        "dim": [
+          94,
+          207
+        ],
+        "missing_prop": 0.1508,
+        "doc": "raw_data/Nagoya_Keiko/Japan_-_Keiko_Ishii_.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/Nagoya_Keiko/Nagoya_Keiko_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Nagoya_Keiko/Nagoya_Keiko_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT",
+          "schoolid"
+        ]
+      },
+      {
+        "name": "Netherlands_Otten",
+        "status": 0,
+        "dim": {
+
+        },
+        "n_files": 1,
+        "data": [
+          {
+            "file": "raw_data/Netherlands_Otten/Mannen_en_vrouwen_in_de_Nederlandse_maatschappij_December 21, 2018_12.05.sav",
+            "format": "sav"
+          }
+        ],
+        "unique_vars": {
+
+        }
+      },
+      {
+        "name": "Netherlands_Vink",
+        "country": "NLD",
+        "status": 1,
+        "dim": [
+          219,
+          201
+        ],
+        "missing_prop": 0.1426,
+        "doc": "raw_data/Netherlands_Vink/UCOM-_Dutch-_CLEAN_FORMATTING_1.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/Netherlands_Vink/Netherlands_Vink_ChoiceValues.sav",
+            "format": "sav"
+          },
+          {
+            "file": "raw_data/Netherlands_Vink/Netherlands_Vink_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "citizenship_4_TEXT",
+          "migration_background_3_TEXT",
+          "Q136",
+          "Q136_2_TEXT"
+        ]
+      },
+      {
+        "name": "NewZealand_McNamara",
+        "country": "NZL",
+        "status": 1,
+        "dim": [
+          341,
+          214
+        ],
+        "missing_prop": 0.0926,
+        "n_files": 1,
+        "data": [
+          {
+            "file": "raw_data/NewZealand_McNamara/NewZealand_McNamara_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "Q77",
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT",
+          "ethnic_background_DO_1",
+          "ethnic_background_DO_2",
+          "ethnic_background_DO_12",
+          "ethnic_background_DO_14",
+          "ethnic_background_DO_13",
+          "ethnic_background_DO_3",
+          "ethnic_background_DO_4",
+          "ethnic_background_DO_5",
+          "ethnic_background_DO_6",
+          "ethnic_background_DO_7",
+          "ethnic_background_DO_9"
+        ]
+      },
+      {
+        "name": "Norway_Olsson",
+        "country": "NOR",
+        "status": 1,
+        "dim": [
+          777,
+          203
+        ],
+        "missing_prop": 0.5019,
+        "doc": "raw_data/Norway_Olsson/Norway_Olsson_Questionnaire.docx",
+        "n_files": 4,
+        "data": [
+          {
+            "file": "raw_data/Norway_Olsson/Norway_Olsson_Part1_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Norway_Olsson/Norway_Olsson_Part1_NumericValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Norway_Olsson/Norway_Olsson_Part2_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Norway_Olsson/Norway_Olsson_Part2_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_2_TEXT",
+          "migration_background_3_TEXT"
+        ]
+      },
+      {
+        "name": "Pakistan_Bushra",
+        "country": "PAK",
+        "status": 1,
+        "dim": [
+          586,
+          206
+        ],
+        "missing_prop": 0.3843,
+        "doc": "raw_data/Pakistan_Bushra/Pakistan_-_Bushra.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/Pakistan_Bushra/Pakistan_Bushra_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Pakistan_Bushra/Pakistan_Bushra_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT"
+        ]
+      },
+      {
+        "name": "Serbia_Zezelj",
+        "country": "SRB",
+        "status": 1,
+        "dim": [
+          742,
+          206
+        ],
+        "missing_prop": 0.3249,
+        "doc": "raw_data/Serbia_Zezelj/Serbia_-_Marija.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/Serbia_Zezelj/Serbia_Zezelj_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Serbia_Zezelj/Serbia_Zezelj_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT",
+          "Q77"
+        ]
+      },
+      {
+        "name": "Sweden_Bäck",
+        "status": 0,
+        "dim": {
+
+        },
+        "doc": "raw_data/Sweden_Bäck/Studie_om_attityder_till_roller_och_yrkesval.docx",
+        "n_files": 6,
+        "data": [
+          {
+            "file": "raw_data/Sweden_Bäck/HEED+-+Studie+om+attityder+till+roller+och+yrkesval_December+19,+2018_11.27.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Sweden_Bäck/HEED+-+Studie+om+attityder+till+roller+och+yrkesval_December+19,+2018_11.33.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Sweden_Bäck/Psykologistudenter+-+Studie+om+attityder+till+roller+och+yrkesval+-+Psykologistudenter_December+19,+2018_11.38.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Sweden_Bäck/Psykologistudenter+-+Studie+om+attityder+till+roller+och+yrkesval+-+Psykologistudenter_December+19,+2018_11.39.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Sweden_Bäck/STEM+-+Studie+om+attityder+till+roller+och+yrkesval_December+19,+2018_11.37.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Sweden_Bäck/STEM+-+Studie+om+attityder+till+roller+och+yrkesval_December+19,+2018_11.38.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": {
+
+        }
+      },
+      {
+        "name": "Switzerland_Nikitin",
+        "country": "CHE",
+        "status": 1,
+        "dim": [
+          271,
+          205
+        ],
+        "missing_prop": 0.2458,
+        "doc": "raw_data/Switzerland_Nikitin/Switzerland_German_Nikitin_Questionnaire.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/Switzerland_Nikitin/Switzerland_Nikitin_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Switzerland_Nikitin/Switzerland_Nikitin_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_2_TEXT",
+          "migration_background_4_TEXT",
+          "migration_background_3_TEXT",
+          "regional_background"
+        ]
+      },
+      {
+        "name": "Switzerland_Sczesny",
+        "country": "CHE",
+        "status": 1,
+        "dim": [
+          274,
+          207
+        ],
+        "missing_prop": 0.201,
+        "doc": "raw_data/Switzerland_Sczesny/Switzerland_Bern_Sczesny.docx",
+        "n_files": 4,
+        "data": [
+          {
+            "file": "raw_data/Switzerland_Sczesny/Switzerland_Sczesny_Part1_choice.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Switzerland_Sczesny/Switzerland_Sczesny_Part1_numeric.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Switzerland_Sczesny/Switzerland_Sczesny_Part2_choice.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Switzerland_Sczesny/Switzerland_Sczesny_Part2_numeric.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT",
+          "Q78"
+        ]
+      },
+      {
+        "name": "Toronto_Hall",
+        "country": "CAN",
+        "status": 1,
+        "dim": [
+          263,
+          206
+        ],
+        "missing_prop": 0.0734,
+        "doc": "raw_data/Toronto_Hall/ucom.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/Toronto_Hall/Toronto_Hall_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Toronto_Hall/Toronto_Hall_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT",
+          "Q77"
+        ]
+      },
+      {
+        "name": "Turkey_Gungor",
+        "country": "TUR",
+        "status": 1,
+        "dim": [
+          209,
+          203
+        ],
+        "missing_prop": 0.2193,
+        "doc": "raw_data/Turkey_Gungor/UCOM_Gungor_Questionnaire.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/Turkey_Gungor/Turkey_Gungor_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Turkey_Gungor/Turkey_Gungor_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT",
+          "Q77"
+        ]
+      },
+      {
+        "name": "Turkey_Kunurgu",
+        "country": "TUR",
+        "status": 1,
+        "dim": [
+          931,
+          203
+        ],
+        "missing_prop": 0.3669,
+        "doc": "raw_data/Turkey_Kunurgu/Turkey_Kunurgu_questionnaire.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/Turkey_Kunurgu/Turkey_Kunurgu_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Turkey_Kunurgu/Turkey_Kunurgu_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT",
+          "Q77"
+        ]
+      },
+      {
+        "name": "UMass_Rodriguez",
+        "country": "USA",
+        "status": 1,
+        "dim": [
+          259,
+          208
+        ],
+        "missing_prop": 0.0824,
+        "doc": "raw_data/UMass_Rodriguez/UMASS_Rodriguez.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/UMass_Rodriguez/UMass_Rodriguez_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/UMass_Rodriguez/UMass_Rodriguez_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "Q81",
+          "Q78",
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT",
+          "Q79"
+        ]
+      },
+      {
+        "name": "USA_Devos",
+        "country": "USA",
+        "status": 1,
+        "dim": [
+          577,
+          196
+        ],
+        "missing_prop": 0.0244,
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/USA_Devos/USA_Devos_ChoiceValues.sav",
+            "format": "sav"
+          },
+          {
+            "file": "raw_data/USA_Devos/USA_Devos_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "ICF",
+          "livingsituation_TEXT",
+          "religion_TEXT",
+          "sexual_orientation_TEXT",
+          "migration_background_TEXT",
+          "source",
+          "site"
+        ]
+      },
+      {
+        "name": "Waterloo_Bergsieker",
+        "country": "CAN",
+        "status": 1,
+        "dim": [
+          463,
+          208
+        ],
+        "missing_prop": 0.0724,
+        "doc": "raw_data/Waterloo_Bergsieker/UCOM_Survey.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "raw_data/Waterloo_Bergsieker/Waterloo_Bergsieker_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "raw_data/Waterloo_Bergsieker/Waterloo_Bergsieker_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": [
+          "Consent",
+          "livingsituation_13_TEXT",
+          "religion_10_TEXT",
+          "sexual_orientation_7_TEXT",
+          "migration_background_3_TEXT",
+          "Type"
+        ]
+      }
+    ]
+  }
+]
+

@@ -46,7 +46,7 @@ all_dfs <- purrr::map2(csv_path,
                 other_vars = other_vars)
 
 # convert course numeric to character
-meesage('Do some conversions before merging.......')
+message('Do some conversions before merging.......')
 converted_all_dfs <- all_dfs %>%
       purrr::map(~ dplyr::mutate(.x,
                                  course=as.character(course),
@@ -54,11 +54,8 @@ converted_all_dfs <- all_dfs %>%
                                  citizenship=as.character(citizenship),
                                  Finished=as.logical(Finished)))
 
-message('Merging the all data set....')
+message('Merging all the data set....')
 merged_df <- dplyr::bind_rows(converted_all_dfs)
-# merged_df <- purrr::map_dfr(csv_path,
-#                             readr::read_csv,
-#                             col_types = readr::cols())
 
 message('Checking numeric.....')
 # Integrity check: See if all numeric columns are truly numeric
@@ -70,16 +67,9 @@ test_all_numeric <- merged_df %>%
 message('Is all numeric: ',
         assertthat::assert_that(test_all_numeric))
 
-# getting the range for each numeric variables
-num_range <- merged_df %>%
-      dplyr::select(num_vars) %>%
-      purrr::map(range, na.rm=TRUE)
-
-# getting the variables that are not in the final data frame
-non_num_vars <- purrr::map(non_num_vars_path, readr::read_rds) %>%
-      purrr::flatten_chr() %>%
-      unique()
-exc_vars <- setdiff(non_num_vars, other_vars)
+message('Renaming Duration_seconds.....')
+merged_df <- merged_df %>%
+      dplyr::rename(Duration_seconds='Duration (in seconds)')
 
 message('===== Results Summary =====')
 df_dim <- dim(merged_df)
@@ -87,20 +77,28 @@ message('Data Dimension: ',
         df_dim[1], ' rows, ',
         df_dim[2], ' columns.')
 
-message('Number of excluded variables: ', length(exc_vars))
-
 ################ Write out results #####################
-
 message('===== Writing results =====')
 message('Aggregated CSV: ', get_rel_path(output_path))
 readr::write_csv(merged_df, output_path)
 
+#  ===========================================================
 message('Numeric range: ', get_rel_path(num_range_path))
+
+# getting the range for each numeric variables
+num_range <- merged_df %>%
+      dplyr::select(num_vars) %>%
+      purrr::map(range, na.rm=TRUE)
+
 jsonlite::write_json(num_range,
                      num_range_path,
                      pretty=TRUE)
 
+#  ===========================================================
+# getting the variables that are not in the final data frame
 message('Excluded variables: ', get_rel_path(exc_vars_path))
+exc_vars  <- get_exc_vars(non_num_vars_path, other_vars)
+message('Number of excluded variables: ', length(unique(unlist(exc_vars))))
 jsonlite::write_json(exc_vars,
                      exc_vars_path,
                      pretty=3)

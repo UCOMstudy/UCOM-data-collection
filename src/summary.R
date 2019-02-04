@@ -1,44 +1,74 @@
 #!/usr/bin/env Rscript
-
+options(warn = 0)
 ## Get all the paths
-library(magrittr)
+suppressMessages(library(dplyr))
+message('========== Creating metadata summary ... ==========')
 
 # get all paths
-all_files <- fs::dir_ls('./raw_data/', type = 'file', recursive = TRUE)
-splited_path <- fs::path_split(all_files)
+data_path <- here::here("cleaned_data")
+all_sites <- fs::dir_ls('cleaned_data', type = 'directory')
+site_names <- all_sites %>% fs::path_file()
+raw_files <- fs::dir_ls('raw_data', type = 'file', recursive = TRUE)
+raw_site_names <- raw_files %>% fs::path_dir() %>% fs::path_file()
+file_names <- raw_files %>% fs::path_file()
 
+output_path <- here::here('aggregated_data', 'summary.json')
+
+# retrieve summary data for cleaned sites
+message('Prepare...Summary for cleaned sites...')
+summary_rds <-
+      purrr::map(file.path(all_sites, 'summary.rds'),
+                      readr::read_rds) %>%
+      purrr::set_names(site_names)
+
+col_names <- names(summary_rds[[1]])
+merged_summary <- summary_rds %>%
+      purrr::map_dfr(
+            ~ t(as.matrix(.x)) %>%
+                  tibble::as_tibble() %>%
+                  purrr::set_names(col_names) %>%
+                  tidyr::unnest(name, country, missing_prop, status))
+
+message('Prepare... Raw files...')
 # put source and file into one data frame
-source <- splited_path %>% purrr::map_chr(3)
-file <- splited_path %>% purrr::map_chr(4)
-meta <- tibble::tibble(source, file)
-
-### Format of file
-meta <- meta %>%
-      dplyr::mutate(format = fs::path_ext(file))
+meta <- tibble::tibble(name = as.character(raw_site_names),
+                       file = raw_files) %>%
+      # Format of files
+      dplyr::mutate(format = fs::path_ext(!! quo(file)))
 
 # questionaries .docx for latter useage
 doc <- meta %>%
       dplyr::filter(format == 'docx') %>%
-      dplyr::select(-format, doc = file)
+      dplyr::select(-format, doc = !! quo(file))
 
+# remove doc rows.
 meta_nodoc <- meta %>% dplyr::filter(format != 'docx')
 
-country_map <- ucom::country_codes %>%
-      dplyr::select(country_code, Country)
+# put everything together
+message('Prepare... Metadata summary ...')
+meta_nested <- meta_nodoc  %>%
+      add_count(name) %>%
+      rename(n_files = n) %>%
+      tidyr::nest(file, format)
 
-meta_country <- meta_nodoc %>%
-      dplyr::mutate(country = stringr::str_extract(source, '[:alpha:]*(?=_)'),
-                    collaborator = stringr::str_extract(source, '(?<=_).*')) %>%
-      # map country code
-      dplyr::left_join(country_map, by = c('country' = 'Country'))
+meta_merged <- meta_nested %>%
+      left_join(merged_summary, by = c('name' = 'name')) %>%
+      left_join(doc, by = c('name' = 'name')) %>%
+      # rearrange columns
+      select(name, country,
+             status, dim,
+             missing_prop, doc,
+             everything()) %>%
+      # fill na with 0
+      tidyr::replace_na(list(status = 0))
 
-meta_nested <- meta_country %>%
-      dplyr::left_join(doc) %>%
-      dplyr::group_by(source, country_code, doc) %>%
-      dplyr::select(-country, -collaborator) %>%
-      tidyr::nest()
+meta_final <- meta_merged %>%
+      mutate(total_sites = n(),
+             cleaned_sites = sum(status)) %>%
+      tidyr::nest(- total_sites, - cleaned_sites,
+                  .key = 'sources')
 
-meta_nested %>%
-      jsonlite::write_json(here::here('data_summary.json'),
-                           pretty = 2,
-                           na = 'null')
+
+meta_final %>%
+      jsonlite::write_json(output_path,
+                          pretty = 2)

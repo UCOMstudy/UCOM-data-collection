@@ -50,9 +50,8 @@ summary: $(SRC)/summary.R
 
 merge: $(SRC)/merge_data.R
 	@echo "=========== Merging data ===========";
-	@echo "Start time: $(TIME)"; 
-	Rscript $< $(REDIRECT)
-	@echo "Finished at: $(TIME)"; 
+	@echo "Start time: $(TIME)"; \
+	Rscript $< $(REDIRECT) && echo "Finished at: $(TIME)"; 
 
 .ONESHELL: check
 check:
