@@ -75,17 +75,15 @@ read_cleaned_data <- function(df_path,
 #' Write the result: variable .rds file
 #'
 #' @param path path to output num_vars.rds and non_num_vars.rds
-#' @param all_vars a vector of all variables
 #' @param num_vars a vector of numeric variables
+#' @param non_num_vars a vector of non-numeric variables
 #'
 #' @rdname pipeline_io
 #' @return `num_vars.rds` & `non_num_vars.rds` to the output path
 #' @export
 write_vars_rds <- function(path,
-                           all_vars,
-                           num_vars) {
-
-      non_num_vars <- setdiff(all_vars, num_vars)
+                           num_vars,
+                           non_num_vars) {
 
       num_vars %>% readr::write_rds(path = file.path(path, 'num_vars.rds'))
       non_num_vars %>% readr::write_rds(path = file.path(path, 'non_num_vars.rds'))
@@ -96,7 +94,7 @@ write_vars_rds <- function(path,
 #' @param choice_df Choice data frame or transformed one if necessary
 #' @param country_code Default NULL, if provided, will use the provided one instead of
 #'      figuring out itself.
-#'
+#' @param all_vars a vector of all variables
 #' @rdname pipeline_io
 #' @return A csv file with the site name: `site.csv`
 #' @export
@@ -146,10 +144,22 @@ write_results <- function(choice_df,
                                                     site)
       }
 
+      # write data summary
+      non_num_vars <- setdiff(all_vars, num_vars)
+
+      df_summary <- get_summary(out_df)
+      unique_vars <- non_num_vars %>%
+            remove_gen() %>%
+            remove_text()
+      final_summary <- c(df_summary,
+                         list(unique_vars = unique_vars))
+      final_summary %>%
+            readr::write_rds(path = file.path(output_path, 'summary.rds'))
+
       # write variables
       write_vars_rds(path = output_path,
-                     all_vars,
-                     num_vars)
+                     num_vars = num_vars,
+                     non_num_vars = non_num_vars)
 
       message('Country: ', country_code)
       message('Site: ', site)

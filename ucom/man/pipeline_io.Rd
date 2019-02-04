@@ -12,7 +12,7 @@ get_raw_data(site, type, start_row = 3, file_name = NULL,
 
 read_cleaned_data(df_path, num_vars_path, other_vars)
 
-write_vars_rds(path, all_vars, num_vars)
+write_vars_rds(path, num_vars, non_num_vars)
 
 write_results(choice_df, all_vars, num_vars, country_code = NULL)
 }
@@ -35,11 +35,13 @@ write_results(choice_df, all_vars, num_vars, country_code = NULL)
 
 \item{path}{path to output num_vars.rds and non_num_vars.rds}
 
-\item{all_vars}{a vector of all variables}
-
 \item{num_vars}{a vector of numeric variables}
 
+\item{non_num_vars}{a vector of non-numeric variables}
+
 \item{choice_df}{Choice data frame or transformed one if necessary}
+
+\item{all_vars}{a vector of all variables}
 
 \item{country_code}{Default NULL, if provided, will use the provided one instead of
 figuring out itself.}

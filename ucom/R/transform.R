@@ -62,18 +62,29 @@ convert_choiceDF <- function(df, var_names) {
 #'
 #' @param vars A vector of original variables
 #' @param remove_vars A vector of variables to remove
+#' @param pattern A regex pattern used to remove matching variables
 #' @rdname remove
 #' @return A vector of variables after removing
 #' @export
-remove <- function(vars, remove_vars) {
+remove <- function(vars,
+                   remove_vars = NULL,
+                   pattern  = NULL) {
 
-      vars <- vars[!vars %in% remove_vars]
+      output <- vars
+      if (!is.null(remove_vars)) {
+            output <- output[!output %in% remove_vars]
+      }
 
-      return(vars)
+      if (!is.null(pattern)) {
+            output <- output[!stringr::str_detect(output, pattern)]
+      }
+
+      return(output)
 }
 
 #' Remove survey general variables
 #'
+#' @details Refert to `ucom::gen_vars` for default variables to exclude
 #' @rdname remove
 #' @export
 remove_gen <- function(vars) {
@@ -84,17 +95,13 @@ remove_gen <- function(vars) {
 
 #' Remove text variables
 #'
-#' @param pattern A regex pattern used to remove matching variables
-#'
+#' @details Refert to `ucom::text_vars` for default variables to exclude
 #' @rdname remove
 #' @export
 
-remove_text <- function(vars, pattern=NULL) {
+remove_text <- function(vars) {
       output <- remove(vars,
                        ucom::text_vars)
-      if (!is.null(pattern)) {
-            output <- output[!stringr::str_detect(output, pattern)]
-      }
       return(output)
 }
 
@@ -108,7 +115,8 @@ remove_text <- function(vars, pattern=NULL) {
 get_num_vars <- function(vars, pattern=NULL) {
       output <- vars %>%
             remove_gen() %>%
-            remove_text(pattern = pattern)
+            remove_text() %>%
+            remove(pattern = pattern)
       return(output)
 }
 
@@ -126,10 +134,10 @@ map_values <- function(values, mapping) {
 #' @return The country code of the Country name
 #' @export
 get_country_code <- function(country) {
-
+      rhs_country <- dplyr::enquo(country)
       code <- ucom::country_codes %>%
-            dplyr::filter(Country == country) %>%
-            dplyr::pull(country_code)
+            dplyr::filter(!! dplyr::quo(Country) == !! rhs_country) %>%
+            dplyr::pull(!! dplyr::quo(country_code))
 
       return(code)
 }
@@ -144,10 +152,11 @@ get_country_code <- function(country) {
 #' @rdname country_code
 #' @export
 create_country_and_site <- function(df, code, site) {
-
+      quo_code <- dplyr::enquo(code)
+      quo_site <- dplyr::enquo(site)
       out_df <- df %>%
-            dplyr::mutate(country = code,
-                   site = site) %>%
+            dplyr::mutate(country = !! code,
+                   site = !! site) %>%
             dplyr::select(country, site,
                           dplyr::everything())
       return(out_df)

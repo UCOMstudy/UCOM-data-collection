@@ -7,11 +7,11 @@
 \alias{get_num_vars}
 \title{Remove certain variables in a vector}
 \usage{
-remove(vars, remove_vars)
+remove(vars, remove_vars = NULL, pattern = NULL)
 
 remove_gen(vars)
 
-remove_text(vars, pattern = NULL)
+remove_text(vars)
 
 get_num_vars(vars, pattern = NULL)
 }
@@ -28,4 +28,9 @@ A vector of variables after removing
 \description{
 Get numeric variables by
   remove survey general variables and text variables.
+}
+\details{
+Refert to `ucom::gen_vars` for default variables to exclude
+
+Refert to `ucom::text_vars` for default variables to exclude
 }
