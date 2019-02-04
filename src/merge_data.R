@@ -52,7 +52,7 @@ converted_all_dfs <- all_dfs %>%
                                  course=as.character(course),
                                  study_year=as.character(study_year),
                                  citizenship=as.character(citizenship),
-                                 Finished=as.logical(Finished)))
+                                 finished=as.logical(finished)))
 
 message('Merging all the data set....')
 merged_df <- dplyr::bind_rows(converted_all_dfs)
@@ -66,10 +66,6 @@ test_all_numeric <- merged_df %>%
       as.matrix() %>% all()
 message('Is all numeric: ',
         assertthat::assert_that(test_all_numeric))
-
-message('Renaming Duration_seconds.....')
-merged_df <- merged_df %>%
-      dplyr::rename(Duration_seconds='Duration (in seconds)')
 
 message('===== Results Summary =====')
 df_dim <- dim(merged_df)

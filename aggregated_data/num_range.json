@@ -97,8 +97,8 @@
   "proximal_domestic_3": [1, 7],
   "proximal_domestic_4": [1, 7],
   "proximal_domestic_5": [1, 7],
-  "Intensive_parenting_1": [1, 7],
-  "Intensive_parenting_2": [1, 7],
+  "intensive_parenting_1": [1, 7],
+  "intensive_parenting_2": [1, 7],
   "react_domestic_1": [1, 7],
   "react_domestic_2": [1, 7],
   "react_domestic_3": [1, 7],
@@ -157,11 +157,9 @@
   "manhood_2": [1, 7],
   "age": [0, 99],
   "religiosity": [1, 7],
-  "SES": [0, 10],
+  "ses": [0, 10],
   "political": [1, 7],
+  "expected_share_12": [0, 100],
   "real_parentalleave": [0, 100],
-  "intensive_parenting_1": [1, 7],
-  "intensive_parenting_2": [1, 7],
-  "exp_domestic_4": [1, 7],
-  "expected_share_12": [0, 100]
+  "exp_domestic_4": [1, 7]
 }

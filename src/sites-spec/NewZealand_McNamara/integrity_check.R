@@ -11,7 +11,7 @@ message('===== Loading data =====')
 site <- get_current_site()
 
 message('Only numeric data available for this site')
-numeric_df <- get_raw_data(site, 'Numeric')
+numeric_df <- get_raw_data(site, 'Numeric') %>% convert_names()
 
 ################ Checking #####################
 
@@ -20,7 +20,7 @@ all_vars <- colnames(numeric_df)
 
 num_vars <- all_vars %>%
       # a list of "ethnic_background_DO_*" encoded as numeric
-      get_num_vars('(^Q[0-9]+)|(TEXT)|(ethnic_background_DO)')
+      get_num_vars('(^q[0-9]+)|(text)|(ethnic_background_do)')
 
 converted_numeric_df <- convert_choiceDF(numeric_df, num_vars)
 check_vars(numeric_df, converted_numeric_df, num_vars)
@@ -31,7 +31,7 @@ message('Manual transformation for future merging:\n',
         '1. transform "Finished" to logical.\n',
         '2. map "gender" to "Male" or "Female"')
 mutated_numeric_df <-
-      numeric_df %>% dplyr::mutate(Finished = as.logical(Finished),
+      numeric_df %>% dplyr::mutate(Finished = as.logical(finished),
                                    gender = dplyr::case_when(
                                          gender == "1" ~ "Male",
                                          gender == "2" ~ "Female"

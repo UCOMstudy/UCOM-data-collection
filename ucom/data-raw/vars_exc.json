@@ -1,10 +1,11 @@
 {
-  "gen_vars": [
+  "original_gen_vars": [
     "StartDate",
     "EndDate",
     "Status",
     "Progress",
     "Duration (in seconds)",
+    "duration_seconds",
     "Finished",
     "RecordedDate",
     "ResponseId",
@@ -23,6 +24,33 @@
     "LocationLatitude",
     "LocationLongitude",
     "LocationAccuracy",
+    "id"
+  ],
+  "gen_vars": [
+    "consent",
+    "startdate",
+    "enddate",
+    "status",
+    "progress",
+    "duration (in seconds)",
+    "duration_seconds",
+    "finished",
+    "recordeddate",
+    "responseid",
+    "responseset",
+    "name",
+    "externaldatareference",
+    "email",
+    "recipientlastname",
+    "recipientfirstname",
+    "recipientemail",
+    "externalreference",
+    "distributionchannel",
+    "userlanguage",
+    "ipaddress",
+    "locationlatitude",
+    "locationlongitude",
+    "locationaccuracy",
     "id"
   ],
   "text_vars": [
@@ -54,4 +82,3 @@
     "parentleave_expectat"
   ]
 }
-

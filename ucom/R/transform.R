@@ -32,7 +32,7 @@ convert_time <- function(x, date_format = NULL ) {
 #' @export
 convert_start_end <- function(df, date_format = NULL) {
       out <- df %>%
-            dplyr::mutate_at(dplyr::vars("StartDate", "EndDate"),
+            dplyr::mutate_at(dplyr::vars("startdate", "enddate"),
                              dplyr::funs(convert_time(., date_format)))
       return(out)
 }
@@ -178,4 +178,19 @@ convert_spss <- function(spss_df) {
 
       out <- readr::read_csv(temp, col_types = readr::cols())
       return(out)
+}
+
+#' Simple conversion of names to make them consistent
+#'
+#' @param df Input data frame
+#'
+#' @return Names converted
+#' @export
+convert_names <- function(df) {
+      # convert names
+      message('Apply to_lower to all names...',
+              'Renaming Duration_seconds...')
+      out_df <- df %>%
+            dplyr::rename_all(dplyr::funs(stringr::str_to_lower)) %>%
+            dplyr::rename(duration_seconds=dplyr::starts_with('duration'))
 }

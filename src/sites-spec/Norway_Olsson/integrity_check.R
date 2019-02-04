@@ -1,35 +1,28 @@
 #!/usr/bin/env Rscript
 
 ################ Set up #####################
-libs <- c(
-      'tidyverse',
-      'rprojroot',
-      'stringr',
-      'here',
-      'ucom'
-)
-invisible(
-      suppressWarnings(suppressMessages(lapply(libs,
-                                               library,
-                                               character.only = TRUE)))
-)
+suppressMessages(library(ucom))
 
 ################ Loading Data #####################
 
 message('\n\n')
-message('Script: ', thisfile())
+script_path <- get_rel_path(rprojroot::thisfile())
+message('Script: ', script_path)
 message('===== Loading data =====')
 site <- get_current_site()
 
-numeric_df1 <- get_raw_data(site, 'Numeric', file_name = 'Norway_Olsson_Part1_NumericValues.csv')
-choice_df1 <- get_raw_data(site, 'Choice', file_name = 'Norway_Olsson_Part1_ChoiceValues.csv')
+numeric_files <- c('Norway_Olsson_Part1_NumericValues.csv',
+                   'Norway_Olsson_Part2_NumericValues.csv')
 
-numeric_df2 <- get_raw_data(site, 'Numeric', file_name = 'Norway_Olsson_Part2_NumericValues.csv')
-choice_df2 <- get_raw_data(site, 'Choice', file_name = 'Norway_Olsson_Part2_ChoiceValues.csv')
+choice_files <- c('Norway_Olsson_Part1_ChoiceValues.csv',
+                  'Norway_Olsson_Part2_ChoiceValues.csv')
 
-numeric_df <- bind_rows(numeric_df1, numeric_df2)
-choice_df <- bind_rows(choice_df1, choice_df2)
-
+numeric_df <- purrr::map_dfr(numeric_files,
+                             ~ get_raw_data(site, 'Numeric',
+                                            file_name = .x)) %>% convert_names()
+choice_df <- purrr::map_dfr(choice_files,
+                            ~ get_raw_data(site, 'Choice',
+                                           file_name = .x)) %>% convert_names()
 ################ Checking #####################
 
 # cross_check(numeric_df, choice_df, text_pattern = ''(^Q[0-9]+)|(TEXT$)')
@@ -38,7 +31,7 @@ message('===== Checking =====')
 all_vars <- colnames(choice_df)
 
 num_vars <- all_vars %>%
-      get_num_vars('(^Q[0-9]+)|(TEXT)')
+      get_num_vars('(^q[0-9]+)|(text)')
 
 converted_choice_df <- convert_choiceDF(choice_df, num_vars)
 check_vars(numeric_df, converted_choice_df, num_vars)

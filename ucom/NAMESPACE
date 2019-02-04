@@ -3,6 +3,7 @@
 export("%>%")
 export(check_vars)
 export(convert_choiceDF)
+export(convert_names)
 export(convert_spss)
 export(convert_start_end)
 export(convert_time)

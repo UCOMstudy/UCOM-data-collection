@@ -21,19 +21,19 @@ choice_df <- haven::read_sav(file.path('raw_data',
 message('Reconstruct variables names')
 temp <- choice_df %>% dplyr::select(V1:V10)
 colnames(choice_df)[1:10] <- temp %>% purrr::map(~ attr(.x,'label'))
-choice_df <- choice_df %>% convert_spss()
+
+message('===== Calculate `duration_seconds`')
+choice_df <- choice_df %>%
+      dplyr::mutate(duration_seconds = EndDate - StartDate)
+choice_df <- choice_df %>% convert_spss() %>% convert_names()
 ################ Checking #####################
 
 message('===== Checking =====')
 all_vars <- colnames(choice_df)
 
 num_vars <- all_vars %>%
-      get_num_vars('(^Q[0-9]+)|(TEXT)')
+      get_num_vars('(^q[0-9]+)|(text)')
 message('No check for this! Only one data set')
-
-message('===== Calculate `Duration (in seconds)`')
-choice_df <- choice_df %>%
-      dplyr::mutate("Duration (in seconds)" = EndDate - StartDate)
 ################ Write out results #####################
 
 message('===== Writing results =====')

@@ -1,14 +1,12 @@
 [
   {
     "total_sites": 35,
-    "cleaned_sites": 30,
+    "cleaned_sites": 31,
     "sources": [
       {
         "name": "Albania_Jasini",
         "status": 0,
-        "dim": {
-
-        },
+        "dim": {},
         "n_files": 1,
         "data": [
           {
@@ -16,19 +14,14 @@
             "format": "xlsx"
           }
         ],
-        "unique_vars": {
-
-        }
+        "unique_vars": {}
       },
       {
         "name": "Australia_Anderson",
         "country": "AUS",
         "status": 1,
-        "dim": [
-          218,
-          206
-        ],
-        "missing_prop": 0.1163,
+        "dim": [218, 207],
+        "missing_prop": 0.1157,
         "n_files": 1,
         "data": [
           {
@@ -36,20 +29,14 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "Q1",
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT"
-        ]
+        "unique_vars": ["q1", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
       },
       {
         "name": "Australia_Dar_Nimrod",
-        "status": 0,
-        "dim": {
-
-        },
+        "country": "AUS",
+        "status": 1,
+        "dim": [335, 207],
+        "missing_prop": 0.0974,
         "n_files": 1,
         "data": [
           {
@@ -57,18 +44,13 @@
             "format": "sav"
           }
         ],
-        "unique_vars": {
-
-        }
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
       },
       {
         "name": "Belgium_Vangrootel",
         "country": "BEL",
         "status": 1,
-        "dim": [
-          493,
-          207
-        ],
+        "dim": [493, 207],
         "missing_prop": 0.1496,
         "doc": "raw_data/Belgium_Vangrootel/Belgium_vangrootel_questionnaire.docx",
         "n_files": 2,
@@ -82,23 +64,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "Q155",
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "citizenship_4_TEXT",
-          "migration_background_3_TEXT"
-        ]
+        "unique_vars": ["q155", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "citizenship_4_text", "migration_background_3_text"]
       },
       {
         "name": "Bolivia_Schulmeyer",
         "country": "BOL",
         "status": 1,
-        "dim": [
-          620,
-          208
-        ],
+        "dim": [620, 208],
         "missing_prop": 0.3052,
         "doc": "raw_data/Bolivia_Schulmeyer/Bolivia_questionnaire.docx",
         "n_files": 2,
@@ -112,26 +84,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT",
-          "father_cultural_ori",
-          "mother_cultural_ori",
-          "own_cultural_origin",
-          "culture_div_labour_1",
-          "culture_div_labour_2"
-        ]
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "father_cultural_ori", "mother_cultural_ori", "own_cultural_origin", "culture_div_labour_1", "culture_div_labour_2"]
       },
       {
         "name": "Canada_Block",
         "country": "CAN",
         "status": 1,
-        "dim": [
-          657,
-          203
-        ],
+        "dim": [657, 203],
         "missing_prop": 0.1031,
         "n_files": 4,
         "data": [
@@ -152,24 +111,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "Q76",
-          "Q75",
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT",
-          "Q78"
-        ]
+        "unique_vars": ["q76", "q75", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q78"]
       },
       {
         "name": "China_Zhao",
         "country": "CHN",
         "status": 1,
-        "dim": [
-          671,
-          211
-        ],
+        "dim": [671, 211],
         "missing_prop": 0.5527,
         "n_files": 1,
         "data": [
@@ -178,30 +126,13 @@
             "format": "sav"
           }
         ],
-        "unique_vars": [
-          "Q1",
-          "Q78",
-          "Q7",
-          "Q12",
-          "Q18",
-          "Q25",
-          "Q51",
-          "livingsituation_TEXT",
-          "religion_TEXT",
-          "sexual_orientation_TEXT",
-          "migration_background_TEXT",
-          "Q75",
-          "Q77"
-        ]
+        "unique_vars": ["q1", "q78", "q7", "q12", "q18", "q25", "q51", "livingsituation_text", "religion_text", "sexual_orientation_text", "migration_background_text", "q75", "q77"]
       },
       {
         "name": "Colombia_Meister",
         "country": "COL",
         "status": 1,
-        "dim": [
-          259,
-          208
-        ],
+        "dim": [259, 208],
         "missing_prop": 0.2161,
         "doc": "raw_data/Colombia_Meister/Colombia_Meister.docx",
         "n_files": 2,
@@ -215,24 +146,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "Q80",
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT",
-          "livingsituation_13_TEXT - Topics",
-          "sexual_orientation_7_TEXT - Topics"
-        ]
+        "unique_vars": ["q80", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "livingsituation_13_text - topics", "sexual_orientation_7_text - topics"]
       },
       {
         "name": "CostaRica_Castro",
         "country": "CRI",
         "status": 1,
-        "dim": [
-          382,
-          204
-        ],
+        "dim": [382, 204],
         "missing_prop": 0.4125,
         "doc": "raw_data/CostaRica_Castro/CostaRica_Castro_QUESTIONNAIRE.docx",
         "n_files": 2,
@@ -246,21 +166,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT"
-        ]
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
       },
       {
         "name": "Croatia_Franc",
         "country": "HRV",
         "status": 1,
-        "dim": [
-          830,
-          207
-        ],
+        "dim": [830, 207],
         "missing_prop": 0.3762,
         "doc": "raw_data/Croatia_Franc/Croatian_--_Ines.docx",
         "n_files": 2,
@@ -274,22 +186,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT",
-          "Q78"
-        ]
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q78"]
       },
       {
         "name": "Ethiopia_Lemma",
         "country": "ETH",
         "status": 1,
-        "dim": [
-          234,
-          203
-        ],
+        "dim": [234, 203],
         "missing_prop": 0.055,
         "doc": "raw_data/Ethiopia_Lemma/Ethiopia_questionnaire.docx",
         "n_files": 2,
@@ -303,21 +206,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT"
-        ]
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
       },
       {
         "name": "France_Regner",
         "country": "FRA",
         "status": 1,
-        "dim": [
-          307,
-          203
-        ],
+        "dim": [307, 203],
         "missing_prop": 0.1606,
         "doc": "raw_data/France_Regner/France_Questionnaire.docx",
         "n_files": 2,
@@ -331,21 +226,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT"
-        ]
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
       },
       {
         "name": "Germany_Hoppe",
         "country": "DEU",
         "status": 1,
-        "dim": [
-          232,
-          205
-        ],
+        "dim": [232, 205],
         "missing_prop": 0.0809,
         "doc": "raw_data/Germany_Hoppe/Germany_Hoppe_Questionnaire.docx",
         "n_files": 2,
@@ -359,24 +246,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_2_TEXT",
-          "migration_background_3_TEXT",
-          "part_germany",
-          "consent"
-        ]
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_2_text", "migration_background_3_text", "part_germany"]
       },
       {
         "name": "Germany_Steffens",
         "country": "DEU",
         "status": 1,
-        "dim": [
-          532,
-          233
-        ],
+        "dim": [532, 233],
         "missing_prop": 0.382,
         "doc": "raw_data/Germany_Steffens/Germany_Steffens_Questionnaire.docx",
         "n_files": 2,
@@ -390,50 +266,12 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "Q79",
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_2_TEXT",
-          "migration_background_3_TEXT",
-          "Q84",
-          "Q86",
-          "Q87",
-          "Q88",
-          "Q89",
-          "Q90_1",
-          "Q90_2",
-          "Q90_3",
-          "Q90_4",
-          "Q91_1",
-          "Q91_2",
-          "Q91_3",
-          "Q91_4",
-          "Q91_5",
-          "Q91_6",
-          "Q91_7",
-          "Q91_8",
-          "Q81",
-          "Q80",
-          "Q82",
-          "Q83_1",
-          "Q83_2",
-          "Q83_3",
-          "Q83_4",
-          "Q83_5",
-          "Q83_6",
-          "Q83_7",
-          "Q83_8",
-          "Q92"
-        ]
+        "unique_vars": ["q79", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_2_text", "migration_background_3_text", "q84", "q86", "q87", "q88", "q89", "q90_1", "q90_2", "q90_3", "q90_4", "q91_1", "q91_2", "q91_3", "q91_4", "q91_5", "q91_6", "q91_7", "q91_8", "q81", "q80", "q82", "q83_1", "q83_2", "q83_3", "q83_4", "q83_5", "q83_6", "q83_7", "q83_8", "q92"]
       },
       {
         "name": "Ireland_Bosak",
         "status": 0,
-        "dim": {
-
-        },
+        "dim": {},
         "n_files": 3,
         "data": [
           {
@@ -449,18 +287,13 @@
             "format": "sav"
           }
         ],
-        "unique_vars": {
-
-        }
+        "unique_vars": {}
       },
       {
         "name": "Kansas_Xian",
         "country": "USA",
         "status": 1,
-        "dim": [
-          873,
-          211
-        ],
+        "dim": [873, 211],
         "missing_prop": 0.1392,
         "n_files": 1,
         "data": [
@@ -469,30 +302,13 @@
             "format": "sav"
           }
         ],
-        "unique_vars": [
-          "Q77",
-          "Q1",
-          "Q7",
-          "Q12",
-          "Q18",
-          "Q25",
-          "Q51",
-          "livingsituation_TEXT",
-          "religion_TEXT",
-          "sexual_orientation_TEXT",
-          "migration_background_TEXT",
-          "Q78",
-          "Q78_TEXT"
-        ]
+        "unique_vars": ["q77", "q1", "q7", "q12", "q18", "q25", "q51", "livingsituation_text", "religion_text", "sexual_orientation_text", "migration_background_text", "q78", "q78_text"]
       },
       {
         "name": "Kobe_Keiko",
         "country": "JPN",
         "status": 1,
-        "dim": [
-          290,
-          207
-        ],
+        "dim": [290, 207],
         "missing_prop": 0.2684,
         "doc": "raw_data/Kobe_Keiko/Japan_-_Keiko_Ishii_.docx",
         "n_files": 2,
@@ -506,22 +322,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT",
-          "schoolid"
-        ]
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "schoolid"]
       },
       {
         "name": "Lebanon_Saab",
         "country": "LBN",
         "status": 1,
-        "dim": [
-          245,
-          229
-        ],
+        "dim": [245, 229],
         "missing_prop": 0.1188,
         "doc": "raw_data/Lebanon_Saab/Lebanon_saab_questionnaire.docx",
         "n_files": 2,
@@ -535,48 +342,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "Q96",
-          "livingsituation_13_TEXT",
-          "course_127_TEXT",
-          "study_year_5_TEXT",
-          "Q88",
-          "religion_10_TEXT",
-          "Q85",
-          "Q85_9_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT",
-          "ethnic_background_2_TEXT",
-          "ethnic_background_10_TEXT",
-          "Q82",
-          "Q89",
-          "To what extent are y",
-          "On the whole, men ma_1",
-          "On the whole, men ma_2",
-          "On the whole, men ma_3",
-          "On the whole, men ma_4",
-          "On the whole, men ma_5",
-          "On the whole, men ma_6",
-          "On the whole, men ma_7",
-          "On the whole, men ma_8",
-          "On the whole, men ma_9",
-          "On the whole, men ma_10",
-          "Q83",
-          "Q83_18_TEXT",
-          "Q84",
-          "Q86",
-          "Q87",
-          "Q92"
-        ]
+        "unique_vars": ["q96", "livingsituation_13_text", "course_127_text", "study_year_5_text", "q88", "religion_10_text", "q85", "q85_9_text", "sexual_orientation_7_text", "migration_background_3_text", "ethnic_background_2_text", "ethnic_background_10_text", "q82", "q89", "to what extent are y", "on the whole, men ma_1", "on the whole, men ma_2", "on the whole, men ma_3", "on the whole, men ma_4", "on the whole, men ma_5", "on the whole, men ma_6", "on the whole, men ma_7", "on the whole, men ma_8", "on the whole, men ma_9", "on the whole, men ma_10", "q83", "q83_18_text", "q84", "q86", "q87", "q92"]
       },
       {
         "name": "Malaysia_Selvan",
         "country": "MYS",
         "status": 1,
-        "dim": [
-          415,
-          207
-        ],
+        "dim": [415, 207],
         "missing_prop": 0.0427,
         "doc": "raw_data/Malaysia_Selvan/UCOM_Malaysia.docx",
         "n_files": 2,
@@ -590,23 +362,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT",
-          "Q77",
-          "Q78"
-        ]
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q77", "q78"]
       },
       {
         "name": "Nagoya_Keiko",
         "country": "JPN",
         "status": 1,
-        "dim": [
-          94,
-          207
-        ],
+        "dim": [94, 207],
         "missing_prop": 0.1508,
         "doc": "raw_data/Nagoya_Keiko/Japan_-_Keiko_Ishii_.docx",
         "n_files": 2,
@@ -620,20 +382,12 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT",
-          "schoolid"
-        ]
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "schoolid"]
       },
       {
         "name": "Netherlands_Otten",
         "status": 0,
-        "dim": {
-
-        },
+        "dim": {},
         "n_files": 1,
         "data": [
           {
@@ -641,18 +395,13 @@
             "format": "sav"
           }
         ],
-        "unique_vars": {
-
-        }
+        "unique_vars": {}
       },
       {
         "name": "Netherlands_Vink",
         "country": "NLD",
         "status": 1,
-        "dim": [
-          219,
-          201
-        ],
+        "dim": [219, 201],
         "missing_prop": 0.1426,
         "doc": "raw_data/Netherlands_Vink/UCOM-_Dutch-_CLEAN_FORMATTING_1.docx",
         "n_files": 2,
@@ -666,25 +415,14 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "citizenship_4_TEXT",
-          "migration_background_3_TEXT",
-          "Q136",
-          "Q136_2_TEXT"
-        ]
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "citizenship_4_text", "migration_background_3_text", "q136", "q136_2_text"]
       },
       {
         "name": "NewZealand_McNamara",
         "country": "NZL",
         "status": 1,
-        "dim": [
-          341,
-          214
-        ],
-        "missing_prop": 0.0926,
+        "dim": [341, 215],
+        "missing_prop": 0.0922,
         "n_files": 1,
         "data": [
           {
@@ -692,33 +430,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "Q77",
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT",
-          "ethnic_background_DO_1",
-          "ethnic_background_DO_2",
-          "ethnic_background_DO_12",
-          "ethnic_background_DO_14",
-          "ethnic_background_DO_13",
-          "ethnic_background_DO_3",
-          "ethnic_background_DO_4",
-          "ethnic_background_DO_5",
-          "ethnic_background_DO_6",
-          "ethnic_background_DO_7",
-          "ethnic_background_DO_9"
-        ]
+        "unique_vars": ["q77", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "ethnic_background_do_1", "ethnic_background_do_2", "ethnic_background_do_12", "ethnic_background_do_14", "ethnic_background_do_13", "ethnic_background_do_3", "ethnic_background_do_4", "ethnic_background_do_5", "ethnic_background_do_6", "ethnic_background_do_7", "ethnic_background_do_9"]
       },
       {
         "name": "Norway_Olsson",
         "country": "NOR",
         "status": 1,
-        "dim": [
-          777,
-          203
-        ],
+        "dim": [777, 203],
         "missing_prop": 0.5019,
         "doc": "raw_data/Norway_Olsson/Norway_Olsson_Questionnaire.docx",
         "n_files": 4,
@@ -740,22 +458,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_2_TEXT",
-          "migration_background_3_TEXT"
-        ]
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_2_text", "migration_background_3_text"]
       },
       {
         "name": "Pakistan_Bushra",
         "country": "PAK",
         "status": 1,
-        "dim": [
-          586,
-          206
-        ],
+        "dim": [586, 206],
         "missing_prop": 0.3843,
         "doc": "raw_data/Pakistan_Bushra/Pakistan_-_Bushra.docx",
         "n_files": 2,
@@ -769,21 +478,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT"
-        ]
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
       },
       {
         "name": "Serbia_Zezelj",
         "country": "SRB",
         "status": 1,
-        "dim": [
-          742,
-          206
-        ],
+        "dim": [742, 206],
         "missing_prop": 0.3249,
         "doc": "raw_data/Serbia_Zezelj/Serbia_-_Marija.docx",
         "n_files": 2,
@@ -797,20 +498,12 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT",
-          "Q77"
-        ]
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q77"]
       },
       {
         "name": "Sweden_Bäck",
         "status": 0,
-        "dim": {
-
-        },
+        "dim": {},
         "doc": "raw_data/Sweden_Bäck/Studie_om_attityder_till_roller_och_yrkesval.docx",
         "n_files": 6,
         "data": [
@@ -839,18 +532,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": {
-
-        }
+        "unique_vars": {}
       },
       {
         "name": "Switzerland_Nikitin",
         "country": "CHE",
         "status": 1,
-        "dim": [
-          271,
-          205
-        ],
+        "dim": [271, 205],
         "missing_prop": 0.2458,
         "doc": "raw_data/Switzerland_Nikitin/Switzerland_German_Nikitin_Questionnaire.docx",
         "n_files": 2,
@@ -864,24 +552,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_2_TEXT",
-          "migration_background_4_TEXT",
-          "migration_background_3_TEXT",
-          "regional_background"
-        ]
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_2_text", "migration_background_4_text", "migration_background_3_text", "regional_background"]
       },
       {
         "name": "Switzerland_Sczesny",
         "country": "CHE",
         "status": 1,
-        "dim": [
-          274,
-          207
-        ],
+        "dim": [274, 207],
         "missing_prop": 0.201,
         "doc": "raw_data/Switzerland_Sczesny/Switzerland_Bern_Sczesny.docx",
         "n_files": 4,
@@ -903,22 +580,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT",
-          "Q78"
-        ]
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q78"]
       },
       {
         "name": "Toronto_Hall",
         "country": "CAN",
         "status": 1,
-        "dim": [
-          263,
-          206
-        ],
+        "dim": [263, 206],
         "missing_prop": 0.0734,
         "doc": "raw_data/Toronto_Hall/ucom.docx",
         "n_files": 2,
@@ -932,22 +600,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT",
-          "Q77"
-        ]
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q77"]
       },
       {
         "name": "Turkey_Gungor",
         "country": "TUR",
         "status": 1,
-        "dim": [
-          209,
-          203
-        ],
+        "dim": [209, 203],
         "missing_prop": 0.2193,
         "doc": "raw_data/Turkey_Gungor/UCOM_Gungor_Questionnaire.docx",
         "n_files": 2,
@@ -961,22 +620,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT",
-          "Q77"
-        ]
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q77"]
       },
       {
         "name": "Turkey_Kunurgu",
         "country": "TUR",
         "status": 1,
-        "dim": [
-          931,
-          203
-        ],
+        "dim": [931, 203],
         "missing_prop": 0.3669,
         "doc": "raw_data/Turkey_Kunurgu/Turkey_Kunurgu_questionnaire.docx",
         "n_files": 2,
@@ -990,22 +640,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT",
-          "Q77"
-        ]
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q77"]
       },
       {
         "name": "UMass_Rodriguez",
         "country": "USA",
         "status": 1,
-        "dim": [
-          259,
-          208
-        ],
+        "dim": [259, 208],
         "missing_prop": 0.0824,
         "doc": "raw_data/UMass_Rodriguez/UMASS_Rodriguez.docx",
         "n_files": 2,
@@ -1019,24 +660,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "Q81",
-          "Q78",
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT",
-          "Q79"
-        ]
+        "unique_vars": ["q81", "q78", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q79"]
       },
       {
         "name": "USA_Devos",
         "country": "USA",
         "status": 1,
-        "dim": [
-          577,
-          196
-        ],
+        "dim": [577, 196],
         "missing_prop": 0.0244,
         "n_files": 2,
         "data": [
@@ -1049,24 +679,13 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "ICF",
-          "livingsituation_TEXT",
-          "religion_TEXT",
-          "sexual_orientation_TEXT",
-          "migration_background_TEXT",
-          "source",
-          "site"
-        ]
+        "unique_vars": ["icf", "livingsituation_text", "religion_text", "sexual_orientation_text", "migration_background_text", "source", "site"]
       },
       {
         "name": "Waterloo_Bergsieker",
         "country": "CAN",
         "status": 1,
-        "dim": [
-          463,
-          208
-        ],
+        "dim": [463, 208],
         "missing_prop": 0.0724,
         "doc": "raw_data/Waterloo_Bergsieker/UCOM_Survey.docx",
         "n_files": 2,
@@ -1080,16 +699,8 @@
             "format": "csv"
           }
         ],
-        "unique_vars": [
-          "Consent",
-          "livingsituation_13_TEXT",
-          "religion_10_TEXT",
-          "sexual_orientation_7_TEXT",
-          "migration_background_3_TEXT",
-          "Type"
-        ]
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "type"]
       }
     ]
   }
 ]
-

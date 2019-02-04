@@ -102,6 +102,11 @@ write_results <- function(choice_df,
                           all_vars,
                           num_vars,
                           country_code=NULL) {
+
+      # test if all variables have benn converted to lower case
+      assertthat::assert_that(all(all_vars == stringr::str_to_lower(all_vars)),
+                              msg = 'Not all variables are lower case')
+
       # get the path
       site <- get_current_site()
 

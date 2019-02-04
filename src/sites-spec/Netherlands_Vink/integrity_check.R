@@ -6,25 +6,26 @@ suppressMessages(library(ucom))
 ################ Loading Data #####################
 
 message('\n\n')
-message('Script: ', rprojroot::thisfile())
+script_path <- get_rel_path(rprojroot::thisfile())
+message('Script: ', script_path)
 message('===== Loading data =====')
 site <- get_current_site()
 
-numeric_df <- get_raw_data(site, 'Numeric', start_row = 1)
-choice_df <- get_raw_data(site, 'Choice', start_row = 1, sav = TRUE)
+numeric_df <- get_raw_data(site, 'Numeric', start_row = 1) %>% convert_names()
+choice_df <- get_raw_data(site, 'Choice', start_row = 1, sav = TRUE) %>% convert_names()
 
 
-numeric_df <- numeric_df %>% dplyr::rename(intensive_parenting_1=Intensive_parenting1,
-                                           intensive_parenting_2=Intensive_parenting2)
-choice_df <- choice_df %>% dplyr::rename(intensive_parenting_1=Intensive_parenting1,
-                                         intensive_parenting_2=Intensive_parenting2)
+numeric_df <- numeric_df %>% dplyr::rename(intensive_parenting_1=intensive_parenting1,
+                                           intensive_parenting_2=intensive_parenting2)
+choice_df <- choice_df %>% dplyr::rename(intensive_parenting_1=intensive_parenting1,
+                                         intensive_parenting_2=intensive_parenting2)
 ################ Checking #####################
 
 message('===== Checking =====')
 all_vars <- colnames(choice_df)
 
 num_vars <- all_vars %>%
-      get_num_vars('(^Q[0-9]+)|(TEXT)')
+      get_num_vars('(^q[0-9]+)|(text)')
 
 converted_choice_df <- convert_choiceDF(choice_df, num_vars) %>%
       # convert to the same data types

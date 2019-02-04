@@ -71,4 +71,4 @@ meta_final <- meta_merged %>%
 
 meta_final %>%
       jsonlite::write_json(output_path,
-                          pretty = 2)
+                          pretty = TRUE)

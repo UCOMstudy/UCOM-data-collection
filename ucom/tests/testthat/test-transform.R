@@ -30,7 +30,7 @@ test_that('remove', {
 
 test_that('remove_gen', {
       vars <- c('a', 'b', 'c',
-                'EndDate', 'Finished')
+                'enddate', 'finished')
       out <-  c('a', 'b', 'c')
       expect_equal(out, remove_gen(vars))
 })
@@ -46,16 +46,16 @@ test_that('get_num_vars', {
       vars <- c(
             '123',
             'migration_background',
-            'Status',
-            'abc_TEXT',
+            'status',
+            'abc_test',
             'uni'
             )
-      pattern <- c('(uni)|(TEXT$)')
+      pattern <- c('(uni)|(test$)')
 
       testCase1 <- get_num_vars(vars)
       testCase2 <- get_num_vars(vars, pattern)
 
-      expect_equal(testCase1, c('123', 'abc_TEXT'))
+      expect_equal(testCase1, c('123', 'abc_test'))
       expect_equal(testCase2, '123')
 })
 

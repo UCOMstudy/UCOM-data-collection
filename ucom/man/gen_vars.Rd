@@ -3,12 +3,12 @@
 \docType{data}
 \name{gen_vars}
 \alias{gen_vars}
-\title{Survey general variables - non-numeric}
-\format{A vector of the survey general variables}
+\title{Survey general variables lower case - non-numeric}
+\format{A vector of the survey general variables converted to lower case}
 \usage{
 gen_vars
 }
 \description{
-Survey general variables - non-numeric
+Survey general variables lower case - non-numeric
 }
 \keyword{datasets}

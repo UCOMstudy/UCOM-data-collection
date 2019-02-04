@@ -11,15 +11,15 @@ message('Script: ', script_path)
 message('===== Loading data =====')
 site <- get_current_site()
 
-numeric_df <- get_raw_data(site, 'Numeric', start_row = 1)
-choice_df <- get_raw_data(site, 'Choice', start_row = 1, sav=TRUE)
+numeric_df <- get_raw_data(site, 'Numeric', start_row = 1) %>% convert_names()
+choice_df <- get_raw_data(site, 'Choice', start_row = 1, sav=TRUE) %>% convert_names()
 
 ################ Checking #####################
 
 message('===== Checking =====')
 all_vars <- colnames(choice_df)
 
-pattern <- '(^Q[0-9]+)|(TEXT)|(site)|(source)|(ICF)'
+pattern <- '(^q[0-9]+)|(text)|(site)|(source)|(icf)'
 num_vars <- all_vars %>%
       # different encoding compared to other sites
       get_num_vars(pattern)
