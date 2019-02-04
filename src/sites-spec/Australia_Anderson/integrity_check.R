@@ -6,7 +6,8 @@ suppressMessages(library(ucom))
 ################ Loading Data #####################
 
 message('\n\n')
-message('Script: ', rprojroot::thisfile())
+script_path <- get_rel_path(rprojroot::thisfile())
+message('Script: ', script_path)
 message('===== Loading data =====')
 site <- get_current_site()
 
