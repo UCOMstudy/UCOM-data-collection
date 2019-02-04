@@ -7,42 +7,82 @@ LOG_FILE ?= log.txt
 REDIRECT ?= >>$(LOG_FILE) 2>&1 
 COUNT_SCRIPTS ?= $(shell ls $(SRC)/$(SITES_SPEC) | wc -l)
 CRITERIA ?= "Sucessfully write results!"
+AGGREGATED_DATA ?= aggregated_data
+DATE = $$(date +'%Y-%m-%d')
+TIME = $$(date +'%Y-%m-%d %H:%M:%S')
 
 # pipeline config file for R script
 export R_PROFILE_USER := pipeline.rprofile
 
-all: summary create_src_folders copy_template check merge
-	echo 'Log file can be found here $(LOG_FILE)'
+test: 
+	@echo $(t)
+	@sleep 2
+	@echo $(t)
+
+all: pipeline zip
+
+.PHONY: summary create_src_folders copy_template check merge clean pipeline zip tag all
+
+.ONESHELL: zip
+zip: $(AGGREGATED_DATA)
+	@echo "===== Building the .zip file ====="
+	@-zip -ru $<.zip $<
+	code=$$?
+	if [ $$code -eq 12 ]; then \
+		echo "Aggregated data already up-to-date."; \
+	elif [ $$code -eq 0 ]; then \
+		echo "\nBuilt time: $(TIME)"; \
+		rm -f $<.*.zip; \
+		$(MAKE) -s tag; \
+	else \
+		echo "Something goes wrong...."; \
+	fi
+
+tag: $(AGGREGATED_DATA).zip
+	@cp $(AGGREGATED_DATA).zip $(AGGREGATED_DATA).$(DATE).zip
+	echo "Tagged file: $(AGGREGATED_DATA).$(DATE).zip"
+
+pipeline: create_src_folders copy_template check merge summary 
+	@echo 'Pipeline finished: log file can be found here $(LOG_FILE)'
 	
 summary: $(SRC)/summary.R
-	Rscript $(SRC)/summary.R
+	@-Rscript $<
 
-create_src_folders: $(SRC)/create_folder.R
-	Rscript $(SRC)/create_folder.R
+merge: $(SRC)/merge_data.R
+	@echo "=========== Merging data ===========";
+	@echo "Start time: $(TIME)"; 
+	Rscript $< $(REDIRECT)
+	@echo "Finished at: $(TIME)"; 
 
-copy_template: $(SRC)/$(TEMPLATE)
-	for dir in $(ALL_DIRS); do \
-		cp $(SRC)/$(TEMPLATE) $${dir}; \
-	done;
-
-.PHONY: check
+.ONESHELL: check
 check:
-	echo "Pipeline config file: $(R_PROFILE_USER)" > $(LOG_FILE); \
-	echo "Start running....." $(REDIRECT);
-	echo "\nTotal scripts to run: $(COUNT_SCRIPTS)"; \
+	@echo "Pipeline config file: $(R_PROFILE_USER)" > $(LOG_FILE); 
+	@echo "Start running....." $(REDIRECT);
+	@echo "=========== Cleaning & checking data from sites ===========";
+	@echo "Start time: $(TIME)"; 
+	@echo "Total scripts to run: $(COUNT_SCRIPTS)"; \
 	for dir in $(ALL_DIRS); do \
 		if [ -f $${dir}/$(CUSTOM) ]; then \
 			Rscript $${dir}/$(CUSTOM) $(REDIRECT); \
 		else \
 			Rscript $${dir}/$(TEMPLATE) $(REDIRECT); \
 		fi; \
-	done; \
-	echo "Scripts succeeded: $$(cat $(LOG_FILE) | grep $(CRITERIA) | wc -l)";
+	done; 
+	@echo "Scripts succeeded: $$(cat $(LOG_FILE) | grep $(CRITERIA) | wc -l)";
+	@echo "Finished at: $(TIME)"; 
 
-merge: $(SRC)/merge_data.R
-	Rscript $(SRC)/merge_data.R $(REDIRECT)
+copy_template: $(SRC)/$(TEMPLATE)
+	@echo "Copy src templates"
+	@for dir in $(ALL_DIRS); do \
+		cp $< $${dir}; \
+	done;
+
+create_src_folders: $(SRC)/create_folder.R
+	@echo "Create src folders"
+	@Rscript $<
 
 clean:
 	rm -rf $(LOG_FILE)
 	rm -rf cleaned_data/*
 	rm -rf aggregated_data/*
+	rm -rf aggregated_data.zip
