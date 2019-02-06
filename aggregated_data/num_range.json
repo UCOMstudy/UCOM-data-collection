@@ -159,7 +159,5 @@
   "religiosity": [1, 7],
   "ses": [0, 10],
   "political": [1, 7],
-  "expected_share_12": [0, 100],
-  "real_parentalleave": [0, 100],
   "exp_domestic_4": [1, 7]
 }
