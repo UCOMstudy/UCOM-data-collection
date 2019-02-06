@@ -24,6 +24,7 @@ fs::dir_create(output_dir)
 # output paths
 output_path <- file.path(output_dir, 'aggregated_clean.csv')
 num_range_path <- file.path(output_dir, 'num_range.json')
+non_num_unique_path <- file.path(output_dir, 'non_num_unique.json')
 exc_vars_path <- file.path(output_dir, 'exc_vars.json')
 
 # extra variables to contain
@@ -48,11 +49,9 @@ all_dfs <- purrr::map2(csv_path,
 # convert course numeric to character
 message('Do some conversions before merging.......')
 converted_all_dfs <- all_dfs %>%
-      purrr::map(~ dplyr::mutate(.x,
-                                 course=as.character(course),
-                                 study_year=as.character(study_year),
-                                 citizenship=as.character(citizenship),
-                                 finished=as.logical(finished)))
+      purrr::map(~ dplyr::mutate_at(.x,
+                                    dplyr::vars(other_vars),
+                                    dplyr::funs(as.character)))
 
 message('Merging all the data set....')
 merged_df <- dplyr::bind_rows(converted_all_dfs)
@@ -89,6 +88,22 @@ num_range <- merged_df %>%
 jsonlite::write_json(num_range,
                      num_range_path,
                      pretty=TRUE)
+
+#  ===========================================================
+message('Non-numeric unique values: ', get_rel_path(non_num_unique_path))
+message('Only for unique values below 100.')
+non_num_unique <- merged_df %>%
+      dplyr::select(-num_vars) %>%
+      purrr::map(unique)
+
+mask <- non_num_unique %>%
+      # cutoff point at 50
+      purrr::map_lgl(~ length(unique(.x)) < 100)
+
+non_num_unique[mask] %>%
+      jsonlite::write_json(non_num_unique_path,
+                           na = 'string',
+                           pretty = 2)
 
 #  ===========================================================
 # getting the variables that are not in the final data frame

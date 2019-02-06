@@ -32,7 +32,7 @@ merged_summary <- summary_rds %>%
 message('Prepare... Raw files...')
 # put source and file into one data frame
 meta <- tibble::tibble(name = as.character(raw_site_names),
-                       file = raw_files) %>%
+                       file = file_names) %>%
       # Format of files
       dplyr::mutate(format = fs::path_ext(!! quo(file)))
 
@@ -65,10 +65,10 @@ meta_merged <- meta_nested %>%
 meta_final <- meta_merged %>%
       mutate(total_sites = n(),
              cleaned_sites = sum(status)) %>%
-      tidyr::nest(- total_sites, - cleaned_sites,
+      tidyr::nest(- c(total_sites, cleaned_sites),
                   .key = 'sources')
 
-
+message('Merging and writing summary.json')
 meta_final %>%
       jsonlite::write_json(output_path,
                           pretty = TRUE)

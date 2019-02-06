@@ -13,13 +13,6 @@ site <- get_current_site()
 
 numeric_df <- get_raw_data(site, 'Numeric', start_row = 1) %>% convert_names()
 choice_df <- get_raw_data(site, 'Choice', start_row = 1, sav = TRUE) %>% convert_names()
-
-message('===== Conver variables names =====')
-message('intensive_parenting')
-numeric_df <- numeric_df %>% dplyr::rename(intensive_parenting_1=intensive_parenting1,
-                                           intensive_parenting_2=intensive_parenting2)
-choice_df <- choice_df %>% dplyr::rename(intensive_parenting_1=intensive_parenting1,
-                                         intensive_parenting_2=intensive_parenting2)
 ################ Checking #####################
 
 message('===== Checking =====')
