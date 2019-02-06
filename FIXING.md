@@ -33,11 +33,12 @@ Data fixed
 - variables:
   - `imEmigration_backgrou` -> `immigration_backgrou`
   - `Emigration_background` -> `migration_background`
+- convert `.` to NAs
 
 Problem:
 - `per_workhour`: range input: `48 to 56` how to convert them?
-- `religiosity`: how to convert '.'? -> `NA`?
-- `real_domestic_3`: how to convert '.'? -> `NA`?
+- There are three rows that may have entry errors
+  - `mutated_choice_df %>% dplyr::filter(other_injunc_1 == 790 | proximal_domestic_1 == 50 | parentleave_efficacy == 50)`
 
 ## Anderson_Australia
 
@@ -53,7 +54,7 @@ Citizenship all NAs
 
 A huge amount of unrecognized variables.
 
-- "On the whole, men ma_1" ...     ? 
+- "On the whole, men ma_1" ...     ?
 
 ## Nerthlands - Otten
  A lot of variables needed to be fixed
