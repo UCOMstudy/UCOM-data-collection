@@ -13,3 +13,7 @@
 #' Text variables - non-numeric
 #' @format A vector of the survey text variables
 "text_vars"
+
+#' Mapping for unusal variables names to normal variable names
+#' @format A a named character vector
+"vars_map"

@@ -29,12 +29,6 @@ get_raw_data <- function(site, type, start_row=3, file_name=NULL, sav=FALSE) {
             df <- readr::read_csv(data_path, col_types = readr::cols())
       }
 
-      # fix a variable naming 'expected_share_12' => 'expected_share_3'
-      if ('expected_share_12' %in% colnames(df)) {
-            df <- df %>%
-                  dplyr::rename(expected_share_3 = expected_share_12)
-      }
-
       # skip a description and internal id rows
       out <- df %>% dplyr::slice(start_row:dplyr::n())
       message("Rows dropped: ", (start_row - 1))
@@ -126,6 +120,9 @@ write_results <- function(choice_df,
 
       # Convert Date time
       out_df <- out_df %>% convert_start_end()
+
+      # Convert `finished` to logical
+      out_df <- out_df %>% dplyr::mutate(finished=as.logical(finished))
 
       message("===== Preparing country code & site =====")
       # create country code & site

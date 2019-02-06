@@ -193,4 +193,14 @@ convert_names <- function(df) {
       out_df <- df %>%
             dplyr::rename_all(dplyr::funs(stringr::str_to_lower)) %>%
             dplyr::rename(duration_seconds=dplyr::starts_with('duration'))
+
+      for (var in names(ucom::vars_map)) {
+            if (var %in% colnames(out_df)) {
+                  new_var <- dplyr::sym(ucom::vars_map[var])
+                  out_df <- out_df %>%
+                        dplyr::rename( !! new_var := var)
+            }
+      }
+
+      return(out_df)
 }
