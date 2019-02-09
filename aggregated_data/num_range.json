@@ -158,6 +158,5 @@
   "age": [0, 99],
   "religiosity": [1, 7],
   "ses": [0, 10],
-  "political": [1, 7],
-  "exp_domestic_4": [1, 7]
+  "political": [1, 7]
 }

@@ -183,23 +183,27 @@ convert_spss <- function(spss_df) {
 #' Simple conversion of names to make them consistent
 #'
 #' @param df Input data frame
-#'
+#' @param extra_map A named list of `new_var = old_var` for extra variable names mapping
 #' @return Names converted
 #' @export
-convert_names <- function(df) {
+convert_names <- function(df, extra_map = NULL) {
       # convert names
       message('Apply to_lower to all names...',
-              'Renaming Duration_seconds...')
+              'Renaming Duration_seconds...',
+              'And other variables names...')
       out_df <- df %>%
             dplyr::rename_all(dplyr::funs(stringr::str_to_lower)) %>%
             dplyr::rename(duration_seconds=dplyr::starts_with('duration'))
 
-      for (var in names(ucom::vars_map)) {
+      for (i in seq_along(ucom::vars_map)) {
+            var <- ucom::vars_map[[i]]
             if (var %in% colnames(out_df)) {
-                  new_var <- dplyr::sym(ucom::vars_map[var])
                   out_df <- out_df %>%
-                        dplyr::rename( !! new_var := var)
+                        dplyr::rename( !!! ucom::vars_map[i])
             }
+      }
+      if (!is.null(extra_map)) {
+            out_df <- out_df %>% dplyr::rename(!!! extra_map)
       }
 
       return(out_df)

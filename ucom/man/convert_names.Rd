@@ -4,10 +4,12 @@
 \alias{convert_names}
 \title{Simple conversion of names to make them consistent}
 \usage{
-convert_names(df)
+convert_names(df, extra_map = NULL)
 }
 \arguments{
 \item{df}{Input data frame}
+
+\item{extra_map}{A named list of `new_var = old_var` for extra variable names mapping}
 }
 \value{
 Names converted
