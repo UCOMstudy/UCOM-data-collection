@@ -51,9 +51,9 @@ mutated_choice_df <-
             gender == "1" ~ "Male",
             gender == "2" ~ "Female"
             )) %>%
-      dplyr::filter(other_injunc_1 != '790' &
-                    proximal_domestic_1!= '50' &
-                    parentleave_efficacy != '50')
+      dplyr::filter(other_injunc_1 != '790' | is.na(other_injunc_1),
+                    proximal_domestic_1 != '50' | is.na(proximal_domestic_1),
+                    parentleave_efficacy != '50' | is.na(parentleave_efficacy))
 
 message('Transformation done.')
 ################ Write out results #####################
