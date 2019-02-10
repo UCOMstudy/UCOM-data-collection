@@ -73,11 +73,8 @@ message('Data Dimension: ',
         df_dim[2], ' columns.')
 
 ################ Write out results #####################
-message('===== Writing results =====')
-message('Aggregated CSV: ', get_rel_path(output_path))
-readr::write_csv(merged_df, output_path)
-
 #  ===========================================================
+message('===== Writing results =====')
 message('Numeric range: ', get_rel_path(num_range_path))
 
 # getting the range for each numeric variables
@@ -85,9 +82,25 @@ num_range <- merged_df %>%
       dplyr::select(num_vars) %>%
       purrr::map(range, na.rm=TRUE)
 
-jsonlite::write_json(num_range,
-                     num_range_path,
-                     pretty=TRUE)
+# check if there is any changes to the num_range.json files.
+if (fs::file_exists(num_range_path)) {
+      prev_num_range <- jsonlite::read_json(num_range_path,
+                                            simplifyVector = TRUE)
+      message('Same numeric range?')
+      assertthat::assert_that(
+            isTRUE(all.equal(prev_num_range, num_range)),
+            msg = 'num_range.json differs.')
+} else {
+      message('Old num_range.json not existed.',
+              'Create a new one.')
+      jsonlite::write_json(num_range,
+                           num_range_path,
+                           pretty=TRUE)
+}
+
+#  ===========================================================
+message('Aggregated CSV: ', get_rel_path(output_path))
+readr::write_csv(merged_df, output_path)
 
 #  ===========================================================
 message('Non-numeric unique values: ', get_rel_path(non_num_unique_path))
