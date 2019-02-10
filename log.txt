@@ -3,62 +3,89 @@ Start running.....
 
 
 
-Script: ./src/sites-spec/Albania_Jasini/integrity_check.R
+Script: src/sites-spec/Albania_Jasini/integrity_check.R
 ===== Loading data =====
-Only choice data available for this site
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Albania_Jasini/Albania_Jasini_Paper.xlsx
+Only one data set available for this site
+Raw Data: raw_data/Albania_Jasini/Albania_Jasini_Paper.xlsx
 Rows dropped: 1
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
-religiosity, real_domestic_3, react_domestic_3: convert "." to NA
-Error: isTRUE(x = dplyr::all_equal(a, b)) is not TRUE. (Rows in x but not y: 189, 181, 173, 166, 157, 151, 150, 148, 147, 140, 130[...]. Rows in y but not x: 189, 181, 173, 166, 157, 151, 150, 148, 147, 140, 139[...]. ).
-Execution halted
+Converting "." to NA
+[1] TRUE
+Check with itself: Passed!
+Manual transformation for future merging:
+1. map "gender" to "Male" ~ 1 or "Female" ~ 2
+2. Filter rows with impossible values
+Transformation done.
+===== Writing results =====
+Output path: cleaned_data/Albania_Jasini
+===== Data Conversion =====
+===== Preparing country code & site =====
+Country: ALB
+Site: Albania_Jasini
+Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Australia_Anderson/integrity_check.R
+Script: src/sites-spec/Australia_Anderson/integrity_check.R
 ===== Loading data =====
 Only numeric data available for this site
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Australia_Anderson/Anderson_Australia.csv
+Raw Data: raw_data/Australia_Anderson/Anderson_Australia.csv
 Rows dropped: 0
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Droping rows =====
 Dropping rows 207 and 208: variables description and internalID
 ===== Checking =====
 [1] TRUE
 NOTE: there are some variables still encoded as text
 Check with itself: Passed!
-Manual transformation for future merging:
+===== Manual transformation for future merging =====
 1. transform "Finished" to logical.
-2. map "gender" to "Male" or "Female"
+2. map "gender" to "Male" or "Female"3. Convert StartDate EndDate
 Transformation done.
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Australia_Anderson
+Output path: cleaned_data/Australia_Anderson
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: AUS
 Site: Australia_Anderson
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Australia_Dar_Nimrod/integrity_check_template.R
+Script: src/sites-spec/Australia_Dar_Nimrod/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Australia_Dar_Nimrod/Australia_Dar_Nimrod_NumericValues.csv
-Error: File doesn't exist.
-Execution halted
+Only has one SAV file
+Raw Data: raw_data/Australia_Dar_Nimrod/UCOM data - clean.sav
+Rows dropped: 0
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+===== Checking =====
+No check for this! Only one data set
+===== Writing results =====
+Output path: cleaned_data/Australia_Dar_Nimrod
+===== Data Conversion =====
+===== Preparing country code & site =====
+Country: AUS
+Site: Australia_Dar_Nimrod
+Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Belgium_Vangrootel/integrity_check.R
+Script: src/sites-spec/Belgium_Vangrootel/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Belgium_Vangrootel/Belgium_Vangrootel_NumericValues.csv
+Raw Data: raw_data/Belgium_Vangrootel/Belgium_Vangrootel_NumericValues.csv
 Rows dropped: 0
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Belgium_Vangrootel/Belgium_Vangrootel_ChoiceValues.sav
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Belgium_Vangrootel/Belgium_Vangrootel_ChoiceValues.sav
 Rows dropped: 0
-===== Conver variables names =====
-"Duration (in seconds)"= Durationinseconds
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Belgium_Vangrootel
+Output path: cleaned_data/Belgium_Vangrootel
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: BEL
 Site: Belgium_Vangrootel
 Sucessfully write results!
@@ -67,274 +94,376 @@ Sucessfully write results!
 
 Script: ./src/sites-spec/Bolivia_Schulmeyer/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Bolivia_Schulmeyer/Bolivia_Schulmeyer_NumericValues.csv
+Raw Data: raw_data/Bolivia_Schulmeyer/Bolivia_Schulmeyer_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Bolivia_Schulmeyer/Bolivia_Schulmeyer_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Bolivia_Schulmeyer/Bolivia_Schulmeyer_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Bolivia_Schulmeyer
+Output path: cleaned_data/Bolivia_Schulmeyer
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: BOL
 Site: Bolivia_Schulmeyer
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Canada_Block/integrity_check.R
+Script: src/sites-spec/Canada_Block/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Canada_Block/Canada_Block_PART1_NumericValues.csv
+Raw Data: raw_data/Canada_Block/Canada_Block_PART1_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Canada_Block/Canada_Block_PART2_NumericValues.csv
+Raw Data: raw_data/Canada_Block/Canada_Block_PART2_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Canada_Block/Canada_Block_PART1_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Canada_Block/Canada_Block_PART1_ChoiceValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Canada_Block/Canada_Block_PART2_ChoiceValues.csv
+Raw Data: raw_data/Canada_Block/Canada_Block_PART2_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Canada_Block
+Output path: cleaned_data/Canada_Block
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: CAN
 Site: Canada_Block
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/China_Zhao/integrity_check_template.R
+Script: src/sites-spec/China_Zhao/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/China_Zhao/China_Zhao_NumericValues.csv
-Error: File doesn't exist.
-Execution halted
+Only has one SAV file
+Raw Data: raw_data/China_Zhao/UCOM__China.sav
+Rows dropped: 0
+Reconstruct variables names
+===== Calculate `duration_seconds`
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+===== Checking =====
+No check for this! Only one data set
+===== Writing results =====
+Output path: cleaned_data/China_Zhao
+===== Data Conversion =====
+===== Preparing country code & site =====
+Country: CHN
+Site: China_Zhao
+Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Colombia_Meister/integrity_check_template.R
+Script: src/sites-spec/Colombia_Meister/integrity_check_template.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Colombia_Meister/Colombia_Meister_NumericValues.csv
+Raw Data: raw_data/Colombia_Meister/Colombia_Meister_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Colombia_Meister/Colombia_Meister_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Colombia_Meister/Colombia_Meister_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Colombia_Meister
+Output path: cleaned_data/Colombia_Meister
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: COL
 Site: Colombia_Meister
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/CostaRica_Castro/integrity_check.R
+Script: src/sites-spec/CostaRica_Castro/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/CostaRica_Castro/CostaRica_Castro_NumericValues.csv
+Raw Data: raw_data/CostaRica_Castro/CostaRica_Castro_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/CostaRica_Castro/CostaRica_Castro_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/CostaRica_Castro/CostaRica_Castro_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/CostaRica_Castro
+Output path: cleaned_data/CostaRica_Castro
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: CRI
 Site: CostaRica_Castro
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Croatia_Franc/integrity_check_template.R
+Script: src/sites-spec/Croatia_Franc/integrity_check_template.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Croatia_Franc/Croatia_Franc_NumericValues.csv
+Raw Data: raw_data/Croatia_Franc/Croatia_Franc_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Croatia_Franc/Croatia_Franc_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Croatia_Franc/Croatia_Franc_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Croatia_Franc
+Output path: cleaned_data/Croatia_Franc
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: HRV
 Site: Croatia_Franc
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Ethiopia_Lemma/integrity_check_template.R
+Script: src/sites-spec/Ethiopia_Lemma/integrity_check_template.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Ethiopia_Lemma/Ethiopia_Lemma_NumericValues.csv
+Raw Data: raw_data/Ethiopia_Lemma/Ethiopia_Lemma_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Ethiopia_Lemma/Ethiopia_Lemma_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Ethiopia_Lemma/Ethiopia_Lemma_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Ethiopia_Lemma
+Output path: cleaned_data/Ethiopia_Lemma
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: ETH
 Site: Ethiopia_Lemma
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/France_Regner/integrity_check_template.R
+Script: src/sites-spec/France_Regner/integrity_check_template.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/France_Regner/France_Regner_NumericValues.csv
+Raw Data: raw_data/France_Regner/France_Regner_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/France_Regner/France_Regner_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/France_Regner/France_Regner_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/France_Regner
+Output path: cleaned_data/France_Regner
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: FRA
 Site: France_Regner
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Germany_Hoppe/integrity_check.R
+Script: src/sites-spec/Germany_Hoppe/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Germany_Hoppe/Germany_Hoppe_NumericValues.csv
+Raw Data: raw_data/Germany_Hoppe/Germany_Hoppe_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Germany_Hoppe/Germany_Hoppe_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Germany_Hoppe/Germany_Hoppe_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Germany_Hoppe
+Output path: cleaned_data/Germany_Hoppe
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: DEU
 Site: Germany_Hoppe
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Germany_Steffens/integrity_check_template.R
+Script: src/sites-spec/Germany_Steffens/integrity_check_template.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Germany_Steffens/Germany_Steffens_NumericValues.csv
+Raw Data: raw_data/Germany_Steffens/Germany_Steffens_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Germany_Steffens/Germany_Steffens_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Germany_Steffens/Germany_Steffens_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Germany_Steffens
+Output path: cleaned_data/Germany_Steffens
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: DEU
 Site: Germany_Steffens
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Ireland_Bosak/integrity_check_template.R
+Script: src/sites-spec/Ireland_Bosak/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Ireland_Bosak/Ireland_Bosak_NumericValues.csv
-Error: File doesn't exist.
+Only has one SAV file
+raw_data/Ireland_Bosak/UCOM data_Ireland_FINAL_19.11.2018merged.sav
+Rows dropped: 0
+======= Create duration_seconds, startdate and enddate =======
+Rename `Location` to `uni`....
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+======= Filtering out error entries =======
+Error in match.arg(method) : object 'parentleave_efficacy' not found
+Calls: %>% ... freduce -> withVisible -> <Anonymous> -> filter -> match.arg
 Execution halted
 
 
 
-Script: ./src/sites-spec/Kansas_Xian/integrity_check_template.R
+Script: src/sites-spec/Kansas_Xian/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Kansas_Xian/Kansas_Xian_NumericValues.csv
-Error: File doesn't exist.
-Execution halted
+Only has one SAV file
+Raw Data: raw_data/Kansas_Xian/UCOM_Kansas.sav
+Rows dropped: 0
+Reconstruct variables names
+===== Calculate `duration_seconds`
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+===== Checking =====
+No check for this! Only one data set
+===== Writing results =====
+Output path: cleaned_data/Kansas_Xian
+===== Data Conversion =====
+===== Preparing country code & site =====
+Country: USA
+Site: Kansas_Xian
+Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Kobe_Keiko/integrity_check.R
+Script: src/sites-spec/Kobe_Keiko/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Kobe_Keiko/Kobe_Keiko_NumericValues.csv
+Raw Data: raw_data/Kobe_Keiko/Kobe_Keiko_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Kobe_Keiko/Kobe_Keiko_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Kobe_Keiko/Kobe_Keiko_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Kobe_Keiko
+Output path: cleaned_data/Kobe_Keiko
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: JPN
 Site: Kobe_Keiko
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Lebanon_Saab/integrity_check.R
+Script: src/sites-spec/Lebanon_Saab/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Lebanon_Saab/Lebanon_Saab_NumericValues.csv
+Raw Data: raw_data/Lebanon_Saab/Lebanon_Saab_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Lebanon_Saab/Lebanon_Saab_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Lebanon_Saab/Lebanon_Saab_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
+===== Tranformation =====
+Add citizenship if not exist
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Lebanon_Saab
+Output path: cleaned_data/Lebanon_Saab
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: LBN
 Site: Lebanon_Saab
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Malaysia_Selvan/integrity_check_template.R
+Script: src/sites-spec/Malaysia_Selvan/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Malaysia_Selvan/Malaysia_Selvan_NumericValues.csv
+Raw Data: raw_data/Malaysia_Selvan/Malaysia_Selvan_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Malaysia_Selvan/Malaysia_Selvan_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Malaysia_Selvan/Malaysia_Selvan_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
+===== Convert StartDate EndDate =====
+Conversion done.
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Malaysia_Selvan
+Output path: cleaned_data/Malaysia_Selvan
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: MYS
 Site: Malaysia_Selvan
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Nagoya_Keiko/integrity_check.R
+Script: src/sites-spec/Nagoya_Keiko/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Nagoya_Keiko/Nagoya_Keiko_NumericValues.csv
+Raw Data: raw_data/Nagoya_Keiko/Nagoya_Keiko_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Nagoya_Keiko/Nagoya_Keiko_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Nagoya_Keiko/Nagoya_Keiko_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
+===== Convert StartDate EndDate =====
+Conversion done.
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Nagoya_Keiko
+Output path: cleaned_data/Nagoya_Keiko
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: JPN
 Site: Nagoya_Keiko
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Netherlands_Otten/integrity_check_template.R
+Script: src/sites-spec/Netherlands_Otten/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Netherlands_Otten/Netherlands_Otten_NumericValues.csv
-Error: File doesn't exist.
-Execution halted
+Only has one SAV file
+raw_data/Netherlands_Otten/Mannen_en_vrouwen_in_de_Nederlandse_maatschappij_December 21, 2018_12.05.sav
+Rows dropped: 0
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+=========== Fixing variable names !! ===========
+===== Checking =====
+No check for this! Only one data set
+===== Writing results =====
+Output path: cleaned_data/Netherlands_Otten
+===== Data Conversion =====
+===== Preparing country code & site =====
+Country: NLD
+Site: Netherlands_Otten
+Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Netherlands_Vink/integrity_check.R
+Script: src/sites-spec/Netherlands_Vink/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Netherlands_Vink/Netherlands_Vink_NumericValues.csv
+Raw Data: raw_data/Netherlands_Vink/Netherlands_Vink_NumericValues.csv
 Rows dropped: 0
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Netherlands_Vink/Netherlands_Vink_ChoiceValues.sav
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Netherlands_Vink/Netherlands_Vink_ChoiceValues.sav
 Rows dropped: 0
-===== Conver variables names =====
-"Duration (in seconds)"= Durationinseconds
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Netherlands_Vink
+Output path: cleaned_data/Netherlands_Vink
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: NLD
 Site: Netherlands_Vink
 Sucessfully write results!
@@ -344,8 +473,9 @@ Sucessfully write results!
 Script: ./src/sites-spec/NewZealand_McNamara/integrity_check.R
 ===== Loading data =====
 Only numeric data available for this site
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/NewZealand_McNamara/NewZealand_McNamara_NumericValues.csv
+Raw Data: raw_data/NewZealand_McNamara/NewZealand_McNamara_NumericValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 NOTE: there are some variables still encoded as text
@@ -355,193 +485,237 @@ Manual transformation for future merging:
 2. map "gender" to "Male" or "Female"
 Transformation done.
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/NewZealand_McNamara
+Output path: cleaned_data/NewZealand_McNamara
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: NZL
 Site: NewZealand_McNamara
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Norway_Olsson/integrity_check.R
+Script: src/sites-spec/Norway_Olsson/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Norway_Olsson/Norway_Olsson_Part1_NumericValues.csv
+Raw Data: raw_data/Norway_Olsson/Norway_Olsson_Part1_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Norway_Olsson/Norway_Olsson_Part1_ChoiceValues.csv
+Raw Data: raw_data/Norway_Olsson/Norway_Olsson_Part2_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Norway_Olsson/Norway_Olsson_Part2_NumericValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Norway_Olsson/Norway_Olsson_Part1_ChoiceValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Norway_Olsson/Norway_Olsson_Part2_ChoiceValues.csv
+Raw Data: raw_data/Norway_Olsson/Norway_Olsson_Part2_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Norway_Olsson
+Output path: cleaned_data/Norway_Olsson
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: NOR
 Site: Norway_Olsson
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Pakistan_Bushra/integrity_check_template.R
+Script: src/sites-spec/Pakistan_Bushra/integrity_check_template.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Pakistan_Bushra/Pakistan_Bushra_NumericValues.csv
+Raw Data: raw_data/Pakistan_Bushra/Pakistan_Bushra_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Pakistan_Bushra/Pakistan_Bushra_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Pakistan_Bushra/Pakistan_Bushra_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Pakistan_Bushra
+Output path: cleaned_data/Pakistan_Bushra
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: PAK
 Site: Pakistan_Bushra
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Serbia_Zezelj/integrity_check_template.R
+Script: src/sites-spec/Serbia_Zezelj/integrity_check_template.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Serbia_Zezelj/Serbia_Zezelj_NumericValues.csv
+Raw Data: raw_data/Serbia_Zezelj/Serbia_Zezelj_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Serbia_Zezelj/Serbia_Zezelj_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Serbia_Zezelj/Serbia_Zezelj_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Serbia_Zezelj
+Output path: cleaned_data/Serbia_Zezelj
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: SRB
 Site: Serbia_Zezelj
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Sweden_Bäck/integrity_check_template.R
+Script: src/sites-spec/Sweden_Bäck/integrity_check_template.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Sweden_Bäck/Sweden_Bäck_NumericValues.csv
+Raw Data: raw_data/Sweden_Bäck/Sweden_Bäck_NumericValues.csv
 Error: File doesn't exist.
 Execution halted
 
 
 
-Script: ./src/sites-spec/Switzerland_Nikitin/integrity_check.R
+Script: src/sites-spec/Switzerland_Nikitin/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Switzerland_Nikitin/Switzerland_Nikitin_NumericValues.csv
+Raw Data: raw_data/Switzerland_Nikitin/Switzerland_Nikitin_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Switzerland_Nikitin/Switzerland_Nikitin_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Switzerland_Nikitin/Switzerland_Nikitin_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Switzerland_Nikitin
+Output path: cleaned_data/Switzerland_Nikitin
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: CHE
 Site: Switzerland_Nikitin
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Switzerland_Sczesny/integrity_check.R
+Script: src/sites-spec/Switzerland_Sczesny/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Switzerland_Sczesny/Switzerland_Sczesny_Part1_numeric.csv
+Raw Data: raw_data/Switzerland_Sczesny/Switzerland_Sczesny_Part1_numeric.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Switzerland_Sczesny/Switzerland_Sczesny_Part2_numeric.csv
+Raw Data: raw_data/Switzerland_Sczesny/Switzerland_Sczesny_Part2_numeric.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Switzerland_Sczesny/Switzerland_Sczesny_Part1_choice.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Switzerland_Sczesny/Switzerland_Sczesny_Part1_choice.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Switzerland_Sczesny/Switzerland_Sczesny_Part2_choice.csv
+Raw Data: raw_data/Switzerland_Sczesny/Switzerland_Sczesny_Part2_choice.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Switzerland_Sczesny
+Output path: cleaned_data/Switzerland_Sczesny
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: CHE
 Site: Switzerland_Sczesny
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Toronto_Hall/integrity_check.R
+Script: src/sites-spec/Toronto_Hall/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Toronto_Hall/Toronto_Hall_NumericValues.csv
+Raw Data: raw_data/Toronto_Hall/Toronto_Hall_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Toronto_Hall/Toronto_Hall_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Toronto_Hall/Toronto_Hall_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Toronto_Hall
+Output path: cleaned_data/Toronto_Hall
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: CAN
 Site: Toronto_Hall
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Turkey_Gungor/integrity_check_template.R
+Script: src/sites-spec/Turkey_Gungor/integrity_check_template.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Turkey_Gungor/Turkey_Gungor_NumericValues.csv
+Raw Data: raw_data/Turkey_Gungor/Turkey_Gungor_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Turkey_Gungor/Turkey_Gungor_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Turkey_Gungor/Turkey_Gungor_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Turkey_Gungor
+Output path: cleaned_data/Turkey_Gungor
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: TUR
 Site: Turkey_Gungor
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/Turkey_Kunurgu/integrity_check_template.R
+Script: src/sites-spec/Turkey_Kunurgu/integrity_check_template.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Turkey_Kunurgu/Turkey_Kunurgu_NumericValues.csv
+Raw Data: raw_data/Turkey_Kunurgu/Turkey_Kunurgu_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Turkey_Kunurgu/Turkey_Kunurgu_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Turkey_Kunurgu/Turkey_Kunurgu_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Turkey_Kunurgu
+Output path: cleaned_data/Turkey_Kunurgu
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: TUR
 Site: Turkey_Kunurgu
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/UMass_Rodriguez/integrity_check.R
+Script: src/sites-spec/UMass_Rodriguez/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/UMass_Rodriguez/UMass_Rodriguez_NumericValues.csv
+Raw Data: raw_data/UMass_Rodriguez/UMass_Rodriguez_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/UMass_Rodriguez/UMass_Rodriguez_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/UMass_Rodriguez/UMass_Rodriguez_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
+Convert StartDate and EndDate
+Transformation done.
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/UMass_Rodriguez
+Output path: cleaned_data/UMass_Rodriguez
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: USA
 Site: UMass_Rodriguez
 Sucessfully write results!
 
 
 
-Script: ./src/sites-spec/USA_Devos/integrity_check.R
+Script: src/sites-spec/USA_Devos/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/USA_Devos/USA_Devos_NumericValues.csv
+Raw Data: raw_data/USA_Devos/USA_Devos_NumericValues.csv
 Rows dropped: 0
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/USA_Devos/USA_Devos_ChoiceValues.sav
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/USA_Devos/USA_Devos_ChoiceValues.sav
 Rows dropped: 0
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/USA_Devos
+Output path: cleaned_data/USA_Devos
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: USA
 Site: USA_Devos
 Sucessfully write results!
@@ -550,33 +724,219 @@ Sucessfully write results!
 
 Script: ./src/sites-spec/Waterloo_Bergsieker/integrity_check.R
 ===== Loading data =====
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Waterloo_Bergsieker/Waterloo_Bergsieker_NumericValues.csv
+Raw Data: raw_data/Waterloo_Bergsieker/Waterloo_Bergsieker_NumericValues.csv
 Rows dropped: 2
-Raw Data: /home/binb/work/UCOM/UCOM-data-collection/raw_data/Waterloo_Bergsieker/Waterloo_Bergsieker_ChoiceValues.csv
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
+Raw Data: raw_data/Waterloo_Bergsieker/Waterloo_Bergsieker_ChoiceValues.csv
 Rows dropped: 2
+Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
 [1] TRUE
 Checked: Passed!
 ===== Writing results =====
-Output path: /home/binb/work/UCOM/UCOM-data-collection/cleaned_data/Waterloo_Bergsieker
+Output path: cleaned_data/Waterloo_Bergsieker
+===== Data Conversion =====
+===== Preparing country code & site =====
 Country: CAN
 Site: Waterloo_Bergsieker
 Sucessfully write results!
 
 
 
-Script: ./src/merge_data.R
+Script: src/merge_data.R
 ===== Setting up path =====
 ===== Loading & Merging data =====
-Other non-numeric variables:
-Variables: country, site, gender, 
-Config file: /home/binb/work/UCOM/UCOM-data-collection/src/other_vars.json
+Other non-numeric variables to include:
+Variables: country, site, gender, duration_seconds, finished, startdate, enddate, course, study_year, citizenship, expect_child, livingsituation, own_distribution_1, own_distribution_2, mother_field, father_field, upbringing, religion, sexual_orientation, immigration_backgrou, migration_background, ethnic_background, marital_status, comments, not_use, uni, per_leave, per_workhour, parentleave_expectat, 
+Config file: src/other_vars.json
+Loading data sets.....
+Data: cleaned_data/Albania_Jasini/albania_jasini.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Australia_Anderson/australia_anderson.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Australia_Dar_Nimrod/australia_dar_nimrod.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Belgium_Vangrootel/belgium_vangrootel.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Canada_Block/canada_block.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/China_Zhao/china_zhao.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Colombia_Meister/colombia_meister.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Germany_Hoppe/germany_hoppe.csv 
+ Unknown column `ethnic_background`  
+ Add new columns as NAs 
+Data: cleaned_data/Germany_Steffens/germany_steffens.csv 
+ Unknown column `ethnic_background`  
+ Add new columns as NAs 
+Data: cleaned_data/Kansas_Xian/kansas_xian.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Lebanon_Saab/lebanon_saab.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Malaysia_Selvan/malaysia_selvan.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Netherlands_Otten/netherlands_otten.csv 
+ Unknown columns `migration_background` and `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Netherlands_Vink/netherlands_vink.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/NewZealand_McNamara/newzealand_mcnamara.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Norway_Olsson/norway_olsson.csv 
+ Unknown column `ethnic_background`  
+ Add new columns as NAs 
+Data: cleaned_data/Serbia_Zezelj/serbia_zezelj.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Switzerland_Nikitin/switzerland_nikitin.csv 
+ Unknown column `ethnic_background`  
+ Add new columns as NAs 
+Data: cleaned_data/Switzerland_Sczesny/switzerland_sczesny.csv 
+ Unknown column `ethnic_background`  
+ Add new columns as NAs 
+Data: cleaned_data/Toronto_Hall/toronto_hall.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Turkey_Gungor/turkey_gungor.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Turkey_Kunurgu/turkey_kunurgu.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/UMass_Rodriguez/umass_rodriguez.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/USA_Devos/usa_devos.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Waterloo_Bergsieker/waterloo_bergsieker.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Do some conversions before merging.......
+Merging all the data set....
+Checking numeric.....
 Is all numeric: TRUE
 ===== Results Summary =====
-Data Dimension: 11720 rows, 170 columns.
-Number of excluded variables: 138
+Data Dimension: 14375 rows, 189 columns.
 ===== Writing results =====
-Aggregated CSV: /home/binb/work/UCOM/UCOM-data-collection/aggregated_data/aggregated_clean.csv
-Numeric range: /home/binb/work/UCOM/UCOM-data-collection/aggregated_data/num_range.json
-Excluded variables: /home/binb/work/UCOM/UCOM-data-collection/aggregated_data/exc_vars.json
+Aggregated CSV: aggregated_data/aggregated_clean.csv
+Numeric range: aggregated_data/num_range.json
+Non-numeric unique values: aggregated_data/non_num_unique.json
+Only for unique values below 100.
+Excluded variables: aggregated_data/exc_vars.json
+Number of excluded variables: 131
+Done!
+
+
+
+Script: src/merge_data.R
+===== Setting up path =====
+===== Loading & Merging data =====
+Other non-numeric variables to include:
+Variables: country, site, gender, duration_seconds, finished, startdate, enddate, course, study_year, citizenship, expect_child, livingsituation, own_distribution_1, own_distribution_2, mother_field, father_field, upbringing, religion, sexual_orientation, immigration_backgrou, migration_background, ethnic_background, marital_status, comments, not_use, uni, per_leave, per_workhour, parentleave_expectat, 
+Config file: src/other_vars.json
+Loading data sets.....
+Data: cleaned_data/Albania_Jasini/albania_jasini.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Australia_Anderson/australia_anderson.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Australia_Dar_Nimrod/australia_dar_nimrod.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Belgium_Vangrootel/belgium_vangrootel.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Canada_Block/canada_block.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/China_Zhao/china_zhao.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Colombia_Meister/colombia_meister.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Germany_Hoppe/germany_hoppe.csv 
+ Unknown column `ethnic_background`  
+ Add new columns as NAs 
+Data: cleaned_data/Germany_Steffens/germany_steffens.csv 
+ Unknown column `ethnic_background`  
+ Add new columns as NAs 
+Data: cleaned_data/Kansas_Xian/kansas_xian.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Lebanon_Saab/lebanon_saab.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Malaysia_Selvan/malaysia_selvan.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Netherlands_Otten/netherlands_otten.csv 
+ Unknown columns `migration_background` and `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Netherlands_Vink/netherlands_vink.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/NewZealand_McNamara/newzealand_mcnamara.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Norway_Olsson/norway_olsson.csv 
+ Unknown column `ethnic_background`  
+ Add new columns as NAs 
+Data: cleaned_data/Serbia_Zezelj/serbia_zezelj.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Switzerland_Nikitin/switzerland_nikitin.csv 
+ Unknown column `ethnic_background`  
+ Add new columns as NAs 
+Data: cleaned_data/Switzerland_Sczesny/switzerland_sczesny.csv 
+ Unknown column `ethnic_background`  
+ Add new columns as NAs 
+Data: cleaned_data/Toronto_Hall/toronto_hall.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Turkey_Gungor/turkey_gungor.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Turkey_Kunurgu/turkey_kunurgu.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/UMass_Rodriguez/umass_rodriguez.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/USA_Devos/usa_devos.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Data: cleaned_data/Waterloo_Bergsieker/waterloo_bergsieker.csv 
+ Unknown column `uni`  
+ Add new columns as NAs 
+Do some conversions before merging.......
+Merging all the data set....
+Checking numeric.....
+Is all numeric: TRUE
+===== Results Summary =====
+Data Dimension: 14375 rows, 189 columns.
+===== Writing results =====
+Numeric range: aggregated_data/num_range.json
+Same numeric range?
+[1] TRUE
+Aggregated CSV: aggregated_data/aggregated_clean.csv
+Non-numeric unique values: aggregated_data/non_num_unique.json
+Only for unique values below 100.
+Excluded variables: aggregated_data/exc_vars.json
+Number of excluded variables: 131
 Done!
