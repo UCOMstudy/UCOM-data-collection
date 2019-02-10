@@ -1,14 +1,14 @@
 [
   {
     "total_sites": 35,
-    "cleaned_sites": 32,
+    "cleaned_sites": 34,
     "sources": [
       {
         "name": "Albania_Jasini",
         "country": "ALB",
         "status": 1,
-        "dim": [176, 206],
-        "missing_prop": 0.1071,
+        "dim": [187, 206],
+        "missing_prop": 0.1379,
         "n_files": 1,
         "data": [
           {
@@ -272,8 +272,10 @@
       },
       {
         "name": "Ireland_Bosak",
-        "status": 0,
-        "dim": {},
+        "country": "IRL",
+        "status": 1,
+        "dim": [367, 199],
+        "missing_prop": 0.0778,
         "n_files": 3,
         "data": [
           {
@@ -289,7 +291,7 @@
             "format": "sav"
           }
         ],
-        "unique_vars": {}
+        "unique_vars": ["number", "area", "class", "livingsituation_13_text", "major_double", "major_double_1_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "filter_$"]
       },
       {
         "name": "Kansas_Xian",
@@ -388,8 +390,10 @@
       },
       {
         "name": "Netherlands_Otten",
-        "status": 0,
-        "dim": {},
+        "country": "NLD",
+        "status": 1,
+        "dim": [222, 200],
+        "missing_prop": 0.0558,
         "n_files": 1,
         "data": [
           {
@@ -397,7 +401,7 @@
             "format": "sav"
           }
         ],
-        "unique_vars": {}
+        "unique_vars": ["q135_1", "q135_2", "religion_10_text", "sexual_orientation_7_text", "citizenship_4_text", "q158", "q158_8_text", "sona_id"]
       },
       {
         "name": "Netherlands_Vink",

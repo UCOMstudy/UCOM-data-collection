@@ -19,11 +19,7 @@
       "locationlatitude",
       "locationlongitude",
       "locationaccuracy",
-      "id",
-      "ethnic_background",
-      "uni",
-      "uni_name",
-      "university"
+      "id"
    ],
    "site_spec": {
       "Albania_Jasini": [
@@ -168,6 +164,18 @@
          "q83_8",
          "q92"
       ],
+      "Ireland_Bosak": [
+         "number",
+         "area",
+         "class",
+         "livingsituation_13_text",
+         "major_double",
+         "major_double_1_text",
+         "religion_10_text",
+         "sexual_orientation_7_text",
+         "migration_background_3_text",
+         "filter_$"
+      ],
       "Kansas_Xian": [
          "q77",
          "q1",
@@ -237,6 +245,16 @@
          "sexual_orientation_7_text",
          "migration_background_3_text",
          "schoolid"
+      ],
+      "Netherlands_Otten": [
+         "q135_1",
+         "q135_2",
+         "religion_10_text",
+         "sexual_orientation_7_text",
+         "citizenship_4_text",
+         "q158",
+         "q158_8_text",
+         "sona_id"
       ],
       "Netherlands_Vink": [
          "livingsituation_13_text",
