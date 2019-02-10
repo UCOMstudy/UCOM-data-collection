@@ -52,16 +52,23 @@ read_cleaned_data <- function(df_path,
 
       all_vars <- append(other_vars, num_vars)
 
-      test <- dplyr::expr(out <- df %>% dplyr::select(all_vars))
+      test <- dplyr::expr(df %>% dplyr::select(all_vars))
 
-      tryCatch(eval(test), error = function(e) {
-            error_path <- get_rel_path(df_path)
-            e$message <- paste('Data:',
-                               error_path,
-                               '\n',
-                               e$message)
-            stop(e)
-      })
+      out <- tryCatch(
+            eval(test),
+            error = function(e) {
+                  error_path <- get_rel_path(df_path)
+                  e$message <- paste('Data:',
+                                     error_path,
+                                     '\n',
+                                     e$message,
+                                     '\n Add new columns as NAs \n')
+                  message(e)
+                  out <- df %>%
+                        add_emp_cols(all_vars) %>%
+                        dplyr::select(all_vars)
+            }
+      )
 
       return(out)
 }

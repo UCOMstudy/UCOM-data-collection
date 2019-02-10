@@ -208,3 +208,22 @@ convert_names <- function(df, extra_map = NULL) {
 
       return(out_df)
 }
+
+
+#' Add new columns as with NAs if not existed
+#'
+#'
+#' @param df Data frame
+#' @param vars Vars to include or add.
+#'     `vars` not existed in the data frame will be added with NAs.
+#'     Existing `vars` are kept.
+#'
+#' @return A new Data Frame with all `vars`
+#' @export
+add_emp_cols <- function(df, vars) {
+      cols <- colnames(df)
+      extra_vars <- setdiff(vars, cols)
+      vars2add <- rlang::rep_named(extra_vars, NA_character_)
+      out <- df %>% dplyr::mutate(!!!vars2add)
+      return(out)
+}
