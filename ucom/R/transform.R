@@ -33,7 +33,7 @@ convert_time <- function(x, date_format = NULL ) {
 convert_start_end <- function(df, date_format = NULL) {
       out <- df %>%
             dplyr::mutate_at(dplyr::vars("startdate", "enddate"),
-                             dplyr::funs(convert_time(., date_format)))
+                             list(~convert_time(., date_format)))
       return(out)
 }
 
@@ -49,7 +49,7 @@ convert_start_end <- function(df, date_format = NULL) {
 convert_choiceDF <- function(df, var_names) {
 
       pattern <- "^[0-9]{1,5}(\\.[0-9]{1,4})?"
-      extraction <- dplyr::funs(stringr::str_extract(.,
+      extraction <- list(~stringr::str_extract(.,
                                               pattern))
 
       output <- df %>%
@@ -192,7 +192,7 @@ convert_names <- function(df, extra_map = NULL) {
               'Renaming Duration_seconds...',
               'And other variables names...')
       out_df <- df %>%
-            dplyr::rename_all(dplyr::funs(stringr::str_to_lower)) %>%
+            dplyr::rename_all(list(~stringr::str_to_lower)) %>%
             dplyr::rename(duration_seconds=dplyr::starts_with('duration'))
 
       for (i in seq_along(ucom::vars_map)) {

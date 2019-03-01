@@ -51,7 +51,7 @@ message('Do some conversions before merging.......')
 converted_all_dfs <- all_dfs %>%
       purrr::map(~ dplyr::mutate_at(.x,
                                     dplyr::vars(other_vars),
-                                    dplyr::funs(as.character)))
+                                    list(~as.character)))
 
 message('Merging all the data set....')
 merged_df <- dplyr::bind_rows(converted_all_dfs)
@@ -61,7 +61,7 @@ message('Checking numeric.....')
 num_vars <- colnames(merged_df) %>% remove(other_vars)
 test_all_numeric <- merged_df %>%
       dplyr::select(num_vars) %>%
-      dplyr::mutate_all(dplyr::funs(is.numeric)) %>%
+      dplyr::mutate_all(list(~is.numeric)) %>%
       as.matrix() %>% all()
 message('Is all numeric: ',
         assertthat::assert_that(test_all_numeric))
