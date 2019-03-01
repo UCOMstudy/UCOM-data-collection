@@ -58,3 +58,11 @@ A huge amount of unrecognized variables.
 
 ## Nerthlands - Otten
  A lot of variables needed to be fixed
+
+## Italy_Fridanna
+
+- StartDate & EndDate do not make sense: it is too big.
+
+## Spain_Lemus
+
+- `other_support` columns not consistent across numeric and choice df
