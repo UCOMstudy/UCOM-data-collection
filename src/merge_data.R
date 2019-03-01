@@ -47,7 +47,8 @@ all_dfs <- purrr::map2(csv_path,
                 other_vars = other_vars)
 
 # convert course numeric to character
-message('Do some conversions before merging.......')
+message('**********************************************\n',
+        'Do some conversions before merging.......')
 converted_all_dfs <- all_dfs %>%
       purrr::map(~ dplyr::mutate_at(.x,
                                     dplyr::vars(other_vars),

@@ -1,7 +1,7 @@
 [
   {
-    "total_sites": 35,
-    "cleaned_sites": 34,
+    "total_sites": 44,
+    "cleaned_sites": 41,
     "sources": [
       {
         "name": "Albania_Jasini",
@@ -19,6 +19,25 @@
         "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q75"]
       },
       {
+        "name": "Arizona_Croft",
+        "country": "USA",
+        "status": 1,
+        "dim": [977, 212],
+        "missing_prop": 0.135,
+        "n_files": 2,
+        "data": [
+          {
+            "file": "Arizona_Croft_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Arizona_Croft_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["q75", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q78", "q79", "q82", "sc0", "score", "score 2", "score 3"]
+      },
+      {
         "name": "Australia_Anderson",
         "country": "AUS",
         "status": 1,
@@ -34,19 +53,23 @@
         "unique_vars": ["q1", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
       },
       {
-        "name": "Australia_Dar_Nimrod",
+        "name": "Australia_DarNimrod",
         "country": "AUS",
         "status": 1,
-        "dim": [335, 207],
-        "missing_prop": 0.0974,
-        "n_files": 1,
+        "dim": [357, 210],
+        "missing_prop": 0.1363,
+        "n_files": 2,
         "data": [
           {
-            "file": "UCOM data - clean.sav",
+            "file": "Australia_DarNimrod_NonSONA.sav",
+            "format": "sav"
+          },
+          {
+            "file": "Australia_DarNimrod_SONA.sav",
             "format": "sav"
           }
         ],
-        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
+        "unique_vars": ["incl1", "incl2", "incl3", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
       },
       {
         "name": "Belgium_Vangrootel",
@@ -114,6 +137,44 @@
           }
         ],
         "unique_vars": ["q76", "q75", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q78"]
+      },
+      {
+        "name": "Canada_Hall",
+        "country": "CAN",
+        "status": 1,
+        "dim": [276, 203],
+        "missing_prop": 0.0721,
+        "n_files": 2,
+        "data": [
+          {
+            "file": "Canada_Hall_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Canada_Hall_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q77"]
+      },
+      {
+        "name": "Chile_Gonzalez",
+        "country": "CHL",
+        "status": 1,
+        "dim": [617, 224],
+        "missing_prop": 0.3717,
+        "n_files": 2,
+        "data": [
+          {
+            "file": "Chile_Gonzalez_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Chile_Gonzalez_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["q1", "livingsituation_13_text", "religion_21_text", "sexual_orientation_7_text", "migration_background_3_text", "social.identity_1", "social.identity_2", "social.identity_3", "social.identity_4", "social.identity_5", "social.identity_6", "collective.action_1", "collective.action_2", "collective.action_3", "collective.action_4", "collective.action_5", "collective.action_6", "collective.action_7", "collective.action_8", "collective.action_9", "collective.action_10", "collective.action_11", "collective.action_11_text", "uni_name_6_text", "q82"]
       },
       {
         "name": "China_Zhao",
@@ -211,6 +272,25 @@
         "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
       },
       {
+        "name": "France_Redersdorff",
+        "country": "FRA",
+        "status": 1,
+        "dim": [232, 203],
+        "missing_prop": 0.0498,
+        "n_files": 2,
+        "data": [
+          {
+            "file": "France_Redersdorff_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "France_Redersdorff_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
+      },
+      {
         "name": "France_Regner",
         "country": "FRA",
         "status": 1,
@@ -229,6 +309,32 @@
           }
         ],
         "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
+      },
+      {
+        "name": "Geneva_Kulich",
+        "status": 0,
+        "dim": {},
+        "doc": "Geneva-notice.docx",
+        "n_files": 4,
+        "data": [
+          {
+            "file": "Geneva_Kulich_Numeric.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Geneva_Kulich_choice.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Psychology-students_B1-B2_Geneva-site_submitted.sav",
+            "format": "sav"
+          },
+          {
+            "file": "Psychology-studnets_B1_B2_Geneva-site_submitted.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": {}
       },
       {
         "name": "Germany_Hoppe",
@@ -292,6 +398,21 @@
           }
         ],
         "unique_vars": ["number", "area", "class", "livingsituation_13_text", "major_double", "major_double_1_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "filter_$"]
+      },
+      {
+        "name": "Italy_Fridanna",
+        "country": "ITA",
+        "status": 1,
+        "dim": [296, 263],
+        "missing_prop": 0.2524,
+        "n_files": 1,
+        "data": [
+          {
+            "file": "Italy_Fridanna_ChoiceValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["livingsituation_13_text", "livin0", "livin1", "livin2", "livin3", "livin4", "livin5", "livin6", "religion_10_text", "relig0", "relig1", "relig2", "relig3", "relig4", "relig5", "relig6", "religiosity", "sexual_orientation_7_text", "sexua0", "sexua1", "sexua2", "sexua3", "sexua4", "sexua5", "sexua6", "migration_background_3_text", "migra0", "migra1", "migra2", "migra3", "migra4", "migra5", "migra6", "comme0", "comme1", "comme2", "comme3", "comme4", "comme5", "comme6", "not_u0", "not_u1", "not_u2", "not_u3", "not_u4", "not_u5", "not_u6", "uni_n0", "uni_n1", "uni_n2", "uni_n3", "uni_n4", "uni_n5", "uni_n6", "q78", "q780", "q781", "q782", "q783", "q784", "q785", "q786"]
       },
       {
         "name": "Kansas_Xian",
@@ -487,6 +608,34 @@
         "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
       },
       {
+        "name": "Romania_Birneanu",
+        "country": "ROU",
+        "status": 1,
+        "dim": [765, 205],
+        "missing_prop": 0.1529,
+        "doc": "Romanian.docx",
+        "n_files": 4,
+        "data": [
+          {
+            "file": "Romania_Birneanu_Choice.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Romania_Birneanu_Numeric.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Romania_Birneanu_choice.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Romania_Birneanu_numeric.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["q79", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "ethnic_background_11_text"]
+      },
+      {
         "name": "Serbia_Zezelj",
         "country": "SRB",
         "status": 1,
@@ -505,6 +654,24 @@
           }
         ],
         "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q77"]
+      },
+      {
+        "name": "Spain_Lemus",
+        "status": 0,
+        "dim": {},
+        "doc": "UCOM_Base_CLEAN_FORMAT_Granada.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "Spain_Lemus_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Spain_Lemus_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": {}
       },
       {
         "name": "Sweden_Bäck",
@@ -589,26 +756,6 @@
         "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q78"]
       },
       {
-        "name": "Toronto_Hall",
-        "country": "CAN",
-        "status": 1,
-        "dim": [263, 206],
-        "missing_prop": 0.0734,
-        "doc": "ucom.docx",
-        "n_files": 2,
-        "data": [
-          {
-            "file": "Toronto_Hall_ChoiceValues.csv",
-            "format": "csv"
-          },
-          {
-            "file": "Toronto_Hall_NumericValues.csv",
-            "format": "csv"
-          }
-        ],
-        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q77"]
-      },
-      {
         "name": "Turkey_Gungor",
         "country": "TUR",
         "status": 1,
@@ -686,6 +833,45 @@
           }
         ],
         "unique_vars": ["icf", "livingsituation_text", "religion_text", "sexual_orientation_text", "migration_background_text", "source", "site"]
+      },
+      {
+        "name": "USA_Germano",
+        "country": "USA",
+        "status": 1,
+        "dim": [864, 203],
+        "missing_prop": 0.0906,
+        "doc": "UniversityofWashington_UCOMSurvey.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "USA_Germano_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "USA_Germano_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["q79", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
+      },
+      {
+        "name": "Ukraine_Kozytska",
+        "country": "UKR",
+        "status": 1,
+        "dim": [685, 203],
+        "missing_prop": 0.3176,
+        "n_files": 2,
+        "data": [
+          {
+            "file": "Ukraine_Kozytska_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Ukraine_Kozytska_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
       },
       {
         "name": "Waterloo_Bergsieker",
