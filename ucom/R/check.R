@@ -79,7 +79,18 @@ diagnose <- function(rows, cols=NULL, df1, df2, last.error=TRUE) {
       }
 
       merged_df %>% myView()
+      return(invisible(merged_df))
 
+}
+
+#' Identify columns that are not consistent
+#'
+#' @param df DataFrame from \code{`ucom::diagnose()`}
+#'
+#' @return DataFrame with inconsistent columns
+#' @export
+get_problem_cols <- function(df) {
+      return(df %>% dplyr::select(which(!df[1,] == df[2,])))
 }
 
 # https://stackoverflow.com/questions/48234850/how-to-use-r-studio-view-function-programatically-in-a-package
