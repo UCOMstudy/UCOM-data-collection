@@ -26,6 +26,10 @@ num_vars <- all_vars %>%
 converted_choice_df <- convert_choiceDF(choice_df, num_vars)
 check_vars(numeric_df, converted_choice_df, num_vars)
 message('Checked: Passed!')
+
+message('===== Convert StartDate EndDate =====')
+# choice_df <- choice_df %>% convert_start_end('dmY HM')
+message('Conversion done.')
 ################ Write out results #####################
 
 message('===== Writing results =====')

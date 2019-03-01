@@ -11,21 +11,29 @@ message('Script: ', script_path)
 message('===== Loading data =====')
 site <- get_current_site()
 
-message("Only has one SAV file")
-message('Raw Data: raw_data/Australia_Dar_Nimrod/UCOM data - clean.sav')
-message('Rows dropped: 0')
-
-choice_df <- haven::read_sav(file.path('raw_data',
-                                       site, 'UCOM data - clean.sav'))
-choice_df <- choice_df %>% convert_spss() %>% convert_names()
-
+data_files <- c(
+      'Australia_DarNimrod_NonSONA.sav',
+      'Australia_DarNimrod_SONA.sav'
+)
+choice_df <- purrr::map_dfr(
+      data_files,
+      ~ get_raw_data(
+            site,
+            'Choice',
+            start_row = 1,
+            file_name = .x,
+            sav = TRUE
+      ) %>%
+            convert_names() %>%
+            dplyr::mutate_all(list(~as.character))
+)
 ################ Checking #####################
 
 message('===== Checking =====')
 all_vars <- colnames(choice_df)
 
 num_vars <- all_vars %>%
-      get_num_vars('(^q[0-9]+)|(text)')
+      get_num_vars('(^q[0-9]+)|(text)|(incl)')
 message('No check for this! Only one data set')
 ################ Write out results #####################
 

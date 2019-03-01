@@ -27,10 +27,9 @@ choice_df <- choice_df %>% convert_spss() %>%
       dplyr::rename(uni = Location) %>%
       convert_names()
 ################ Checking #####################
-
 message('======= Filtering out error entries =======')
 choice_df <-
-      choice_df %>% filter(
+      choice_df %>% dplyr::filter(
             parentleave_motivati_1 <= 100 | is.na(parentleave_motivati_1),
             parentleave_efficacy != '54' | is.na(parentleave_efficacy),
             real_pay_2 <= 100 | is.na(real_pay_2),

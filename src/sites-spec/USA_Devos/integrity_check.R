@@ -27,7 +27,7 @@ num_vars <- all_vars %>%
 converted_choice_df <- convert_choiceDF(choice_df, num_vars) %>%
       # convert to the same data types
       dplyr::mutate_at(dplyr::vars(num_vars),
-                       dplyr::funs(as.numeric))
+                       list(~as.numeric))
 check_vars(numeric_df, converted_choice_df, num_vars)
 message('Checked: Passed!')
 ################ Write out results #####################

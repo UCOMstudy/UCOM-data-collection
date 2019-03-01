@@ -11,8 +11,20 @@ message('Script: ', script_path)
 message('===== Loading data =====')
 site <- get_current_site()
 
-numeric_df <- get_raw_data(site, 'Numeric') %>% convert_names()
-choice_df <- get_raw_data(site, 'Choice') %>% convert_names()
+choice_files <- c('Romania_Birneanu_choice.csv',
+                  'Romania_Birneanu_Choice.csv')
+
+numeric_files <- c('Romania_Birneanu_numeric.csv',
+                   'Romania_Birneanu_Numeric.csv')
+
+choice_df <- purrr::map_dfr(choice_files,
+                            ~ get_raw_data(site, 'Choice',
+                                           file_name = .x)) %>% convert_names()
+
+numeric_df <- purrr::map_dfr(numeric_files,
+                             ~ get_raw_data(site, 'Numeric',
+                                            file_name = .x)) %>% convert_names()
+
 
 ################ Checking #####################
 
@@ -28,7 +40,7 @@ message('Checked: Passed!')
 ################ Write out results #####################
 
 message('===== Writing results =====')
-ucom::write_results(choice_df, all_vars, num_vars, country_code = 'CAN')
+ucom::write_results(choice_df, all_vars, num_vars)
 message('Sucessfully write results!')
 
 

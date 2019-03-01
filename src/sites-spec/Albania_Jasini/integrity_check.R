@@ -18,7 +18,7 @@ message("Raw Data: ", get_rel_path(data_path))
 start_row <- 2 # the first row is the description of the variable
 message("Rows dropped: ", (start_row - 1))
 choice_df <- readxl::read_xlsx(data_path) %>%
-      dplyr::slice(start_row:n()) %>%
+      dplyr::slice(start_row:dplyr::n()) %>%
       convert_names()
 ################ Checking #####################
 
