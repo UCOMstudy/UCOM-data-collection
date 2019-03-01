@@ -4,7 +4,7 @@ CUSTOM ?= integrity_check.R
 SITES_SPEC ?= sites-spec
 ALL_DIRS ?= $(SRC)/$(SITES_SPEC)/*
 LOG_FILE ?= log.txt
-REDIRECT ?= >>$(LOG_FILE) 2>&1 
+REDIRECT ?= >>$(LOG_FILE) 2>&1
 COUNT_SCRIPTS ?= $(shell ls $(SRC)/$(SITES_SPEC) | wc -l)
 CRITERIA ?= "Sucessfully write results!"
 AGGREGATED_DATA ?= aggregated_data
@@ -13,11 +13,6 @@ TIME = $$(date +'%Y-%m-%d %H:%M:%S')
 
 # pipeline config file for R script
 export R_PROFILE_USER := pipeline.rprofile
-
-test: 
-	@echo $(t)
-	@sleep 2
-	@echo $(t)
 
 all: pipeline zip
 
@@ -42,23 +37,23 @@ tag: $(AGGREGATED_DATA).zip
 	@cp $(AGGREGATED_DATA).zip $(AGGREGATED_DATA).$(DATE).zip
 	echo "Tagged file: $(AGGREGATED_DATA).$(DATE).zip"
 
-pipeline: create_src_folders copy_template check merge summary 
+pipeline: create_src_folders copy_template check merge summary
 	@echo 'Pipeline finished: log file can be found here $(LOG_FILE)'
-	
+
 summary: $(SRC)/summary.R
 	@-Rscript $<
 
 merge: $(SRC)/merge_data.R
 	@echo "=========== Merging data ===========";
 	@echo "Start time: $(TIME)"; \
-	Rscript $< $(REDIRECT) && echo "Finished at: $(TIME)"; 
+	Rscript $< $(REDIRECT) && echo "Finished at: $(TIME)";
 
 .ONESHELL: check
-check:
-	@echo "Pipeline config file: $(R_PROFILE_USER)" > $(LOG_FILE); 
+check: copy_template
+	@echo "Pipeline config file: $(R_PROFILE_USER)" > $(LOG_FILE);
 	@echo "Start running....." $(REDIRECT);
 	@echo "=========== Cleaning & checking data from sites ===========";
-	@echo "Start time: $(TIME)"; 
+	@echo "Start time: $(TIME)";
 	@echo "Total scripts to run: $(COUNT_SCRIPTS)"; \
 	for dir in $(ALL_DIRS); do \
 		if [ -f $${dir}/$(CUSTOM) ]; then \
@@ -66,11 +61,11 @@ check:
 		else \
 			Rscript $${dir}/$(TEMPLATE) $(REDIRECT); \
 		fi; \
-	done; 
+	done;
 	@echo "Scripts succeeded: $$(cat $(LOG_FILE) | grep $(CRITERIA) | wc -l)";
-	@echo "Finished at: $(TIME)"; 
+	@echo "Finished at: $(TIME)";
 
-copy_template: $(SRC)/$(TEMPLATE)
+copy_template: $(SRC)/$(TEMPLATE) create_src_folders
 	@echo "Copy src templates"
 	@for dir in $(ALL_DIRS); do \
 		cp $< $${dir}; \
