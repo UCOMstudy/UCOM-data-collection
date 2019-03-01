@@ -36,7 +36,7 @@ convert_dot <- function(x) dplyr::if_else(x == '.',
                                           NA_character_,
                                           x)
 trans_choice_df <- choice_df %>%
-      dplyr::mutate_all(dplyr::funs(convert_dot))
+      dplyr::mutate_all(list(~convert_dot))
 
 converted_choice_df <- convert_choiceDF(trans_choice_df, num_vars)
 check_vars(trans_choice_df, converted_choice_df, num_vars)
