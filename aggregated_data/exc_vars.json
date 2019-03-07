@@ -59,12 +59,6 @@
          "sexual_orientation_7_text",
          "migration_background_3_text"
       ],
-      "Australia_Dar_Nimrod": [
-         "livingsituation_13_text",
-         "religion_10_text",
-         "sexual_orientation_7_text",
-         "migration_background_3_text"
-      ],
       "Belgium_Vangrootel": [
          "q155",
          "livingsituation_13_text",
@@ -453,13 +447,6 @@
          "sexual_orientation_7_text",
          "migration_background_3_text",
          "q78"
-      ],
-      "Toronto_Hall": [
-         "livingsituation_13_text",
-         "religion_10_text",
-         "sexual_orientation_7_text",
-         "migration_background_3_text",
-         "q77"
       ],
       "Turkey_Gungor": [
          "livingsituation_13_text",

@@ -716,7 +716,7 @@ Raw Data: raw_data/Spain_Lemus/Spain_Lemus_ChoiceValues.csv
 Rows dropped: 2
 Apply to_lower to all names...Renaming Duration_seconds...And other variables names...
 ===== Checking =====
-Error: isTRUE(x = dplyr::all_equal(a, b)) is not TRUE. (Rows in x but not y: 181, 180, 179, 177, 176, 173, 172, 171, 168, 167, 162[...]. Rows in y but not x: 181, 180, 179, 177, 176, 173, 172, 171, 168, 167, 162[...]. ).
+Error: isTRUE(x = dplyr::all_equal(a, b)) is not TRUE. (Rows in x but not y: 181, 180, 179, 177, 176, 172, 171, 168, 167, 162, 160[...]. Rows in y but not x: 180, 179, 177, 176, 173, 172, 171, 168, 162, 160, 157[...]. ).
 Execution halted
 
 
@@ -945,9 +945,6 @@ Data: cleaned_data/Australia_Anderson/australia_anderson.csv
 Data: cleaned_data/Australia_DarNimrod/australia_darnimrod.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Australia_Dar_Nimrod/australia_dar_nimrod.csv 
- Unknown column `uni`  
- Add new columns as NAs 
 Data: cleaned_data/Belgium_Vangrootel/belgium_vangrootel.csv 
  Unknown column `uni`  
  Add new columns as NAs 
@@ -999,9 +996,6 @@ Data: cleaned_data/Switzerland_Nikitin/switzerland_nikitin.csv
 Data: cleaned_data/Switzerland_Sczesny/switzerland_sczesny.csv 
  Unknown column `ethnic_background`  
  Add new columns as NAs 
-Data: cleaned_data/Toronto_Hall/toronto_hall.csv 
- Unknown column `uni`  
- Add new columns as NAs 
 Data: cleaned_data/Turkey_Gungor/turkey_gungor.csv 
  Unknown column `uni`  
  Add new columns as NAs 
@@ -1017,16 +1011,16 @@ Data: cleaned_data/USA_Devos/usa_devos.csv
 Data: cleaned_data/Waterloo_Bergsieker/waterloo_bergsieker.csv 
  Unknown column `uni`  
  Add new columns as NAs 
+**********************************************
 Do some conversions before merging.......
 Merging all the data set....
 Checking numeric.....
 Is all numeric: TRUE
 ===== Results Summary =====
-Data Dimension: 19444 rows, 189 columns.
+Data Dimension: 18846 rows, 189 columns.
 ===== Writing results =====
 Numeric range: aggregated_data/num_range.json
-Same numeric range?
-[1] TRUE
+Old num_range.json not existed.Create a new one.
 Aggregated CSV: aggregated_data/aggregated_clean.csv
 Non-numeric unique values: aggregated_data/non_num_unique.json
 Only for unique values below 100.

@@ -55,17 +55,23 @@ meta_merged <- meta_nested %>%
       left_join(merged_summary, by = c('name' = 'name')) %>%
       left_join(doc, by = c('name' = 'name')) %>%
       # rearrange columns
-      select(name, country,
-             status, dim,
-             missing_prop, doc,
+      select(name,
+             country,
+             status,
+             dim,
+             missing_prop,
+             doc,
              everything()) %>%
       # fill na with 0
       tidyr::replace_na(list(status = 0))
 
 meta_final <- meta_merged %>%
       mutate(total_sites = n(),
-             cleaned_sites = sum(status)) %>%
-      tidyr::nest(- c(total_sites, cleaned_sites),
+             cleaned_sites = sum(status),
+             n_obs = sum(purrr::flatten_dbl(purrr::map(dim, ~ .x[1])))) %>%
+      tidyr::nest(- c(total_sites,
+                      cleaned_sites,
+                      n_obs),
                   .key = 'sources')
 
 message('Merging and writing summary.json')

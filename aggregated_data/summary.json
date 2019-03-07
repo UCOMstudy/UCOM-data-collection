@@ -2,6 +2,7 @@
   {
     "total_sites": 44,
     "cleaned_sites": 41,
+    "n_obs": 18846,
     "sources": [
       {
         "name": "Albania_Jasini",
