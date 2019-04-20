@@ -31,7 +31,7 @@ merged_summary <- summary_rds %>%
                   tidyr::unnest(name, country, missing_prop, status)
       )
 
-message('Prepare... Raw files...')
+message('Prepare raw files for summaries ...')
 # put source and file into one data frame
 meta <- tibble::tibble(name = as.character(raw_site_names),
                        file = file_names) %>%
@@ -46,13 +46,15 @@ doc <- meta %>%
 # remove doc rows.
 meta_nodoc <- meta %>% dplyr::filter(format != 'docx')
 
-# put everything together
-message('Prepare... Metadata summary ...')
+
+message('Prepare metadata summaries ...')
 meta_nested <- meta_nodoc  %>%
       add_count(name) %>%
       rename(n_files = n) %>%
       tidyr::nest(file, format)
 
+# put everything together
+message('Merging all metadata...')
 meta_merged <- meta_nested %>%
       left_join(merged_summary, by = c('name' = 'name')) %>%
       left_join(doc, by = c('name' = 'name')) %>%
@@ -78,7 +80,7 @@ meta_final <- meta_merged %>%
                      n_obs),
                   .key = 'sources')
 
-message('Merging and writing summary.json')
+message('Writing summary.json')
 meta_final %>%
       jsonlite::write_json(output_path,
                            pretty = TRUE)
