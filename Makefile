@@ -1,15 +1,18 @@
+DATE = $$(date +'%Y-%m-%d')
+TIME = $$(date +'%Y-%m-%d %H:%M:%S')
+
 SRC ?= ./src
 TEMPLATE ?= integrity_check_template.R
 CUSTOM ?= integrity_check.R
 SITES_SPEC ?= sites-spec
 ALL_DIRS ?= $(SRC)/$(SITES_SPEC)/*
-LOG_FILE ?= log.txt
+AGGREGATED_DATA ?= aggregated_data
+LOG_FILE ?= log.$(DATE).txt
 REDIRECT ?= >>$(LOG_FILE) 2>&1
 COUNT_SCRIPTS ?= $(shell ls $(SRC)/$(SITES_SPEC) | wc -l)
+# grep `log` file for this criteria to check the number of successful scripts
 CRITERIA ?= "Sucessfully write results!"
-AGGREGATED_DATA ?= aggregated_data
-DATE = $$(date +'%Y-%m-%d')
-TIME = $$(date +'%Y-%m-%d %H:%M:%S')
+
 
 # pipeline config file for R script
 export R_PROFILE_USER := pipeline.rprofile
@@ -77,6 +80,7 @@ create_src_folders: $(SRC)/create_folder.R
 
 clean:
 	rm -rf $(LOG_FILE)
+	rm -rf log*
 	rm -rf cleaned_data/*
 	rm -rf aggregated_data/*
 	rm -rf aggregated_data.zip
