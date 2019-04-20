@@ -14,8 +14,8 @@ file_names <- raw_files %>% fs::path_file()
 
 output_path <- here::here('aggregated_data', 'summary.json')
 
-# retrieve summary data for cleaned sites
-message('Prepare...Summary for cleaned sites...')
+# retrieve summary data from cleaned sites
+message('Prepare summaries from cleaned sites...')
 summary_rds <-
       purrr::map(file.path(all_sites, 'summary.rds'),
                       readr::read_rds) %>%
@@ -77,4 +77,4 @@ meta_final <- meta_merged %>%
 message('Merging and writing summary.json')
 meta_final %>%
       jsonlite::write_json(output_path,
-                          pretty = TRUE)
+                           pretty = TRUE)
