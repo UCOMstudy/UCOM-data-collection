@@ -18,8 +18,9 @@ output_path <- here::here('aggregated_data', 'summary.json')
 message('Prepare summaries from cleaned sites...')
 summary_rds <-
       purrr::map(file.path(all_sites, 'summary.rds'),
-                      readr::read_rds) %>%
+                 readr::read_rds) %>%
       purrr::set_names(site_names)
+
 
 col_names <- names(summary_rds[[1]])
 merged_summary <- summary_rds %>%
@@ -27,19 +28,20 @@ merged_summary <- summary_rds %>%
             ~ t(as.matrix(.x)) %>%
                   tibble::as_tibble() %>%
                   purrr::set_names(col_names) %>%
-                  tidyr::unnest(name, country, missing_prop, status))
+                  tidyr::unnest(name, country, missing_prop, status)
+      )
 
 message('Prepare... Raw files...')
 # put source and file into one data frame
 meta <- tibble::tibble(name = as.character(raw_site_names),
                        file = file_names) %>%
       # Format of files
-      dplyr::mutate(format = fs::path_ext(!! quo(file)))
+      dplyr::mutate(format = fs::path_ext(!!quo(file)))
 
 # questionaries .docx for latter useage
 doc <- meta %>%
       dplyr::filter(format == 'docx') %>%
-      dplyr::select(-format, doc = !! quo(file))
+      dplyr::select(-format, doc = !!quo(file))
 
 # remove doc rows.
 meta_nodoc <- meta %>% dplyr::filter(format != 'docx')
@@ -66,12 +68,14 @@ meta_merged <- meta_nested %>%
       tidyr::replace_na(list(status = 0))
 
 meta_final <- meta_merged %>%
-      mutate(total_sites = n(),
-             cleaned_sites = sum(status),
-             n_obs = sum(purrr::flatten_dbl(purrr::map(dim, ~ .x[1])))) %>%
-      tidyr::nest(- c(total_sites,
-                      cleaned_sites,
-                      n_obs),
+      mutate(
+            total_sites = n(),
+            cleaned_sites = sum(status),
+            n_obs = sum(purrr::flatten_dbl(purrr::map(dim, ~ .x[1])))
+      ) %>%
+      tidyr::nest(-c(total_sites,
+                     cleaned_sites,
+                     n_obs),
                   .key = 'sources')
 
 message('Merging and writing summary.json')
