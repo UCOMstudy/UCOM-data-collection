@@ -1,8 +1,8 @@
 [
   {
-    "total_sites": 44,
-    "cleaned_sites": 41,
-    "n_obs": 18846,
+    "total_sites": 57,
+    "cleaned_sites": 55,
+    "n_obs": 25120,
     "sources": [
       {
         "name": "Albania_Jasini",
@@ -143,8 +143,8 @@
         "name": "Canada_Hall",
         "country": "CAN",
         "status": 1,
-        "dim": [276, 203],
-        "missing_prop": 0.0721,
+        "dim": [283, 198],
+        "missing_prop": 0.0645,
         "n_files": 2,
         "data": [
           {
@@ -157,6 +157,25 @@
           }
         ],
         "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q77"]
+      },
+      {
+        "name": "Canada_Steele",
+        "country": "CAN",
+        "status": 1,
+        "dim": [661, 201],
+        "missing_prop": 0.1558,
+        "n_files": 2,
+        "data": [
+          {
+            "file": "Canada_Steele_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Canada_Steele_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["q78", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q77", "q80"]
       },
       {
         "name": "Chile_Gonzalez",
@@ -178,6 +197,25 @@
         "unique_vars": ["q1", "livingsituation_13_text", "religion_21_text", "sexual_orientation_7_text", "migration_background_3_text", "social.identity_1", "social.identity_2", "social.identity_3", "social.identity_4", "social.identity_5", "social.identity_6", "collective.action_1", "collective.action_2", "collective.action_3", "collective.action_4", "collective.action_5", "collective.action_6", "collective.action_7", "collective.action_8", "collective.action_9", "collective.action_10", "collective.action_11", "collective.action_11_text", "uni_name_6_text", "q82"]
       },
       {
+        "name": "Chile_Sirlopu",
+        "country": "CHL",
+        "status": 1,
+        "dim": [188, 218],
+        "missing_prop": 0.1698,
+        "n_files": 2,
+        "data": [
+          {
+            "file": "Chile_Sirlopu_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Chile_Sirlopu_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["q1", "livingsituation_13_text", "religion_21_text", "sexual_orientation_7_text", "migration_background_3_text", "social identity_1", "social identity_2", "social identity_3", "social identity_4", "social identity_5", "social identity_6", "collective action_1", "collective action_2", "collective action_3", "collective action_4", "collective action_5", "collective action_6", "collective action_7", "collective action_8", "collective action_9", "collective action_10", "collective action_11", "collective action_11_text", "uni_name_6_text", "q82"]
+      },
+      {
         "name": "China_Zhao",
         "country": "CHN",
         "status": 1,
@@ -191,6 +229,25 @@
           }
         ],
         "unique_vars": ["q1", "q78", "q7", "q12", "q18", "q25", "q51", "livingsituation_text", "religion_text", "sexual_orientation_text", "migration_background_text", "q75", "q77"]
+      },
+      {
+        "name": "Colombia_Lopez",
+        "country": "COL",
+        "status": 1,
+        "dim": [461, 197],
+        "missing_prop": 0.276,
+        "n_files": 2,
+        "data": [
+          {
+            "file": "Colombia_Lopez_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Colombia_Lopez_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q77"]
       },
       {
         "name": "Colombia_Meister",
@@ -216,9 +273,8 @@
         "name": "CostaRica_Castro",
         "country": "CRI",
         "status": 1,
-        "dim": [382, 204],
-        "missing_prop": 0.4125,
-        "doc": "CostaRica_Castro_QUESTIONNAIRE.docx",
+        "dim": [478, 198],
+        "missing_prop": 0.4174,
         "n_files": 2,
         "data": [
           {
@@ -247,6 +303,25 @@
           },
           {
             "file": "Croatia_Franc_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q78"]
+      },
+      {
+        "name": "Croatia_Sucic",
+        "country": "HRV",
+        "status": 1,
+        "dim": [897, 198],
+        "missing_prop": 0.3699,
+        "n_files": 2,
+        "data": [
+          {
+            "file": "Croatia_Sucic_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Croatia_Sucic_NumericValues.csv",
             "format": "csv"
           }
         ],
@@ -313,29 +388,87 @@
       },
       {
         "name": "Geneva_Kulich",
-        "status": 0,
-        "dim": {},
+        "country": "CHE",
+        "status": 1,
+        "dim": [535, 203],
+        "missing_prop": 0.0549,
+        "doc": "2018-19_Geneva_B2B1_psychology_students.docx",
+        "n_files": 4,
+        "data": [
+          {
+            "file": "Geneva_Kulich_Psychology_Choice.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Geneva_Kulich_Psychology_Numeric.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Geneva_Science_Choice.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Geneva_Science_Numeric.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["sample", "q75_1", "q75_2", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
+      },
+      {
+        "name": "Geneva_Kulich",
+        "country": "CHE",
+        "status": 1,
+        "dim": [535, 203],
+        "missing_prop": 0.0549,
+        "doc": "2018_Geneva_Science-students.docx",
+        "n_files": 4,
+        "data": [
+          {
+            "file": "Geneva_Kulich_Psychology_Choice.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Geneva_Kulich_Psychology_Numeric.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Geneva_Science_Choice.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Geneva_Science_Numeric.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["sample", "q75_1", "q75_2", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
+      },
+      {
+        "name": "Geneva_Kulich",
+        "country": "CHE",
+        "status": 1,
+        "dim": [535, 203],
+        "missing_prop": 0.0549,
         "doc": "Geneva-notice.docx",
         "n_files": 4,
         "data": [
           {
-            "file": "Geneva_Kulich_Numeric.csv",
+            "file": "Geneva_Kulich_Psychology_Choice.csv",
             "format": "csv"
           },
           {
-            "file": "Geneva_Kulich_choice.csv",
+            "file": "Geneva_Kulich_Psychology_Numeric.csv",
             "format": "csv"
           },
           {
-            "file": "Psychology-students_B1-B2_Geneva-site_submitted.sav",
-            "format": "sav"
+            "file": "Geneva_Science_Choice.csv",
+            "format": "csv"
           },
           {
-            "file": "Psychology-studnets_B1_B2_Geneva-site_submitted.csv",
+            "file": "Geneva_Science_Numeric.csv",
             "format": "csv"
           }
         ],
-        "unique_vars": {}
+        "unique_vars": ["sample", "q75_1", "q75_2", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
       },
       {
         "name": "Germany_Hoppe",
@@ -376,6 +509,25 @@
           }
         ],
         "unique_vars": ["q79", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_2_text", "migration_background_3_text", "q84", "q86", "q87", "q88", "q89", "q90_1", "q90_2", "q90_3", "q90_4", "q91_1", "q91_2", "q91_3", "q91_4", "q91_5", "q91_6", "q91_7", "q91_8", "q81", "q80", "q82", "q83_1", "q83_2", "q83_3", "q83_4", "q83_5", "q83_6", "q83_7", "q83_8", "q92"]
+      },
+      {
+        "name": "India_Rani",
+        "country": "IND",
+        "status": 1,
+        "dim": [568, 198],
+        "missing_prop": 0.2826,
+        "n_files": 2,
+        "data": [
+          {
+            "file": "India_Rani_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "India_Rani_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
       },
       {
         "name": "Ireland_Bosak",
@@ -451,6 +603,26 @@
         "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "schoolid"]
       },
       {
+        "name": "Korea_Choi",
+        "country": "KOR",
+        "status": 1,
+        "dim": [205, 214],
+        "missing_prop": 0.0372,
+        "doc": "UCOM_-_Korean.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "Korea_Choi_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Korea_Choi_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["v2", "v3", "v4", "v5", "v7", "sc0_0", "sc0_1", "sc0_2", "q1", "q81", "q82", "q7", "q12", "q18", "q25", "q51", "livingsituation_text", "religion_text", "sexual_orientation_text", "migration_background_text", "q77", "major", "area"]
+      },
+      {
         "name": "Lebanon_Saab",
         "country": "LBN",
         "status": 1,
@@ -469,6 +641,26 @@
           }
         ],
         "unique_vars": ["q96", "livingsituation_13_text", "course_127_text", "study_year_5_text", "q88", "religion_10_text", "q85", "q85_9_text", "sexual_orientation_7_text", "migration_background_3_text", "ethnic_background_2_text", "ethnic_background_10_text", "q82", "q89", "to what extent are y", "on the whole, men ma_1", "on the whole, men ma_2", "on the whole, men ma_3", "on the whole, men ma_4", "on the whole, men ma_5", "on the whole, men ma_6", "on the whole, men ma_7", "on the whole, men ma_8", "on the whole, men ma_9", "on the whole, men ma_10", "q83", "q83_18_text", "q84", "q86", "q87", "q92"]
+      },
+      {
+        "name": "Macedonia_Gjoneska",
+        "country": "MKD",
+        "status": 1,
+        "dim": [283, 198],
+        "missing_prop": 0.0645,
+        "doc": "UCOM Survey - EN version.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "Macedonia_Gjoneska_HEED_Numeric.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Macedonia_Gjoneska_STEM_Numeric.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q77"]
       },
       {
         "name": "Malaysia_Selvan",
@@ -612,25 +804,16 @@
         "name": "Romania_Birneanu",
         "country": "ROU",
         "status": 1,
-        "dim": [765, 205],
-        "missing_prop": 0.1529,
-        "doc": "Romanian.docx",
-        "n_files": 4,
+        "dim": [527, 198],
+        "missing_prop": 0.2213,
+        "n_files": 2,
         "data": [
           {
-            "file": "Romania_Birneanu_Choice.csv",
+            "file": "Romania_Birneanu_ChoiceValues.csv",
             "format": "csv"
           },
           {
-            "file": "Romania_Birneanu_Numeric.csv",
-            "format": "csv"
-          },
-          {
-            "file": "Romania_Birneanu_choice.csv",
-            "format": "csv"
-          },
-          {
-            "file": "Romania_Birneanu_numeric.csv",
+            "file": "Romania_Birneanu_NumericValues.csv",
             "format": "csv"
           }
         ],
@@ -675,38 +858,52 @@
         "unique_vars": {}
       },
       {
-        "name": "Sweden_Bäck",
+        "name": "Sweden_Back",
         "status": 0,
         "dim": {},
-        "doc": "Studie_om_attityder_till_roller_och_yrkesval.docx",
         "n_files": 6,
         "data": [
           {
-            "file": "HEED+-+Studie+om+attityder+till+roller+och+yrkesval_December+19,+2018_11.27.csv",
+            "file": "Sweden_Back_HEED_Choice.csv",
             "format": "csv"
           },
           {
-            "file": "HEED+-+Studie+om+attityder+till+roller+och+yrkesval_December+19,+2018_11.33.csv",
+            "file": "Sweden_Back_HEED_numeric.csv",
             "format": "csv"
           },
           {
-            "file": "Psykologistudenter+-+Studie+om+attityder+till+roller+och+yrkesval+-+Psykologistudenter_December+19,+2018_11.38.csv",
+            "file": "Sweden_Back_Psychology_Choice.csv",
             "format": "csv"
           },
           {
-            "file": "Psykologistudenter+-+Studie+om+attityder+till+roller+och+yrkesval+-+Psykologistudenter_December+19,+2018_11.39.csv",
+            "file": "Sweden_Back_Psychology_Numeric.csv",
             "format": "csv"
           },
           {
-            "file": "STEM+-+Studie+om+attityder+till+roller+och+yrkesval_December+19,+2018_11.37.csv",
+            "file": "Sweden_Back_STEM_choice.csv",
             "format": "csv"
           },
           {
-            "file": "STEM+-+Studie+om+attityder+till+roller+och+yrkesval_December+19,+2018_11.38.csv",
+            "file": "Sweden_Back_STEM_numeric.csv",
             "format": "csv"
           }
         ],
         "unique_vars": {}
+      },
+      {
+        "name": "Switzerland_Haessler",
+        "country": "CHE",
+        "status": 1,
+        "dim": [534, 199],
+        "missing_prop": 0.0503,
+        "n_files": 1,
+        "data": [
+          {
+            "file": "Switzerland_Haessler.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["lfdn", "real_domestic_1", "real_domestic_2", "real_domestic_3", "real_parentalleave_1", "real_occ_1", "real_occ_2", "real_occ_3", "real_occ_4", "real_occ_5", "real_occ_6", "real_pay_1", "real_pay_2", "real_pay_3", "real_pay_4", "real_pay_5", "real_pay_6", "other_injunc_1", "other_injunc_2", "other_injunc_3", "other_injunc_4", "other_injunc_5", "other_injunc_6", "other_support_1", "other_support_2", "other_support_3", "other_support_4", "other_support_5", "other_support_6", "other_payequality_1", "other_payequality_2", "other_payequality_3", "other_domestic_1", "other_domestic_2", "other_domestic_3", "other_child_1", "other_child_2", "other_child_3", "own_injunc_1", "own_injunc_2", "own_injunc_3", "own_injunc_4", "own_injunc_5", "own_injunc_6", "own_support_1", "own_support_2", "own_support_3", "own_support_4", "own_support_5", "own_support_6", "own_support_7", "own_payequality_1", "own_payequality_2", "own_payequality_3", "own_domestic_1", "own_domestic_2", "own_domestic_3", "own_parentalleave_1", "own_child_1", "own_child_2", "own_child_3", "self_efficacy_1", "self_efficacy_2", "self_efficacy_3", "self_efficacy_4", "self_efficacy_5", "self_efficacy_6", "belong_accept_1", "belong_accept_2", "belong_accept_3", "belong_accept_4", "belong_accept_5", "belong_accept_6", "value_fit_1", "value_fit_2", "value_fit_3", "value_fit_4", "value_fit_5", "value_fit_6", "interest_motivation_1", "interest_motivation_2", "interest_motivation_3", "interest_motivation_4", "interest_motivation_5", "interest_motivation_6", "orientation_1", "orientation_2", "ambition_1", "ambition_2", "parentleave_motivati_1", "parentleave_efficacy", "filter_exp", "expected_share_1", "expected_share_2", "expected_share_3", "proximal_domestic_1", "proximal_domestic_2", "proximal_domestic_3", "proximal_domestic_4", "proximal_domestic_5", "intensive_parenting_1", "intensive_parenting_2", "react_domestic_1", "react_domestic_2", "react_domestic_3", "react_domestic_4", "react_work_1", "react_work_2", "react_work_3", "react_work_4", "react_work_5", "react_work_6", "exp_encouragement_1", "exp_affect_1", "exp_affect_2", "exp_affect_3", "exp_affect_4", "exp_affect_5", "exp_affect_6", "exp_conflict", "values_1", "values_2", "values_3", "values_4", "values_5", "values_6", "values_7", "values_8", "values_9", "compete_1", "compete_2", "partner_1", "partner_2", "partner_3", "partner_4", "partner_5", "partner_6", "partner_7", "partner_8", "partner_9", "essential_1", "essential_2", "essential_3", "gender_identity_1", "gender_identity_2", "gender_identity_3", "compatibility_1", "compatibility_2", "compatibility_3", "compatibility_4", "compatibility_5", "compatibility_6", "gender_att_1", "gender_att_2", "gender_att_3", "gender_att_4", "manhood_1", "manhood_2", "livingsituation_13_text", "filter_own_dis", "age", "religion_10_text", "religiosity", "sexual_orientation_ot", "immigration_background", "migration_backgroud_b_ot", "migration_backgroud_c_ot", "migration_backgroud_d_ot", "ses", "political", "swiss_part"]
       },
       {
         "name": "Switzerland_Nikitin",
@@ -757,6 +954,25 @@
         "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q78"]
       },
       {
+        "name": "Tanzania_Mkamwa",
+        "country": "TZA",
+        "status": 1,
+        "dim": [156, 188],
+        "missing_prop": 0.0563,
+        "n_files": 2,
+        "data": [
+          {
+            "file": "Tanzania_Mkamwa_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Tanzania_Mkamwa_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["sexual_orientation_7_text"]
+      },
+      {
         "name": "Turkey_Gungor",
         "country": "TUR",
         "status": 1,
@@ -797,24 +1013,23 @@
         "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q77"]
       },
       {
-        "name": "UMass_Rodriguez",
+        "name": "USA_Bosson",
         "country": "USA",
         "status": 1,
-        "dim": [259, 208],
-        "missing_prop": 0.0824,
-        "doc": "UMASS_Rodriguez.docx",
+        "dim": [502, 200],
+        "missing_prop": 0.0791,
         "n_files": 2,
         "data": [
           {
-            "file": "UMass_Rodriguez_ChoiceValues.csv",
+            "file": "USA_Bosson_ChoiceValues.csv",
             "format": "csv"
           },
           {
-            "file": "UMass_Rodriguez_NumericValues.csv",
+            "file": "USA_Bosson_NumericValues.csv",
             "format": "csv"
           }
         ],
-        "unique_vars": ["q81", "q78", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q79"]
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "usf", "sexual_orientation_7_text - topics"]
       },
       {
         "name": "USA_Devos",
@@ -836,6 +1051,26 @@
         "unique_vars": ["icf", "livingsituation_text", "religion_text", "sexual_orientation_text", "migration_background_text", "source", "site"]
       },
       {
+        "name": "USA_Diekman",
+        "country": "USA",
+        "status": 1,
+        "dim": [255, 199],
+        "missing_prop": 0.0274,
+        "doc": "UCOM_ExportedWordMiamiU.docx",
+        "n_files": 2,
+        "data": [
+          {
+            "file": "USA_Diekman_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "USA_Diekman_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["q125", "real_occ_7", "real_occ_8", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
+      },
+      {
         "name": "USA_Germano",
         "country": "USA",
         "status": 1,
@@ -854,6 +1089,25 @@
           }
         ],
         "unique_vars": ["q79", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
+      },
+      {
+        "name": "USA_Rivera-Rodriguez",
+        "country": "USA",
+        "status": 1,
+        "dim": [353, 208],
+        "missing_prop": 0.0938,
+        "n_files": 2,
+        "data": [
+          {
+            "file": "USA_Rivera-Rodriguez_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "USA_Rivera-Rodriguez_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["q81", "q78", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q79"]
       },
       {
         "name": "Ukraine_Kozytska",
