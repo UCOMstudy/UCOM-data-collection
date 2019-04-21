@@ -6,7 +6,9 @@ rename_files () {
     
     for dir in ${FOLDER_PATH}/*; do
         base=$(basename ${dir})
+        echo $base
         choice_file=${dir}/${base}_Choice
+
         numeric_file=${dir}/${base}_Numeric
         if [ -f ${choice_file}.csv ]; then
             echo "${choice_file}.csv -->  ${choice_file}Values.csv;"
