@@ -8,32 +8,40 @@
 #' @rdname pipeline_io
 #' @return A data frame
 #' @export
-get_raw_data <- function(site, type, start_row=3, file_name=NULL, sav=FALSE) {
+get_raw_data <-
+      function(site,
+               type,
+               start_row = 3,
+               file_name = NULL,
+               sav = FALSE) {
+            assertthat::assert_that(type %in% c('Numeric', 'Choice'),
+                                    msg = "Type should be 'Numeric' or 'Choice'")
 
-      assertthat::assert_that(type %in% c('Numeric', 'Choice'),
-                              msg = "Type should be 'Numeric' or 'Choice'")
+            if (purrr::is_null(file_name)) {
+                  ext <- if (sav)
+                        'sav'
+                  else
+                        'csv'
+                  file_name <-
+                        stringr::str_glue('{site}_{type}Values.{ext}')
+            }
 
-      if (purrr::is_null(file_name)) {
-            ext <- if (sav) 'sav' else 'csv'
-            file_name <- stringr::str_glue('{site}_{type}Values.{ext}')
+            data_path <- here::here('raw_data', site, file_name)
+            message("Raw Data: ", get_rel_path(data_path))
+            assertthat::assert_that(fs::is_file(data_path),
+                                    msg = "File doesn't exist.")
+            if (sav) {
+                  spss_df <- haven::read_sav(data_path)
+                  df <- convert_spss(spss_df)
+            } else {
+                  df <- readr::read_csv(data_path, col_types = readr::cols())
+            }
+
+            # skip a description and internal id rows
+            out <- df %>% dplyr::slice(start_row:dplyr::n())
+            message("Rows dropped: ", (start_row - 1))
+            return(out)
       }
-
-      data_path <- here::here('raw_data', site, file_name)
-      message("Raw Data: ", get_rel_path(data_path))
-      assertthat::assert_that(fs::is_file(data_path),
-                              msg = "File doesn't exist.")
-      if (sav) {
-            spss_df <- haven::read_sav(data_path)
-            df <- convert_spss(spss_df)
-      } else {
-            df <- readr::read_csv(data_path, col_types = readr::cols())
-      }
-
-      # skip a description and internal id rows
-      out <- df %>% dplyr::slice(start_row:dplyr::n())
-      message("Rows dropped: ", (start_row - 1))
-      return(out)
-}
 
 #' Read in cleaned data for merging
 #'
@@ -85,7 +93,6 @@ read_cleaned_data <- function(df_path,
 write_vars_rds <- function(path,
                            num_vars,
                            non_num_vars) {
-
       num_vars %>% readr::write_rds(path = file.path(path, 'num_vars.rds'))
       non_num_vars %>% readr::write_rds(path = file.path(path, 'non_num_vars.rds'))
 }
@@ -102,8 +109,7 @@ write_vars_rds <- function(path,
 write_results <- function(choice_df,
                           all_vars,
                           num_vars,
-                          country_code=NULL) {
-
+                          country_code = NULL) {
       # test if all variables have benn converted to lower case
       assertthat::assert_that(all(all_vars == stringr::str_to_lower(all_vars)),
                               msg = 'Not all variables are lower case')
@@ -116,7 +122,8 @@ write_results <- function(choice_df,
                                                site,
                                                criterion = rprojroot::has_dir('.git'))
 
-      table_name <- stringr::str_glue('{stringr::str_to_lower(site)}.csv')
+      table_name <-
+            stringr::str_glue('{stringr::str_to_lower(site)}.csv')
       message('Output path: ', get_rel_path(output_path))
       # create new folder if not existed
       fs::dir_create(output_path)
@@ -129,24 +136,30 @@ write_results <- function(choice_df,
       out_df <- out_df %>% convert_start_end()
 
       # Convert `finished` to logical
-      out_df <- out_df %>% dplyr::mutate(finished=as.logical(finished))
+      out_df <-
+            out_df %>% dplyr::mutate(finished = as.logical(finished))
 
       message("===== Preparing country code & site =====")
       # create country code & site
-      country_collector <- stringr::str_split(site, '_', n=2) %>% unlist()
+      country_collector <-
+            stringr::str_split(site, '_', n = 2) %>% unlist()
       country <- country_collector[1]
 
       # if country code not provided
       if (purrr::is_null(country_code)) {
-            if (country %in% ucom::country_codes$Country) {
+            if (country == 'USA') {
+                  country_code <- 'USA'
+            }
+            else if (country %in% ucom::country_codes$Country) {
                   country_code <- get_country_code(country)
-                  out_df <- ucom::create_country_and_site(out_df,
-                                                          country_code,
-                                                          site)
             } else {
                   stop('Country not found')
             }
-      # country code provided
+
+            out_df <- ucom::create_country_and_site(out_df,
+                                                    country_code,
+                                                    site)
+            # country code provided
       } else {
             out_df <- ucom::create_country_and_site(out_df,
                                                     country_code,
@@ -177,4 +190,3 @@ write_results <- function(choice_df,
                        path = file.path(output_path,
                                         table_name))
 }
-
