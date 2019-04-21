@@ -16,7 +16,10 @@ convert_time <- function(x, date_format = NULL ) {
                                                 '%Y%m%d %H%M',
                                                 '%Y%m%d %H%M%S')
                   }
-            out <- lubridate::parse_date_time(x, date_format)
+            out <- tryCatch(lubridate::parse_date_time(x, date_format),
+                            warning = function(w) {
+                                  stop('Cannot parse the Date format.')
+                            })
             return(out)
       } else {
             stop('Unexpected type: ', class(x))
@@ -188,13 +191,14 @@ convert_spss <- function(spss_df) {
 #' @export
 convert_names <- function(df, extra_map = NULL) {
       # convert names
-      message('Apply to_lower to all names...',
-              'Renaming Duration_seconds...',
-              'And other variables names...')
+      message('Apply to_lower to all names...')
+      message('Renaming Duration_seconds...')
+
       out_df <- df %>%
             dplyr::rename_all(list(~stringr::str_to_lower)) %>%
             dplyr::rename(duration_seconds=dplyr::starts_with('duration'))
 
+      message('Mapping other variables names...')
       for (i in seq_along(ucom::vars_map)) {
             var <- ucom::vars_map[[i]]
             if (var %in% colnames(out_df)) {
