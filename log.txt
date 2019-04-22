@@ -1,5 +1,5 @@
 Pipeline config file: pipeline.rprofile
-Start time: 2019-04-21 15:59:49
+Start time: 2019-04-21 17:06:54
 Start running.....
 
 
@@ -1017,7 +1017,7 @@ Apply to_lower to all names...
 Renaming Duration_seconds...
 Mapping other variables names...
 ===== Checking =====
-Error: isTRUE(x = dplyr::all_equal(a, b)) is not TRUE. (Rows in x but not y: 180, 179, 177, 176, 173, 172, 171, 160, 157, 155, 153[...]. Rows in y but not x: 181, 180, 179, 177, 176, 173, 172, 171, 168, 162, 160[...]. ).
+Error: isTRUE(x = dplyr::all_equal(a, b)) is not TRUE. (Rows in x but not y: 181, 180, 179, 177, 176, 173, 172, 171, 167, 162, 160[...]. Rows in y but not x: 181, 180, 179, 177, 176, 173, 172, 168, 167, 162, 160[...]. ).
 Execution halted
 
 
