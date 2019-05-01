@@ -8,11 +8,12 @@ external.packages:
     roxygen2
     usethis
     testthat
-local.repos: 
+local.repos:
 load.external.packages.on.startup: FALSE
 ignored.packages:
     usethis
     testthat
+    ucom
 ignored.directories:
     ucom
     data
