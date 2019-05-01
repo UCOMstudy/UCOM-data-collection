@@ -33,10 +33,17 @@ message('===== Checking =====')
 all_vars <- colnames(choice_df)
 
 num_vars <- all_vars %>%
-      get_num_vars('(^q[0-9]+)|(text)')
+      get_num_vars('(^q[0-9]+)|(text)|(immigration)|(sexual orientation)|(marital status)')
+
+converted_numeric_df <- numeric_df %>%
+      dplyr::mutate_at(.vars = dplyr::vars(dplyr::starts_with('proximal_domestic_')),
+                       .funs = function(x) dplyr::case_when(
+                             x == '8' ~ '7',
+                             TRUE ~ x
+                       ))
 
 converted_choice_df <- convert_choiceDF(choice_df, num_vars)
-check_vars(numeric_df, converted_choice_df, num_vars)
+check_vars(converted_numeric_df, converted_choice_df, num_vars)
 message('Checked: Passed!')
 ################ Write out results #####################
 
