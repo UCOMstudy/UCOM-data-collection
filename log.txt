@@ -1,5 +1,5 @@
 Pipeline config file: pipeline.rprofile
-Start time: 2019-04-21 17:06:54
+Start time: 2019-04-30 19:15:31
 Start running.....
 
 
@@ -768,9 +768,14 @@ Apply to_lower to all names...
 Renaming Duration_seconds...
 Mapping other variables names...
 ===== Checking =====
-Error in is.data.frame(x) : object 'choice_df' not found
-Calls: colnames -> is.data.frame
-Execution halted
+No checked! Only 2 numeric files provided.
+===== Writing results =====
+Output path: cleaned_data/Macedonia_Gjoneska
+===== Data Conversion =====
+===== Preparing country code & site =====
+Country: MKD
+Site: Macedonia_Gjoneska
+Sucessfully write results!
 
 
 
@@ -1004,20 +1009,20 @@ Sucessfully write results!
 
 
 
-Script: src/sites-spec/Spain_Lemus/integrity_check_template.R
+Script: src/sites-spec/Spain_Lemus/integrity_check.R
 ===== Loading data =====
-Raw Data: raw_data/Spain_Lemus/Spain_Lemus_NumericValues.csv
-Rows dropped: 2
-Apply to_lower to all names...
-Renaming Duration_seconds...
-Mapping other variables names...
 Raw Data: raw_data/Spain_Lemus/Spain_Lemus_ChoiceValues.csv
 Rows dropped: 2
 Apply to_lower to all names...
 Renaming Duration_seconds...
 Mapping other variables names...
+Raw Data: raw_data/Spain_Lemus/Spain_Lemus_NumericValues.csv
+Rows dropped: 2
+Apply to_lower to all names...
+Renaming Duration_seconds...
+Mapping other variables names...
 ===== Checking =====
-Error: isTRUE(x = dplyr::all_equal(a, b)) is not TRUE. (Rows in x but not y: 181, 180, 179, 177, 176, 173, 172, 171, 167, 162, 160[...]. Rows in y but not x: 181, 180, 179, 177, 176, 173, 172, 168, 167, 162, 160[...]. ).
+Error: 
 Execution halted
 
 
@@ -1027,8 +1032,31 @@ Script: src/sites-spec/Sweden_Back/integrity_check.R
 Raw Data: raw_data/Sweden_Back/Sweden_Back_HEED_numeric.csv
 Rows dropped: 2
 Raw Data: raw_data/Sweden_Back/Sweden_Back_Psychology_Numeric.csv
-Error: (converted from warning) Missing column names filled in: 'X199' [199], 'X200' [200], 'X201' [201], 'X202' [202], 'X203' [203], 'X204' [204], 'X205' [205], 'X206' [206], 'X207' [207], 'X208' [208], 'X209' [209], 'X210' [210], 'X211' [211], 'X212' [212], 'X213' [213], 'X214' [214], 'X215' [215], 'X216' [216], 'X217' [217], 'X218' [218], 'X219' [219], 'X220' [220], 'X221' [221], 'X222' [222], 'X223' [223], 'X224' [224], 'X225' [225], 'X226' [226], 'X227' [227], 'X228' [228], 'X229' [229], 'X230' [230], 'X231' [231], 'X232' [232], 'X233' [233], 'X234' [234], 'X235' [235], 'X236' [236], 'X237' [237], 'X238' [238], 'X239' [239], 'X240' [240], 'X241' [241], 'X242' [242], 'X243' [243], 'X244' [244], 'X245' [245], 'X246' [246], 'X247' [247], 'X248' [248], 'X249' [249], 'X250' [250], 'X251' [251], 'X252' [252], 'X253' [253], 'X254' [254], 'X255' [255], 'X256' [256], 'X257' [257], 'X258' [258], 'X259' [259], 'X260' [260], 'X261' [261], 'X262' [262], 'X263' [263], 'X264' [264], 'X265' [265
-Execution halted
+Rows dropped: 2
+Raw Data: raw_data/Sweden_Back/Sweden_Back_STEM_numeric.csv
+Rows dropped: 2
+Apply to_lower to all names...
+Renaming Duration_seconds...
+Mapping other variables names...
+Raw Data: raw_data/Sweden_Back/Sweden_Back_HEED_Choice.csv
+Rows dropped: 2
+Raw Data: raw_data/Sweden_Back/Sweden_Back_Psychology_Choice.csv
+Rows dropped: 2
+Raw Data: raw_data/Sweden_Back/Sweden_Back_STEM_choice.csv
+Rows dropped: 2
+Apply to_lower to all names...
+Renaming Duration_seconds...
+Mapping other variables names...
+===== Checking =====
+[1] TRUE
+Checked: Passed!
+===== Writing results =====
+Output path: cleaned_data/Sweden_Back
+===== Data Conversion =====
+===== Preparing country code & site =====
+Country: SWE
+Site: Sweden_Back
+Sucessfully write results!
 
 
 
@@ -1362,125 +1390,1031 @@ Loading data sets.....
 Data: cleaned_data/Albania_Jasini/albania_jasini.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Arizona_Croft/arizona_croft.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Arizona_Croft/arizona_croft.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Australia_Anderson/australia_anderson.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Australia_Anderson/australia_anderson.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Australia_DarNimrod/australia_darnimrod.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Australia_DarNimrod/australia_darnimrod.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Belgium_Vangrootel/belgium_vangrootel.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Belgium_Vangrootel/belgium_vangrootel.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Canada_Block/canada_block.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Canada_Block/canada_block.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Canada_Hall/canada_hall.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Canada_Hall/canada_hall.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Canada_Steele/canada_steele.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Canada_Steele/canada_steele.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/China_Zhao/china_zhao.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/China_Zhao/china_zhao.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Colombia_Lopez/colombia_lopez.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Colombia_Lopez/colombia_lopez.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Colombia_Meister/colombia_meister.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Colombia_Meister/colombia_meister.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Geneva_Kulich/geneva_kulich.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Geneva_Kulich/geneva_kulich.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Germany_Hoppe/germany_hoppe.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Germany_Hoppe/germany_hoppe.csv 
  Unknown column `ethnic_background`  
  Add new columns as NAs 
-Data: cleaned_data/Germany_Steffens/germany_steffens.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Germany_Steffens/germany_steffens.csv 
  Unknown column `ethnic_background`  
  Add new columns as NAs 
-Data: cleaned_data/Kansas_Xian/kansas_xian.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Kansas_Xian/kansas_xian.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Korea_Choi/korea_choi.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Korea_Choi/korea_choi.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Lebanon_Saab/lebanon_saab.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Lebanon_Saab/lebanon_saab.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Macedonia_Gjoneska/macedonia_gjoneska.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Macedonia_Gjoneska/macedonia_gjoneska.csv 
+ Unknown column `immigration_backgrou`  
+ Add new columns as NAs 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Malaysia_Selvan/malaysia_selvan.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Malaysia_Selvan/malaysia_selvan.csv 
- Unknown column `uni`  
- Add new columns as NAs 
-Data: cleaned_data/Netherlands_Otten/netherlands_otten.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Netherlands_Otten/netherlands_otten.csv 
  Unknown columns `migration_background` and `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Netherlands_Vink/netherlands_vink.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Netherlands_Vink/netherlands_vink.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/NewZealand_McNamara/newzealand_mcnamara.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/NewZealand_McNamara/newzealand_mcnamara.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Norway_Olsson/norway_olsson.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Norway_Olsson/norway_olsson.csv 
  Unknown column `ethnic_background`  
  Add new columns as NAs 
-Data: cleaned_data/Serbia_Zezelj/serbia_zezelj.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Serbia_Zezelj/serbia_zezelj.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Switzerland_Haessler/switzerland_haessler.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Switzerland_Haessler/switzerland_haessler.csv 
  Unknown columns `immigration_backgrou` and `ethnic_background`  
  Add new columns as NAs 
-Data: cleaned_data/Switzerland_Nikitin/switzerland_nikitin.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Switzerland_Nikitin/switzerland_nikitin.csv 
  Unknown column `ethnic_background`  
  Add new columns as NAs 
-Data: cleaned_data/Switzerland_Sczesny/switzerland_sczesny.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Switzerland_Sczesny/switzerland_sczesny.csv 
  Unknown column `ethnic_background`  
  Add new columns as NAs 
-Data: cleaned_data/Tanzania_Mkamwa/tanzania_mkamwa.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Tanzania_Mkamwa/tanzania_mkamwa.csv 
  Unknown column `ethnic_background`  
  Add new columns as NAs 
-Data: cleaned_data/Turkey_Gungor/turkey_gungor.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Turkey_Gungor/turkey_gungor.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Turkey_Kunurgu/turkey_kunurgu.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Turkey_Kunurgu/turkey_kunurgu.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/UMass_Rodriguez/umass_rodriguez.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/USA_Bosson/usa_bosson.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/USA_Bosson/usa_bosson.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/USA_Devos/usa_devos.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/USA_Devos/usa_devos.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/USA_Diekman/usa_diekman.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/USA_Diekman/usa_diekman.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/USA_Rivera-Rodriguez/usa_rivera-rodriguez.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/USA_Rivera-Rodriguez/usa_rivera-rodriguez.csv 
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Waterloo_Bergsieker/waterloo_bergsieker.csv 
  Unknown column `uni`  
  Add new columns as NAs 
-Data: cleaned_data/Waterloo_Bergsieker/waterloo_bergsieker.csv 
- Unknown column `uni`  
- Add new columns as NAs 
-**********************************************
+
+Backtrace:
+     █
+  1. └─purrr::map2(...)
+  2.   └─ucom:::.f(.x[[i]], .y[[i]], ...)
+  3.     ├─base::tryCatch(...)
+  4.     │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
+  5.     │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  6.     │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
+  7.     ├─base::eval(test)
+  8.     │ └─base::eval(test)
+  9.     └─df %>% dplyr::select(all_vars)
+ 10.       ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
+ 11.       └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 12.         └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
+ 13.           └─ucom:::`_fseq`(`_lhs`)
+ 14.             └─magrittr::freduce(value, `_function_list`)
+ 15.               ├─base::withVisible(function_list[[k]](value))
+ 16.               └─function_list[[k]](value)
+ 17.                 ├─dplyr::select(., all_vars)
+ 18.                 └─dplyr:::select.data.frame(., all_vars)
+ 19.                   └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
+ 20.                     └─tidyselect:::vars_select_eval(.vars, quos)
+ 21.                       └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
+ 22.                         └─purrr::map(.x[sel], .f, ...)
+ 23.                           └─tidyselect:::.f(.x[[i]], ...)
+ 24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)**********************************************
 Do some conversions before merging.......
 Merging all the data set....
 Checking numeric.....
 Is all numeric: TRUE
 ===== Results Summary =====
-Data Dimension: 24309 rows, 189 columns.
+Data Dimension: 24563 rows, 189 columns.
 ===== Writing results =====
 Numeric range: aggregated_data/num_range.json
-Same numeric range?
-[1] TRUE
+Old num_range.json not existed.Create a new one.
 Aggregated CSV: aggregated_data/aggregated_clean.csv
 Non-numeric unique values: aggregated_data/non_num_unique.json
 Only for unique values below 100.
 Excluded variables: aggregated_data/exc_vars.json
-Number of excluded variables: 418
+Number of excluded variables: 267
 Done!
