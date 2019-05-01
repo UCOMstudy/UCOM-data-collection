@@ -24,8 +24,7 @@ numeric_df <- get_raw_data(site, 'Numeric',
 message('===== Checking =====')
 all_vars <- colnames(numeric_df)
 
-
-pat <- '(^q[0-9]+)|(text)|(lfdn)|(swiss_part)|(filter_own_dis)|(migration)|sexual_orientation_ot|(filter_exp)|'
+pat <- '(^q[0-9]+)|(text)|(lfdn)|(swiss_part)|(filter_own_dis)|(migration)|(sexual_orientation_ot)|(filter_exp)'
 num_vars <- all_vars %>%
       get_num_vars(pat)
 

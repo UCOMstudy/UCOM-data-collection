@@ -19,7 +19,8 @@ custom_transform <- function(df) {
             dplyr::mutate(livingsituation = as.character(livingsituation),
                           startdate = NA_character_,
                           enddate = NA_character_,
-                          duration_seconds = NA_character_)
+                          duration_seconds = NA_character_,
+                          finished = NA_real_)
 }
 
 numeric_df <- purrr::map_dfr(numeric_files,
@@ -32,16 +33,16 @@ numeric_df <- purrr::map_dfr(numeric_files,
 ################ Checking #####################
 
 message('===== Checking =====')
-all_vars <- colnames(choice_df)
+all_vars <- colnames(numeric_df)
 
 num_vars <- all_vars %>%
-      get_num_vars('(^q[0-9]+)|(text)')
+      get_num_vars('(^q[0-9]+)|(text)|(subject_id)|(institute)|(faculty)|(immigration_background)')
 
 message('No checked! Only 2 numeric files provided.')
 ################ Write out results #####################
 
 message('===== Writing results =====')
-ucom::write_results(choice_df, all_vars, num_vars)
+ucom::write_results(numeric_df, all_vars, num_vars)
 message('Sucessfully write results!')
 
 
