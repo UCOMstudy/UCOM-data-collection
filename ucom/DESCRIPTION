@@ -26,5 +26,6 @@ Imports:
     purrr,
     haven,
     lubridate,
-    rlang
+    rlang,
+    tibble
 RoxygenNote: 6.1.1
