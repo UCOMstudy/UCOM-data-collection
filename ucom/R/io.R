@@ -167,6 +167,7 @@ write_results <- function(choice_df,
       }
 
       # write data summary
+      message('=== Writing data summary ===')
       non_num_vars <- setdiff(all_vars, num_vars)
 
       df_summary <- get_summary(out_df)
@@ -179,6 +180,7 @@ write_results <- function(choice_df,
             readr::write_rds(path = file.path(output_path, 'summary.rds'))
 
       # write variables
+      message('=== Writing variables ===')
       write_vars_rds(path = output_path,
                      num_vars = num_vars,
                      non_num_vars = non_num_vars)
@@ -186,6 +188,7 @@ write_results <- function(choice_df,
       message('Country: ', country_code)
       message('Site: ', site)
       # write out data frame
+      message('=== Writing out CSV ===')
       readr::write_csv(out_df,
                        path = file.path(output_path,
                                         table_name))
