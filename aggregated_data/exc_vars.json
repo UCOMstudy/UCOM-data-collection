@@ -208,6 +208,26 @@
          "migration_background_3_text",
          "q78"
       ],
+      "Czech_Klocova": [
+         "respondentid",
+         "parentleave_motivation",
+         "parentleave_expectation",
+         "parentleave_efficacy",
+         "x101",
+         "x166",
+         "x169",
+         "x178",
+         "x181",
+         "immigration_background",
+         "x186",
+         "political_2"
+      ],
+      "Ecuador_Orrego": [
+         "livingsituation_13_text",
+         "religion_10_text",
+         "sexual_orientation_7_text",
+         "migration_background_3_text"
+      ],
       "Ethiopia_Lemma": [
          "livingsituation_13_text",
          "religion_10_text",
@@ -281,6 +301,12 @@
          "q92"
       ],
       "India_Rani": [
+         "livingsituation_13_text",
+         "religion_10_text",
+         "sexual_orientation_7_text",
+         "migration_background_3_text"
+      ],
+      "Indonesia_Avicenna": [
          "livingsituation_13_text",
          "religion_10_text",
          "sexual_orientation_7_text",
@@ -362,6 +388,20 @@
          "q785",
          "q786"
       ],
+      "Italy_Maricchiolo": [
+         "livingsituation_13_text",
+         "religion_10_text",
+         "sexual_orientation_7_text",
+         "migration_background_3_text",
+         "q78"
+      ],
+      "Japan_Sakata": [
+         "livingsituation_13_text",
+         "religion_10_text",
+         "sexual_orientation_7_text",
+         "migration_background_3_text",
+         "q78"
+      ],
       "Kansas_Xian": [
          "q77",
          "q1",
@@ -408,6 +448,13 @@
          "q77",
          "major",
          "area"
+      ],
+      "Kosovo_Berdyna": [
+         "livingsituation_13_text",
+         "religion_10_text",
+         "sexual_orientation_7_text",
+         "migration_background_3_text",
+         "q75"
       ],
       "Lebanon_Saab": [
          "q96",
@@ -485,20 +532,76 @@
       "NewZealand_McNamara": [
          "q77",
          "livingsituation_13_text",
+         "q78_1",
+         "q78_2",
+         "q78_3",
+         "q78_4",
+         "q78_5",
+         "q78_6",
+         "q78_7",
+         "q78_8",
+         "q78_9",
+         "q78_10",
+         "q78_11",
+         "q78_12",
+         "q78_13",
+         "q78_14",
+         "q78_15",
+         "q78_16",
+         "q79_1",
+         "q79_2",
+         "q79_3",
+         "q79_4",
+         "q79_5",
+         "q79_6",
+         "q79_7",
+         "q79_8",
+         "q79_9",
+         "q79_10",
+         "q79_11",
+         "q79_12",
+         "q80_1",
+         "q80_2",
+         "q80_3",
+         "q80_4",
+         "q80_5",
+         "q80_6",
+         "q80_7",
+         "q80_8",
+         "q80_9",
+         "q80_10",
+         "q80_11",
+         "q80_12",
+         "q81_1",
+         "q81_2",
+         "q81_3",
+         "q81_4",
+         "q81_5",
+         "q81_6",
+         "q81_7",
+         "q81_8",
+         "q81_9",
+         "q82_1",
+         "q82_2",
+         "q82_3",
+         "q82_4",
+         "q82_5",
+         "q82_6",
+         "q82_7",
+         "q82_8",
+         "q82_9",
+         "q83_1",
+         "q83_2",
+         "q83_3",
+         "q83_4",
+         "q83_5",
+         "q83_6",
+         "q83_7",
+         "q83_8",
+         "q83_9",
          "religion_10_text",
          "sexual_orientation_7_text",
-         "migration_background_3_text",
-         "ethnic_background_do_1",
-         "ethnic_background_do_2",
-         "ethnic_background_do_12",
-         "ethnic_background_do_14",
-         "ethnic_background_do_13",
-         "ethnic_background_do_3",
-         "ethnic_background_do_4",
-         "ethnic_background_do_5",
-         "ethnic_background_do_6",
-         "ethnic_background_do_7",
-         "ethnic_background_do_9"
+         "migration_background_3_text"
       ],
       "Norway_Olsson": [
          "livingsituation_13_text",
@@ -513,6 +616,48 @@
          "sexual_orientation_7_text",
          "migration_background_3_text"
       ],
+      "Pakistan_Hassan": [
+         "livingsituation_13_text",
+         "religion_10_text",
+         "sexual_orientation_7_text",
+         "migration_background_3_text"
+      ],
+      "Poland_Adamus": [
+         "livingsituation_13_text",
+         "q79",
+         "religion_10_text",
+         "sexual_orientation_7_text",
+         "migration_background_3_text",
+         "q77",
+         "zero_sum_1",
+         "zero_sum_2",
+         "zero_sum_3",
+         "q76"
+      ],
+      "Poland_Kosakowska": [
+         "livingsituation_13_text",
+         "q79",
+         "religion_10_text",
+         "sexual_orientation_7_text",
+         "migration_background_3_text",
+         "q77",
+         "zero_sum_1",
+         "zero_sum_2",
+         "zero_sum_3",
+         "q76"
+      ],
+      "Poland_Pyrkosz": [
+         "livingsituation_13_text",
+         "q79",
+         "religion_10_text",
+         "sexual_orientation_7_text",
+         "migration_background_3_text",
+         "q77",
+         "zero_sum_1",
+         "zero_sum_2",
+         "zero_sum_3",
+         "q76"
+      ],
       "Romania_Birneanu": [
          "q79",
          "livingsituation_13_text",
@@ -521,12 +666,45 @@
          "migration_background_3_text",
          "ethnic_background_11_text"
       ],
+      "Serbia_Jaksic": [
+         "livingsituation_13_text",
+         "q78",
+         "misc"
+      ],
       "Serbia_Zezelj": [
          "livingsituation_13_text",
          "religion_10_text",
          "sexual_orientation_7_text",
          "migration_background_3_text",
          "q77"
+      ],
+      "Singapore_Lee": [
+         "q78",
+         "livingsituation_13_text",
+         "religion_10_text",
+         "sexual_orientation_7_text",
+         "migration_background_3_text",
+         "q77"
+      ],
+      "Slovakia_Fedakova": [
+         "livingsituation_13_text",
+         "religion_10_text",
+         "sexual_orientation_7_text",
+         "migration_background_3_text",
+         "q77",
+         "q77_9_text"
+      ],
+      "Spain_Gartzia": [
+         "livingsituation_11_text",
+         "religion_10_text",
+         "sexual_orientation_7_text",
+         "migration_background_3_text"
+      ],
+      "Spain_Lemus": [
+         "livingsituation_13_text",
+         "religion_10_text",
+         "sexual_orientation_7_text",
+         "migration_background_3_text"
       ],
       "Sweden_Back": [
          "q1",
@@ -590,6 +768,42 @@
          "sexual_orientation_7_text",
          "migration_background_3_text",
          "q77"
+      ],
+      "UK_Kirby": [
+         "q7",
+         "q12",
+         "q18",
+         "q25",
+         "q78_1",
+         "q78_2",
+         "q78_3",
+         "q78_4",
+         "q78_5",
+         "q78_6",
+         "q51",
+         "livingsituation_text",
+         "religion_text",
+         "sexual_orientation_text",
+         "migration_background_text",
+         "gb1",
+         "gb2",
+         "gb3",
+         "gb4",
+         "ga1",
+         "ga2",
+         "ga3",
+         "ga4",
+         "ga5",
+         "assim1",
+         "assim2",
+         "assim3",
+         "assim4",
+         "segreg1",
+         "segreg2",
+         "segreg3",
+         "segreg4",
+         "segreg5",
+         "debrief"
       ],
       "USA_Bosson": [
          "livingsituation_13_text",

@@ -39,9 +39,10 @@ meta <- tibble::tibble(name = as.character(raw_site_names),
       dplyr::mutate(format = fs::path_ext(!!quo(file)))
 
 # questionaries .docx for latter useage
-doc <- meta %>%
+documentations <- meta %>%
       dplyr::filter(format == 'docx') %>%
-      dplyr::select(-format, doc = !!quo(file))
+      dplyr::select(-format, doc = !!quo(file)) %>%
+      tidyr::nest(doc, .key = doc)
 
 # remove doc rows.
 meta_nodoc <- meta %>% dplyr::filter(format != 'docx')
@@ -57,7 +58,7 @@ meta_nested <- meta_nodoc  %>%
 message('Merging all metadata...')
 meta_merged <- meta_nested %>%
       left_join(merged_summary, by = c('name' = 'name')) %>%
-      left_join(doc, by = c('name' = 'name')) %>%
+      left_join(documentations, by = c('name' = 'name')) %>%
       # rearrange columns
       select(name,
              country,
