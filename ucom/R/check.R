@@ -63,8 +63,10 @@ check_vars <- function(num_df, choice_df, vars) {
 diagnose <- function(rows, cols=NULL, df1, df2, last.error=TRUE) {
 
       if (last.error) {
-            df1 <- get('.last.error', envir = .GlobalEnv)[['numeric']]
-            df2 <- get('.last.error', envir = .GlobalEnv)[['choice']]
+            df1 <- get('.last.error', envir = .GlobalEnv)[['numeric']] %>%
+                  dplyr::mutate(.type = 'numeric')
+            df2 <- get('.last.error', envir = .GlobalEnv)[['choice']] %>%
+                  dplyr::mutate(.type = 'choice')
       }
 
       merged_df <- df1 %>%
