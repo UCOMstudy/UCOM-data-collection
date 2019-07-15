@@ -55,8 +55,6 @@
   "text_vars": [
     "expect_child",
     "livingsituation",
-    "own_distribution_1",
-    "own_distribution_2",
     "mother_field",
     "father_field",
     "gender",
