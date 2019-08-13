@@ -14,6 +14,12 @@
 #' @format A vector of the survey text variables
 "text_vars"
 
+#' Numeric variables
+#' @format A vector of the survey numeric variables
+"num_vars"
+
 #' Mapping for unusal variables names to normal variable names
 #' @format A a named character vector
 "vars_map"
+
+
