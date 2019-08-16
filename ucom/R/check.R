@@ -19,6 +19,55 @@ check_responseID <- function(a, b) {
       return(check_identical(ID_a, ID_b))
 }
 
+#' Check the range of a list of numeric variables
+#'
+#' @param df the data frame to check
+#' @param vars numeric variables
+#'
+#' @return return `vars` invisibly
+#' @export
+#'
+#' @examples
+#' \dontrun{check_range(convert_choiceDF(choice_df), num_vars)}
+check_num_range <- function(df, vars) {
+   purrr::walk(vars, ~ check_range(df, .x))
+}
+
+#' Check the range of a numeric variable
+#'
+#' @description Returns error message when the value is out of range
+#' @param df the data frame to check
+#' @param var numeric variable
+#'
+#' @examples
+#' \dontrun{check_range(convert_choiceDF(choice_df), 'other_support_1')}
+check_range <- function(df, var) {
+
+
+   num_var <- ucom::num_vars[[var]]
+   if (is.null(num_var)) {
+      stop(var, ' not found.')
+   }
+
+   range_min <- num_var[1]
+   range_max <- num_var[2]
+
+   quo_var <- dplyr::enquo(var)
+   data_col <- df %>%
+      dplyr::pull(!! quo_var) %>%
+      as.numeric()
+   data_min <- data_col %>% min(na.rm = TRUE)
+   data_max <- data_col %>% max(na.rm = TRUE)
+
+   if (range_min > data_min) {
+      stop(glue::glue('{var} - Data min:{data_min} beyond range min:{range_min}'))
+   }
+
+   if (range_max < data_max) {
+      stop(glue::glue('{var} - Data max:{data_max} beyond range max:{range_max}'))
+   }
+}
+
 #' Check data integrity
 #'
 #' @description Check data integrity by comparing two datasets.

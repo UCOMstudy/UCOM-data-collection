@@ -139,6 +139,9 @@ write_results <- function(choice_df,
       out_df <-
             out_df %>% dplyr::mutate(finished = as.logical(finished))
 
+      message("===== Check Numeric Vars Range =====")
+      check_num_range(out_df, num_vars)
+
       message("===== Preparing country code & site =====")
       # create country code & site
       country_collector <-
