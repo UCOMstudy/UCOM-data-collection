@@ -5,10 +5,3 @@
 source("packrat/init.R")
 #### -- Turn warnings to errors -- ####
 options(warn = 6)
-
-#### -- Read numeric variables config: variables_num.json
-NUM_VARS_PATH <- file.path(here::here(),
-                           'assets',
-                           'variables_num.json'))
-
-NUM_VARS <- jsonlite::read_json(NUM_VARS_PATH)
