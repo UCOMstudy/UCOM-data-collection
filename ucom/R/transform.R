@@ -51,7 +51,7 @@ convert_start_end <- function(df, date_format = NULL) {
 #' @export
 convert_choiceDF <- function(df, var_names) {
 
-      pattern <- "^[0-9]{1,5}(\\.[0-9]{1,4})?"
+      pattern <- "^(-)?[0-9]{1,5}(\\.[0-9]{1,4})?"
       extraction <- list(~stringr::str_extract(.,
                                               pattern))
 
