@@ -2,6 +2,7 @@
 
 export("%>%")
 export(add_emp_cols)
+export(check_num_range)
 export(check_vars)
 export(convert_choiceDF)
 export(convert_names)

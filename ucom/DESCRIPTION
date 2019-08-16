@@ -27,5 +27,6 @@ Imports:
     haven,
     lubridate,
     rlang,
-    tibble
+    tibble,
+    glue
 RoxygenNote: 6.1.1
