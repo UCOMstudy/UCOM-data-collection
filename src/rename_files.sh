@@ -6,7 +6,7 @@ rename_files () {
     
     for dir in ${FOLDER_PATH}/*; do
         base=$(basename ${dir})
-        echo $base
+        echo "Dir: $base"
         choice_file=${dir}/${base}_Choice
 
         numeric_file=${dir}/${base}_Numeric
