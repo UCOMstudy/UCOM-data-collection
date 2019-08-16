@@ -29,10 +29,16 @@ num_vars <- all_vars %>%
       get_num_vars(pat)
 
 message('No Checked! This site just contains one numeric dataset.')
+
+numeric_df_converted_na <- numeric_df %>%
+            dplyr::mutate_at(num_vars,
+                             ~ ifelse(. == -77,
+                                      NA_real_, .))
+
 ################ Write out results #####################
 
 message('===== Writing results =====')
-ucom::write_results(numeric_df, all_vars, num_vars)
+ucom::write_results(numeric_df_converted_na, all_vars, num_vars)
 message('Sucessfully write results!')
 
 
