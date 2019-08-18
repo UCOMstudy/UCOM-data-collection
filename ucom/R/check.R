@@ -46,7 +46,7 @@ check_range <- function(df, var) {
 
    num_var <- ucom::num_vars[[var]]
    if (is.null(num_var)) {
-      stop(var, ' not found.')
+      stop(glue::glue('variable: "{var}" -  not found.'))
    }
 
    range_min <- num_var[1]
@@ -56,15 +56,22 @@ check_range <- function(df, var) {
    data_col <- df %>%
       dplyr::pull(!! quo_var) %>%
       as.numeric()
-   data_min <- data_col %>% min(na.rm = TRUE)
-   data_max <- data_col %>% max(na.rm = TRUE)
 
-   if (range_min > data_min) {
-      stop(glue::glue('{var} - Data min:{data_min} beyond range min:{range_min}'))
-   }
+   all_na <- all(is.na(data_col))
 
-   if (range_max < data_max) {
-      stop(glue::glue('{var} - Data max:{data_max} beyond range max:{range_max}'))
+   if (all_na) {
+      message(glue::glue('"{var}" - has all NAs.'))
+   } else {
+      data_min <- data_col %>% min(na.rm = TRUE)
+      data_max <- data_col %>% max(na.rm = TRUE)
+
+      if (range_min > data_min) {
+         stop(glue::glue('{var} - Data min:{data_min} beyond range min:{range_min}'))
+      }
+
+      if (range_max < data_max) {
+         stop(glue::glue('{var} - Data max:{data_max} beyond range max:{range_max}'))
+      }
    }
 }
 
