@@ -1,3 +1,8 @@
+PKGSRC  := ucom
+PKGDESCRIPTION := $(PKGSRC)/DESCRIPTION
+PKGNAME := $(shell sed -n "s/Package: *\([^ ]*\)/\1/p" $(PKGDESCRIPTION))
+PKGVERS := $(shell sed -n "s/Version: *\([^ ]*\)/\1/p" $(PKGDESCRIPTION))
+
 DATE = $$(date +'%Y-%m-%d')
 TIME = $$(date +'%Y-%m-%d %H:%M:%S')
 
@@ -13,9 +18,12 @@ COUNT_SCRIPTS ?= $(shell ls $(SRC)/$(SITES_SPEC) | wc -l)
 # grep `log` file for this criteria to check the number of successful scripts
 CRITERIA ?= "Sucessfully write results!"
 
+# ucom package build & install
+check_install:
+	Rscript $(SRC)/install_ucom.R $(PKGSRC)
 
 # pipeline config file for R script
-export R_PROFILE_USER := pipeline.rprofile
+export R_PROFILE_USER := pipeline.Rprofile
 
 all: pipeline zip
 
@@ -53,7 +61,8 @@ merge: $(SRC)/merge_data.R
 
 .ONESHELL: check
 check: copy_template
-	@echo "Pipeline config file: $(R_PROFILE_USER)" > $(LOG_FILE);
+	@echo "UCOM Version: $(PKGVERS)" | tee $(LOG_FILE);
+	@echo "Pipeline config file: $(R_PROFILE_USER)" $(REDIRECT);
 	@echo "Start time: $(TIME)" $(REDIRECT);
 	@echo "Start running....." $(REDIRECT);
 	@echo "=========== Cleaning & checking data from sites ===========";
