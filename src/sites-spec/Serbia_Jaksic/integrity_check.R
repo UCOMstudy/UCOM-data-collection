@@ -52,7 +52,7 @@ message('Checked: Passed!')
 ################ Write out results #####################
 
 message('===== Writing results =====')
-ucom::write_results(choice_df, all_vars, num_vars)
+ucom::write_results(converted_choice_df, all_vars, num_vars)
 message('Sucessfully write results!')
 
 

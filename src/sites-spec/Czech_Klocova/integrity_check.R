@@ -26,8 +26,9 @@ renamed_numeric_df <- dplyr::rename_all(numeric_df,
                                         list(~stringr::str_replace(.,
                                                                    '(.*[a-z])([0-9])$',
                                                                    '\\1_\\2'))) %>%
-      dplyr::rename(exp_encouragement_1 = exp_encouragment,
-                    proximal_domestic_5 = proximat_domestic_5)
+      dplyr::rename(exp_encouragement_1 = 'exp_encouragment',
+                    proximal_domestic_5 = 'proximat_domestic_5',
+                    uni = 'site')
 
 ################ Checking #####################
 
