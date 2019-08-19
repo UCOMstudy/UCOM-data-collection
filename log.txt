@@ -1,5 +1,6 @@
-Pipeline config file: pipeline.rprofile
-Start time: 2019-06-24 02:44:39
+UCOM Version: 1.0.0
+Pipeline config file: pipeline.Rprofile
+Start time: 2019-08-18 17:02:04
 Start running.....
 
 
@@ -23,6 +24,7 @@ Transformation done.
 ===== Writing results =====
 Output path: cleaned_data/Albania_Jasini
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -53,6 +55,7 @@ Conversion done.
 ===== Writing results =====
 Output path: cleaned_data/Arizona_Croft
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -78,6 +81,7 @@ Done
 ===== Writing results =====
 Output path: cleaned_data/Australia_Anderson
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -105,6 +109,7 @@ No check for this! Only one data set
 ===== Writing results =====
 Output path: cleaned_data/Australia_DarNimrod
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -133,6 +138,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Belgium_Vangrootel
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -161,6 +167,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Bolivia_Schulmeyer
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -193,6 +200,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Canada_Block
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -221,6 +229,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Canada_Hall
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -249,6 +258,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Canada_Steele
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -277,6 +287,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Chile_Gonzalez
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -305,6 +316,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Chile_Sirlopu
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -330,6 +342,7 @@ No check for this! Only one data set
 ===== Writing results =====
 Output path: cleaned_data/China_Zhao
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -358,6 +371,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Colombia_Lopez
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -386,6 +400,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Colombia_Meister
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -414,6 +429,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/CostaRica_Castro
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -442,6 +458,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Croatia_Franc
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -470,6 +487,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Croatia_Sucic
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -496,6 +514,7 @@ Only numeric data: NO Checked!
 ===== Writing results =====
 Output path: cleaned_data/Czech_Klocova
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -524,6 +543,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Ecuador_Orrego
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -552,6 +572,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Ethiopia_Lemma
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -580,6 +601,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/France_Redersdorff
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -608,6 +630,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/France_Regner
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -641,6 +664,7 @@ Parsing Date Format
 ===== Writing results =====
 Output path: cleaned_data/Geneva_Kulich
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -669,6 +693,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Germany_Hoppe
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -697,6 +722,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Germany_Steffens
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -725,6 +751,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/India_Rani
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -753,6 +780,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Indonesia_Avicenna
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -779,6 +807,7 @@ No check for this! Only one data set
 ===== Writing results =====
 Output path: cleaned_data/Ireland_Bosak
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -801,6 +830,7 @@ No checking! Just one choice data set
 ===== Writing results =====
 Output path: cleaned_data/Italy_Fridanna
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -829,6 +859,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Italy_Maricchiolo
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -857,6 +888,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Japan_Sakata
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -882,6 +914,7 @@ No check for this! Only one data set
 ===== Writing results =====
 Output path: cleaned_data/Kansas_Xian
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -912,6 +945,7 @@ Conversion done.
 ===== Writing results =====
 Output path: cleaned_data/Kobe_Keiko
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -940,6 +974,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Korea_Choi
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -968,6 +1003,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Kosovo_Berdyna
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -998,6 +1034,7 @@ Add citizenship if not exist
 ===== Writing results =====
 Output path: cleaned_data/Lebanon_Saab
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1022,6 +1059,7 @@ No checked! Only 2 numeric files provided.
 ===== Writing results =====
 Output path: cleaned_data/Macedonia_Gjoneska
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1052,6 +1090,7 @@ Conversion done.
 ===== Writing results =====
 Output path: cleaned_data/Malaysia_Selvan
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1082,6 +1121,7 @@ Conversion done.
 ===== Writing results =====
 Output path: cleaned_data/Nagoya_Keiko
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1106,6 +1146,7 @@ No check for this! Only one data set
 ===== Writing results =====
 Output path: cleaned_data/Netherlands_Otten
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1134,6 +1175,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Netherlands_Vink
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1157,6 +1199,7 @@ Only Choice data: NO checked!
 ===== Writing results =====
 Output path: cleaned_data/NewZealand_McNamara
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1189,6 +1232,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Norway_Olsson
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1217,6 +1261,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Pakistan_Bushra
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1245,6 +1290,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Pakistan_Hassan
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1273,6 +1319,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Poland_Adamus
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1301,6 +1348,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Poland_Kosakowska
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1329,6 +1377,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Poland_Pyrkosz
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1357,6 +1406,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Romania_Birneanu
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1387,6 +1437,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Serbia_Jaksic
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1415,6 +1466,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Serbia_Zezelj
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1439,6 +1491,7 @@ Only choice value : NO Checked!
 ===== Writing results =====
 Output path: cleaned_data/Singapore_Lee
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1467,6 +1520,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Slovakia_Fedakova
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1501,6 +1555,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Spain_Gartzia
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1535,6 +1590,7 @@ Checked: passed!
 ===== Writing results =====
 Output path: cleaned_data/Spain_Lemus
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1571,6 +1627,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Sweden_Back
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1593,6 +1650,7 @@ No Checked! This site just contains one numeric dataset.
 ===== Writing results =====
 Output path: cleaned_data/Switzerland_Haessler
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1621,6 +1679,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Switzerland_Nikitin
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1653,6 +1712,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Switzerland_Sczesny
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1675,6 +1735,12 @@ Two dataset seem to be bot ChoiceValues: No checked!
 ===== Writing results =====
 Output path: cleaned_data/Tanzania_Mkamwa
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
+"orientation_1" - has all NAs.
+"expected_share_1" - has all NAs.
+"expected_share_2" - has all NAs.
+"expected_share_3" - has all NAs.
+"exp_encouragement_1" - has all NAs.
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1703,6 +1769,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Turkey_Gungor
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1731,6 +1798,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Turkey_Kunurgu
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1760,6 +1828,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/UK_Kirby
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1788,6 +1857,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/USA_Bosson
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1816,6 +1886,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/USA_Devos
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1845,6 +1916,7 @@ Parsing timestampe format
 ===== Writing results =====
 Output path: cleaned_data/USA_Diekman
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1875,6 +1947,7 @@ Conversion done.
 ===== Writing results =====
 Output path: cleaned_data/USA_Germano
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1903,6 +1976,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/USA_Rivera-Rodriguez
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1931,6 +2005,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Ukraine_Kozytska
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1959,6 +2034,7 @@ Checked: Passed!
 ===== Writing results =====
 Output path: cleaned_data/Waterloo_Bergsieker
 ===== Data Conversion =====
+===== Check Numeric Vars Range =====
 ===== Preparing country code & site =====
 === Writing data summary ===
 === Writing variables ===
@@ -1973,7 +2049,7 @@ Script: src/merge_data.R
 ===== Setting up path =====
 ===== Loading & Merging data =====
 Other non-numeric variables to include:
-Variables: country, site, gender, duration_seconds, finished, startdate, enddate, course, study_year, citizenship, expect_child, livingsituation, own_distribution_1, own_distribution_2, mother_field, father_field, upbringing, religion, sexual_orientation, immigration_backgrou, migration_background, ethnic_background, marital_status, comments, not_use, uni, per_leave, per_workhour, parentleave_expectat, 
+Variables: country, site, gender, duration_seconds, finished, startdate, enddate, course, study_year, citizenship, expect_child, livingsituation, mother_field, father_field, upbringing, religion, sexual_orientation, immigration_backgrou, migration_background, ethnic_background, marital_status, comments, not_use, uni, per_leave, per_workhour, parentleave_expectat, 
 Config file: src/other_vars.json
 Loading data sets.....
 Data: cleaned_data/Albania_Jasini/albania_jasini.csv 
@@ -2296,7 +2372,7 @@ Backtrace:
  22.                         └─purrr::map(.x[sel], .f, ...)
  23.                           └─tidyselect:::.f(.x[[i]], ...)
  24.                             └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Czech_Klocova/czech_klocova.csv 
- Unknown columns `immigration_backgrou`, `uni` and `parentleave_expectat`  
+ Unknown columns `immigration_backgrou` and `parentleave_expectat`  
  Add new columns as NAs 
 
 Backtrace:
@@ -3287,10 +3363,12 @@ Merging all the data set....
 Checking numeric.....
 Is all numeric: TRUE
 ===== Results Summary =====
-Data Dimension: 33982 rows, 189 columns.
+Data Dimension: 33975 rows, 189 columns.
 ===== Writing results =====
 Numeric range: aggregated_data/num_range.json
-Old num_range.json not existed.Create a new one.
+Check: same numeric range as predefined.
+[1] TRUE
+Writing num_range.json file.
 Aggregated CSV: aggregated_data/aggregated_clean.csv
 Non-numeric unique values: aggregated_data/non_num_unique.json
 Only for unique values below 100.

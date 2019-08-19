@@ -2,7 +2,7 @@
   {
     "total_sites": 70,
     "cleaned_sites": 70,
-    "n_obs": 33982,
+    "n_obs": 33975,
     "sources": [
       {
         "name": "Albania_Jasini",
@@ -156,8 +156,8 @@
         "name": "Canada_Hall",
         "country": "CAN",
         "status": 1,
-        "dim": [283, 198],
-        "missing_prop": 0.0645,
+        "dim": [276, 203],
+        "missing_prop": 0.0721,
         "doc": {},
         "n_files": 2,
         "data": [
@@ -360,8 +360,8 @@
         "name": "Czech_Klocova",
         "country": "CZE",
         "status": 1,
-        "dim": [569, 196],
-        "missing_prop": 0.3716,
+        "dim": [569, 197],
+        "missing_prop": 0.372,
         "doc": {},
         "n_files": 2,
         "data": [
@@ -469,7 +469,7 @@
         "country": "CHE",
         "status": 1,
         "dim": [535, 203],
-        "missing_prop": 0.0549,
+        "missing_prop": 0.0574,
         "doc": [
           {
             "doc": "2018-19_Geneva_B2B1_psychology_students.docx"
@@ -783,7 +783,7 @@
         "country": "MKD",
         "status": 1,
         "dim": [184, 192],
-        "missing_prop": 0.0486,
+        "missing_prop": 0.0485,
         "doc": [
           {
             "doc": "UCOM Survey - EN version.docx"
@@ -1067,7 +1067,7 @@
         "country": "SRB",
         "status": 1,
         "dim": [840, 193],
-        "missing_prop": 0.7861,
+        "missing_prop": 0.4369,
         "doc": {},
         "n_files": 3,
         "data": [
@@ -1231,7 +1231,7 @@
         "country": "CHE",
         "status": 1,
         "dim": [534, 199],
-        "missing_prop": 0.052,
+        "missing_prop": 0.0534,
         "doc": {},
         "n_files": 1,
         "data": [

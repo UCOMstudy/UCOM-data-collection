@@ -30,6 +30,8 @@
   "other_payequality_1": [1, 7],
   "other_payequality_2": [1, 7],
   "other_payequality_3": [1, 7],
+  "own_distribution_1": [0, 100],
+  "own_distribution_2": [0, 100],
   "other_domestic_1": [0, 100],
   "other_domestic_2": [0, 100],
   "other_domestic_3": [0, 100],
