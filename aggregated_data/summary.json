@@ -1194,8 +1194,8 @@
         "name": "Sweden_Back",
         "country": "SWE",
         "status": 1,
-        "dim": [612, 210],
-        "missing_prop": 0.3774,
+        "dim": [612, 208],
+        "missing_prop": 0.3714,
         "doc": {},
         "n_files": 6,
         "data": [
@@ -1224,7 +1224,7 @@
             "format": "csv"
           }
         ],
-        "unique_vars": ["q1", "q79", "livingsituation_13_text", "q78", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q77", "sexual orientation", "q62_7_text", "immigration_background", "q65_3_text", "marital status", "q72", "sexual_orientation_7_text - topics"]
+        "unique_vars": ["q1", "q79", "livingsituation_13_text", "q78", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q77", "sexual orientation", "q62_7_text", "q65_3_text", "marital status", "q72"]
       },
       {
         "name": "Switzerland_Haessler",
