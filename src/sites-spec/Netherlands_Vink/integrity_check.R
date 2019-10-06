@@ -27,6 +27,12 @@ converted_choice_df <- convert_choiceDF(choice_df, num_vars) %>%
                        list(~as.numeric))
 check_vars(numeric_df, converted_choice_df, num_vars)
 message('Checked: Passed!')
+
+message('===== Swap variable names =====')
+message('migration_background <---> ethnic_background')
+choice_df <- choice_df %>%
+      dplyr::rename(migration_background = ethnic_background,
+                    ethnic_background = migration_background)
 ################ Write out results #####################
 
 message('===== Writing results =====')
