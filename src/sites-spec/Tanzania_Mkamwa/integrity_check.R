@@ -12,19 +12,29 @@ message('===== Loading data =====')
 site <- get_current_site()
 
 custom_transform <- function(df) {
-      df %>%
+      message('===== Swap variable names =====')
+      message('citizenship ---> immigration_background')
+      message('sexual_orientation_7_TEXT ---> citizenship')
+      out_df <- df %>%
+         dplyr::rename(immigration_backgrou = citizenship,
+                       citizenship = sexual_orientation_7_TEXT)
+
+      out_df <- out_df %>%
             dplyr::mutate(
                   startdate = NA_character_,
                   enddate = NA_character_,
                   duration = NA_character_,
                   finished = NA_integer_
             )
+
+
+      return(out_df)
+
 }
 
 choice_df <- get_raw_data(site, 'Choice') %>%
       custom_transform() %>%
       convert_names()
-
 ################ Checking #####################
 
 message('===== Checking =====')
@@ -33,7 +43,7 @@ all_vars <- colnames(choice_df)
 num_vars <- all_vars %>%
       get_num_vars('(^q[0-9]+)|(text)')
 
-message('Two dataset seem to be bot ChoiceValues: No checked!')
+message('Two dataset seem to be both ChoiceValues: No checked!')
 
 choice_df <- choice_df %>% dplyr::filter(
       other_injunc_2 != '10010',
