@@ -1316,7 +1316,7 @@
             "format": "csv"
           }
         ],
-        "unique_vars": ["sexual_orientation_7_text"]
+        "unique_vars": []
       },
       {
         "name": "Turkey_Gungor",

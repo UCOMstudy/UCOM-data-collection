@@ -1,6 +1,6 @@
 UCOM Version: 1.0.0
 Pipeline config file: pipeline.Rprofile
-Start time: 2019-10-05 17:54:07
+Start time: 2019-10-21 22:06:59
 Start running.....
 
 
@@ -1731,11 +1731,14 @@ Script: src/sites-spec/Tanzania_Mkamwa/integrity_check.R
 ===== Loading data =====
 Raw Data: raw_data/Tanzania_Mkamwa/Tanzania_Mkamwa_ChoiceValues.csv
 Rows dropped: 2
+===== Swap variable names =====
+citizenship ---> immigration_background
+sexual_orientation_7_TEXT ---> citizenship
 Apply to_lower to all names...
 Renaming Duration_seconds...
 Mapping other variables names...
 ===== Checking =====
-Two dataset seem to be bot ChoiceValues: No checked!
+Two dataset seem to be both ChoiceValues: No checked!
 ===== Writing results =====
 Output path: cleaned_data/Tanzania_Mkamwa
 ===== Data Conversion =====
@@ -3072,35 +3075,6 @@ Backtrace:
 [90m 22. [39m                        └─purrr::map(.x[sel], .f, ...)
 [90m 23. [39m                          └─tidyselect:::.f(.x[[i]], ...)
 [90m 24. [39m                            └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Switzerland_Sczesny/switzerland_sczesny.csv 
- Unknown column `ethnic_background`  
- Add new columns as NAs 
-
-Backtrace:
-[90m     [39m█
-[90m  1. [39m└─purrr::map2(...)
-[90m  2. [39m  └─ucom:::.f(.x[[i]], .y[[i]], ...)
-[90m  3. [39m    ├─base::tryCatch(...)
-[90m  4. [39m    │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
-[90m  5. [39m    │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
-[90m  6. [39m    │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
-[90m  7. [39m    ├─base::eval(test)
-[90m  8. [39m    │ └─base::eval(test)
-[90m  9. [39m    └─df %>% dplyr::select(all_vars)
-[90m 10. [39m      ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
-[90m 11. [39m      └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
-[90m 12. [39m        └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
-[90m 13. [39m          └─ucom:::`_fseq`(`_lhs`)
-[90m 14. [39m            └─magrittr::freduce(value, `_function_list`)
-[90m 15. [39m              ├─base::withVisible(function_list[[k]](value))
-[90m 16. [39m              └─function_list[[k]](value)
-[90m 17. [39m                ├─dplyr::select(., all_vars)
-[90m 18. [39m                └─dplyr:::select.data.frame(., all_vars)
-[90m 19. [39m                  └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
-[90m 20. [39m                    └─tidyselect:::vars_select_eval(.vars, quos)
-[90m 21. [39m                      └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
-[90m 22. [39m                        └─purrr::map(.x[sel], .f, ...)
-[90m 23. [39m                          └─tidyselect:::.f(.x[[i]], ...)
-[90m 24. [39m                            └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Tanzania_Mkamwa/tanzania_mkamwa.csv 
  Unknown column `ethnic_background`  
  Add new columns as NAs 
 
