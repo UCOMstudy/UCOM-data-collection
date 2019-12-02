@@ -1,8 +1,8 @@
 [
   {
-    "total_sites": 70,
-    "cleaned_sites": 70,
-    "n_obs": 33975,
+    "total_sites": 74,
+    "cleaned_sites": 74,
+    "n_obs": 35962,
     "sources": [
       {
         "name": "Albania_Jasini",
@@ -374,7 +374,27 @@
             "format": "csv"
           }
         ],
-        "unique_vars": ["respondentid", "parentleave_motivation", "parentleave_expectation", "parentleave_efficacy", "x101", "x166", "x169", "x178", "x181", "immigration_background", "x186", "political_2"]
+        "unique_vars": ["respondentid", "real_domestic_1", "real_domestic_2", "real_domestic_3", "real_parentalleave_1", "real_occ_1", "real_occ_2", "real_occ_3", "real_occ_4", "real_occ_5", "real_occ_6", "real_pay_1", "real_pay_2", "real_pay_3", "real_pay_4", "real_pay_5", "real_pay_6", "other_injunc_1", "other_injunc_2", "other_injunc_3", "other_injunc_4", "other_injunc_5", "other_injunc_6", "other_support_1", "other_support_2", "other_support_3", "other_support_4", "other_support_5", "other_support_6", "other_payequality_1", "other_payequality_2", "other_payequality_3", "other_domestic_1", "other_domestic_2", "other_domestic_3", "other_child_1", "other_child_2", "other_child_3", "own_injunc_1", "own_injunc_2", "own_injunc_3", "own_injunc_4", "own_injunc_5", "own_injunc_6", "own_support_1", "own_support_2", "own_support_3", "own_support_4", "own_support_5", "own_support_6", "own_support_7", "own_payequality_1", "own_payequality_2", "own_payequality_3", "own_domestic_1", "own_domestic_2", "own_domestic_3", "own_parentalleave_1", "own_child_1", "own_child_2", "own_child_3", "self_efficacy_1", "self_efficacy_2", "self_efficacy_3", "self_efficacy_4", "self_efficacy_5", "self_efficacy_6", "belong_accept_1", "belong_accept_2", "belong_accept_3", "belong_accept_4", "belong_accept_5", "belong_accept_6", "value_fit_1", "value_fit_2", "value_fit_3", "value_fit_4", "value_fit_5", "value_fit_6", "interest_motivation_1", "interest_motivation_2", "interest_motivation_3", "interest_motivation_4", "interest_motivation_5", "interest_motivation_6", "orientation_1", "orientation_2", "ambition_1", "ambition_2", "parentleave_motivati_1", "parentleave_efficacy", "expected_share_1", "expected_share_2", "expected_share_3", "x101", "proximal_domestic_1", "proximal_domestic_2", "proximal_domestic_3", "proximal_domestic_4", "proximal_domestic_5", "intensive_parenting_1", "intensive_parenting_2", "react_domestic_1", "react_domestic_2", "react_domestic_3", "react_domestic_4", "react_work_1", "react_work_2", "react_work_3", "react_work_4", "react_work_5", "react_work_6", "exp_encouragement_1", "exp_affect_1", "exp_affect_2", "exp_affect_3", "exp_affect_4", "exp_affect_5", "exp_affect_6", "exp_conflict", "values_1", "values_2", "values_3", "values_4", "values_5", "values_6", "values_7", "values_8", "values_9", "compete_1", "compete_2", "partner_1", "partner_2", "partner_3", "partner_4", "partner_5", "partner_6", "partner_7", "partner_8", "partner_9", "essential_1", "essential_2", "essential_3", "gender_identity_1", "gender_identity_2", "gender_identity_3", "compatibility_1", "compatibility_2", "compatibility_3", "compatibility_4", "compatibility_5", "compatibility_6", "gender_att_1", "gender_att_2", "gender_att_3", "gender_att_4", "manhood_1", "manhood_2", "x166", "own_distribution_1", "own_distribution_2", "x169", "age", "x178", "religiosity", "x181", "x186", "ses", "political", "political_2"]
+      },
+      {
+        "name": "Denmark_Morton",
+        "country": "DNK",
+        "status": 1,
+        "dim": [384, 209],
+        "missing_prop": 0.4052,
+        "doc": {},
+        "n_files": 2,
+        "data": [
+          {
+            "file": "Denmark_Morton_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Denmark_Morton_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_2_text", "migration_background_3_text", "random id"]
       },
       {
         "name": "Ecuador_Orrego",
@@ -391,6 +411,26 @@
           },
           {
             "file": "Ecuador_Orrego_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text"]
+      },
+      {
+        "name": "Estonia_Ainsaar",
+        "country": "EST",
+        "status": 1,
+        "dim": [480, 198],
+        "missing_prop": 0.4319,
+        "doc": {},
+        "n_files": 2,
+        "data": [
+          {
+            "file": "Estonia_Ainsaar_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Estonia_Ainsaar_NumericValues.csv",
             "format": "csv"
           }
         ],
@@ -827,6 +867,34 @@
         "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q77", "q78"]
       },
       {
+        "name": "Mexico_Eller",
+        "country": "MEX",
+        "status": 1,
+        "dim": [455, 203],
+        "missing_prop": 0.4181,
+        "doc": {},
+        "n_files": 4,
+        "data": [
+          {
+            "file": "Mexico_Eller_Choice_Part1.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Mexico_Eller_Choice_Part2.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Mexico_Eller_Numeric_Part1.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Mexico_Eller_Numeric_Part2.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "happy", "satisfaction", "q81", "credit", "sexual_orientation_7_text - topics"]
+      },
+      {
         "name": "Nagoya_Keiko",
         "country": "JPN",
         "status": 1,
@@ -856,12 +924,32 @@
         "status": 1,
         "dim": [222, 200],
         "missing_prop": 0.0558,
-        "doc": {},
-        "n_files": 1,
+        "doc": [
+          {
+            "doc": "Netherlands_Otten_Survey.docx"
+          }
+        ],
+        "n_files": 5,
         "data": [
           {
-            "file": "Mannen_en_vrouwen_in_de_Nederlandse_maatschappij_December 21, 2018_12.05.sav",
-            "format": "sav"
+            "file": "Netherlands_Otten_Choice.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Netherlands_Otten_Choice_Extra.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Netherlands_Otten_Numeric.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Netherlands_Otten_Numeric_Extra.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Netherlands_Otten_Survey.pdf",
+            "format": "pdf"
           }
         ],
         "unique_vars": ["q135_1", "q135_2", "religion_10_text", "sexual_orientation_7_text", "citizenship_4_text", "q158", "q158_8_text", "sona_id"]
@@ -870,14 +958,17 @@
         "name": "Netherlands_Vink",
         "country": "NLD",
         "status": 1,
-        "dim": [219, 201],
-        "missing_prop": 0.1426,
+        "dim": [297, 200],
+        "missing_prop": 0.1755,
         "doc": [
+          {
+            "doc": "Netherlands_Vink_Questionnaire.docx"
+          },
           {
             "doc": "UCOM-_Dutch-_CLEAN_FORMATTING_1.docx"
           }
         ],
-        "n_files": 2,
+        "n_files": 3,
         "data": [
           {
             "file": "Netherlands_Vink_ChoiceValues.sav",
@@ -886,9 +977,13 @@
           {
             "file": "Netherlands_Vink_NumericValues.csv",
             "format": "csv"
+          },
+          {
+            "file": "Netherlands_Vink_correctVARlabelsFinal.dat",
+            "format": "dat"
           }
         ],
-        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "citizenship_4_text", "migration_background_3_text", "q136", "q136_2_text"]
+        "unique_vars": ["religion_10_text", "sexual_orientation_7_text", "citizenship_4_text", "ethnic_background_8_text", "uni_2_text"]
       },
       {
         "name": "NewZealand_McNamara",
@@ -1061,6 +1156,26 @@
           }
         ],
         "unique_vars": ["q79", "livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "ethnic_background_11_text"]
+      },
+      {
+        "name": "Russia_Ryabichenko",
+        "country": "RUS",
+        "status": 1,
+        "dim": [590, 200],
+        "missing_prop": 0.4697,
+        "doc": {},
+        "n_files": 2,
+        "data": [
+          {
+            "file": "Russia_Ryabichenko_ChoiceValues.csv",
+            "format": "csv"
+          },
+          {
+            "file": "Russia_Ryabichenko_NumericValues.csv",
+            "format": "csv"
+          }
+        ],
+        "unique_vars": ["livingsituation_13_text", "religion_10_text", "sexual_orientation_7_text", "migration_background_3_text", "q80", "q79"]
       },
       {
         "name": "Serbia_Jaksic",

@@ -11,15 +11,19 @@ message('Script: ', script_path)
 message('===== Loading data =====')
 site <- get_current_site()
 
-message("Only has one SAV file")
-message("raw_data/Netherlands_Otten/Mannen_en_vrouwen_in_de_Nederlandse_maatschappij_December 21, 2018_12.05.sav")
-message('Rows dropped: 0')
+numeric_files <- c('Netherlands_Otten_Numeric.csv',
+                   'Netherlands_Otten_Numeric_Extra.csv')
 
-choice_df <- haven::read_sav(file.path('raw_data',
-                                       site, 'Mannen_en_vrouwen_in_de_Nederlandse_maatschappij_December 21, 2018_12.05.sav'))
+choice_files <- c('Netherlands_Otten_Choice.csv',
+                  'Netherlands_Otten_Choice_Extra.csv')
 
-choice_df <- choice_df %>% convert_spss() %>% convert_names()
-
+numeric_df <- purrr::map_dfr(numeric_files,
+                             ~ get_raw_data(site, 'Numeric',
+                                            file_name = .x)) %>% convert_names()
+choice_df <- purrr::map_dfr(choice_files,
+                            ~ get_raw_data(site, 'Choice',
+                                           file_name = .x)) %>% convert_names()
+stop()
 message('=========== Fixing variable names !! ===========')
 colnames(choice_df) <- colnames(choice_df) %>%
       stringr::str_replace_all(

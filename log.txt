@@ -1,6 +1,6 @@
 UCOM Version: 1.0.0
 Pipeline config file: pipeline.Rprofile
-Start time: 2019-10-21 22:06:59
+Start time: 2019-12-02 02:05:07
 Start running.....
 
 
@@ -527,6 +527,35 @@ Sucessfully write results!
 
 
 
+Script: src/sites-spec/Denmark_Morton/integrity_check.R
+===== Loading data =====
+Raw Data: raw_data/Denmark_Morton/Denmark_Morton_NumericValues.csv
+Rows dropped: 2
+Apply to_lower to all names...
+Renaming Duration_seconds...
+Mapping other variables names...
+Raw Data: raw_data/Denmark_Morton/Denmark_Morton_ChoiceValues.csv
+Rows dropped: 2
+Apply to_lower to all names...
+Renaming Duration_seconds...
+Mapping other variables names...
+===== Checking =====
+[1] TRUE
+Checked: Passed!
+===== Writing results =====
+Output path: cleaned_data/Denmark_Morton
+===== Data Conversion =====
+===== Check Numeric Vars Range =====
+===== Preparing country code & site =====
+=== Writing data summary ===
+=== Writing variables ===
+Country: DNK
+Site: Denmark_Morton
+=== Writing out CSV ===
+Sucessfully write results!
+
+
+
 Script: src/sites-spec/Ecuador_Orrego/integrity_check_template.R
 ===== Loading data =====
 Raw Data: raw_data/Ecuador_Orrego/Ecuador_Orrego_NumericValues.csv
@@ -551,6 +580,35 @@ Output path: cleaned_data/Ecuador_Orrego
 === Writing variables ===
 Country: ECU
 Site: Ecuador_Orrego
+=== Writing out CSV ===
+Sucessfully write results!
+
+
+
+Script: src/sites-spec/Estonia_Ainsaar/integrity_check_template.R
+===== Loading data =====
+Raw Data: raw_data/Estonia_Ainsaar/Estonia_Ainsaar_NumericValues.csv
+Rows dropped: 2
+Apply to_lower to all names...
+Renaming Duration_seconds...
+Mapping other variables names...
+Raw Data: raw_data/Estonia_Ainsaar/Estonia_Ainsaar_ChoiceValues.csv
+Rows dropped: 2
+Apply to_lower to all names...
+Renaming Duration_seconds...
+Mapping other variables names...
+===== Checking =====
+[1] TRUE
+Checked: Passed!
+===== Writing results =====
+Output path: cleaned_data/Estonia_Ainsaar
+===== Data Conversion =====
+===== Check Numeric Vars Range =====
+===== Preparing country code & site =====
+=== Writing data summary ===
+=== Writing variables ===
+Country: EST
+Site: Estonia_Ainsaar
 === Writing out CSV ===
 Sucessfully write results!
 
@@ -1103,6 +1161,39 @@ Sucessfully write results!
 
 
 
+Script: src/sites-spec/Mexico_Eller/integrity_check.R
+===== Loading data =====
+Raw Data: raw_data/Mexico_Eller/Mexico_Eller_Numeric_Part1.csv
+Rows dropped: 2
+Raw Data: raw_data/Mexico_Eller/Mexico_Eller_Numeric_Part2.csv
+Rows dropped: 2
+Apply to_lower to all names...
+Renaming Duration_seconds...
+Mapping other variables names...
+Raw Data: raw_data/Mexico_Eller/Mexico_Eller_Choice_Part1.csv
+Rows dropped: 2
+Raw Data: raw_data/Mexico_Eller/Mexico_Eller_Choice_Part2.csv
+Rows dropped: 2
+Apply to_lower to all names...
+Renaming Duration_seconds...
+Mapping other variables names...
+===== Checking =====
+[1] TRUE
+Checked: Passed!
+===== Writing results =====
+Output path: cleaned_data/Mexico_Eller
+===== Data Conversion =====
+===== Check Numeric Vars Range =====
+===== Preparing country code & site =====
+=== Writing data summary ===
+=== Writing variables ===
+Country: MEX
+Site: Mexico_Eller
+=== Writing out CSV ===
+Sucessfully write results!
+
+
+
 Script: src/sites-spec/Nagoya_Keiko/integrity_check.R
 ===== Loading data =====
 Raw Data: raw_data/Nagoya_Keiko/Nagoya_Keiko_NumericValues.csv
@@ -1136,46 +1227,21 @@ Sucessfully write results!
 
 Script: src/sites-spec/Netherlands_Otten/integrity_check.R
 ===== Loading data =====
-Only has one SAV file
-raw_data/Netherlands_Otten/Mannen_en_vrouwen_in_de_Nederlandse_maatschappij_December 21, 2018_12.05.sav
-Rows dropped: 0
-Apply to_lower to all names...
-Renaming Duration_seconds...
-Mapping other variables names...
-=========== Fixing variable names !! ===========
-===== Checking =====
-No check for this! Only one data set
-===== Writing results =====
-Output path: cleaned_data/Netherlands_Otten
-===== Data Conversion =====
-===== Check Numeric Vars Range =====
-===== Preparing country code & site =====
-=== Writing data summary ===
-=== Writing variables ===
-Country: NLD
-Site: Netherlands_Otten
-=== Writing out CSV ===
-Sucessfully write results!
+Raw Data: raw_data/Netherlands_Otten/Netherlands_Otten_Numeric.csv
+Error: (converted from warning) Duplicated column names deduplicated: 'interest_motivation_1' => 'interest_motivation_1_1' [94], 'interest_motivation_2' => 'interest_motivation_2_1' [95], 'interest_motivation_3' => 'interest_motivation_3_1' [96]
+Execution halted
 
 
 
 Script: src/sites-spec/Netherlands_Vink/integrity_check.R
 ===== Loading data =====
-Raw Data: raw_data/Netherlands_Vink/Netherlands_Vink_NumericValues.csv
-Rows dropped: 0
-Apply to_lower to all names...
-Renaming Duration_seconds...
-Mapping other variables names...
 Raw Data: raw_data/Netherlands_Vink/Netherlands_Vink_ChoiceValues.sav
 Rows dropped: 0
 Apply to_lower to all names...
 Renaming Duration_seconds...
 Mapping other variables names...
 ===== Checking =====
-[1] TRUE
-Checked: Passed!
-===== Swap variable names =====
-migration_background <---> ethnic_background
+No check: only use Choice data
 ===== Writing results =====
 Output path: cleaned_data/Netherlands_Vink
 ===== Data Conversion =====
@@ -1416,6 +1482,35 @@ Output path: cleaned_data/Romania_Birneanu
 === Writing variables ===
 Country: ROU
 Site: Romania_Birneanu
+=== Writing out CSV ===
+Sucessfully write results!
+
+
+
+Script: src/sites-spec/Russia_Ryabichenko/integrity_check_template.R
+===== Loading data =====
+Raw Data: raw_data/Russia_Ryabichenko/Russia_Ryabichenko_NumericValues.csv
+Rows dropped: 2
+Apply to_lower to all names...
+Renaming Duration_seconds...
+Mapping other variables names...
+Raw Data: raw_data/Russia_Ryabichenko/Russia_Ryabichenko_ChoiceValues.csv
+Rows dropped: 2
+Apply to_lower to all names...
+Renaming Duration_seconds...
+Mapping other variables names...
+===== Checking =====
+[1] TRUE
+Checked: Passed!
+===== Writing results =====
+Output path: cleaned_data/Russia_Ryabichenko
+===== Data Conversion =====
+===== Check Numeric Vars Range =====
+===== Preparing country code & site =====
+=== Writing data summary ===
+=== Writing variables ===
+Country: RUS
+Site: Russia_Ryabichenko
 === Writing out CSV ===
 Sucessfully write results!
 
@@ -2378,35 +2473,6 @@ Backtrace:
 [90m 21. [39m                      └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
 [90m 22. [39m                        └─purrr::map(.x[sel], .f, ...)
 [90m 23. [39m                          └─tidyselect:::.f(.x[[i]], ...)
-[90m 24. [39m                            └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Czech_Klocova/czech_klocova.csv 
- Unknown columns `immigration_backgrou` and `parentleave_expectat`  
- Add new columns as NAs 
-
-Backtrace:
-[90m     [39m█
-[90m  1. [39m└─purrr::map2(...)
-[90m  2. [39m  └─ucom:::.f(.x[[i]], .y[[i]], ...)
-[90m  3. [39m    ├─base::tryCatch(...)
-[90m  4. [39m    │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
-[90m  5. [39m    │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
-[90m  6. [39m    │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
-[90m  7. [39m    ├─base::eval(test)
-[90m  8. [39m    │ └─base::eval(test)
-[90m  9. [39m    └─df %>% dplyr::select(all_vars)
-[90m 10. [39m      ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
-[90m 11. [39m      └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
-[90m 12. [39m        └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
-[90m 13. [39m          └─ucom:::`_fseq`(`_lhs`)
-[90m 14. [39m            └─magrittr::freduce(value, `_function_list`)
-[90m 15. [39m              ├─base::withVisible(function_list[[k]](value))
-[90m 16. [39m              └─function_list[[k]](value)
-[90m 17. [39m                ├─dplyr::select(., all_vars)
-[90m 18. [39m                └─dplyr:::select.data.frame(., all_vars)
-[90m 19. [39m                  └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
-[90m 20. [39m                    └─tidyselect:::vars_select_eval(.vars, quos)
-[90m 21. [39m                      └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
-[90m 22. [39m                        └─purrr::map(.x[sel], .f, ...)
-[90m 23. [39m                          └─tidyselect:::.f(.x[[i]], ...)
 [90m 24. [39m                            └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Geneva_Kulich/geneva_kulich.csv 
  Unknown column `uni`  
  Add new columns as NAs 
@@ -2670,35 +2736,6 @@ Backtrace:
 [90m 23. [39m                          └─tidyselect:::.f(.x[[i]], ...)
 [90m 24. [39m                            └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Netherlands_Otten/netherlands_otten.csv 
  Unknown columns `migration_background` and `uni`  
- Add new columns as NAs 
-
-Backtrace:
-[90m     [39m█
-[90m  1. [39m└─purrr::map2(...)
-[90m  2. [39m  └─ucom:::.f(.x[[i]], .y[[i]], ...)
-[90m  3. [39m    ├─base::tryCatch(...)
-[90m  4. [39m    │ └─base:::tryCatchList(expr, classes, parentenv, handlers)
-[90m  5. [39m    │   └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
-[90m  6. [39m    │     └─base:::doTryCatch(return(expr), name, parentenv, handler)
-[90m  7. [39m    ├─base::eval(test)
-[90m  8. [39m    │ └─base::eval(test)
-[90m  9. [39m    └─df %>% dplyr::select(all_vars)
-[90m 10. [39m      ├─base::withVisible(eval(quote(`_fseq`(`_lhs`)), env, env))
-[90m 11. [39m      └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
-[90m 12. [39m        └─base::eval(quote(`_fseq`(`_lhs`)), env, env)
-[90m 13. [39m          └─ucom:::`_fseq`(`_lhs`)
-[90m 14. [39m            └─magrittr::freduce(value, `_function_list`)
-[90m 15. [39m              ├─base::withVisible(function_list[[k]](value))
-[90m 16. [39m              └─function_list[[k]](value)
-[90m 17. [39m                ├─dplyr::select(., all_vars)
-[90m 18. [39m                └─dplyr:::select.data.frame(., all_vars)
-[90m 19. [39m                  └─tidyselect::vars_select(sel_vars(.data), !!!quos(...))
-[90m 20. [39m                    └─tidyselect:::vars_select_eval(.vars, quos)
-[90m 21. [39m                      └─purrr::map_if(ind_list, is_character, match_strings, names = TRUE)
-[90m 22. [39m                        └─purrr::map(.x[sel], .f, ...)
-[90m 23. [39m                          └─tidyselect:::.f(.x[[i]], ...)
-[90m 24. [39m                            └─tidyselect:::bad_unknown_vars(vars, unknown)Data: cleaned_data/Netherlands_Vink/netherlands_vink.csv 
- Unknown column `uni`  
  Add new columns as NAs 
 
 Backtrace:
@@ -3341,7 +3378,7 @@ Merging all the data set....
 Checking numeric.....
 Is all numeric: TRUE
 ===== Results Summary =====
-Data Dimension: 33975 rows, 189 columns.
+Data Dimension: 35962 rows, 189 columns.
 ===== Writing results =====
 Numeric range: aggregated_data/num_range.json
 Check: same numeric range as predefined.
@@ -3351,5 +3388,5 @@ Aggregated CSV: aggregated_data/aggregated_clean.csv
 Non-numeric unique values: aggregated_data/non_num_unique.json
 Only for unique values below 100.
 Excluded variables: aggregated_data/exc_vars.json
-Number of excluded variables: 351
+Number of excluded variables: 513
 Done!

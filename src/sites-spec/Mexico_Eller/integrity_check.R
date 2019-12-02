@@ -11,11 +11,12 @@ message('Script: ', script_path)
 message('===== Loading data =====')
 site <- get_current_site()
 
-numeric_files <- c('Canada_Block_PART1_NumericValues.csv',
-                   'Canada_Block_PART2_NumericValues.csv')
+numeric_files <- c('Mexico_Eller_Numeric_Part1.csv',
+                   'Mexico_Eller_Numeric_Part2.csv')
 
-choice_files <- c('Canada_Block_PART1_ChoiceValues.csv',
-                  'Canada_Block_PART2_ChoiceValues.csv')
+choice_files <- c('Mexico_Eller_Choice_Part1.csv',
+                  'Mexico_Eller_Choice_Part2.csv')
+
 
 numeric_df <- purrr::map_dfr(numeric_files,
                              ~ get_raw_data(site, 'Numeric',
@@ -30,12 +31,11 @@ message('===== Checking =====')
 all_vars <- colnames(choice_df)
 
 num_vars <- all_vars %>%
-      get_num_vars('(^q[0-9]+)|(text)')
+      get_num_vars('(^q[0-9]+)|(text)|(happy)|(credit)|(satisfaction)')
 
 converted_choice_df <- convert_choiceDF(choice_df, num_vars)
 check_vars(numeric_df, converted_choice_df, num_vars)
 message('Checked: Passed!')
-
 ################ Write out results #####################
 
 message('===== Writing results =====')

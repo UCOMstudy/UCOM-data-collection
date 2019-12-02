@@ -28,14 +28,18 @@ renamed_numeric_df <- dplyr::rename_all(numeric_df,
                                                                    '\\1_\\2'))) %>%
       dplyr::rename(exp_encouragement_1 = 'exp_encouragment',
                     proximal_domestic_5 = 'proximat_domestic_5',
-                    uni = 'site')
+                    uni = 'site',
+                    parentleave_expectat = 'parentleave_expectation',
+                    parentleave_efficacy = 'parentleave_efficacy',
+                    parentleave_motivati_1 = 'parentleave_motivation',
+                    immigration_backgrou = 'immigration_background')
 
 ################ Checking #####################
 
 message('===== Checking =====')
 all_vars <- colnames(renamed_numeric_df)
 
-pat <- '(^[xq][0-9]+)|(text)|(respondentid)|(political_2)|(immigration_background)|(^parentleave_)'
+pat <- '(^[xq][0-9]+)|(text)|(respondentid)|(political_2)|'
 num_vars <- all_vars %>%
       get_num_vars(pat)
 
