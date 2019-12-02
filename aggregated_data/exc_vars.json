@@ -699,9 +699,10 @@
          "religion_10_text",
          "sexual_orientation_7_text",
          "citizenship_4_text",
-         "q158",
-         "q158_8_text",
-         "sona_id"
+         "ethnic_background_text",
+         "sona-id",
+         "comments_-_topics",
+         "q141"
       ],
       "Netherlands_Vink": [
          "religion_10_text",

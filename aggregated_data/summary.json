@@ -2,7 +2,7 @@
   {
     "total_sites": 74,
     "cleaned_sites": 74,
-    "n_obs": 35962,
+    "n_obs": 36153,
     "sources": [
       {
         "name": "Albania_Jasini",
@@ -922,8 +922,8 @@
         "name": "Netherlands_Otten",
         "country": "NLD",
         "status": 1,
-        "dim": [222, 200],
-        "missing_prop": 0.0558,
+        "dim": [413, 202],
+        "missing_prop": 0.0986,
         "doc": [
           {
             "doc": "Netherlands_Otten_Survey.docx"
@@ -952,7 +952,7 @@
             "format": "pdf"
           }
         ],
-        "unique_vars": ["q135_1", "q135_2", "religion_10_text", "sexual_orientation_7_text", "citizenship_4_text", "q158", "q158_8_text", "sona_id"]
+        "unique_vars": ["q135_1", "q135_2", "religion_10_text", "sexual_orientation_7_text", "citizenship_4_text", "ethnic_background_text", "sona-id", "comments_-_topics", "q141"]
       },
       {
         "name": "Netherlands_Vink",
