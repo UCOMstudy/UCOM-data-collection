@@ -39,7 +39,7 @@ renamed_numeric_df <- dplyr::rename_all(numeric_df,
 message('===== Checking =====')
 all_vars <- colnames(renamed_numeric_df)
 
-pat <- '(^[xq][0-9]+)|(text)|(respondentid)|(political_2)|'
+pat <- '(^[xq][0-9]+)|(text)|(respondentid)|(political_2)'
 num_vars <- all_vars %>%
       get_num_vars(pat)
 
