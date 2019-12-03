@@ -3,27 +3,6 @@
 ################ Set up #####################
 suppressMessages(library(ucom))
 
-# function for checking numeric range
-check_range <- function(def_num_range, data_num_range) {
-  for (var in names(def_num_range)) {
-    data_range <- data_num_range[[var]]
-    data_min <- data_range[1]
-    data_max <- data_range[2]
-
-    def_range <- def_num_range[[var]]
-    def_min <- data_range[1]
-    def_max <- data_range[2]
-
-    if (def_min > data_min) {
-      stop(glue::glue("{var} - Data min:{data_min} beyond range min:{def_min}"))
-    }
-    if (def_max < data_max) {
-      stop(glue::glue("{var} - Data max:{data_max} beyond range max:{def_max}"))
-    }
-  }
-  return(TRUE)
-}
-
 ################ Loading Data #####################
 
 message('\n\n')
@@ -99,17 +78,10 @@ message('Data Dimension: ',
 message('===== Writing results =====')
 message('Numeric range: ', get_rel_path(num_range_path))
 
-# getting the range for each numeric variables
-data_num_range <- merged_df %>%
-      dplyr::select(num_vars) %>%
-      purrr::map(range, na.rm=TRUE)
-
 # check if there is any changes to the num_range.json files.
 def_num_range <- ucom::num_vars
 message('Check: same numeric range as predefined.')
-assertthat::assert_that(
-      check_range(def_num_range, data_num_range),
-      msg = 'Result: numeric range different.')
+ucom::check_num_range(merged_df, num_vars)
 
 message('Writing ', fs::path_file(num_range_path),' file.')
 jsonlite::write_json(def_num_range,
