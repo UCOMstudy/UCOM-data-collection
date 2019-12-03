@@ -20,7 +20,8 @@ custom_transform <- function(df) {
                           startdate = NA_character_,
                           enddate = NA_character_,
                           duration_seconds = NA_character_,
-                          finished = NA_real_)
+                          finished = NA_real_) %>%
+            dplyr::rename(immigration_backgrou = 'immigration_background')
 }
 
 numeric_df <- purrr::map_dfr(numeric_files,
@@ -36,7 +37,7 @@ message('===== Checking =====')
 all_vars <- colnames(numeric_df)
 
 num_vars <- all_vars %>%
-      get_num_vars('(^q[0-9]+)|(text)|(subject_id)|(institute)|(faculty)|(immigration_background)')
+      get_num_vars('(^q[0-9]+)|(text)|(subject_id)|(institute)|(faculty)')
 
 message('No checked! Only 2 numeric files provided.')
 ################ Write out results #####################
