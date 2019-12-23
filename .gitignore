@@ -51,7 +51,10 @@ packrat/lib*/
 *.xlsx
 *.zip
 raw_data/*
+!raw_data/.keep
 packrat/src/
 aggregated_data/*
+!aggregated_data/.keep
 cleaned_data/*
+!cleaned_data/.keep
 log.txt
