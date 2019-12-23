@@ -46,12 +46,12 @@ convert_start_end <- function(df, date_format = NULL) {
 #' @description Convert choice Dataframe to remove text.
 #' @param df Data frame
 #' @param var_names A vecot of variable names to convert
-#'
+#' @param pattern Regex pattern to match the numbers.
+#'                Default: `^(-)?[0-9]{1,5}(\\.[0-9]{1,4})?`
 #' @return Converted choice data frame
 #' @export
-convert_choiceDF <- function(df, var_names) {
+convert_choiceDF <- function(df, var_names, pattern = "^(-)?[0-9]{1,5}(\\.[0-9]{1,4})?") {
 
-      pattern <- "^(-)?[0-9]{1,5}(\\.[0-9]{1,4})?"
       extraction <- list(~stringr::str_extract(.,
                                               pattern))
 

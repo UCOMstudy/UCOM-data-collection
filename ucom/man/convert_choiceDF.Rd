@@ -4,12 +4,16 @@
 \alias{convert_choiceDF}
 \title{Convert choice Dataframe}
 \usage{
-convert_choiceDF(df, var_names)
+convert_choiceDF(df, var_names,
+  pattern = "^(-)?[0-9]{1,5}(\\\\.[0-9]{1,4})?")
 }
 \arguments{
 \item{df}{Data frame}
 
 \item{var_names}{A vecot of variable names to convert}
+
+\item{pattern}{Regex pattern to match the numbers.
+Default: `^(-)?[0-9]{1,5}(\\.[0-9]{1,4})?`}
 }
 \value{
 Converted choice data frame
