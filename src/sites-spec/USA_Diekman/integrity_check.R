@@ -11,8 +11,14 @@ message('Script: ', script_path)
 message('===== Loading data =====')
 site <- get_current_site()
 
-numeric_df <- get_raw_data(site, 'Numeric') %>% convert_names()
-choice_df <- get_raw_data(site, 'Choice') %>% convert_names()
+numeric_df <- get_raw_data(site, 'Numeric') %>%
+      convert_names() %>%
+      dplyr::rename(real_occ_5 = real_occ_7,
+                    real_occ_6 = real_occ_8 )
+choice_df <- get_raw_data(site, 'Choice') %>%
+      convert_names() %>%
+      dplyr::rename(real_occ_5 = real_occ_7,
+                    real_occ_6 = real_occ_8 )
 
 ################ Checking #####################
 
@@ -20,7 +26,7 @@ message('===== Checking =====')
 all_vars <- colnames(choice_df)
 
 num_vars <- all_vars %>%
-      get_num_vars('(^q[0-9]+)|(text)|(real_occ_8)|(real_occ_7)')
+      get_num_vars('(^q[0-9]+)|(text)')
 
 converted_choice_df <- convert_choiceDF(choice_df, num_vars)
 check_vars(numeric_df, converted_choice_df, num_vars)

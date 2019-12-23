@@ -17,7 +17,8 @@ numeric_df <- get_raw_data(site, 'Numeric',
       dplyr::mutate(startdate = NA_character_,
                     enddate = NA_character_,
                     finished = NA_integer_) %>%
-      convert_names()
+      convert_names() %>%
+      dplyr::rename(immigration_backgrou = immigration_background)
 
 ################ Checking #####################
 

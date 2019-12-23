@@ -11,9 +11,16 @@ message('Script: ', script_path)
 message('===== Loading data =====')
 site <- get_current_site()
 
-numeric_df <- get_raw_data(site, 'Numeric') %>% convert_names()
-choice_df <- get_raw_data(site, 'Choice') %>% convert_names()
+rename_vars <- function(df) {
+      df %>% dplyr::rename(study_year = q79)
+}
 
+numeric_df <- get_raw_data(site, 'Numeric') %>%
+      convert_names() %>%
+      rename_vars
+choice_df <- get_raw_data(site, 'Choice') %>%
+      convert_names() %>%
+      rename_vars
 ################ Checking #####################
 
 message('===== Checking =====')

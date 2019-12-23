@@ -23,7 +23,7 @@ message('===== Checking =====')
 all_vars <- colnames(choice_df)
 
 num_vars <- all_vars %>%
-      get_num_vars('(^q[0-9]+)|(text)|(migra)|(uni)|(not)|(comme)|(relig)|(sexua)|(livin)')
+      get_num_vars('(^q[0-9]+)|(text)|(migra)|(uni)|(not)|(comme)|(relig([0-9]|ion))|(sexua)|(livin)')
 
 message('No checking! Just one choice data set')
 ################ Write out results #####################
