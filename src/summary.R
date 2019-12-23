@@ -5,9 +5,12 @@ suppressMessages(library(dplyr))
 message('========== Creating metadata summary ... ==========')
 
 # get all paths
+# 1. Cleaned data
 data_path <- here::here("cleaned_data")
 all_sites <- fs::dir_ls('cleaned_data', type = 'directory')
 site_names <- all_sites %>% fs::path_file()
+
+# 2. Raw data
 raw_files <- fs::dir_ls('raw_data', type = 'file', recursive = TRUE)
 raw_site_names <- raw_files %>% fs::path_dir() %>% fs::path_file()
 file_names <- raw_files %>% fs::path_file()
@@ -16,14 +19,14 @@ output_path <- here::here('aggregated_data', 'summary.json')
 
 # retrieve summary data from cleaned sites
 message('Prepare summaries from cleaned sites...')
-summary_rds <-
+site_summaries <-
       purrr::map(file.path(all_sites, 'summary.rds'),
                  readr::read_rds) %>%
       purrr::set_names(site_names)
 
 
-col_names <- names(summary_rds[[1]])
-merged_summary <- summary_rds %>%
+col_names <- names(site_summaries[[1]])
+merged_summary <- site_summaries %>%
       purrr::map_dfr(
             ~ t(as.matrix(.x)) %>%
                   tibble::as_tibble() %>%
