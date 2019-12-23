@@ -54,3 +54,4 @@ raw_data/*
 packrat/src/
 aggregated_data/*
 cleaned_data/*
+log.txt
