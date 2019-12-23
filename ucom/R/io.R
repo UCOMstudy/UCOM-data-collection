@@ -71,7 +71,6 @@ read_cleaned_data <- function(df_path,
                                      '\n',
                                      e$message,
                                      '\n Add new columns as NAs \n')
-                  message(e)
                   out <- df %>%
                         add_emp_cols(all_vars) %>%
                         dplyr::select(all_vars)
