@@ -43,7 +43,7 @@ all_vars <- colnames(choice_df)
 num_vars <- all_vars %>%
       get_num_vars('(^q[0-9]+)|(text)')
 
-message('Two dataset seem to be both ChoiceValues: No checked!')
+message('Only one ChoiceValues dataset: No checked!')
 
 choice_df <- choice_df %>% dplyr::filter(
       other_injunc_2 != '10010',
