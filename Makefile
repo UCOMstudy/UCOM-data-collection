@@ -64,7 +64,7 @@ merge: $(SRC)/merge_data.R
 
 .ONESHELL: check
 check: copy_template
-	@echo "UCOM Version: $(PKGVERS)" | tee $(LOG_FILE);
+	@echo "$(PKGNAME) Version: $(PKGVERS)" | tee $(LOG_FILE);
 	@echo "Pipeline config file: $(R_PROFILE_USER)" $(REDIRECT);
 	@echo "Start time: $(TIME)" $(REDIRECT);
 	@echo "Start running....." $(REDIRECT);
