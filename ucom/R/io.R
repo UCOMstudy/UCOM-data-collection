@@ -141,6 +141,9 @@ write_results <- function(choice_df,
       message("===== Check Numeric Vars Range =====")
       check_num_range(out_df, num_vars)
 
+      message("===== Map variables to `uni` & `uni_text` =====")
+      out_df <- rename_uni_vars(out_df, site)
+
       message("===== Preparing country code & site =====")
       # create country code & site
       country_collector <-

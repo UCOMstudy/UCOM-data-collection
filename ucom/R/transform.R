@@ -36,7 +36,7 @@ convert_time <- function(x, date_format = NULL ) {
 convert_start_end <- function(df, date_format = NULL) {
       out <- df %>%
             dplyr::mutate_at(dplyr::vars("startdate", "enddate"),
-                             list(~convert_time(., date_format)))
+                             ~convert_time(., date_format))
       return(out)
 }
 
@@ -52,11 +52,9 @@ convert_start_end <- function(df, date_format = NULL) {
 #' @export
 convert_choiceDF <- function(df, var_names, pattern = "^(-)?[0-9]{1,5}(\\.[0-9]{1,4})?") {
 
-      extraction <- list(~stringr::str_extract(.,
-                                              pattern))
-
       output <- df %>%
-            dplyr::mutate_at(var_names, extraction)
+            dplyr::mutate_at(var_names,
+                             ~stringr::str_extract(., pattern))
 
       return(output)
 }
@@ -192,10 +190,11 @@ convert_spss <- function(spss_df) {
 convert_names <- function(df, extra_map = NULL) {
       # convert names
       message('Apply to_lower to all names...')
-      message('Renaming Duration_seconds...')
-
       out_df <- df %>%
-            dplyr::rename_all(list(~stringr::str_to_lower)) %>%
+         dplyr::rename_all(tolower)
+
+      message('Renaming Duration_seconds...')
+      out_df <- out_df %>%
             dplyr::rename(duration_seconds=dplyr::starts_with('duration'))
 
       message('Mapping other variables names...')
@@ -212,6 +211,30 @@ convert_names <- function(df, extra_map = NULL) {
 
       return(out_df)
 }
+
+#' Rename relevant variables to `uni` & `uni_text`
+#'
+#' @param df A DataFrame
+#' @param site Site to check if the mapping exist
+#'
+#' @return A DataFrame with variable, if any, renamed to `uni`& `uni_text`
+#' @export
+rename_uni_vars <- function(df, site) {
+   if (site %in% ucom::vars_to_change$site) {
+      site_uni_mapping <- ucom::vars_to_change %>% dplyr::filter(site == !!site)
+      if (! is.na(site_uni_mapping$var_to_uni)) {
+         df <- df %>%
+            dplyr::rename(var_to_uni = !!site_uni_mapping$var_to_uni)
+      }
+
+      if (! is.na(site_uni_mapping$var_to_uni_textbox)) {
+         df <- df %>%
+            dplyr::rename(var_to_uni_textbox = !!site_uni_mapping$var_to_uni_textbox)
+      }
+   }
+   return(df)
+}
+
 
 
 #' Add new columns as with NAs if not existed

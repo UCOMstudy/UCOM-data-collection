@@ -4,7 +4,7 @@
 \name{vars_map}
 \alias{vars_map}
 \title{Mapping for unusal variables names to normal variable names}
-\format{A a named character vector}
+\format{A named character vector}
 \usage{
 vars_map
 }
