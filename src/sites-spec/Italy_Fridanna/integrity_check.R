@@ -14,8 +14,8 @@ site <- get_current_site()
 choice_df <- get_raw_data(site, start_row = 1, 'Choice') %>%
       convert_names() %>%
       dplyr::mutate_at(dplyr::vars(startdate, enddate),
-                       list(~lubridate::as_datetime)) %>%
-      dplyr::mutate_all(list(~as.character))
+                       lubridate::as_datetime) %>%
+      dplyr::mutate_all(as.character)
 
 ################ Checking #####################
 

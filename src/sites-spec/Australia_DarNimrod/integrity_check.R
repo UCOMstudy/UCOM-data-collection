@@ -25,7 +25,7 @@ choice_df <- purrr::map_dfr(
             sav = TRUE
       ) %>%
             convert_names() %>%
-            dplyr::mutate_all(list(~as.character))
+            dplyr::mutate_all(as.character)
 )
 ################ Checking #####################
 

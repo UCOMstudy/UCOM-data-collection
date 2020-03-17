@@ -52,7 +52,7 @@ message('**********************************************\n',
 converted_all_dfs <- all_dfs %>%
       purrr::map(~ dplyr::mutate_at(.x,
                                     dplyr::vars(other_vars),
-                                    list(~as.character)))
+                                    as.character))
 
 message('Merging all the data set....')
 merged_df <- dplyr::bind_rows(converted_all_dfs)
@@ -62,7 +62,7 @@ message('Checking numeric.....')
 num_vars <- colnames(merged_df) %>% remove(other_vars)
 test_all_numeric <- merged_df %>%
       dplyr::select(num_vars) %>%
-      dplyr::mutate_all(list(~is.numeric)) %>%
+      dplyr::mutate_all(is.numeric) %>%
       as.matrix() %>% all()
 message('Is all numeric: ',
         assertthat::assert_that(test_all_numeric))
@@ -93,15 +93,16 @@ message('Aggregated CSV: ', get_rel_path(output_path))
 readr::write_csv(merged_df, output_path)
 
 #  ===========================================================
+n_unique <- 100
 message('Non-numeric unique values: ', get_rel_path(non_num_unique_path))
-message('Only for unique values below 100.')
+message(glue::glue('Only for unique values below {n_unique}.'))
 non_num_unique <- merged_df %>%
       dplyr::select(-num_vars) %>%
       purrr::map(unique)
 
 mask <- non_num_unique %>%
       # cutoff point at 50
-      purrr::map_lgl(~ length(unique(.x)) < 100)
+      purrr::map_lgl(~ length(unique(.x)) < n_unique)
 
 non_num_unique[mask] %>%
       jsonlite::write_json(non_num_unique_path,

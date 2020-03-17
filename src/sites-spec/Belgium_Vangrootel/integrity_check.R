@@ -23,8 +23,8 @@ num_vars <- all_vars %>%
 
 converted_choice_df <- convert_choiceDF(choice_df, num_vars) %>%
       # convert to the same data types
-      dplyr::mutate_at(dplyr::vars(num_vars),
-                       list(~as.numeric))
+      dplyr::mutate_at(dplyr::vars(tidyselect::all_of(num_vars)),
+                       as.numeric)
 check_vars(numeric_df, converted_choice_df, num_vars)
 message('Checked: Passed!')
 

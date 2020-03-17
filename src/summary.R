@@ -11,7 +11,7 @@ all_sites <- fs::dir_ls('cleaned_data', type = 'directory')
 site_names <- all_sites %>% fs::path_file()
 
 # 2. Raw data
-raw_files <- fs::dir_ls('raw_data', type = 'file', recursive = TRUE)
+raw_files <- fs::dir_ls('raw_data', type = 'file', recurse = TRUE)
 raw_site_names <- raw_files %>% fs::path_dir() %>% fs::path_file()
 file_names <- raw_files %>% fs::path_file()
 

@@ -14,13 +14,13 @@ site <- get_current_site()
 
 message('=== Converting and calculating duration_seconds ===')
 numeric_df <- get_raw_data(site, 'Numeric', start_row = 2) %>%
-      dplyr::rename_all(list(~stringr::str_to_lower)) %>%
+      dplyr::rename_all(stringr::str_to_lower) %>%
       convert_start_end() %>%
       dplyr::mutate(duration_seconds = enddate - startdate) %>%
       convert_names()
 
 choice_df <- get_raw_data(site, 'Choice', start_row = 2) %>%
-      dplyr::rename_all(list(~stringr::str_to_lower)) %>%
+      dplyr::rename_all(stringr::str_to_lower) %>%
       convert_start_end() %>%
       dplyr::mutate(duration_seconds = enddate - startdate) %>%
       convert_names()
