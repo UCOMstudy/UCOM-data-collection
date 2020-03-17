@@ -25,9 +25,9 @@ check_install:
 # pipeline config file for R script
 export R_PROFILE_USER := pipeline.Rprofile
 
-all: clean pipeline zip
-
 .PHONY: summary create_src_folders copy_template check merge clean pipeline zip tag all
+
+all: clean pipeline zip
 
 .ONESHELL: zip
 zip: $(AGGREGATED_DATA)
@@ -69,17 +69,18 @@ check: copy_template
 	@echo "Start time: $(TIME)" $(REDIRECT);
 	@echo "Start running....." $(REDIRECT);
 	@echo "=========== Cleaning & checking data from sites ===========";
-	@echo "Start time: $(TIME)";
-	@echo "Total scripts to run: $(COUNT_SCRIPTS)"; \
+	@echo "$(TIME) @ Start: total scripts to run: $(COUNT_SCRIPTS)";
+	ITER=0
 	for dir in $(ALL_DIRS); do \
+		ITER=$$((ITER+1));
 		if [ -f $${dir}/$(CUSTOM) ]; then \
 			Rscript $${dir}/$(CUSTOM) $(REDIRECT); \
 		else \
 			Rscript $${dir}/$(TEMPLATE) $(REDIRECT); \
 		fi; \
+		echo "$(TIME) @ Processed file: $${ITER}/$(COUNT_SCRIPTS)";
 	done;
-	@echo "Scripts succeeded: $$(cat $(LOG_FILE) | grep $(CRITERIA) | wc -l)";
-	@echo "Finished at: $(TIME)";
+	@echo "$(TIME) @ Finished: Scripts succeeded: $$(cat $(LOG_FILE) | grep $(CRITERIA) | wc -l)/$(COUNT_SCRIPTS)";
 
 copy_template: $(SRC)/$(TEMPLATE) create_src_folders
 	@echo "=========== Copy src templates ==========="
