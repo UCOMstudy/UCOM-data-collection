@@ -13,7 +13,7 @@ data_path <- here::here("cleaned_data")
 all_sites <- fs::dir_ls(data_path)
 
 # input paths
-csv_path <- fs::dir_ls(all_sites, glob='*.csv')
+csv_path <- file.path(all_sites, 'cleaned_data.csv')
 num_vars_path <- file.path(all_sites, 'num_vars.rds')
 non_num_vars_path <- file.path(all_sites, 'non_num_vars.rds')
 
@@ -51,7 +51,7 @@ message('**********************************************\n',
         'Do some conversions before merging.......')
 converted_all_dfs <- all_dfs %>%
       purrr::map(~ dplyr::mutate_at(.x,
-                                    dplyr::vars(other_vars),
+                                    dplyr::vars(tidyselect::all_of(other_vars)),
                                     as.character))
 
 message('Merging all the data set....')
@@ -61,7 +61,7 @@ message('Checking numeric.....')
 # Integrity check: See if all numeric columns are truly numeric
 num_vars <- colnames(merged_df) %>% remove(other_vars)
 test_all_numeric <- merged_df %>%
-      dplyr::select(num_vars) %>%
+      dplyr::select(tidyselect::all_of(num_vars)) %>%
       dplyr::mutate_all(is.numeric) %>%
       as.matrix() %>% all()
 message('Is all numeric: ',
@@ -97,7 +97,7 @@ n_unique <- 100
 message('Non-numeric unique values: ', get_rel_path(non_num_unique_path))
 message(glue::glue('Only for unique values below {n_unique}.'))
 non_num_unique <- merged_df %>%
-      dplyr::select(-num_vars) %>%
+      dplyr::select(tidyselect::all_of(-num_vars)) %>%
       purrr::map(unique)
 
 mask <- non_num_unique %>%
