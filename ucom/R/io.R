@@ -103,7 +103,7 @@ write_vars_rds <- function(path,
 #'      figuring out itself.
 #' @param all_vars a vector of all variables
 #' @rdname pipeline_io
-#' @return A csv file with the site name: `site.csv`
+#' @return A csv file with the site name: `cleaned_data.csv`
 #' @export
 write_results <- function(choice_df,
                           all_vars,
@@ -121,8 +121,6 @@ write_results <- function(choice_df,
                                                site,
                                                criterion = rprojroot::has_dir('.git'))
 
-      table_name <-
-            stringr::str_glue('{stringr::str_to_lower(site)}.csv')
       message('Output path: ', get_rel_path(output_path))
       # create new folder if not existed
       fs::dir_create(output_path)
@@ -194,6 +192,7 @@ write_results <- function(choice_df,
       message('Site: ', site)
       # write out data frame
       message('=== Writing out CSV ===')
+      table_name <- 'cleaned_data.csv'
       readr::write_csv(out_df,
                        path = file.path(output_path,
                                         table_name))

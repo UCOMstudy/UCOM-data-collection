@@ -53,7 +53,7 @@ A data frame
 
 `num_vars.rds` & `non_num_vars.rds` to the output path
 
-A csv file with the site name: `site.csv`
+A csv file with the site name: `cleaned_data.csv`
 }
 \description{
 Input raw data
