@@ -21,7 +21,9 @@ choice_psy <- 'Sweden_Back_Psychology_Choice.csv'
 
 rename_vars <- function(df) {
       df %>% dplyr::rename(marital_status = 'marital status',
-                           sexual_orientation = 'sexual orientation')
+                           sexual_orientation = 'sexual orientation',
+                           Q78 = 'uni') # map all 'uni' to 'Q78' first for consistency,
+                                        # they will be mapped back to 'uni' together later
 }
 
 numeric_df <- get_raw_data(site, 'Numeric', file_name = numeric_psy) %>%

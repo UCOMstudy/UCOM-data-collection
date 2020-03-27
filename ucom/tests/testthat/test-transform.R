@@ -1,3 +1,6 @@
+library(testthat)
+
+
 context("test-convert_choiceDF")
 
 test_that("Extract the right numeric pattern", {
@@ -77,4 +80,25 @@ test_that('Add colums for site and country code', {
       expect_equal(dim(transformed_df), 2:3)
       expect_equal(code, unique(transformed_df$country))
       expect_equal(site, unique(transformed_df$site))
+})
+
+context('test-rename_uni_vars')
+
+TEST_SITE <- "Slovakia_Fedakova"
+UNI = 'uni'
+UNI_TEXTBOX = 'uni_textbox'
+
+test_that('Correctly map to uni & uni_textbox for a existing site', {
+   df <- tibble::tibble(site = TEST_SITE, q77 = UNI, q77_9_text = UNI_TEXTBOX)
+   renamed_df <- rename_uni_vars(df, TEST_SITE)
+   new_cols <- colnames(renamed_df)
+   expect_true(UNI %in% new_cols)
+   expect_true(UNI_TEXTBOX %in% new_cols)
+})
+
+test_that('No mapping when the site does not match', {
+   random_site = 'random_site'
+   df <- tibble::tibble(site = random_site , q77 = UNI, q77_9_text = UNI_TEXTBOX)
+   renamed_df <- rename_uni_vars(df, random_site)
+   expect_equivalent(df, renamed_df)
 })

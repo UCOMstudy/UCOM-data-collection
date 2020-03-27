@@ -224,12 +224,12 @@ rename_uni_vars <- function(df, site) {
       site_uni_mapping <- ucom::vars_to_change %>% dplyr::filter(site == !!site)
       if (! is.na(site_uni_mapping$var_to_uni)) {
          df <- df %>%
-            dplyr::rename(var_to_uni = !!site_uni_mapping$var_to_uni)
+            dplyr::rename(uni = !!site_uni_mapping$var_to_uni)
       }
 
       if (! is.na(site_uni_mapping$var_to_uni_textbox)) {
          df <- df %>%
-            dplyr::rename(var_to_uni_textbox = !!site_uni_mapping$var_to_uni_textbox)
+            dplyr::rename(uni_textbox = !!site_uni_mapping$var_to_uni_textbox)
       }
    }
    return(df)
