@@ -25,7 +25,7 @@ check_install:
 # pipeline config file for R script
 export R_PROFILE_USER := pipeline.Rprofile
 
-.PHONY: summary create_src_folders copy_template check merge clean pipeline zip tag all
+.PHONY: summary create_src_folders copy_template check merge clean pipeline zip tag all merge_and_summarize
 
 all: clean pipeline zip
 
@@ -48,8 +48,10 @@ tag: $(AGGREGATED_DATA).zip
 	@cp $(AGGREGATED_DATA).zip $(AGGREGATED_DATA).$(DATE).zip
 	echo "Tagged file: $(AGGREGATED_DATA).$(DATE).zip"
 
-pipeline: create_src_folders copy_template check merge summary check_missing_vars
+pipeline: create_src_folders copy_template check merge_and_summarize
 	@echo 'Pipeline finished: log file can be found here $(LOG_FILE)'
+
+merge_and_summarize: merge summary check_missing_vars
 
 check_missing_vars: $(SRC)/check_missing_vars.R
 	@-Rscript $<
